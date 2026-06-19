@@ -5,9 +5,14 @@ export default defineConfig({
   title: 'gox',
   description: 'Node-friendly Go toolkit — premium documentation for every package and API',
   base: '/',
+  lang: 'en-US',
+  sitemap: {
+    hostname: 'https://gox.varcore.dev'
+  },
   head: [
     ['link', { rel: 'icon', href: '/favicon.svg' }],
-    ['meta', { name: 'theme-color', content: '#00add8' }]
+    ['meta', { name: 'theme-color', content: '#00add8' }],
+    ['link', { rel: 'canonical', href: 'https://gox.varcore.dev' }]
   ],
   ignoreDeadLinks: true,
   outline: { level: [2, 3] },

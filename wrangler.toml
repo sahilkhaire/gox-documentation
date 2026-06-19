@@ -1,12 +1,10 @@
-# Build
+# Cloudflare Pages — gox documentation site
+# Production URL: https://gox.varcore.dev
+# Deployed via .github/workflows/docs.yml (GitHub Actions)
 
-[build]
-command = "npm ci && npm run docs:build"
-cwd = "gox-website"
+name = "gox-docs"
+compatibility_date = "2024-09-23"
+pages_build_output_dir = "docs/.vitepress/dist"
 
-[build.environment]
-GOX_SRC = "../gox"
-NODE_VERSION = "20"
-
-# Cloudflare Pages: set project root to repo root, or monorepo root.
-# Build output: gox-website/docs/.vitepress/dist
+[vars]
+SITE_URL = "https://gox.varcore.dev"
