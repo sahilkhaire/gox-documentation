@@ -58,6 +58,7 @@ Pushes to `main` / `master` build the site and deploy to Cloudflare Pages at **h
 
 3. **Account ID** — Workers & Pages → Overview → **Account ID** (32-character hex, not the zone ID)
 
+
 4. **GitHub secrets** on `sahilkhaire/gox-documentation`:
    | Secret | Value |
    |--------|-------|
