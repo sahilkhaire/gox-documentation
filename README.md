@@ -8,7 +8,7 @@ Built with [VitePress](https://vitepress.dev/). API reference pages are generate
 
 ## Prerequisites
 
-- Node.js 20+
+- Node.js 24+ (matches GitHub Actions runners)
 - Go 1.25+ (for `scripts/gendocs`)
 - Clone the [gox](https://github.com/sahilkhaire/gox) library beside this repo (or set `GOX_SRC`)
 
@@ -50,19 +50,23 @@ Pushes to `main` / `master` build the site and deploy to Cloudflare Pages at **h
    - Cloudflare dashboard → Workers & Pages → Create → Pages → Connect to Git *or* leave empty for GitHub Actions–only deploys.
    - Project name: `gox-docs`
 
-2. **API token** (My Profile → API Tokens → Create Token):
-   - Use template **Edit Cloudflare Workers** or custom token with:
-     - Account → Cloudflare Pages → Edit
-     - Account → Account Settings → Read
-   - Save the token.
+2. **API token** (My Profile → API Tokens → Create Token → **Custom token**):
+   - **Permissions:** Account → **Cloudflare Pages** → **Edit**
+   - **Account resources:** include the account that owns `gox-docs`
+   - Do **not** use the Global API Key — use a scoped API token only
+   - Save the token once; it cannot be viewed again
 
-3. **Account ID** — copy from Cloudflare dashboard (Workers & Pages → Overview, right sidebar).
+3. **Account ID** — Workers & Pages → Overview → **Account ID** (32-character hex, not the zone ID)
 
 4. **GitHub secrets** on `sahilkhaire/gox-documentation`:
    | Secret | Value |
    |--------|-------|
    | `CLOUDFLARE_API_TOKEN` | API token from step 2 |
    | `CLOUDFLARE_ACCOUNT_ID` | Account ID from step 3 |
+
+   If the workflow uses the `production` environment, add the same secrets under **Settings → Environments → production** as well (or remove environment protection so repo secrets apply).
+
+   **401 Authentication error?** Regenerate the token with **Pages → Edit**, confirm the account ID matches the dashboard, and verify secret names are exact (no extra spaces).
 
 5. **Custom domain** (Cloudflare Pages → `gox-docs` project → Custom domains):
    - Add `gox.varcore.dev`
@@ -74,7 +78,7 @@ Pushes to `main` / `master` build the site and deploy to Cloudflare Pages at **h
 
 - Checks out this repo and `sahilkhaire/gox` into `./gox`
 - Runs `gendocs`, coverage check, and VitePress build
-- On push to `main`/`master`, deploys `docs/.vitepress/dist` via `cloudflare/pages-action`
+- On push to `main`/`master`, deploys `docs/.vitepress/dist` via `cloudflare/wrangler-action@v3` to project **`gox-docs`**
 
 Pull requests run build + coverage only (no deploy).
 

@@ -12,7 +12,7 @@ concurrency:
 
 env:
   GOX_SRC: gox
-  NODE_VERSION: '20'
+  NODE_VERSION: '24'
   GO_VERSION: '1.25'
 
 jobs:
@@ -75,10 +75,9 @@ jobs:
           path: dist
 
       - name: Deploy to Cloudflare Pages
-        uses: cloudflare/pages-action@v1
+        uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: gox-docs
-          directory: dist
+          command: pages deploy dist --project-name=gox-docs --branch=main
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
