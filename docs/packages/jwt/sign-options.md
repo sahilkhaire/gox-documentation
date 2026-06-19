@@ -2,17 +2,17 @@
 title: "SignOptions"
 package: "jwt"
 import: "github.com/sahilkhaire/gox/jwt"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: jsonwebtoken</span><span class="api-badge import">github.com/sahilkhaire/gox/jwt</span></div>
-# SignOptions
-
+<SymbolHeader pkg="jwt" title="SignOptions" node="jsonwebtoken" import-path="github.com/sahilkhaire/gox/jwt" />
 ## Overview
 
 SignOptions configures token signing.
 
 ## Signature
+
+<div class="signature-block">
 
 ```go
 type SignOptions struct {
@@ -20,6 +20,8 @@ type SignOptions struct {
 	Method    jwtlib.SigningMethod
 }
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -30,8 +32,7 @@ type SignOptions struct {
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+// github.com/golang-jwt/jwt/v5 token.Sign / Parse
 ```
 
 ```go [gox]
@@ -42,18 +43,10 @@ _ = jwt.SignOptions
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Decode](/packages/jwt/decode)
-- [Sign](/packages/jwt/sign)
-- [Verify](/packages/jwt/verify)
+<div class="related-chips">
+<a class="related-chip" href="/packages/jwt/decode">Decode</a><a class="related-chip" href="/packages/jwt/sign">Sign</a><a class="related-chip" href="/packages/jwt/verify">Verify</a>
+</div>
 
 ← [Back to jwt package overview](/packages/jwt/)

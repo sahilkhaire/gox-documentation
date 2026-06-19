@@ -2,17 +2,17 @@
 title: "EnqueueOpts"
 package: "queue"
 import: "github.com/sahilkhaire/gox/queue"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: bull</span><span class="api-badge import">github.com/sahilkhaire/gox/queue</span></div>
-# EnqueueOpts
-
+<SymbolHeader pkg="queue" title="EnqueueOpts" node="bull" import-path="github.com/sahilkhaire/gox/queue" />
 ## Overview
 
 EnqueueOpts configures task enqueue behavior.
 
 ## Signature
+
+<div class="signature-block">
 
 ```go
 type EnqueueOpts struct {
@@ -20,6 +20,8 @@ type EnqueueOpts struct {
 	Queue    string
 }
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -30,8 +32,7 @@ type EnqueueOpts struct {
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+// hibiken/asynq client + worker
 ```
 
 ```go [gox]
@@ -40,14 +41,6 @@ import "github.com/sahilkhaire/gox/queue"
 _ = queue.EnqueueOpts
 ```
 
-:::
-
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
 :::
 
 ← [Back to queue package overview](/packages/queue/)

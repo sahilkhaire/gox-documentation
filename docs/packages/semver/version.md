@@ -2,23 +2,25 @@
 title: "Version"
 package: "semver"
 import: "github.com/sahilkhaire/gox/semver"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: semver</span><span class="api-badge import">github.com/sahilkhaire/gox/semver</span></div>
-# Version
-
+<SymbolHeader pkg="semver" title="Version" node="semver" import-path="github.com/sahilkhaire/gox/semver" />
 ## Overview
 
 Version is a semantic version.
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 type Version struct {
 	// contains filtered or unexported fields
 }
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -29,8 +31,7 @@ type Version struct {
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+// github.com/Masterminds/semver/v3
 ```
 
 ```go [gox]
@@ -41,18 +42,10 @@ _ = semver.Version
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Compare](/packages/semver/compare)
-- [Inc](/packages/semver/inc)
-- [Satisfies](/packages/semver/satisfies)
+<div class="related-chips">
+<a class="related-chip" href="/packages/semver/compare">Compare</a><a class="related-chip" href="/packages/semver/inc">Inc</a><a class="related-chip" href="/packages/semver/satisfies">Satisfies</a>
+</div>
 
 ← [Back to semver package overview](/packages/semver/)

@@ -3,23 +3,25 @@ title: "Values"
 package: "maputil"
 import: "github.com/sahilkhaire/gox/maputil"
 node: "Object.values(obj)"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: Object.values(obj)</span><span class="api-badge import">github.com/sahilkhaire/gox/maputil</span></div>
-# Values
-
+<SymbolHeader pkg="maputil" title="Values" node="Object.values(obj)" import-path="github.com/sahilkhaire/gox/maputil" />
 ## Overview
 
-Maps the Node.js pattern `Object.values(obj)` to gox `maputil.Values(obj)`.
+Values returns map values (Object.values).
 
 **Node.js equivalent:** `Object.values(obj)`
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func Values[K comparable, V any](m map[K]V) []V
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -30,8 +32,8 @@ Object.values(obj)
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+keys := make([]string, 0, len(m))
+for k := range m { keys = append(keys, k) }
 ```
 
 ```go [gox]
@@ -42,18 +44,10 @@ maputil.Values(obj)
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Clone](/packages/maputil/clone)
-- [Get](/packages/maputil/get)
-- [Invert](/packages/maputil/invert)
+<div class="related-chips">
+<a class="related-chip" href="/packages/maputil/clone">Clone</a><a class="related-chip" href="/packages/maputil/get">Get</a><a class="related-chip" href="/packages/maputil/invert">Invert</a>
+</div>
 
 ← [Back to maputil package overview](/packages/maputil/)

@@ -3,23 +3,23 @@ title: "Map"
 package: "slice"
 import: "github.com/sahilkhaire/gox/slice"
 node: "arr.map(fn)"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: arr.map(fn)</span><span class="api-badge import">github.com/sahilkhaire/gox/slice</span></div>
-# Map
-
+<SymbolHeader pkg="slice" title="Map" node="arr.map(fn)" import-path="github.com/sahilkhaire/gox/slice" />
 ## Overview
 
 Transforms each element of a slice, returning a new slice — identical mental model to `Array.prototype.map`. Uses Go generics so input and output types can differ safely.
 
-**Node.js equivalent:** `arr.map(fn)`
-
 ## Signature
+
+<div class="signature-block">
 
 ```go
 func Map[T, U any](in []T, fn func(T) U) []U
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -50,8 +50,8 @@ Chain with `slice.Filter` and `slice.Reduce` for lodash-style pipelines. Pre-all
 
 ## Related APIs
 
-- [Chunk](/packages/slice/chunk)
-- [Contains](/packages/slice/contains)
-- [Every](/packages/slice/every)
+<div class="related-chips">
+<a class="related-chip" href="/packages/slice/chunk">Chunk</a><a class="related-chip" href="/packages/slice/contains">Contains</a><a class="related-chip" href="/packages/slice/every">Every</a>
+</div>
 
 ← [Back to slice package overview](/packages/slice/)

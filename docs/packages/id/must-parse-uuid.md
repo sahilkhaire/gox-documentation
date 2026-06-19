@@ -2,21 +2,23 @@
 title: "MustParseUUID"
 package: "id"
 import: "github.com/sahilkhaire/gox/id"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: uuid, nanoid</span><span class="api-badge import">github.com/sahilkhaire/gox/id</span></div>
-# MustParseUUID
-
+<SymbolHeader pkg="id" title="MustParseUUID" node="uuid, nanoid" import-path="github.com/sahilkhaire/gox/id" />
 ## Overview
 
 MustParseUUID parses s or panics.
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func MustParseUUID(s string) uuid.UUID
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -27,8 +29,8 @@ func MustParseUUID(s string) uuid.UUID
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+id := uuid.New()
+u, err := uuid.Parse(s)
 ```
 
 ```go [gox]
@@ -40,18 +42,10 @@ _ = id.MustParseUUID(/* args */)
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [NewNanoID](/packages/id/new-nano-id)
-- [NewUUID](/packages/id/new-uuid)
-- [ParseUUID](/packages/id/parse-uuid)
+<div class="related-chips">
+<a class="related-chip" href="/packages/id/new-nano-id">NewNanoID</a><a class="related-chip" href="/packages/id/new-uuid">NewUUID</a><a class="related-chip" href="/packages/id/parse-uuid">ParseUUID</a>
+</div>
 
 ← [Back to id package overview](/packages/id/)

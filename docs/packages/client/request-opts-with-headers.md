@@ -2,21 +2,23 @@
 title: "RequestOpts.WithHeaders"
 package: "client"
 import: "github.com/sahilkhaire/gox/client"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: axios, fetch</span><span class="api-badge import">github.com/sahilkhaire/gox/client</span></div>
-# RequestOpts.WithHeaders
-
+<SymbolHeader pkg="client" title="RequestOpts.WithHeaders" node="axios, fetch" import-path="github.com/sahilkhaire/gox/client" />
 ## Overview
 
 WithHeaders returns RequestOpts with headers.
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func WithHeaders(h http.Header) *RequestOpts
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -27,8 +29,8 @@ func WithHeaders(h http.Header) *RequestOpts
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+resp, err := http.NewRequestWithContext(ctx, method, url, body)
+client.Do(req)
 ```
 
 ```go [gox]
@@ -40,18 +42,10 @@ v.WithHeaders(/* args */)
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [RequestOpts.JSONBody](/packages/client/request-opts-json-body)
-- [RequestOpts.WithMethod](/packages/client/request-opts-with-method)
-- [RequestOpts.WithQuery](/packages/client/request-opts-with-query)
+<div class="related-chips">
+<a class="related-chip" href="/packages/client/request-opts-json-body">RequestOpts.JSONBody</a><a class="related-chip" href="/packages/client/request-opts-with-method">RequestOpts.WithMethod</a><a class="related-chip" href="/packages/client/request-opts-with-query">RequestOpts.WithQuery</a>
+</div>
 
 ← [Back to client package overview](/packages/client/)

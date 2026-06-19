@@ -58,6 +58,7 @@ export const generatedSidebar = {
         collapsed: true,
         items: [
           { text: 'Overview', link: '/packages/str/' },
+          { text: '📖 Cookbook', link: '/packages/str/cookbook' },
           { text: 'Camel', link: '/packages/str/camel' },
           { text: 'Capitalize', link: '/packages/str/capitalize' },
           { text: 'IsBlank', link: '/packages/str/is-blank' },
@@ -157,6 +158,7 @@ export const generatedSidebar = {
         collapsed: true,
         items: [
           { text: 'Overview', link: '/packages/fs/' },
+          { text: '📖 Cookbook', link: '/packages/fs/cookbook' },
           { text: 'Copy', link: '/packages/fs/copy' },
           { text: 'Exists', link: '/packages/fs/exists' },
           { text: 'Mkdir', link: '/packages/fs/mkdir' },
@@ -172,6 +174,7 @@ export const generatedSidebar = {
         collapsed: true,
         items: [
           { text: 'Overview', link: '/packages/err/' },
+          { text: '📖 Cookbook', link: '/packages/err/cookbook' },
           { text: 'As', link: '/packages/err/as' },
           { text: 'Is', link: '/packages/err/is' },
           { text: 'AppError', link: '/packages/err/app-error' },
@@ -313,6 +316,7 @@ export const generatedSidebar = {
         collapsed: true,
         items: [
           { text: 'Overview', link: '/packages/log/' },
+          { text: '📖 Cookbook', link: '/packages/log/cookbook' },
           { text: 'SetDefault', link: '/packages/log/set-default' },
           { text: 'Logger', link: '/packages/log/logger' },
           { text: 'Logger.Default', link: '/packages/log/logger-default' },
@@ -325,6 +329,7 @@ export const generatedSidebar = {
         collapsed: true,
         items: [
           { text: 'Overview', link: '/packages/ws/' },
+          { text: '📖 Cookbook', link: '/packages/ws/cookbook' },
           { text: 'Conn', link: '/packages/ws/conn' },
           { text: 'Server', link: '/packages/ws/server' },
           { text: 'Upgrader', link: '/packages/ws/upgrader' },
@@ -342,6 +347,7 @@ export const generatedSidebar = {
         collapsed: true,
         items: [
           { text: 'Overview', link: '/packages/json/' },
+          { text: '📖 Cookbook', link: '/packages/json/cookbook' },
           { text: 'MustParse', link: '/packages/json/must-parse' },
           { text: 'MustStringify', link: '/packages/json/must-stringify' },
           { text: 'Parse', link: '/packages/json/parse' },
@@ -421,6 +427,7 @@ export const generatedSidebar = {
         collapsed: true,
         items: [
           { text: 'Overview', link: '/packages/crypto/' },
+          { text: '📖 Cookbook', link: '/packages/crypto/cookbook' },
           { text: 'CheckPassword', link: '/packages/crypto/check-password' },
           { text: 'HMACSHA256', link: '/packages/crypto/hmacsha256' },
           { text: 'HashPassword', link: '/packages/crypto/hash-password' },
@@ -457,6 +464,7 @@ export const generatedSidebar = {
         collapsed: true,
         items: [
           { text: 'Overview', link: '/packages/auth/' },
+          { text: '📖 Cookbook', link: '/packages/auth/cookbook' },
           { text: 'APIKey', link: '/packages/auth/api-key' },
           { text: 'Basic', link: '/packages/auth/basic' },
           { text: 'Bearer', link: '/packages/auth/bearer' },
@@ -474,6 +482,7 @@ export const generatedSidebar = {
         collapsed: true,
         items: [
           { text: 'Overview', link: '/packages/cache/' },
+          { text: '📖 Cookbook', link: '/packages/cache/cookbook' },
           { text: 'Cache', link: '/packages/cache/cache' },
           { text: 'Cache.New', link: '/packages/cache/cache-new' },
         ]
@@ -492,6 +501,7 @@ export const generatedSidebar = {
         collapsed: true,
         items: [
           { text: 'Overview', link: '/packages/cron/' },
+          { text: '📖 Cookbook', link: '/packages/cron/cookbook' },
           { text: 'Parse', link: '/packages/cron/parse' },
           { text: 'JobID', link: '/packages/cron/job-id' },
           { text: 'Scheduler', link: '/packages/cron/scheduler' },

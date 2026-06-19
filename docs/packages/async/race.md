@@ -3,23 +3,25 @@ title: "Race"
 package: "async"
 import: "github.com/sahilkhaire/gox/async"
 node: "Promise.race([a(), b()])"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: Promise.race([a(), b()])</span><span class="api-badge import">github.com/sahilkhaire/gox/async</span></div>
-# Race
-
+<SymbolHeader pkg="async" title="Race" node="Promise.race([a(), b()])" import-path="github.com/sahilkhaire/gox/async" />
 ## Overview
 
-Maps the Node.js pattern `Promise.race([a(), b()])` to gox `async.Race(ctx, a, b)`.
+Race runs tasks concurrently and returns the first successful result or error.
 
 **Node.js equivalent:** `Promise.race([a(), b()])`
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func Race[T any](ctx context.Context, tasks ...func(context.Context) (T, error)) (T, error)
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -30,8 +32,11 @@ Promise.race([a(), b()])
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+select {
+case <-doneA:
+case <-doneB:
+case <-ctx.Done():
+}
 ```
 
 ```go [gox]
@@ -42,18 +47,10 @@ async.Race(ctx, a, b)
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [After](/packages/async/after)
-- [All](/packages/async/all)
-- [Retry](/packages/async/retry)
+<div class="related-chips">
+<a class="related-chip" href="/packages/async/after">After</a><a class="related-chip" href="/packages/async/all">All</a><a class="related-chip" href="/packages/async/retry">Retry</a>
+</div>
 
 ← [Back to async package overview](/packages/async/)

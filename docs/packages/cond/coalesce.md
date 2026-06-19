@@ -3,12 +3,10 @@ title: "Coalesce"
 package: "cond"
 import: "github.com/sahilkhaire/gox/cond"
 node: "a ?? b ?? c"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: a ?? b ?? c</span><span class="api-badge import">github.com/sahilkhaire/gox/cond</span></div>
-# Coalesce
-
+<SymbolHeader pkg="cond" title="Coalesce" node="a ?? b ?? c" import-path="github.com/sahilkhaire/gox/cond" />
 ## Overview
 
 Coalesce returns the first value that is not the zero value (Node: a ?? b ?? c).
@@ -17,9 +15,13 @@ Coalesce returns the first value that is not the zero value (Node: a ?? b ?? c).
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func Coalesce[T comparable](vals ...T) T
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -61,18 +63,10 @@ tests := []struct {
 }
 ```
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [CoalesceFn](/packages/cond/coalesce-fn)
-- [CoalescePtr](/packages/cond/coalesce-ptr)
-- [If](/packages/cond/if)
+<div class="related-chips">
+<a class="related-chip" href="/packages/cond/coalesce-fn">CoalesceFn</a><a class="related-chip" href="/packages/cond/coalesce-ptr">CoalescePtr</a><a class="related-chip" href="/packages/cond/if">If</a>
+</div>
 
 ← [Back to cond package overview](/packages/cond/)

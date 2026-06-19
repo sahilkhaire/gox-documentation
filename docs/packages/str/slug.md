@@ -3,23 +3,23 @@ title: "Slug"
 package: "str"
 import: "github.com/sahilkhaire/gox/str"
 node: "slugify(s)"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: slugify(s)</span><span class="api-badge import">github.com/sahilkhaire/gox/str</span></div>
-# Slug
-
+<SymbolHeader pkg="str" title="Slug" node="slugify(s)" import-path="github.com/sahilkhaire/gox/str" />
 ## Overview
 
-Slug converts s to a URL-friendly slug.
-
-**Node.js equivalent:** `slugify(s)`
+Converts arbitrary text into a URL-safe slug — strips punctuation, lowercases, and replaces spaces with hyphens.
 
 ## Signature
+
+<div class="signature-block">
 
 ```go
 func Slug(s string) string
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -30,30 +30,25 @@ slugify('Hello World');
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+s := strings.ToLower(strings.ReplaceAll(strings.TrimSpace(title), " ", "-"))
 ```
 
 ```go [gox]
 import "github.com/sahilkhaire/gox/str"
 
-slug := str.Slug("Hello World")
+slug := str.Slug("Hello World!")
 ```
 
 :::
 
 ## Tips
 
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
+Use before writing user-generated titles to URL paths.
 
 ## Related APIs
 
-- [Camel](/packages/str/camel)
-- [Capitalize](/packages/str/capitalize)
-- [IsBlank](/packages/str/is-blank)
+<div class="related-chips">
+<a class="related-chip" href="/packages/str/camel">Camel</a><a class="related-chip" href="/packages/str/capitalize">Capitalize</a><a class="related-chip" href="/packages/str/is-blank">IsBlank</a>
+</div>
 
 ← [Back to str package overview](/packages/str/)

@@ -3,23 +3,25 @@ title: "Every"
 package: "slice"
 import: "github.com/sahilkhaire/gox/slice"
 node: "arr.every(fn)"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: arr.every(fn)</span><span class="api-badge import">github.com/sahilkhaire/gox/slice</span></div>
-# Every
-
+<SymbolHeader pkg="slice" title="Every" node="arr.every(fn)" import-path="github.com/sahilkhaire/gox/slice" />
 ## Overview
 
-Maps the Node.js pattern `arr.every(fn)` to gox `slice.Every(arr, fn)`. Part of the slice package — Node.js analog: lodash / Array.*.
+Every reports whether fn is true for all elements (Array.every).
 
 **Node.js equivalent:** `arr.every(fn)`
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func Every[T any](in []T, fn func(T) bool) bool
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -31,8 +33,8 @@ arr.every(fn)
 
 ```go [Standard Go]
 // Manual loop or Go 1.21+ slices package
-for i, v := range items {
-    // transform v
+for _, v := range items {
+    // transform or filter v
 }
 ```
 
@@ -44,18 +46,10 @@ slice.Every(arr, fn)
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Chunk](/packages/slice/chunk)
-- [Contains](/packages/slice/contains)
-- [Filter](/packages/slice/filter)
+<div class="related-chips">
+<a class="related-chip" href="/packages/slice/chunk">Chunk</a><a class="related-chip" href="/packages/slice/contains">Contains</a><a class="related-chip" href="/packages/slice/filter">Filter</a>
+</div>
 
 ← [Back to slice package overview](/packages/slice/)

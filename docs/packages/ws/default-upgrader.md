@@ -2,21 +2,23 @@
 title: "DefaultUpgrader"
 package: "ws"
 import: "github.com/sahilkhaire/gox/ws"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: ws</span><span class="api-badge import">github.com/sahilkhaire/gox/ws</span></div>
-# DefaultUpgrader
-
+<SymbolHeader pkg="ws" title="DefaultUpgrader" node="ws" import-path="github.com/sahilkhaire/gox/ws" />
 ## Overview
 
 DefaultUpgrader allows all origins (suitable for tests; tighten in production).
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 var DefaultUpgrader
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -27,8 +29,7 @@ var DefaultUpgrader
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+// gorilla/websocket Upgrader or Dialer
 ```
 
 ```go [gox]
@@ -37,14 +38,6 @@ import "github.com/sahilkhaire/gox/ws"
 _ = ws.DefaultUpgrader
 ```
 
-:::
-
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
 :::
 
 ← [Back to ws package overview](/packages/ws/)

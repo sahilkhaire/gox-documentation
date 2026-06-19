@@ -3,23 +3,23 @@ title: "If"
 package: "cond"
 import: "github.com/sahilkhaire/gox/cond"
 node: "cond ? a : b"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: cond ? a : b</span><span class="api-badge import">github.com/sahilkhaire/gox/cond</span></div>
-# If
-
+<SymbolHeader pkg="cond" title="If" node="cond ? a : b" import-path="github.com/sahilkhaire/gox/cond" />
 ## Overview
 
 Returns `a` when `cond` is true, otherwise `b`. The closest equivalent to JavaScript's ternary operator — both branches must be the same type in Go.
 
-**Node.js equivalent:** `cond ? a : b`
-
 ## Signature
+
+<div class="signature-block">
 
 ```go
 func If[T any](cond bool, a, b T) T
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -60,8 +60,8 @@ Both branches are evaluated eagerly. Use `cond.IfLazy` when one branch is expens
 
 ## Related APIs
 
-- [Coalesce](/packages/cond/coalesce)
-- [CoalesceFn](/packages/cond/coalesce-fn)
-- [CoalescePtr](/packages/cond/coalesce-ptr)
+<div class="related-chips">
+<a class="related-chip" href="/packages/cond/coalesce">Coalesce</a><a class="related-chip" href="/packages/cond/coalesce-fn">CoalesceFn</a><a class="related-chip" href="/packages/cond/coalesce-ptr">CoalescePtr</a>
+</div>
 
 ← [Back to cond package overview](/packages/cond/)

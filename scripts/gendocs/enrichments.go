@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"os"
 	"regexp"
 	"strings"
@@ -110,9 +109,26 @@ var enrichments = map[string]enrichment{
 
 	// fs
 	"fs.ReadFile": {
-		Node:  "const data = await fs.promises.readFile('file.txt');",
-		StdGo: "data, err := os.ReadFile(\"file.txt\")",
-		Gox:   "data, err := fs.ReadFile(ctx, \"file.txt\")",
+		Description: "Reads an entire file with context cancellation — fs.promises.readFile with Go context support.",
+		Node:        "const data = await fs.promises.readFile('file.txt');",
+		StdGo:       "data, err := os.ReadFile(\"file.txt\")",
+		Gox:         "data, err := fs.ReadFile(ctx, \"file.txt\")",
+		Tips:        "Prefer context-aware I/O so requests can cancel long reads.",
+	},
+	"fs.WriteFile": {
+		Node:  "await fs.promises.writeFile('out.txt', data);",
+		StdGo: "err := os.WriteFile(\"out.txt\", data, 0644)",
+		Gox:   "err := fs.WriteFile(ctx, \"out.txt\", data)",
+	},
+	"fs.Exists": {
+		Node:  "await fs.promises.access('path');",
+		StdGo: "_, err := os.Stat(path)\nexists := err == nil",
+		Gox:   "ok, err := fs.Exists(ctx, \"path\")",
+	},
+	"fs.Mkdir": {
+		Node:  "await fs.promises.mkdir('dir', { recursive: true });",
+		StdGo: "err := os.MkdirAll(\"dir\", 0755)",
+		Gox:   "err := fs.Mkdir(ctx, \"dir\", 0755)",
 	},
 
 	// async
@@ -159,14 +175,31 @@ var enrichments = map[string]enrichment{
 
 	// json
 	"json.Parse": {
-		Node:  "const obj = JSON.parse(str);",
-		StdGo: "json.Unmarshal([]byte(str), &obj)",
-		Gox:   "obj, err := json.Parse[MyType](str)",
+		Description: "Parse JSON into a typed value using generics — like JSON.parse but with compile-time type safety.",
+		Node:        "const obj = JSON.parse(str);",
+		StdGo:       "err := json.Unmarshal([]byte(str), &obj)",
+		Gox:         "obj, err := json.Parse[MyType](str)",
+		Tips:        "Use MustParse when invalid JSON should panic in init or tests.",
 	},
 	"json.Stringify": {
 		Node:  "const str = JSON.stringify(obj);",
 		StdGo: "b, err := json.Marshal(obj)",
 		Gox:   "str, err := json.Stringify(obj)",
+	},
+	"json.Pretty": {
+		Node:  "JSON.stringify(obj, null, 2);",
+		StdGo: "b, err := json.MarshalIndent(obj, \"\", \"  \")",
+		Gox:   "pretty, err := json.Pretty(obj)",
+	},
+	"json.ParseFile": {
+		Node:  "JSON.parse(fs.readFileSync('cfg.json','utf8'));",
+		StdGo: "b, err := os.ReadFile(path)\nerr = json.Unmarshal(b, &cfg)",
+		Gox:   "cfg, err := json.ParseFile[Config](ctx, \"cfg.json\")",
+	},
+	"json.WriteFile": {
+		Node:  "fs.writeFileSync('out.json', JSON.stringify(obj));",
+		StdGo: "b, err := json.Marshal(obj)\nerr = os.WriteFile(path, b, 0644)",
+		Gox:   "err := json.WriteFile(ctx, \"out.json\", obj)",
 	},
 
 	// jwt
@@ -184,9 +217,11 @@ var enrichments = map[string]enrichment{
 	// err
 	// err
 	"err.NotFound": {
-		Node:  "next(createError(404, 'not found'));",
-		StdGo: "return fmt.Errorf(\"not found: %w\", ErrNotFound)",
-		Gox:   "return err.NotFound(\"not found\")",
+		Description: "Returns a typed 404 error for HTTP handlers — maps to createError(404) from http-errors.",
+		Node:        "next(createError(404, 'not found'));",
+		StdGo:       "return fmt.Errorf(\"not found: %w\", ErrNotFound)",
+		Gox:         "return err.NotFound(\"not found\")",
+		Tips:        "Return from gox/http handlers; status code is inferred automatically.",
 	},
 	"err.Forbidden": {
 		Node:  "next(createError(403, 'forbidden'));",
@@ -208,16 +243,49 @@ var enrichments = map[string]enrichment{
 
 	// str
 	"str.Slug": {
-		Node:  "slugify('Hello World');",
-		Gox:   "slug := str.Slug(\"Hello World\")",
+		Description: "Converts arbitrary text into a URL-safe slug — strips punctuation, lowercases, and replaces spaces with hyphens.",
+		Node:        "slugify('Hello World');",
+		StdGo:       "s := strings.ToLower(strings.ReplaceAll(strings.TrimSpace(title), \" \", \"-\"))",
+		Gox:         "slug := str.Slug(\"Hello World!\")",
+		Tips:        "Use before writing user-generated titles to URL paths.",
 	},
 	"str.Camel": {
-		Node:  "_.camelCase('foo_bar');",
-		Gox:   "s := str.Camel(\"foo_bar\")",
+		Description: "Converts kebab-case or snake_case strings to camelCase — common when mapping JSON field names to Go struct tags.",
+		Node:        "_.camelCase('foo_bar');",
+		StdGo:       "// Manual rune walk or regexp replace\ns = \"fooBar\"",
+		Gox:         "s := str.Camel(\"foo_bar\")",
+	},
+	"str.Snake": {
+		Node:  "_.snakeCase('FooBar');",
+		StdGo: "s = strings.ToLower(strings.ReplaceAll(name, \" \", \"_\"))",
+		Gox:   "s := str.Snake(\"FooBar\")",
+	},
+	"str.Pascal": {
+		Node:  "_.startCase('foo bar').replace(/ /g, '');",
+		Gox:   "s := str.Pascal(\"foo bar\")",
+	},
+	"str.Capitalize": {
+		Node:  "_.capitalize('hello');",
+		Gox:   "s := str.Capitalize(\"hello\")",
 	},
 	"str.Truncate": {
 		Node:  "_.truncate(str, { length: 10 });",
+		StdGo: "if len([]rune(s)) > 10 { s = string([]rune(s)[:10]) + \"…\" }",
 		Gox:   "short := str.Truncate(long, 10)",
+		Tips:  "Truncates by rune count, not byte length — safe for Unicode.",
+	},
+	"str.PadStart": {
+		Node:  "s.padStart(8, '0');",
+		Gox:   "s := str.PadStart(\"42\", 8, \"0\")",
+	},
+	"str.PadEnd": {
+		Node:  "s.padEnd(8, '-');",
+		Gox:   "s := str.PadEnd(\"go\", 8, \"-\")",
+	},
+	"str.IsBlank": {
+		Node:  "!s.trim();",
+		StdGo: "blank := strings.TrimSpace(s) == \"\"",
+		Gox:   "if str.IsBlank(input) { /* empty */ }",
 	},
 
 	// set
@@ -235,10 +303,32 @@ var enrichments = map[string]enrichment{
 		Node:  "path.join('a', 'b', 'c');",
 		StdGo: "filepath.Join(\"a\", \"b\", \"c\")",
 		Gox:   "p := path.Join(\"a\", \"b\", \"c\")",
+		Tips:  "Uses OS-specific separators via filepath underneath.",
 	},
 	"path.Basename": {
 		Node:  "path.basename('/foo/bar.txt');",
+		StdGo: "name := filepath.Base(\"/foo/bar.txt\")",
 		Gox:   "name := path.Basename(\"/foo/bar.txt\")",
+	},
+	"path.Dirname": {
+		Node:  "path.dirname('/foo/bar.txt');",
+		StdGo: "dir := filepath.Dir(\"/foo/bar.txt\")",
+		Gox:   "dir := path.Dirname(\"/foo/bar.txt\")",
+	},
+	"path.Extname": {
+		Node:  "path.extname('file.txt');",
+		StdGo: "ext := filepath.Ext(\"file.txt\")",
+		Gox:   "ext := path.Extname(\"file.txt\")",
+	},
+	"path.Resolve": {
+		Node:  "path.resolve('/foo', 'bar');",
+		StdGo: "abs, err := filepath.Abs(filepath.Join(base, rel))",
+		Gox:   "p := path.Resolve(\"/foo\", \"bar\")",
+	},
+	"path.IsAbs": {
+		Node:  "path.isAbsolute('/foo');",
+		StdGo: "ok := filepath.IsAbs(p)",
+		Gox:   "ok := path.IsAbs(p)",
 	},
 
 	// url
@@ -460,22 +550,8 @@ func loadAutoEnrichments(path string) {
 			gox = pkgIdent + "." + gox
 		}
 		autoEnrichments[key] = enrichment{
-			Node:        nodeExpr,
-			Gox:         gox,
-			Description: fmt.Sprintf("Maps the Node.js pattern `%s` to gox `%s`. %s", nodeExpr, goxExpr, packageBlurb(currentPkg)),
+			Node: nodeExpr,
+			Gox:  gox,
 		}
 	}
-}
-
-func packageBlurb(pkg string) string {
-	if analog, ok := packageNodeAnalogForEnrich[pkg]; ok {
-		return "Part of the " + pkg + " package — Node.js analog: " + analog + "."
-	}
-	return ""
-}
-
-// mirror of main.go analogs for auto descriptions
-var packageNodeAnalogForEnrich = map[string]string{
-	"cond": "ternary ? :, nullish ??", "slice": "lodash / Array.*", "http": "express",
-	"client": "axios", "env": "dotenv", "db": "knex", "validate": "zod/joi",
 }

@@ -3,23 +3,25 @@ title: "Merge"
 package: "maputil"
 import: "github.com/sahilkhaire/gox/maputil"
 node: "_.merge(a, b)"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: _.merge(a, b)</span><span class="api-badge import">github.com/sahilkhaire/gox/maputil</span></div>
-# Merge
-
+<SymbolHeader pkg="maputil" title="Merge" node="_.merge(a, b)" import-path="github.com/sahilkhaire/gox/maputil" />
 ## Overview
 
-Maps the Node.js pattern `_.merge(a, b)` to gox `maputil.Merge(a, b)`.
+Merge copies keys from sources into dst, later maps override (lodash merge, shallow).
 
 **Node.js equivalent:** `_.merge(a, b)`
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func Merge[K comparable, V any](dst map[K]V, sources ...map[K]V) map[K]V
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -30,8 +32,8 @@ _.merge(a, b)
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+out := maps.Clone(base)
+maps.Copy(out, overlay)
 ```
 
 ```go [gox]
@@ -42,18 +44,10 @@ maputil.Merge(a, b)
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Clone](/packages/maputil/clone)
-- [Get](/packages/maputil/get)
-- [Invert](/packages/maputil/invert)
+<div class="related-chips">
+<a class="related-chip" href="/packages/maputil/clone">Clone</a><a class="related-chip" href="/packages/maputil/get">Get</a><a class="related-chip" href="/packages/maputil/invert">Invert</a>
+</div>
 
 ← [Back to maputil package overview](/packages/maputil/)

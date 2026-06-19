@@ -3,23 +3,25 @@ title: "Contains"
 package: "slice"
 import: "github.com/sahilkhaire/gox/slice"
 node: "arr.includes(x)"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: arr.includes(x)</span><span class="api-badge import">github.com/sahilkhaire/gox/slice</span></div>
-# Contains
-
+<SymbolHeader pkg="slice" title="Contains" node="arr.includes(x)" import-path="github.com/sahilkhaire/gox/slice" />
 ## Overview
 
-Maps the Node.js pattern `arr.includes(x)` to gox `slice.Contains(arr, x)`. Part of the slice package — Node.js analog: lodash / Array.*.
+Contains reports whether v is in the slice (Array.includes).
 
 **Node.js equivalent:** `arr.includes(x)`
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func Contains[T comparable](in []T, v T) bool
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -31,8 +33,8 @@ arr.includes(x)
 
 ```go [Standard Go]
 // Manual loop or Go 1.21+ slices package
-for i, v := range items {
-    // transform v
+for _, v := range items {
+    // transform or filter v
 }
 ```
 
@@ -44,18 +46,10 @@ slice.Contains(arr, x)
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Chunk](/packages/slice/chunk)
-- [Every](/packages/slice/every)
-- [Filter](/packages/slice/filter)
+<div class="related-chips">
+<a class="related-chip" href="/packages/slice/chunk">Chunk</a><a class="related-chip" href="/packages/slice/every">Every</a><a class="related-chip" href="/packages/slice/filter">Filter</a>
+</div>
 
 ← [Back to slice package overview](/packages/slice/)

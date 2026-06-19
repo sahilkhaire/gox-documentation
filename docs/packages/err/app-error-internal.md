@@ -3,12 +3,10 @@ title: "AppError.Internal"
 package: "err"
 import: "github.com/sahilkhaire/gox/err"
 node: "createError(500, msg)"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: createError(500, msg)</span><span class="api-badge import">github.com/sahilkhaire/gox/err</span></div>
-# AppError.Internal
-
+<SymbolHeader pkg="err" title="AppError.Internal" node="createError(500, msg)" import-path="github.com/sahilkhaire/gox/err" />
 ## Overview
 
 Internal returns a 500 AppError.
@@ -17,9 +15,13 @@ Internal returns a 500 AppError.
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func Internal(message string) *AppError
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -30,8 +32,7 @@ next(createError(500, 'internal'));
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+return fmt.Errorf("%w: message", http.ErrInternal)
 ```
 
 ```go [gox]
@@ -42,18 +43,10 @@ return err.Internal("internal error")
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [AppError.BadRequest](/packages/err/app-error-bad-request)
-- [AppError.Forbidden](/packages/err/app-error-forbidden)
-- [AppError.New](/packages/err/app-error-new)
+<div class="related-chips">
+<a class="related-chip" href="/packages/err/app-error-bad-request">AppError.BadRequest</a><a class="related-chip" href="/packages/err/app-error-forbidden">AppError.Forbidden</a><a class="related-chip" href="/packages/err/app-error-new">AppError.New</a>
+</div>
 
 ← [Back to err package overview](/packages/err/)

@@ -3,12 +3,10 @@ title: "Get"
 package: "maputil"
 import: "github.com/sahilkhaire/gox/maputil"
 node: "_.get(obj, \"a.b\")"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: _.get(obj, "a.b")</span><span class="api-badge import">github.com/sahilkhaire/gox/maputil</span></div>
-# Get
-
+<SymbolHeader pkg="maputil" title="Get" node="_.get(obj, &quot;a.b&quot;)" import-path="github.com/sahilkhaire/gox/maputil" />
 ## Overview
 
 Get reads a nested value from m using dot-separated path (lodash get).
@@ -17,9 +15,13 @@ Get reads a nested value from m using dot-separated path (lodash get).
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func Get(m map[string]any, path string) (any, bool)
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -46,18 +48,10 @@ city, _ := maputil.Get[string](obj, "address.city")
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Clone](/packages/maputil/clone)
-- [Invert](/packages/maputil/invert)
-- [Keys](/packages/maputil/keys)
+<div class="related-chips">
+<a class="related-chip" href="/packages/maputil/clone">Clone</a><a class="related-chip" href="/packages/maputil/invert">Invert</a><a class="related-chip" href="/packages/maputil/keys">Keys</a>
+</div>
 
 ← [Back to maputil package overview](/packages/maputil/)

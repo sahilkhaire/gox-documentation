@@ -3,23 +3,25 @@ title: "Middleware.RateLimit"
 package: "http"
 import: "github.com/sahilkhaire/gox/http"
 node: "express-rate-limit"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: express-rate-limit</span><span class="api-badge import">github.com/sahilkhaire/gox/http</span></div>
-# Middleware.RateLimit
-
+<SymbolHeader pkg="http" title="Middleware.RateLimit" node="express-rate-limit" import-path="github.com/sahilkhaire/gox/http" />
 ## Overview
 
-Maps the Node.js pattern `express-rate-limit` to gox `http.RateLimit`. Part of the http package — Node.js analog: express.
+RateLimit returns middleware that limits requests per key.
 
 **Node.js equivalent:** `express-rate-limit`
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func RateLimit(opts RateLimitOptions) Middleware
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -31,7 +33,7 @@ express-rate-limit
 
 ```go [Standard Go]
 func handler(w http.ResponseWriter, r *http.Request) {
-    json.NewEncoder(w).Encode(data)
+    // chi or net/http
 }
 ```
 
@@ -64,18 +66,10 @@ rec := httptest.NewRecorder()
 app.ServeHTTP(rec, httptest.NewRequest(http.MethodGet, "/x", nil))
 ```
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Middleware.CORS](/packages/http/middleware-cors)
-- [Middleware.Logger](/packages/http/middleware-logger)
-- [Middleware.Recover](/packages/http/middleware-recover)
+<div class="related-chips">
+<a class="related-chip" href="/packages/http/middleware-cors">Middleware.CORS</a><a class="related-chip" href="/packages/http/middleware-logger">Middleware.Logger</a><a class="related-chip" href="/packages/http/middleware-recover">Middleware.Recover</a>
+</div>
 
 ← [Back to http package overview](/packages/http/)

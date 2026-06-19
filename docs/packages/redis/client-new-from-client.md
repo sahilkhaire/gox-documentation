@@ -2,21 +2,23 @@
 title: "Client.NewFromClient"
 package: "redis"
 import: "github.com/sahilkhaire/gox/redis"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: ioredis</span><span class="api-badge import">github.com/sahilkhaire/gox/redis</span></div>
-# Client.NewFromClient
-
+<SymbolHeader pkg="redis" title="Client.NewFromClient" node="ioredis" import-path="github.com/sahilkhaire/gox/redis" />
 ## Overview
 
 NewFromClient wraps an existing client.
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func NewFromClient(c *goredis.Client) *Client
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -27,8 +29,8 @@ func NewFromClient(c *goredis.Client) *Client
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+rdb := redis.NewClient(&redis.Options{Addr: addr})
+val, err := rdb.Get(ctx, key).Result()
 ```
 
 ```go [gox]
@@ -40,16 +42,10 @@ v.NewFromClient(/* args */)
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Client.New](/packages/redis/client-new)
+<div class="related-chips">
+<a class="related-chip" href="/packages/redis/client-new">Client.New</a>
+</div>
 
 ← [Back to redis package overview](/packages/redis/)

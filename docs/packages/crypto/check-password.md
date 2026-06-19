@@ -3,23 +3,25 @@ title: "CheckPassword"
 package: "crypto"
 import: "github.com/sahilkhaire/gox/crypto"
 node: "bcrypt.compare(password, hash)"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: bcrypt.compare(password, hash)</span><span class="api-badge import">github.com/sahilkhaire/gox/crypto</span></div>
-# CheckPassword
-
+<SymbolHeader pkg="crypto" title="CheckPassword" node="bcrypt.compare(password, hash)" import-path="github.com/sahilkhaire/gox/crypto" />
 ## Overview
 
-Maps the Node.js pattern `bcrypt.compare(password, hash)` to gox `crypto.CheckPassword(password, hash)`.
+CheckPassword reports whether password matches the bcrypt hash.
 
 **Node.js equivalent:** `bcrypt.compare(password, hash)`
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func CheckPassword(password, hash string) bool
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -30,8 +32,7 @@ bcrypt.compare(password, hash)
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+hash, err := bcrypt.GenerateFromPassword([]byte(pw), bcrypt.DefaultCost)
 ```
 
 ```go [gox]
@@ -42,18 +43,10 @@ crypto.CheckPassword(password, hash)
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [HMACSHA256](/packages/crypto/hmacsha256)
-- [HashPassword](/packages/crypto/hash-password)
-- [RandomBytes](/packages/crypto/random-bytes)
+<div class="related-chips">
+<a class="related-chip" href="/packages/crypto/hmacsha256">HMACSHA256</a><a class="related-chip" href="/packages/crypto/hash-password">HashPassword</a><a class="related-chip" href="/packages/crypto/random-bytes">RandomBytes</a>
+</div>
 
 ← [Back to crypto package overview](/packages/crypto/)

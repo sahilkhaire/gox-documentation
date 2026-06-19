@@ -3,12 +3,10 @@ title: "Get"
 package: "env"
 import: "github.com/sahilkhaire/gox/env"
 node: "process.env.KEY"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: process.env.KEY</span><span class="api-badge import">github.com/sahilkhaire/gox/env</span></div>
-# Get
-
+<SymbolHeader pkg="env" title="Get" node="process.env.KEY" import-path="github.com/sahilkhaire/gox/env" />
 ## Overview
 
 Get returns the value for key (override, then os.Getenv).
@@ -17,9 +15,13 @@ Get returns the value for key (override, then os.Getenv).
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func Get(key string) string
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -44,18 +46,10 @@ port := env.Get("PORT", "8080")
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [GetBool](/packages/env/get-bool)
-- [GetDuration](/packages/env/get-duration)
-- [GetInt](/packages/env/get-int)
+<div class="related-chips">
+<a class="related-chip" href="/packages/env/get-bool">GetBool</a><a class="related-chip" href="/packages/env/get-duration">GetDuration</a><a class="related-chip" href="/packages/env/get-int">GetInt</a>
+</div>
 
 ← [Back to env package overview](/packages/env/)

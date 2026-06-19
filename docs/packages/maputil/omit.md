@@ -3,23 +3,25 @@ title: "Omit"
 package: "maputil"
 import: "github.com/sahilkhaire/gox/maputil"
 node: "_.omit(obj, keys)"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: _.omit(obj, keys)</span><span class="api-badge import">github.com/sahilkhaire/gox/maputil</span></div>
-# Omit
-
+<SymbolHeader pkg="maputil" title="Omit" node="_.omit(obj, keys)" import-path="github.com/sahilkhaire/gox/maputil" />
 ## Overview
 
-Maps the Node.js pattern `_.omit(obj, keys)` to gox `maputil.Omit(obj, keys...)`.
+Omit returns a new map without the given keys (lodash omit).
 
 **Node.js equivalent:** `_.omit(obj, keys)`
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func Omit[K comparable, V any](m map[K]V, keys ...K) map[K]V
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -30,8 +32,8 @@ _.omit(obj, keys)
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+out := make(map[string]any)
+for k, v := range obj { /* copy keys */ }
 ```
 
 ```go [gox]
@@ -42,18 +44,10 @@ maputil.Omit(obj, keys...)
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Clone](/packages/maputil/clone)
-- [Get](/packages/maputil/get)
-- [Invert](/packages/maputil/invert)
+<div class="related-chips">
+<a class="related-chip" href="/packages/maputil/clone">Clone</a><a class="related-chip" href="/packages/maputil/get">Get</a><a class="related-chip" href="/packages/maputil/invert">Invert</a>
+</div>
 
 ← [Back to maputil package overview](/packages/maputil/)

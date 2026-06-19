@@ -2,23 +2,25 @@
 title: "Client"
 package: "redis"
 import: "github.com/sahilkhaire/gox/redis"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: ioredis</span><span class="api-badge import">github.com/sahilkhaire/gox/redis</span></div>
-# Client
-
+<SymbolHeader pkg="redis" title="Client" node="ioredis" import-path="github.com/sahilkhaire/gox/redis" />
 ## Overview
 
 Client wraps go-redis Client.
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 type Client struct {
 	RDB *goredis.Client
 }
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -29,8 +31,8 @@ type Client struct {
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+rdb := redis.NewClient(&redis.Options{Addr: addr})
+val, err := rdb.Get(ctx, key).Result()
 ```
 
 ```go [gox]
@@ -39,14 +41,6 @@ import "github.com/sahilkhaire/gox/redis"
 _ = redis.Client
 ```
 
-:::
-
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
 :::
 
 ← [Back to redis package overview](/packages/redis/)

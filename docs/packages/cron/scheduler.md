@@ -2,23 +2,25 @@
 title: "Scheduler"
 package: "cron"
 import: "github.com/sahilkhaire/gox/cron"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: node-cron</span><span class="api-badge import">github.com/sahilkhaire/gox/cron</span></div>
-# Scheduler
-
+<SymbolHeader pkg="cron" title="Scheduler" node="node-cron" import-path="github.com/sahilkhaire/gox/cron" />
 ## Overview
 
 Scheduler runs cron jobs in the background.
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 type Scheduler struct {
 	// contains filtered or unexported fields
 }
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -29,8 +31,9 @@ type Scheduler struct {
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+c := cron.New()
+c.AddFunc(spec, fn)
+c.Start()
 ```
 
 ```go [gox]
@@ -41,16 +44,10 @@ _ = cron.Scheduler
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Parse](/packages/cron/parse)
+<div class="related-chips">
+<a class="related-chip" href="/packages/cron/parse">Parse</a>
+</div>
 
 ← [Back to cron package overview](/packages/cron/)

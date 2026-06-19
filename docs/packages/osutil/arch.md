@@ -3,23 +3,25 @@ title: "Arch"
 package: "osutil"
 import: "github.com/sahilkhaire/gox/osutil"
 node: "process.arch"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: process.arch</span><span class="api-badge import">github.com/sahilkhaire/gox/osutil</span></div>
-# Arch
-
+<SymbolHeader pkg="osutil" title="Arch" node="process.arch" import-path="github.com/sahilkhaire/gox/osutil" />
 ## Overview
 
-Maps the Node.js pattern `process.arch` to gox `osutil.Arch()`.
+Arch returns the architecture (runtime.GOARCH).
 
 **Node.js equivalent:** `process.arch`
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func Arch() string
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -30,8 +32,7 @@ process.arch
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+val, err := os.Arch()
 ```
 
 ```go [gox]
@@ -42,18 +43,10 @@ osutil.Arch()
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [CPUs](/packages/osutil/cp-us)
-- [Homedir](/packages/osutil/homedir)
-- [Hostname](/packages/osutil/hostname)
+<div class="related-chips">
+<a class="related-chip" href="/packages/osutil/cp-us">CPUs</a><a class="related-chip" href="/packages/osutil/homedir">Homedir</a><a class="related-chip" href="/packages/osutil/hostname">Hostname</a>
+</div>
 
 ← [Back to osutil package overview](/packages/osutil/)

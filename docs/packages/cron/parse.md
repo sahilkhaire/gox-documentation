@@ -2,21 +2,23 @@
 title: "Parse"
 package: "cron"
 import: "github.com/sahilkhaire/gox/cron"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: node-cron</span><span class="api-badge import">github.com/sahilkhaire/gox/cron</span></div>
-# Parse
-
+<SymbolHeader pkg="cron" title="Parse" node="node-cron" import-path="github.com/sahilkhaire/gox/cron" />
 ## Overview
 
 Parse validates a cron expression (with optional seconds field).
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func Parse(expr string) error
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -27,8 +29,9 @@ func Parse(expr string) error
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+c := cron.New()
+c.AddFunc(spec, fn)
+c.Start()
 ```
 
 ```go [gox]
@@ -38,14 +41,6 @@ import "github.com/sahilkhaire/gox/cron"
 _ = cron.Parse(/* args */)
 ```
 
-:::
-
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
 :::
 
 ← [Back to cron package overview](/packages/cron/)

@@ -2,23 +2,25 @@
 title: "Conn"
 package: "ws"
 import: "github.com/sahilkhaire/gox/ws"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: ws</span><span class="api-badge import">github.com/sahilkhaire/gox/ws</span></div>
-# Conn
-
+<SymbolHeader pkg="ws" title="Conn" node="ws" import-path="github.com/sahilkhaire/gox/ws" />
 ## Overview
 
 Conn wraps a gorilla WebSocket connection with JSON helpers.
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 type Conn struct {
 	*websocket.Conn
 }
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -29,8 +31,7 @@ type Conn struct {
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+// gorilla/websocket Upgrader or Dialer
 ```
 
 ```go [gox]
@@ -39,14 +40,6 @@ import "github.com/sahilkhaire/gox/ws"
 _ = ws.Conn
 ```
 
-:::
-
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
 :::
 
 ← [Back to ws package overview](/packages/ws/)

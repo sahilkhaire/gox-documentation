@@ -2,21 +2,23 @@
 title: "AppError.New"
 package: "err"
 import: "github.com/sahilkhaire/gox/err"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: http-errors</span><span class="api-badge import">github.com/sahilkhaire/gox/err</span></div>
-# AppError.New
-
+<SymbolHeader pkg="err" title="AppError.New" node="http-errors" import-path="github.com/sahilkhaire/gox/err" />
 ## Overview
 
 New creates an AppError with code and message.
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func New(code int, message string) *AppError
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -28,7 +30,7 @@ func New(code int, message string) *AppError
 
 ```go [Standard Go]
 // Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+// See package overview for escape hatches.
 ```
 
 ```go [gox]
@@ -40,18 +42,10 @@ v.New(/* args */)
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [AppError.BadRequest](/packages/err/app-error-bad-request)
-- [AppError.Forbidden](/packages/err/app-error-forbidden)
-- [AppError.Internal](/packages/err/app-error-internal)
+<div class="related-chips">
+<a class="related-chip" href="/packages/err/app-error-bad-request">AppError.BadRequest</a><a class="related-chip" href="/packages/err/app-error-forbidden">AppError.Forbidden</a><a class="related-chip" href="/packages/err/app-error-internal">AppError.Internal</a>
+</div>
 
 ← [Back to err package overview](/packages/err/)

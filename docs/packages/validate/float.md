@@ -2,19 +2,21 @@
 title: "Float"
 package: "validate"
 import: "github.com/sahilkhaire/gox/validate"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: zod, joi</span><span class="api-badge import">github.com/sahilkhaire/gox/validate</span></div>
-# Float
-
+<SymbolHeader pkg="validate" title="Float" node="zod, joi" import-path="github.com/sahilkhaire/gox/validate" />
 ## Overview
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func Float() *floatField
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -25,8 +27,7 @@ func Float() *floatField
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+if err := validator.Struct(v); err != nil { /* handle */ }
 ```
 
 ```go [gox]
@@ -38,18 +39,10 @@ _ = validate.Float(/* args */)
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Array](/packages/validate/array)
-- [Bool](/packages/validate/bool)
-- [Int](/packages/validate/int)
+<div class="related-chips">
+<a class="related-chip" href="/packages/validate/array">Array</a><a class="related-chip" href="/packages/validate/bool">Bool</a><a class="related-chip" href="/packages/validate/int">Int</a>
+</div>
 
 ← [Back to validate package overview](/packages/validate/)

@@ -3,57 +3,50 @@ title: "IsBlank"
 package: "str"
 import: "github.com/sahilkhaire/gox/str"
 node: "!s.trim()"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: !s.trim()</span><span class="api-badge import">github.com/sahilkhaire/gox/str</span></div>
-# IsBlank
-
+<SymbolHeader pkg="str" title="IsBlank" node="!s.trim()" import-path="github.com/sahilkhaire/gox/str" />
 ## Overview
 
-Maps the Node.js pattern `!s.trim()` to gox `str.IsBlank(s)`.
+IsBlank reports whether s is empty or only whitespace.
 
 **Node.js equivalent:** `!s.trim()`
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func IsBlank(s string) bool
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
 ::: code-group
 
 ```js [Node.js]
-!s.trim()
+!s.trim();
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+blank := strings.TrimSpace(s) == ""
 ```
 
 ```go [gox]
 import "github.com/sahilkhaire/gox/str"
 
-str.IsBlank(s)
+if str.IsBlank(input) { /* empty */ }
 ```
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Camel](/packages/str/camel)
-- [Capitalize](/packages/str/capitalize)
-- [PadEnd](/packages/str/pad-end)
+<div class="related-chips">
+<a class="related-chip" href="/packages/str/camel">Camel</a><a class="related-chip" href="/packages/str/capitalize">Capitalize</a><a class="related-chip" href="/packages/str/pad-end">PadEnd</a>
+</div>
 
 ← [Back to str package overview](/packages/str/)

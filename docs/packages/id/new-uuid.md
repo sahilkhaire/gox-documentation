@@ -3,12 +3,10 @@ title: "NewUUID"
 package: "id"
 import: "github.com/sahilkhaire/gox/id"
 node: "uuid.v4()"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: uuid.v4()</span><span class="api-badge import">github.com/sahilkhaire/gox/id</span></div>
-# NewUUID
-
+<SymbolHeader pkg="id" title="NewUUID" node="uuid.v4()" import-path="github.com/sahilkhaire/gox/id" />
 ## Overview
 
 NewUUID returns a random UUID string (uuid.v4).
@@ -17,9 +15,13 @@ NewUUID returns a random UUID string (uuid.v4).
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func NewUUID() string
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -30,8 +32,8 @@ uuid.v4();
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+id := uuid.New()
+u, err := uuid.Parse(s)
 ```
 
 ```go [gox]
@@ -42,18 +44,10 @@ id := id.NewUUID()
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [MustParseUUID](/packages/id/must-parse-uuid)
-- [NewNanoID](/packages/id/new-nano-id)
-- [ParseUUID](/packages/id/parse-uuid)
+<div class="related-chips">
+<a class="related-chip" href="/packages/id/must-parse-uuid">MustParseUUID</a><a class="related-chip" href="/packages/id/new-nano-id">NewNanoID</a><a class="related-chip" href="/packages/id/parse-uuid">ParseUUID</a>
+</div>
 
 ← [Back to id package overview](/packages/id/)

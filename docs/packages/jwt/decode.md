@@ -3,23 +3,25 @@ title: "Decode"
 package: "jwt"
 import: "github.com/sahilkhaire/gox/jwt"
 node: "jwt.decode(token)"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: jwt.decode(token)</span><span class="api-badge import">github.com/sahilkhaire/gox/jwt</span></div>
-# Decode
-
+<SymbolHeader pkg="jwt" title="Decode" node="jwt.decode(token)" import-path="github.com/sahilkhaire/gox/jwt" />
 ## Overview
 
-Maps the Node.js pattern `jwt.decode(token)` to gox `jwt.Decode(token)`.
+Decode parses claims without verifying the signature (jwt.decode).
 
 **Node.js equivalent:** `jwt.decode(token)`
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func Decode(token string) (jwtlib.MapClaims, error)
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -30,8 +32,7 @@ jwt.decode(token)
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+// github.com/golang-jwt/jwt/v5 token.Sign / Parse
 ```
 
 ```go [gox]
@@ -42,17 +43,10 @@ jwt.Decode(token)
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Sign](/packages/jwt/sign)
-- [Verify](/packages/jwt/verify)
+<div class="related-chips">
+<a class="related-chip" href="/packages/jwt/sign">Sign</a><a class="related-chip" href="/packages/jwt/verify">Verify</a>
+</div>
 
 ← [Back to jwt package overview](/packages/jwt/)

@@ -1,7 +1,7 @@
 ---
 title: "client Cookbook"
 package: "client"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
 <div class="api-meta"><span class="api-badge node">Node: axios, fetch</span><span class="api-badge import">github.com/sahilkhaire/gox/client</span></div>

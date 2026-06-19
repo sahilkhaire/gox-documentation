@@ -3,23 +3,25 @@ title: "Homedir"
 package: "osutil"
 import: "github.com/sahilkhaire/gox/osutil"
 node: "os.homedir()"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: os.homedir()</span><span class="api-badge import">github.com/sahilkhaire/gox/osutil</span></div>
-# Homedir
-
+<SymbolHeader pkg="osutil" title="Homedir" node="os.homedir()" import-path="github.com/sahilkhaire/gox/osutil" />
 ## Overview
 
-Maps the Node.js pattern `os.homedir()` to gox `osutil.Homedir()`.
+Homedir returns the current user's home directory.
 
 **Node.js equivalent:** `os.homedir()`
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func Homedir() (string, error)
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -30,8 +32,7 @@ os.homedir()
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+val, err := os.UserHomeDir()
 ```
 
 ```go [gox]
@@ -42,18 +43,10 @@ osutil.Homedir()
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Arch](/packages/osutil/arch)
-- [CPUs](/packages/osutil/cp-us)
-- [Hostname](/packages/osutil/hostname)
+<div class="related-chips">
+<a class="related-chip" href="/packages/osutil/arch">Arch</a><a class="related-chip" href="/packages/osutil/cp-us">CPUs</a><a class="related-chip" href="/packages/osutil/hostname">Hostname</a>
+</div>
 
 ← [Back to osutil package overview](/packages/osutil/)

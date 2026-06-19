@@ -2,21 +2,23 @@
 title: "GetDuration"
 package: "env"
 import: "github.com/sahilkhaire/gox/env"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: dotenv / process.env</span><span class="api-badge import">github.com/sahilkhaire/gox/env</span></div>
-# GetDuration
-
+<SymbolHeader pkg="env" title="GetDuration" node="dotenv / process.env" import-path="github.com/sahilkhaire/gox/env" />
 ## Overview
 
 GetDuration parses a duration environment variable.
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func GetDuration(key string, def time.Duration) (time.Duration, error)
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -42,18 +44,10 @@ _ = env.GetDuration(/* args */)
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Get](/packages/env/get)
-- [GetBool](/packages/env/get-bool)
-- [GetInt](/packages/env/get-int)
+<div class="related-chips">
+<a class="related-chip" href="/packages/env/get">Get</a><a class="related-chip" href="/packages/env/get-bool">GetBool</a><a class="related-chip" href="/packages/env/get-int">GetInt</a>
+</div>
 
 ← [Back to env package overview](/packages/env/)

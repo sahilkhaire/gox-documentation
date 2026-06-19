@@ -3,23 +3,23 @@ title: "Filter"
 package: "slice"
 import: "github.com/sahilkhaire/gox/slice"
 node: "arr.filter(fn)"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: arr.filter(fn)</span><span class="api-badge import">github.com/sahilkhaire/gox/slice</span></div>
-# Filter
-
+<SymbolHeader pkg="slice" title="Filter" node="arr.filter(fn)" import-path="github.com/sahilkhaire/gox/slice" />
 ## Overview
 
 Keeps elements matching a predicate — same as `Array.filter`. Returns a new slice containing only matching items.
 
-**Node.js equivalent:** `arr.filter(fn)`
-
 ## Signature
+
+<div class="signature-block">
 
 ```go
 func Filter[T any](in []T, fn func(T) bool) []T
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -52,8 +52,8 @@ Combine with `slice.Map` for filter-then-map pipelines without nested loops.
 
 ## Related APIs
 
-- [Chunk](/packages/slice/chunk)
-- [Contains](/packages/slice/contains)
-- [Every](/packages/slice/every)
+<div class="related-chips">
+<a class="related-chip" href="/packages/slice/chunk">Chunk</a><a class="related-chip" href="/packages/slice/contains">Contains</a><a class="related-chip" href="/packages/slice/every">Every</a>
+</div>
 
 ← [Back to slice package overview](/packages/slice/)

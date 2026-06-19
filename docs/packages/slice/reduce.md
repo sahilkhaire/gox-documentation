@@ -3,12 +3,10 @@ title: "Reduce"
 package: "slice"
 import: "github.com/sahilkhaire/gox/slice"
 node: "arr.reduce(fn, init)"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: arr.reduce(fn, init)</span><span class="api-badge import">github.com/sahilkhaire/gox/slice</span></div>
-# Reduce
-
+<SymbolHeader pkg="slice" title="Reduce" node="arr.reduce(fn, init)" import-path="github.com/sahilkhaire/gox/slice" />
 ## Overview
 
 Reduce folds the slice (Array.reduce).
@@ -17,9 +15,13 @@ Reduce folds the slice (Array.reduce).
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func Reduce[T, U any](in []T, init U, fn func(U, T) U) U
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -44,18 +46,10 @@ total := slice.Reduce(nums, 0, func(acc, n int) int { return acc + n })
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Chunk](/packages/slice/chunk)
-- [Contains](/packages/slice/contains)
-- [Every](/packages/slice/every)
+<div class="related-chips">
+<a class="related-chip" href="/packages/slice/chunk">Chunk</a><a class="related-chip" href="/packages/slice/contains">Contains</a><a class="related-chip" href="/packages/slice/every">Every</a>
+</div>
 
 ← [Back to slice package overview](/packages/slice/)

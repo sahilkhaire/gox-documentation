@@ -2,56 +2,49 @@
 title: "WriteFile"
 package: "json"
 import: "github.com/sahilkhaire/gox/json"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: JSON.parse/stringify</span><span class="api-badge import">github.com/sahilkhaire/gox/json</span></div>
-# WriteFile
-
+<SymbolHeader pkg="json" title="WriteFile" node="JSON.parse/stringify" import-path="github.com/sahilkhaire/gox/json" />
 ## Overview
 
 WriteFile marshals v and writes to path (helper for examples).
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func WriteFile(ctx context.Context, path string, v any, perm os.FileMode) error
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
 ::: code-group
 
 ```js [Node.js]
-// See package overview
+fs.writeFileSync('out.json', JSON.stringify(obj));
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+b, err := json.Marshal(obj)
+err = os.WriteFile(path, b, 0644)
 ```
 
 ```go [gox]
 import "github.com/sahilkhaire/gox/json"
 
-// json
-_ = json.WriteFile(/* args */)
+err := json.WriteFile(ctx, "out.json", obj)
 ```
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [MustParse](/packages/json/must-parse)
-- [MustStringify](/packages/json/must-stringify)
-- [Parse](/packages/json/parse)
+<div class="related-chips">
+<a class="related-chip" href="/packages/json/must-parse">MustParse</a><a class="related-chip" href="/packages/json/must-stringify">MustStringify</a><a class="related-chip" href="/packages/json/parse">Parse</a>
+</div>
 
 ← [Back to json package overview](/packages/json/)

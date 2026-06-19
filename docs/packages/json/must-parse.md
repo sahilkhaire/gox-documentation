@@ -2,21 +2,23 @@
 title: "MustParse"
 package: "json"
 import: "github.com/sahilkhaire/gox/json"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: JSON.parse/stringify</span><span class="api-badge import">github.com/sahilkhaire/gox/json</span></div>
-# MustParse
-
+<SymbolHeader pkg="json" title="MustParse" node="JSON.parse/stringify" import-path="github.com/sahilkhaire/gox/json" />
 ## Overview
 
 MustParse unmarshals or panics.
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func MustParse(data []byte, v any)
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -27,8 +29,7 @@ func MustParse(data []byte, v any)
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+err := json.Unmarshal([]byte(raw), &v)
 ```
 
 ```go [gox]
@@ -40,18 +41,10 @@ _ = json.MustParse(/* args */)
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [MustStringify](/packages/json/must-stringify)
-- [Parse](/packages/json/parse)
-- [ParseFile](/packages/json/parse-file)
+<div class="related-chips">
+<a class="related-chip" href="/packages/json/must-stringify">MustStringify</a><a class="related-chip" href="/packages/json/parse">Parse</a><a class="related-chip" href="/packages/json/parse-file">ParseFile</a>
+</div>
 
 ← [Back to json package overview](/packages/json/)

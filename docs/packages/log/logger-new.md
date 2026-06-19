@@ -3,12 +3,10 @@ title: "Logger.New"
 package: "log"
 import: "github.com/sahilkhaire/gox/log"
 node: "winston.createLogger()"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: winston.createLogger()</span><span class="api-badge import">github.com/sahilkhaire/gox/log</span></div>
-# Logger.New
-
+<SymbolHeader pkg="log" title="Logger.New" node="winston.createLogger()" import-path="github.com/sahilkhaire/gox/log" />
 ## Overview
 
 New returns a Logger writing JSON to stderr at info level.
@@ -17,9 +15,13 @@ New returns a Logger writing JSON to stderr at info level.
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func New() *Logger
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -30,8 +32,8 @@ winston.createLogger();
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+logger := slog.New(slog.NewJSONHandler(os.Stdout, nil))
+logger.Info("msg", "key", val)
 ```
 
 ```go [gox]
@@ -42,17 +44,10 @@ logger := log.New()
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Logger.Default](/packages/log/logger-default)
-- [Logger.NewWithLevel](/packages/log/logger-new-with-level)
+<div class="related-chips">
+<a class="related-chip" href="/packages/log/logger-default">Logger.Default</a><a class="related-chip" href="/packages/log/logger-new-with-level">Logger.NewWithLevel</a>
+</div>
 
 ← [Back to log package overview](/packages/log/)

@@ -3,23 +3,25 @@ title: "EncodeQuery"
 package: "url"
 import: "github.com/sahilkhaire/gox/url"
 node: "querystring.stringify(obj)"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: querystring.stringify(obj)</span><span class="api-badge import">github.com/sahilkhaire/gox/url</span></div>
-# EncodeQuery
-
+<SymbolHeader pkg="url" title="EncodeQuery" node="querystring.stringify(obj)" import-path="github.com/sahilkhaire/gox/url" />
 ## Overview
 
-Maps the Node.js pattern `querystring.stringify(obj)` to gox `url.EncodeQuery(obj)`.
+EncodeQuery encodes values (querystring.stringify).
 
 **Node.js equivalent:** `querystring.stringify(obj)`
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func EncodeQuery(v url.Values) string
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -30,8 +32,8 @@ querystring.stringify(obj)
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+vals, err := url.ParseQuery(q)
+// or url.Values.Encode()
 ```
 
 ```go [gox]
@@ -42,18 +44,10 @@ url.EncodeQuery(obj)
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Format](/packages/url/format)
-- [ParseQuery](/packages/url/parse-query)
-- [Resolve](/packages/url/resolve)
+<div class="related-chips">
+<a class="related-chip" href="/packages/url/format">Format</a><a class="related-chip" href="/packages/url/parse-query">ParseQuery</a><a class="related-chip" href="/packages/url/resolve">Resolve</a>
+</div>
 
 ← [Back to url package overview](/packages/url/)

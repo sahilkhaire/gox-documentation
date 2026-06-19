@@ -2,23 +2,25 @@
 title: "DB"
 package: "db"
 import: "github.com/sahilkhaire/gox/db"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: knex</span><span class="api-badge import">github.com/sahilkhaire/gox/db</span></div>
-# DB
-
+<SymbolHeader pkg="db" title="DB" node="knex" import-path="github.com/sahilkhaire/gox/db" />
 ## Overview
 
 DB wraps *sqlx.DB with a chainable query API.
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 type DB struct {
 	SQL *sqlx.DB
 }
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -29,8 +31,8 @@ type DB struct {
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+db, err := sqlx.Connect("postgres", dsn)
+db.GetContext(ctx, &row, query, args...)
 ```
 
 ```go [gox]
@@ -39,14 +41,6 @@ import "github.com/sahilkhaire/gox/db"
 _ = db.DB
 ```
 
-:::
-
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
 :::
 
 ← [Back to db package overview](/packages/db/)

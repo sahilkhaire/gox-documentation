@@ -3,23 +3,25 @@ title: "Equals"
 package: "buffer"
 import: "github.com/sahilkhaire/gox/buffer"
 node: "buf.equals(other)"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: buf.equals(other)</span><span class="api-badge import">github.com/sahilkhaire/gox/buffer</span></div>
-# Equals
-
+<SymbolHeader pkg="buffer" title="Equals" node="buf.equals(other)" import-path="github.com/sahilkhaire/gox/buffer" />
 ## Overview
 
-Maps the Node.js pattern `buf.equals(other)` to gox `buffer.Equals(a, b)`.
+Equals reports whether a and b are equal (timing-safe enough for content equality).
 
 **Node.js equivalent:** `buf.equals(other)`
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func Equals(a, b Buffer) bool
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -30,8 +32,7 @@ buf.equals(other)
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+ok := bytes.Equal(a, b)
 ```
 
 ```go [gox]
@@ -42,16 +43,10 @@ buffer.Equals(a, b)
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Compare](/packages/buffer/compare)
+<div class="related-chips">
+<a class="related-chip" href="/packages/buffer/compare">Compare</a>
+</div>
 
 ← [Back to buffer package overview](/packages/buffer/)

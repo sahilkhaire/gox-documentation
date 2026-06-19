@@ -2,21 +2,23 @@
 title: "ParseString"
 package: "csv"
 import: "github.com/sahilkhaire/gox/csv"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: papaparse</span><span class="api-badge import">github.com/sahilkhaire/gox/csv</span></div>
-# ParseString
-
+<SymbolHeader pkg="csv" title="ParseString" node="papaparse" import-path="github.com/sahilkhaire/gox/csv" />
 ## Overview
 
 ParseString parses CSV text with a header row.
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func ParseString(s string) ([]map[string]string, error)
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -27,8 +29,8 @@ func ParseString(s string) ([]map[string]string, error)
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+r := csv.NewReader(f)
+records, err := r.ReadAll()
 ```
 
 ```go [gox]
@@ -40,18 +42,10 @@ _ = csv.ParseString(/* args */)
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Read](/packages/csv/read)
-- [ReadAll](/packages/csv/read-all)
-- [Write](/packages/csv/write)
+<div class="related-chips">
+<a class="related-chip" href="/packages/csv/read">Read</a><a class="related-chip" href="/packages/csv/read-all">ReadAll</a><a class="related-chip" href="/packages/csv/write">Write</a>
+</div>
 
 ← [Back to csv package overview](/packages/csv/)

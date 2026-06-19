@@ -3,23 +3,25 @@ title: "CoalesceFn"
 package: "cond"
 import: "github.com/sahilkhaire/gox/cond"
 node: "obj?.field ?? \"guest\""
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: obj?.field ?? "guest"</span><span class="api-badge import">github.com/sahilkhaire/gox/cond</span></div>
-# CoalesceFn
-
+<SymbolHeader pkg="cond" title="CoalesceFn" node="obj?.field ?? &quot;guest&quot;" import-path="github.com/sahilkhaire/gox/cond" />
 ## Overview
 
-Maps the Node.js pattern `obj?.field ?? "guest"` to gox `cond.CoalesceFn(ptr, func(v T) R { ... }, fallback)`. Part of the cond package — Node.js analog: ternary ? :, nullish ??.
+CoalesceFn returns the first non-zero result from the given functions, in order.
 
 **Node.js equivalent:** `obj?.field ?? "guest"`
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func CoalesceFn[T comparable](fns ...func() T) T
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -30,10 +32,9 @@ obj?.field ?? "guest"
 ```
 
 ```go [Standard Go]
-if condition {
-    result = a
-} else {
-    result = b
+result := fallback
+if v != zero {
+    result = v
 }
 ```
 
@@ -45,18 +46,10 @@ cond.CoalesceFn(ptr, func(v T) R { ... }, fallback)
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Coalesce](/packages/cond/coalesce)
-- [CoalescePtr](/packages/cond/coalesce-ptr)
-- [If](/packages/cond/if)
+<div class="related-chips">
+<a class="related-chip" href="/packages/cond/coalesce">Coalesce</a><a class="related-chip" href="/packages/cond/coalesce-ptr">CoalescePtr</a><a class="related-chip" href="/packages/cond/if">If</a>
+</div>
 
 ← [Back to cond package overview](/packages/cond/)

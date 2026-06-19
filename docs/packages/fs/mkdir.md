@@ -3,56 +3,50 @@ title: "Mkdir"
 package: "fs"
 import: "github.com/sahilkhaire/gox/fs"
 node: "fs.mkdir(path)"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: fs.mkdir(path)</span><span class="api-badge import">github.com/sahilkhaire/gox/fs</span></div>
-# Mkdir
-
+<SymbolHeader pkg="fs" title="Mkdir" node="fs.mkdir(path)" import-path="github.com/sahilkhaire/gox/fs" />
 ## Overview
 
-Maps the Node.js pattern `fs.mkdir(path)` to gox `fs.Mkdir(ctx, path)`.
+Mkdir creates a directory (fs.promises.mkdir).
 
 **Node.js equivalent:** `fs.mkdir(path)`
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func Mkdir(ctx context.Context, path string, perm os.FileMode) error
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
 ::: code-group
 
 ```js [Node.js]
-fs.mkdir(path)
+await fs.promises.mkdir('dir', { recursive: true });
 ```
 
 ```go [Standard Go]
-data, err := os.ReadFile(path)
+err := os.MkdirAll("dir", 0755)
 ```
 
 ```go [gox]
 import "github.com/sahilkhaire/gox/fs"
 
-fs.Mkdir(ctx, path)
+err := fs.Mkdir(ctx, "dir", 0755)
 ```
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Copy](/packages/fs/copy)
-- [Exists](/packages/fs/exists)
-- [ReadDir](/packages/fs/read-dir)
+<div class="related-chips">
+<a class="related-chip" href="/packages/fs/copy">Copy</a><a class="related-chip" href="/packages/fs/exists">Exists</a><a class="related-chip" href="/packages/fs/read-dir">ReadDir</a>
+</div>
 
 ← [Back to fs package overview](/packages/fs/)

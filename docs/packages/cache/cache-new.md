@@ -3,12 +3,10 @@ title: "Cache.New"
 package: "cache"
 import: "github.com/sahilkhaire/gox/cache"
 node: "new LRUCache({ max })"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: new LRUCache({ max })</span><span class="api-badge import">github.com/sahilkhaire/gox/cache</span></div>
-# Cache.New
-
+<SymbolHeader pkg="cache" title="Cache.New" node="new LRUCache({ max })" import-path="github.com/sahilkhaire/gox/cache" />
 ## Overview
 
 New creates a cache that evicts least-recently-used entries when size exceeds maxSize.
@@ -17,9 +15,13 @@ New creates a cache that evicts least-recently-used entries when size exceeds ma
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func New(maxSize int) *Cache
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -30,8 +32,7 @@ const cache = new LRUCache({ max: 100 });
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+// sync.Map or lru cache library
 ```
 
 ```go [gox]
@@ -40,14 +41,6 @@ import "github.com/sahilkhaire/gox/cache"
 c := cache.New(100)
 ```
 
-:::
-
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
 :::
 
 ← [Back to cache package overview](/packages/cache/)

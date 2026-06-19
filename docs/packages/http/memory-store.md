@@ -2,23 +2,25 @@
 title: "MemoryStore"
 package: "http"
 import: "github.com/sahilkhaire/gox/http"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: express, cors, helmet, morgan</span><span class="api-badge import">github.com/sahilkhaire/gox/http</span></div>
-# MemoryStore
-
+<SymbolHeader pkg="http" title="MemoryStore" node="express, cors, helmet, morgan" import-path="github.com/sahilkhaire/gox/http" />
 ## Overview
 
 MemoryStore is an in-memory session store (express-session memory).
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 type MemoryStore struct {
 	// contains filtered or unexported fields
 }
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -30,7 +32,7 @@ type MemoryStore struct {
 
 ```go [Standard Go]
 func handler(w http.ResponseWriter, r *http.Request) {
-    json.NewEncoder(w).Encode(data)
+    // chi or net/http
 }
 ```
 
@@ -42,16 +44,10 @@ _ = http.MemoryStore
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [SaveUploadedFile](/packages/http/save-uploaded-file)
+<div class="related-chips">
+<a class="related-chip" href="/packages/http/save-uploaded-file">SaveUploadedFile</a>
+</div>
 
 ← [Back to http package overview](/packages/http/)

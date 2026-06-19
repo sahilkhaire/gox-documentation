@@ -2,23 +2,25 @@
 title: "Schema"
 package: "validate"
 import: "github.com/sahilkhaire/gox/validate"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: zod, joi</span><span class="api-badge import">github.com/sahilkhaire/gox/validate</span></div>
-# Schema
-
+<SymbolHeader pkg="validate" title="Schema" node="zod, joi" import-path="github.com/sahilkhaire/gox/validate" />
 ## Overview
 
 Schema is a map-based object schema (Joi.object).
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 type Schema struct {
 	Fields map[string]Field
 }
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -29,8 +31,7 @@ type Schema struct {
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+if err := validator.Struct(v); err != nil { /* handle */ }
 ```
 
 ```go [gox]
@@ -56,18 +57,10 @@ err := validate.ValidateSchema(sch, map[string]any{"name": "a", "role": "guest"}
 err = validate.ValidateSchema(sch, map[string]any{"name": "alice", "role": "admin"})
 ```
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Array](/packages/validate/array)
-- [Bool](/packages/validate/bool)
-- [Float](/packages/validate/float)
+<div class="related-chips">
+<a class="related-chip" href="/packages/validate/array">Array</a><a class="related-chip" href="/packages/validate/bool">Bool</a><a class="related-chip" href="/packages/validate/float">Float</a>
+</div>
 
 ← [Back to validate package overview](/packages/validate/)

@@ -3,23 +3,25 @@ title: "Some"
 package: "slice"
 import: "github.com/sahilkhaire/gox/slice"
 node: "arr.some(fn)"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: arr.some(fn)</span><span class="api-badge import">github.com/sahilkhaire/gox/slice</span></div>
-# Some
-
+<SymbolHeader pkg="slice" title="Some" node="arr.some(fn)" import-path="github.com/sahilkhaire/gox/slice" />
 ## Overview
 
-Maps the Node.js pattern `arr.some(fn)` to gox `slice.Some(arr, fn)`. Part of the slice package — Node.js analog: lodash / Array.*.
+Some reports whether fn is true for any element (Array.some).
 
 **Node.js equivalent:** `arr.some(fn)`
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func Some[T any](in []T, fn func(T) bool) bool
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -31,8 +33,8 @@ arr.some(fn)
 
 ```go [Standard Go]
 // Manual loop or Go 1.21+ slices package
-for i, v := range items {
-    // transform v
+for _, v := range items {
+    // transform or filter v
 }
 ```
 
@@ -44,18 +46,10 @@ slice.Some(arr, fn)
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Chunk](/packages/slice/chunk)
-- [Contains](/packages/slice/contains)
-- [Every](/packages/slice/every)
+<div class="related-chips">
+<a class="related-chip" href="/packages/slice/chunk">Chunk</a><a class="related-chip" href="/packages/slice/contains">Contains</a><a class="related-chip" href="/packages/slice/every">Every</a>
+</div>
 
 ← [Back to slice package overview](/packages/slice/)

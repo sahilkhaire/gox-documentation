@@ -2,21 +2,23 @@
 title: "Conn.Upgrade"
 package: "ws"
 import: "github.com/sahilkhaire/gox/ws"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: ws</span><span class="api-badge import">github.com/sahilkhaire/gox/ws</span></div>
-# Conn.Upgrade
-
+<SymbolHeader pkg="ws" title="Conn.Upgrade" node="ws" import-path="github.com/sahilkhaire/gox/ws" />
 ## Overview
 
 Upgrade upgrades the HTTP request on w/r using up (nil uses DefaultUpgrader).
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func Upgrade(w http.ResponseWriter, r *http.Request, up *Upgrader) (*Conn, error)
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -27,8 +29,7 @@ func Upgrade(w http.ResponseWriter, r *http.Request, up *Upgrader) (*Conn, error
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+// gorilla/websocket Upgrader or Dialer
 ```
 
 ```go [gox]
@@ -40,16 +41,10 @@ v.Upgrade(/* args */)
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Conn.Dial](/packages/ws/conn-dial)
+<div class="related-chips">
+<a class="related-chip" href="/packages/ws/conn-dial">Conn.Dial</a>
+</div>
 
 ← [Back to ws package overview](/packages/ws/)

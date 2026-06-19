@@ -2,12 +2,10 @@
 title: "RandomString"
 package: "crypto"
 import: "github.com/sahilkhaire/gox/crypto"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: crypto, bcrypt</span><span class="api-badge import">github.com/sahilkhaire/gox/crypto</span></div>
-# RandomString
-
+<SymbolHeader pkg="crypto" title="RandomString" node="crypto, bcrypt" import-path="github.com/sahilkhaire/gox/crypto" />
 ## Overview
 
 RandomString returns a URL-safe base64 string with roughly n bytes of entropy
@@ -15,9 +13,13 @@ RandomString returns a URL-safe base64 string with roughly n bytes of entropy
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func RandomString(n int) (string, error)
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -28,8 +30,8 @@ func RandomString(n int) (string, error)
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+b := make([]byte, n)
+_, err := rand.Read(b)
 ```
 
 ```go [gox]
@@ -41,18 +43,10 @@ _ = crypto.RandomString(/* args */)
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [CheckPassword](/packages/crypto/check-password)
-- [HMACSHA256](/packages/crypto/hmacsha256)
-- [HashPassword](/packages/crypto/hash-password)
+<div class="related-chips">
+<a class="related-chip" href="/packages/crypto/check-password">CheckPassword</a><a class="related-chip" href="/packages/crypto/hmacsha256">HMACSHA256</a><a class="related-chip" href="/packages/crypto/hash-password">HashPassword</a>
+</div>
 
 ← [Back to crypto package overview](/packages/crypto/)

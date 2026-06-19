@@ -3,12 +3,10 @@ title: "Sign"
 package: "jwt"
 import: "github.com/sahilkhaire/gox/jwt"
 node: "jwt.sign(payload, secret, { expiresIn })"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: jwt.sign(payload, secret, { expiresIn })</span><span class="api-badge import">github.com/sahilkhaire/gox/jwt</span></div>
-# Sign
-
+<SymbolHeader pkg="jwt" title="Sign" node="jwt.sign(payload, secret, { expiresIn })" import-path="github.com/sahilkhaire/gox/jwt" />
 ## Overview
 
 Sign builds a signed JWT from claims (jwt.sign).
@@ -17,9 +15,13 @@ Sign builds a signed JWT from claims (jwt.sign).
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func Sign(claims jwtlib.MapClaims, secret []byte, opts *SignOptions) (string, error)
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -41,17 +43,10 @@ token, err := jwt.Sign(claims, secret, jwt.SignOptions{})
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Decode](/packages/jwt/decode)
-- [Verify](/packages/jwt/verify)
+<div class="related-chips">
+<a class="related-chip" href="/packages/jwt/decode">Decode</a><a class="related-chip" href="/packages/jwt/verify">Verify</a>
+</div>
 
 ← [Back to jwt package overview](/packages/jwt/)

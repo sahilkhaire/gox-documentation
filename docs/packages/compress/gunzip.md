@@ -3,23 +3,25 @@ title: "Gunzip"
 package: "compress"
 import: "github.com/sahilkhaire/gox/compress"
 node: "gunzipSync"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: gunzipSync</span><span class="api-badge import">github.com/sahilkhaire/gox/compress</span></div>
-# Gunzip
-
+<SymbolHeader pkg="compress" title="Gunzip" node="gunzipSync" import-path="github.com/sahilkhaire/gox/compress" />
 ## Overview
 
-Maps the Node.js pattern `gunzipSync` to gox `compress.Gunzip(data)`.
+Gunzip decompresses gzip data.
 
 **Node.js equivalent:** `gunzipSync`
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func Gunzip(data []byte) ([]byte, error)
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -30,8 +32,7 @@ gunzipSync
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+// compress/gzip NewWriter / NewReader
 ```
 
 ```go [gox]
@@ -42,18 +43,10 @@ compress.Gunzip(data)
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Gzip](/packages/compress/gzip)
-- [GzipReader](/packages/compress/gzip-reader)
-- [GzipWriter](/packages/compress/gzip-writer)
+<div class="related-chips">
+<a class="related-chip" href="/packages/compress/gzip">Gzip</a><a class="related-chip" href="/packages/compress/gzip-reader">GzipReader</a><a class="related-chip" href="/packages/compress/gzip-writer">GzipWriter</a>
+</div>
 
 ← [Back to compress package overview](/packages/compress/)

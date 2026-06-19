@@ -3,23 +3,25 @@ title: "Compare"
 package: "semver"
 import: "github.com/sahilkhaire/gox/semver"
 node: "semver.compare(a, b)"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: semver.compare(a, b)</span><span class="api-badge import">github.com/sahilkhaire/gox/semver</span></div>
-# Compare
-
+<SymbolHeader pkg="semver" title="Compare" node="semver.compare(a, b)" import-path="github.com/sahilkhaire/gox/semver" />
 ## Overview
 
-Maps the Node.js pattern `semver.compare(a, b)` to gox `semver.Compare(a, b)`.
+Compare returns -1 if a &lt; b, 0 if equal, 1 if a &gt; b.
 
 **Node.js equivalent:** `semver.compare(a, b)`
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func Compare(a, b string) int
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -30,8 +32,7 @@ semver.compare(a, b)
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+// github.com/Masterminds/semver/v3
 ```
 
 ```go [gox]
@@ -42,17 +43,10 @@ semver.Compare(a, b)
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Inc](/packages/semver/inc)
-- [Satisfies](/packages/semver/satisfies)
+<div class="related-chips">
+<a class="related-chip" href="/packages/semver/inc">Inc</a><a class="related-chip" href="/packages/semver/satisfies">Satisfies</a>
+</div>
 
 ← [Back to semver package overview](/packages/semver/)

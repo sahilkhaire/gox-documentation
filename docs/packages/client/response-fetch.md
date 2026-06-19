@@ -3,12 +3,10 @@ title: "Response.Fetch"
 package: "client"
 import: "github.com/sahilkhaire/gox/client"
 node: "fetch(url)"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: fetch(url)</span><span class="api-badge import">github.com/sahilkhaire/gox/client</span></div>
-# Response.Fetch
-
+<SymbolHeader pkg="client" title="Response.Fetch" node="fetch(url)" import-path="github.com/sahilkhaire/gox/client" />
 ## Overview
 
 Fetch is a fetch()-style helper using the package default client.
@@ -17,9 +15,13 @@ Fetch is a fetch()-style helper using the package default client.
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func Fetch(ctx context.Context, url string, opts *RequestOpts) (*Response, error)
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -55,13 +57,5 @@ defer srv.Close()
 resp, err := Fetch(context.Background(), srv.URL, nil)
 b, err := resp.Bytes()
 ```
-
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
 
 ← [Back to client package overview](/packages/client/)

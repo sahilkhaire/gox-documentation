@@ -3,12 +3,10 @@ title: "Verify"
 package: "jwt"
 import: "github.com/sahilkhaire/gox/jwt"
 node: "jwt.verify(token, secret)"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: jwt.verify(token, secret)</span><span class="api-badge import">github.com/sahilkhaire/gox/jwt</span></div>
-# Verify
-
+<SymbolHeader pkg="jwt" title="Verify" node="jwt.verify(token, secret)" import-path="github.com/sahilkhaire/gox/jwt" />
 ## Overview
 
 Verify parses and validates a JWT with secret (jwt.verify).
@@ -17,9 +15,13 @@ Verify parses and validates a JWT with secret (jwt.verify).
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func Verify(token string, secret []byte) (jwtlib.MapClaims, error)
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -41,17 +43,10 @@ claims, err := jwt.Verify(token, secret)
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Decode](/packages/jwt/decode)
-- [Sign](/packages/jwt/sign)
+<div class="related-chips">
+<a class="related-chip" href="/packages/jwt/decode">Decode</a><a class="related-chip" href="/packages/jwt/sign">Sign</a>
+</div>
 
 ← [Back to jwt package overview](/packages/jwt/)

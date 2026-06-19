@@ -2,21 +2,23 @@
 title: "Set"
 package: "mongo"
 import: "github.com/sahilkhaire/gox/mongo"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: mongoose</span><span class="api-badge import">github.com/sahilkhaire/gox/mongo</span></div>
-# Set
-
+<SymbolHeader pkg="mongo" title="Set" node="mongoose" import-path="github.com/sahilkhaire/gox/mongo" />
 ## Overview
 
 Set returns bson.M for $set updates.
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func Set(fields bson.M) bson.M
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -27,8 +29,7 @@ func Set(fields bson.M) bson.M
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+client, err := mongo.Connect(ctx, options.Client().ApplyURI(uri))
 ```
 
 ```go [gox]
@@ -40,18 +41,10 @@ _ = mongo.Set(/* args */)
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Eq](/packages/mongo/eq)
-- [Gt](/packages/mongo/gt)
-- [In](/packages/mongo/in)
+<div class="related-chips">
+<a class="related-chip" href="/packages/mongo/eq">Eq</a><a class="related-chip" href="/packages/mongo/gt">Gt</a><a class="related-chip" href="/packages/mongo/in">In</a>
+</div>
 
 ← [Back to mongo package overview](/packages/mongo/)

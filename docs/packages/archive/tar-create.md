@@ -2,21 +2,23 @@
 title: "TarCreate"
 package: "archive"
 import: "github.com/sahilkhaire/gox/archive"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: archiver</span><span class="api-badge import">github.com/sahilkhaire/gox/archive</span></div>
-# TarCreate
-
+<SymbolHeader pkg="archive" title="TarCreate" node="archiver" import-path="github.com/sahilkhaire/gox/archive" />
 ## Overview
 
 TarCreate builds a gzip-compressed tar archive.
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func TarCreate(files map[string][]byte) ([]byte, error)
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -27,8 +29,7 @@ func TarCreate(files map[string][]byte) ([]byte, error)
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+// archive/zip or archive/tar from stdlib
 ```
 
 ```go [gox]
@@ -40,18 +41,10 @@ _ = archive.TarCreate(/* args */)
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [TarExtract](/packages/archive/tar-extract)
-- [ZipCreate](/packages/archive/zip-create)
-- [ZipCreateEntries](/packages/archive/zip-create-entries)
+<div class="related-chips">
+<a class="related-chip" href="/packages/archive/tar-extract">TarExtract</a><a class="related-chip" href="/packages/archive/zip-create">ZipCreate</a><a class="related-chip" href="/packages/archive/zip-create-entries">ZipCreateEntries</a>
+</div>
 
 ← [Back to archive package overview](/packages/archive/)

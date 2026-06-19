@@ -2,21 +2,23 @@
 title: "Set.Union"
 package: "set"
 import: "github.com/sahilkhaire/gox/set"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: Set</span><span class="api-badge import">github.com/sahilkhaire/gox/set</span></div>
-# Set.Union
-
+<SymbolHeader pkg="set" title="Set.Union" node="Set" import-path="github.com/sahilkhaire/gox/set" />
 ## Overview
 
 Union returns elements in a or b.
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func Union[T comparable](a, b Set[T]) Set[T]
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -27,8 +29,7 @@ new Set([...a, ...b]);
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+// Iterate maps/sets manually
 ```
 
 ```go [gox]
@@ -39,18 +40,10 @@ u := set.Union(a, b)
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Set.Difference](/packages/set/set-difference)
-- [Set.Intersection](/packages/set/set-intersection)
-- [Set.New](/packages/set/set-new)
+<div class="related-chips">
+<a class="related-chip" href="/packages/set/set-difference">Set.Difference</a><a class="related-chip" href="/packages/set/set-intersection">Set.Intersection</a><a class="related-chip" href="/packages/set/set-new">Set.New</a>
+</div>
 
 ← [Back to set package overview](/packages/set/)

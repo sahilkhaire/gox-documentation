@@ -3,23 +3,25 @@ title: "User.UserInfo"
 package: "osutil"
 import: "github.com/sahilkhaire/gox/osutil"
 node: "os.userInfo()"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: os.userInfo()</span><span class="api-badge import">github.com/sahilkhaire/gox/osutil</span></div>
-# User.UserInfo
-
+<SymbolHeader pkg="osutil" title="User.UserInfo" node="os.userInfo()" import-path="github.com/sahilkhaire/gox/osutil" />
 ## Overview
 
-Maps the Node.js pattern `os.userInfo()` to gox `osutil.UserInfo()`.
+UserInfo returns the current user.
 
 **Node.js equivalent:** `os.userInfo()`
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func UserInfo() (User, error)
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -31,7 +33,7 @@ os.userInfo()
 
 ```go [Standard Go]
 // Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+// See package overview for escape hatches.
 ```
 
 ```go [gox]
@@ -51,13 +53,5 @@ import "github.com/sahilkhaire/gox/osutil"
 
 info, err := UserInfo()
 ```
-
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
 
 ← [Back to osutil package overview](/packages/osutil/)

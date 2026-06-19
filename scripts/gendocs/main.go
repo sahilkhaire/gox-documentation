@@ -21,7 +21,7 @@ import (
 )
 
 const modulePath = "github.com/sahilkhaire/gox"
-const docVersion = "7"
+const docVersion = "11"
 
 var packageGroups = []struct {
 	label    string
@@ -49,24 +49,13 @@ var packageNodeAnalog = map[string]string{
 	"exec": "child_process", "osutil": "os",
 }
 
-var packageQuickStart = map[string]string{
-	"cond":     "label := cond.If(score >= 60, \"pass\", \"fail\")",
-	"slice":    "evens := slice.Filter(nums, func(n int) bool { return n%2 == 0 })",
-	"maputil":  "picked := maputil.Pick(cfg, \"host\", \"port\")",
-	"http":     "app := goxhttp.New()\napp.Get(\"/health\", func(c *goxhttp.Ctx) error {\n    return c.JSON(200, map[string]string{\"status\": \"ok\"})\n})",
-	"client":   "res, err := client.Get(ctx, \"https://api.example.com/users\")",
-	"env":      "port := env.Get(\"PORT\", \"8080\")",
-	"db":       "row, err := db.From(\"users\").WhereEq(\"id\", id).First(ctx, &user)",
-	"validate": "if err := validate.Validate(&user); err != nil { /* return 400 */ }",
-	"jwt":      "token, err := jwt.Sign(claims, secret, jwt.SignOptions{ExpiresIn: time.Hour})",
-}
-
 type symbolDoc struct {
 	Pkg       string
 	Name      string
 	Kind      string // func, type, const, var, method
 	Signature string
 	Summary   string
+	Doc       string
 	Node      string
 	Receiver  string
 	Slug      string
@@ -121,9 +110,7 @@ func main() {
 				if err := writePackageIndex(packagesDir, pkgName, pkgDocs, syms); err != nil {
 					fatal(err)
 				}
-				if err := writeCookbookPage(packagesDir, pkgName); err != nil {
-					fatal(err)
-				}
+				removeCookbookPage(packagesDir, pkgName)
 			}
 			for _, sym := range syms {
 				sym.Node = nodeMap.lookup(pkgName, sym.Name, sym.Receiver)
@@ -144,9 +131,6 @@ func main() {
 			}
 			sidebar.WriteString(fmt.Sprintf("      {\n        text: '%s',\n        collapsed: true,\n        items: [\n", pkgName))
 			sidebar.WriteString(fmt.Sprintf("          { text: 'Overview', link: '/packages/%s/' },\n", pkgName))
-			if hasCookbook(pkgName) {
-				sidebar.WriteString(fmt.Sprintf("          { text: '📖 Cookbook', link: '/packages/%s/cookbook' },\n", pkgName))
-			}
 			for _, sym := range syms {
 				label := sym.Name
 				if sym.Kind == "method" {
@@ -225,20 +209,20 @@ func loadPackage(goxRoot, pkgName string) (*doc.Package, []symbolDoc, error) {
 	for _, fn := range apkg.Funcs {
 		syms = append(syms, symbolDoc{
 			Pkg: pkgName, Name: fn.Name, Kind: "func",
-			Signature: formatNode(fset, fn.Decl), Summary: firstSentence(fn.Doc),
+			Signature: formatNode(fset, fn.Decl), Summary: firstSentence(fn.Doc), Doc: strings.TrimSpace(fn.Doc),
 			Slug: slugify(fn.Name),
 		})
 	}
 	for _, t := range apkg.Types {
 		syms = append(syms, symbolDoc{
 			Pkg: pkgName, Name: t.Name, Kind: "type",
-			Signature: formatNode(fset, t.Decl), Summary: firstSentence(t.Doc),
+			Signature: formatNode(fset, t.Decl), Summary: firstSentence(t.Doc), Doc: strings.TrimSpace(t.Doc),
 			Slug: slugify(t.Name),
 		})
 		for _, m := range t.Funcs {
 			syms = append(syms, symbolDoc{
 				Pkg: pkgName, Name: m.Name, Kind: "method", Receiver: t.Name,
-				Signature: formatNode(fset, m.Decl), Summary: firstSentence(m.Doc),
+				Signature: formatNode(fset, m.Decl), Summary: firstSentence(m.Doc), Doc: strings.TrimSpace(m.Doc),
 				Slug: slugify(t.Name + "-" + m.Name),
 			})
 		}
@@ -247,7 +231,7 @@ func loadPackage(goxRoot, pkgName string) (*doc.Package, []symbolDoc, error) {
 		for _, spec := range c.Names {
 			syms = append(syms, symbolDoc{
 				Pkg: pkgName, Name: spec, Kind: "const",
-				Signature: "const " + spec, Summary: firstSentence(c.Doc),
+				Signature: "const " + spec, Summary: firstSentence(c.Doc), Doc: strings.TrimSpace(c.Doc),
 				Slug: slugify(spec),
 			})
 		}
@@ -256,7 +240,7 @@ func loadPackage(goxRoot, pkgName string) (*doc.Package, []symbolDoc, error) {
 		for _, spec := range v.Names {
 			syms = append(syms, symbolDoc{
 				Pkg: pkgName, Name: spec, Kind: "var",
-				Signature: "var " + spec, Summary: firstSentence(v.Doc),
+				Signature: "var " + spec, Summary: firstSentence(v.Doc), Doc: strings.TrimSpace(v.Doc),
 				Slug: slugify(spec),
 			})
 		}
@@ -304,7 +288,8 @@ func writePackageIndex(dir, pkgName string, apkg *doc.Package, syms []symbolDoc)
 	b.WriteString(fmt.Sprintf("package: %q\n", pkgName))
 	b.WriteString(fmt.Sprintf("gox-doc-version: %q\n", docVersion))
 	b.WriteString("---\n\n")
-	b.WriteString(writePackageHeroHTML(pkgName, analog, importPath, subtitle))
+	b.WriteString(writePackageOverviewComponent(pkgName, analog, importPath, subtitle, len(syms)))
+	b.WriteString(writeFeaturedSection(pkgName))
 
 	if pkgName == "time" {
 		b.WriteString("::: warning Package identifier\n")
@@ -312,20 +297,25 @@ func writePackageIndex(dir, pkgName string, apkg *doc.Package, syms []symbolDoc)
 		b.WriteString(":::\n\n")
 	}
 
+	b.WriteString(writeUseCasesSection(pkgName))
+	b.WriteString(writeNpmGoxSection(pkgName, npmRows[pkgName]))
+
 	if qs, ok := packageQuickStart[pkgName]; ok {
 		b.WriteString("## Quick start\n\n")
-		b.WriteString("A minimal example to get going:\n\n")
+		b.WriteString("Copy-paste a minimal example:\n\n")
 		b.WriteString("```go\nimport \"" + importPath + "\"\n\n" + qs + "\n```\n\n")
 	}
 	if hasCookbook(pkgName) {
 		b.WriteString(fmt.Sprintf("::: tip Full cookbook\nSee the [**%s cookbook**](/packages/%s/cookbook) for multi-step recipes and real-world patterns.\n:::\n\n", pkgName, pkgName))
 	}
-
-	b.WriteString("## What's in this package\n\n")
-	if analog != "" {
-		b.WriteString("If you have used **" + analog + "** in Node.js, this package is your starting point. ")
+	narr := packageNarratives[pkgName]
+	if narr.MigrationLink != "" {
+		b.WriteString(fmt.Sprintf("::: info Migration guide\nComing from Node.js? Read the [**migration guide**](%s) for side-by-side patterns.\n:::\n\n", narr.MigrationLink))
 	}
-	b.WriteString(fmt.Sprintf("Browse **%d documented symbols** below — each page includes Node.js, standard Go, and gox side-by-side examples.\n\n", len(syms)))
+
+	b.WriteString("## API reference\n\n")
+	b.WriteString(fmt.Sprintf("Browse **%d documented symbols** — each page includes Node.js, standard Go, and gox side-by-side examples.\n\n", len(syms)))
+	b.WriteString("<SymbolFilter placeholder=\"Filter symbols…\" />\n\n")
 
 	// Group symbols by kind
 	groups := map[string][]symbolDoc{}
@@ -341,15 +331,21 @@ func writePackageIndex(dir, pkgName string, apkg *doc.Package, syms []symbolDoc)
 			continue
 		}
 		b.WriteString("### " + labels[kind] + "\n\n")
-		b.WriteString("<table class=\"symbol-table\"><thead><tr><th>Symbol</th><th>Kind</th><th>Summary</th></tr></thead><tbody>\n")
+		b.WriteString("<table class=\"symbol-table\"><thead><tr><th>Symbol</th><th>Node.js</th><th>Kind</th><th>Summary</th></tr></thead><tbody>\n")
 		for _, s := range items {
 			link := fmt.Sprintf("/packages/%s/%s", pkgName, s.Slug)
 			label := s.Name
 			if s.Kind == "method" {
 				label = s.Receiver + "." + s.Name
 			}
-			b.WriteString(fmt.Sprintf("<tr><td><a href=%q>%s</a></td><td><span class=\"kind-pill\">%s</span></td><td>%s</td></tr>\n",
-				link, label, s.Kind, escapeTable(escapeHTML(s.Summary))))
+			nodeCell := s.Node
+			if nodeCell == "" {
+				nodeCell = "—"
+			} else {
+				nodeCell = escapeHTML(nodeCell)
+			}
+			b.WriteString(fmt.Sprintf("<tr><td><a href=%q>%s</a></td><td><code class=\"node-cell\">%s</code></td><td><span class=\"kind-pill\">%s</span></td><td>%s</td></tr>\n",
+				link, label, nodeCell, s.Kind, escapeTable(escapeHTML(s.Summary))))
 		}
 		b.WriteString("</tbody></table>\n\n")
 	}
@@ -385,24 +381,22 @@ func writeSymbolPage(path string, sym symbolDoc, apkg *doc.Package) error {
 	if nodeLabel == "" {
 		nodeLabel = packageNodeAnalog[sym.Pkg]
 	}
-	b.WriteString(writeAPIMetaHTML(sym.Pkg, nodeLabel, modulePath+"/"+sym.Pkg))
+	b.WriteString(writeSymbolHeaderHTML(sym.Pkg, title, nodeLabel, modulePath+"/"+sym.Pkg))
 	b.WriteString("\n")
-
-	b.WriteString(fmt.Sprintf("# %s\n\n", title))
 
 	// Overview
 	b.WriteString("## Overview\n\n")
-	if hasEnrich && e.Description != "" {
-		b.WriteString(collapseWS(e.Description) + "\n\n")
-	} else if sym.Summary != "" {
-		b.WriteString(escapeHTML(sym.Summary) + "\n\n")
+	if desc := buildOverviewDescription(sym, e, hasEnrich); desc != "" {
+		b.WriteString(desc + "\n\n")
 	}
-	if sym.Node != "" {
+	if sym.Node != "" && (!hasEnrich || e.Description == "") {
 		b.WriteString("**Node.js equivalent:** `" + sym.Node + "`\n\n")
 	}
 
 	b.WriteString("## Signature\n\n")
+	b.WriteString("<div class=\"signature-block\">\n\n")
 	b.WriteString("```go\n" + strings.TrimSpace(sym.Signature) + "\n```\n\n")
+	b.WriteString("</div>\n\n")
 
 	// Compare section with code-group
 	b.WriteString("## Compare: Node.js · Standard Go · gox\n\n")
@@ -428,17 +422,13 @@ func writeSymbolPage(path string, sym symbolDoc, apkg *doc.Package) error {
 		b.WriteString("```go\nimport \"" + modulePath + "/" + sym.Pkg + "\"\n\n" + e.Example + "\n```\n\n")
 	}
 
-	// Tips
-	b.WriteString("## Tips\n\n")
 	if hasEnrich && e.Tips != "" {
+		b.WriteString("## Tips\n\n")
 		b.WriteString(e.Tips + "\n\n")
 	} else if hasEnrich && e.When != "" {
+		b.WriteString("## Tips\n\n")
 		b.WriteString("::: tip When to use gox\n")
 		b.WriteString(e.When + "\n")
-		b.WriteString(":::\n\n")
-	} else {
-		b.WriteString("::: tip When to use gox\n")
-		b.WriteString(whenToUse(sym) + "\n")
 		b.WriteString(":::\n\n")
 	}
 
@@ -451,38 +441,31 @@ func writeSymbolPage(path string, sym symbolDoc, apkg *doc.Package) error {
 	related := relatedSymbols(sym, apkg)
 	if len(related) > 0 {
 		b.WriteString("## Related APIs\n\n")
+		b.WriteString(`<div class="related-chips">` + "\n")
 		for _, r := range related {
 			slug := slugify(r)
 			if strings.Contains(r, ".") {
 				parts := strings.SplitN(r, ".", 2)
 				slug = slugify(parts[0] + "-" + parts[1])
 			}
-			b.WriteString(fmt.Sprintf("- [%s](/packages/%s/%s)\n", r, sym.Pkg, slug))
+			b.WriteString(fmt.Sprintf(`<a class="related-chip" href="/packages/%s/%s">%s</a>`, sym.Pkg, slug, escapeHTML(r)))
 		}
-		b.WriteString("\n")
+		b.WriteString("\n</div>\n\n")
 	}
 	b.WriteString(fmt.Sprintf("← [Back to %s package overview](/packages/%s/)\n", sym.Pkg, sym.Pkg))
 	return os.WriteFile(path, []byte(b.String()), 0o644)
 }
 
-func standardGoCode(sym symbolDoc, e enrichment, ok bool) string {
-	if ok && e.StdGo != "" {
-		return e.StdGo
-	}
-	switch sym.Pkg {
-	case "slice":
-		return "// Manual loop or Go 1.21+ slices package\nfor i, v := range items {\n    // transform v\n}"
-	case "cond":
-		return "if condition {\n    result = a\n} else {\n    result = b\n}"
-	case "http":
-		return "func handler(w http.ResponseWriter, r *http.Request) {\n    json.NewEncoder(w).Encode(data)\n}"
-	case "env":
-		return "v := os.Getenv(\"KEY\")\nif v == \"\" {\n    v = \"default\"\n}"
-	case "fs":
-		return "data, err := os.ReadFile(path)"
-	default:
-		return "// Use the underlying stdlib or driver directly.\n// See package overview for escape hatches (e.g. db.SQL, redis.RDB)."
-	}
+func writeSymbolHeaderHTML(pkg, title, node, importPath string) string {
+	return fmt.Sprintf(`<SymbolHeader pkg="%s" title="%s" node="%s" import-path="%s" />`,
+		escapeAttr(pkg), escapeAttr(title), escapeAttr(node), escapeAttr(importPath))
+}
+
+func escapeAttr(s string) string {
+	s = strings.ReplaceAll(s, "&", "&amp;")
+	s = strings.ReplaceAll(s, `"`, "&quot;")
+	s = strings.ReplaceAll(s, "<", "&lt;")
+	return s
 }
 
 func goxCodeBlock(sym symbolDoc, pkgIdent string, e enrichment, ok bool) string {
@@ -531,10 +514,6 @@ func goxExample(sym symbolDoc, pkgIdent string) string {
 		}
 		return fmt.Sprintf("_ = %s.%s", pkgIdent, name)
 	}
-}
-
-func whenToUse(sym symbolDoc) string {
-	return "- Familiar API if you are migrating from Node.js\n- Typed generics and explicit error handling (idiomatic Go underneath)\n- Consistent naming across the gox toolkit"
 }
 
 func relatedSymbols(sym symbolDoc, apkg *doc.Package) []string {

@@ -3,57 +3,50 @@ title: "Dirname"
 package: "path"
 import: "github.com/sahilkhaire/gox/path"
 node: "path.dirname(p)"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: path.dirname(p)</span><span class="api-badge import">github.com/sahilkhaire/gox/path</span></div>
-# Dirname
-
+<SymbolHeader pkg="path" title="Dirname" node="path.dirname(p)" import-path="github.com/sahilkhaire/gox/path" />
 ## Overview
 
-Maps the Node.js pattern `path.dirname(p)` to gox `path.Dirname(p)`.
+Dirname returns the directory (path.dirname).
 
 **Node.js equivalent:** `path.dirname(p)`
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func Dirname(p string) string
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
 ::: code-group
 
 ```js [Node.js]
-path.dirname(p)
+path.dirname('/foo/bar.txt');
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+dir := filepath.Dir("/foo/bar.txt")
 ```
 
 ```go [gox]
 import "github.com/sahilkhaire/gox/path"
 
-path.Dirname(p)
+dir := path.Dirname("/foo/bar.txt")
 ```
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Basename](/packages/path/basename)
-- [Extname](/packages/path/extname)
-- [IsAbs](/packages/path/is-abs)
+<div class="related-chips">
+<a class="related-chip" href="/packages/path/basename">Basename</a><a class="related-chip" href="/packages/path/extname">Extname</a><a class="related-chip" href="/packages/path/is-abs">IsAbs</a>
+</div>
 
 ← [Back to path package overview](/packages/path/)

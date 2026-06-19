@@ -3,23 +3,25 @@ title: "Set"
 package: "maputil"
 import: "github.com/sahilkhaire/gox/maputil"
 node: "_.set(obj, \"a.b\", v)"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: _.set(obj, "a.b", v)</span><span class="api-badge import">github.com/sahilkhaire/gox/maputil</span></div>
-# Set
-
+<SymbolHeader pkg="maputil" title="Set" node="_.set(obj, &quot;a.b&quot;, v)" import-path="github.com/sahilkhaire/gox/maputil" />
 ## Overview
 
-Maps the Node.js pattern `_.set(obj, "a.b", v)` to gox `maputil.Set(obj, "a.b", v)`.
+Set writes value at dot-separated path, creating intermediate maps (lodash set).
 
 **Node.js equivalent:** `_.set(obj, "a.b", v)`
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func Set(m map[string]any, path string, value any)
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -31,7 +33,7 @@ _.set(obj, "a.b", v)
 
 ```go [Standard Go]
 // Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+// See package overview for escape hatches.
 ```
 
 ```go [gox]
@@ -42,18 +44,10 @@ maputil.Set(obj, "a.b", v)
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Clone](/packages/maputil/clone)
-- [Get](/packages/maputil/get)
-- [Invert](/packages/maputil/invert)
+<div class="related-chips">
+<a class="related-chip" href="/packages/maputil/clone">Clone</a><a class="related-chip" href="/packages/maputil/get">Get</a><a class="related-chip" href="/packages/maputil/invert">Invert</a>
+</div>
 
 ← [Back to maputil package overview](/packages/maputil/)

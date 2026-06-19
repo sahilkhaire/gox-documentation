@@ -2,21 +2,23 @@
 title: "SetDefaultClient"
 package: "client"
 import: "github.com/sahilkhaire/gox/client"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: axios, fetch</span><span class="api-badge import">github.com/sahilkhaire/gox/client</span></div>
-# SetDefaultClient
-
+<SymbolHeader pkg="client" title="SetDefaultClient" node="axios, fetch" import-path="github.com/sahilkhaire/gox/client" />
 ## Overview
 
 SetDefaultClient replaces the client used by Fetch.
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func SetDefaultClient(c *Client)
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -27,8 +29,8 @@ func SetDefaultClient(c *Client)
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+resp, err := http.NewRequestWithContext(ctx, method, url, body)
+client.Do(req)
 ```
 
 ```go [gox]
@@ -38,14 +40,6 @@ import "github.com/sahilkhaire/gox/client"
 _ = client.SetDefaultClient(/* args */)
 ```
 
-:::
-
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
 :::
 
 ← [Back to client package overview](/packages/client/)

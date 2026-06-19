@@ -3,23 +3,25 @@ title: "FindIndex"
 package: "slice"
 import: "github.com/sahilkhaire/gox/slice"
 node: "arr.findIndex(fn)"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: arr.findIndex(fn)</span><span class="api-badge import">github.com/sahilkhaire/gox/slice</span></div>
-# FindIndex
-
+<SymbolHeader pkg="slice" title="FindIndex" node="arr.findIndex(fn)" import-path="github.com/sahilkhaire/gox/slice" />
 ## Overview
 
-Maps the Node.js pattern `arr.findIndex(fn)` to gox `slice.FindIndex(arr, fn)`. Part of the slice package — Node.js analog: lodash / Array.*.
+FindIndex returns the index of the first match, or -1 (Array.findIndex).
 
 **Node.js equivalent:** `arr.findIndex(fn)`
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func FindIndex[T any](in []T, fn func(T) bool) int
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -31,8 +33,8 @@ arr.findIndex(fn)
 
 ```go [Standard Go]
 // Manual loop or Go 1.21+ slices package
-for i, v := range items {
-    // transform v
+for _, v := range items {
+    // transform or filter v
 }
 ```
 
@@ -44,18 +46,10 @@ slice.FindIndex(arr, fn)
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Chunk](/packages/slice/chunk)
-- [Contains](/packages/slice/contains)
-- [Every](/packages/slice/every)
+<div class="related-chips">
+<a class="related-chip" href="/packages/slice/chunk">Chunk</a><a class="related-chip" href="/packages/slice/contains">Contains</a><a class="related-chip" href="/packages/slice/every">Every</a>
+</div>
 
 ← [Back to slice package overview](/packages/slice/)

@@ -3,23 +3,25 @@ title: "TempDir"
 package: "osutil"
 import: "github.com/sahilkhaire/gox/osutil"
 node: "os.tmpdir()"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: os.tmpdir()</span><span class="api-badge import">github.com/sahilkhaire/gox/osutil</span></div>
-# TempDir
-
+<SymbolHeader pkg="osutil" title="TempDir" node="os.tmpdir()" import-path="github.com/sahilkhaire/gox/osutil" />
 ## Overview
 
-Maps the Node.js pattern `os.tmpdir()` to gox `osutil.TempDir()`.
+TempDir returns the default temp directory.
 
 **Node.js equivalent:** `os.tmpdir()`
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func TempDir() string
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -30,8 +32,7 @@ os.tmpdir()
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+val, err := os.TempDir()
 ```
 
 ```go [gox]
@@ -42,18 +43,10 @@ osutil.TempDir()
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Arch](/packages/osutil/arch)
-- [CPUs](/packages/osutil/cp-us)
-- [Homedir](/packages/osutil/homedir)
+<div class="related-chips">
+<a class="related-chip" href="/packages/osutil/arch">Arch</a><a class="related-chip" href="/packages/osutil/cp-us">CPUs</a><a class="related-chip" href="/packages/osutil/homedir">Homedir</a>
+</div>
 
 ← [Back to osutil package overview](/packages/osutil/)

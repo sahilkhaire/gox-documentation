@@ -3,23 +3,25 @@ title: "Clone"
 package: "maputil"
 import: "github.com/sahilkhaire/gox/maputil"
 node: "_.cloneDeep(obj)"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: _.cloneDeep(obj)</span><span class="api-badge import">github.com/sahilkhaire/gox/maputil</span></div>
-# Clone
-
+<SymbolHeader pkg="maputil" title="Clone" node="_.cloneDeep(obj)" import-path="github.com/sahilkhaire/gox/maputil" />
 ## Overview
 
-Maps the Node.js pattern `_.cloneDeep(obj)` to gox `maputil.Clone(obj)`.
+Clone returns a shallow copy of m (lodash clone).
 
 **Node.js equivalent:** `_.cloneDeep(obj)`
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func Clone[K comparable, V any](m map[K]V) map[K]V
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -31,7 +33,7 @@ _.cloneDeep(obj)
 
 ```go [Standard Go]
 // Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+// See package overview for escape hatches.
 ```
 
 ```go [gox]
@@ -42,18 +44,10 @@ maputil.Clone(obj)
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Get](/packages/maputil/get)
-- [Invert](/packages/maputil/invert)
-- [Keys](/packages/maputil/keys)
+<div class="related-chips">
+<a class="related-chip" href="/packages/maputil/get">Get</a><a class="related-chip" href="/packages/maputil/invert">Invert</a><a class="related-chip" href="/packages/maputil/keys">Keys</a>
+</div>
 
 ← [Back to maputil package overview](/packages/maputil/)

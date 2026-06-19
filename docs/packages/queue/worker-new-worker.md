@@ -2,21 +2,23 @@
 title: "Worker.NewWorker"
 package: "queue"
 import: "github.com/sahilkhaire/gox/queue"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: bull</span><span class="api-badge import">github.com/sahilkhaire/gox/queue</span></div>
-# Worker.NewWorker
-
+<SymbolHeader pkg="queue" title="Worker.NewWorker" node="bull" import-path="github.com/sahilkhaire/gox/queue" />
 ## Overview
 
 NewWorker creates a worker that dispatches to mux.
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func NewWorker(redisAddr string, mux *ServeMux) *Worker
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -27,8 +29,7 @@ func NewWorker(redisAddr string, mux *ServeMux) *Worker
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+// hibiken/asynq client + worker
 ```
 
 ```go [gox]
@@ -38,14 +39,6 @@ var v Worker
 v.NewWorker(/* args */)
 ```
 
-:::
-
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
 :::
 
 ← [Back to queue package overview](/packages/queue/)

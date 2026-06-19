@@ -2,21 +2,23 @@
 title: "APIKey"
 package: "auth"
 import: "github.com/sahilkhaire/gox/auth"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: passport</span><span class="api-badge import">github.com/sahilkhaire/gox/auth</span></div>
-# APIKey
-
+<SymbolHeader pkg="auth" title="APIKey" node="passport" import-path="github.com/sahilkhaire/gox/auth" />
 ## Overview
 
 APIKey validates a header API key and stores it on the request context.
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func APIKey(header string, opts APIKeyOpts) goxhttp.Middleware
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -27,8 +29,7 @@ func APIKey(header string, opts APIKeyOpts) goxhttp.Middleware
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+// net/http middleware checking Authorization header
 ```
 
 ```go [gox]
@@ -40,18 +41,10 @@ _ = auth.APIKey(/* args */)
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Basic](/packages/auth/basic)
-- [Bearer](/packages/auth/bearer)
-- [GetAPIKey](/packages/auth/get-api-key)
+<div class="related-chips">
+<a class="related-chip" href="/packages/auth/basic">Basic</a><a class="related-chip" href="/packages/auth/bearer">Bearer</a><a class="related-chip" href="/packages/auth/get-api-key">GetAPIKey</a>
+</div>
 
 ← [Back to auth package overview](/packages/auth/)

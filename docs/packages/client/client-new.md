@@ -3,23 +3,25 @@ title: "Client.New"
 package: "client"
 import: "github.com/sahilkhaire/gox/client"
 node: "axios.create()"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: axios.create()</span><span class="api-badge import">github.com/sahilkhaire/gox/client</span></div>
-# Client.New
-
+<SymbolHeader pkg="client" title="Client.New" node="axios.create()" import-path="github.com/sahilkhaire/gox/client" />
 ## Overview
 
-Maps the Node.js pattern `axios.create()` to gox `client.New()`. Part of the client package — Node.js analog: axios.
+New creates a Client with optional timeout.
 
 **Node.js equivalent:** `axios.create()`
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func New() *Client
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -30,8 +32,8 @@ axios.create()
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+resp, err := http.NewRequestWithContext(ctx, method, url, body)
+client.Do(req)
 ```
 
 ```go [gox]
@@ -40,14 +42,6 @@ import "github.com/sahilkhaire/gox/client"
 client.New()
 ```
 
-:::
-
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
 :::
 
 ← [Back to client package overview](/packages/client/)

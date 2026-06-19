@@ -3,23 +3,25 @@ title: "Inc"
 package: "semver"
 import: "github.com/sahilkhaire/gox/semver"
 node: "semver.inc(v, 'minor')"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: semver.inc(v, 'minor')</span><span class="api-badge import">github.com/sahilkhaire/gox/semver</span></div>
-# Inc
-
+<SymbolHeader pkg="semver" title="Inc" node="semver.inc(v, 'minor')" import-path="github.com/sahilkhaire/gox/semver" />
 ## Overview
 
-Maps the Node.js pattern `semver.inc(v, 'minor')` to gox `semver.Inc(v, part)`.
+Inc increments part (major, minor, patch) and returns the new version string.
 
 **Node.js equivalent:** `semver.inc(v, 'minor')`
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func Inc(version, part string) (string, error)
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -30,8 +32,7 @@ semver.inc(v, 'minor')
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+// github.com/Masterminds/semver/v3
 ```
 
 ```go [gox]
@@ -42,17 +43,10 @@ semver.Inc(v, part)
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Compare](/packages/semver/compare)
-- [Satisfies](/packages/semver/satisfies)
+<div class="related-chips">
+<a class="related-chip" href="/packages/semver/compare">Compare</a><a class="related-chip" href="/packages/semver/satisfies">Satisfies</a>
+</div>
 
 ← [Back to semver package overview](/packages/semver/)

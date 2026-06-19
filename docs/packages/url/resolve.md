@@ -3,23 +3,25 @@ title: "Resolve"
 package: "url"
 import: "github.com/sahilkhaire/gox/url"
 node: "url.resolve(base, rel)"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: url.resolve(base, rel)</span><span class="api-badge import">github.com/sahilkhaire/gox/url</span></div>
-# Resolve
-
+<SymbolHeader pkg="url" title="Resolve" node="url.resolve(base, rel)" import-path="github.com/sahilkhaire/gox/url" />
 ## Overview
 
-Maps the Node.js pattern `url.resolve(base, rel)` to gox `url.Resolve(base, rel)`.
+Resolve resolves relative against base (url.resolve).
 
 **Node.js equivalent:** `url.resolve(base, rel)`
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func Resolve(base, relative string) (string, error)
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -30,8 +32,7 @@ url.resolve(base, rel)
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+u := &url.URL{Scheme: "https", Host: host, Path: path}
 ```
 
 ```go [gox]
@@ -42,18 +43,10 @@ url.Resolve(base, rel)
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [EncodeQuery](/packages/url/encode-query)
-- [Format](/packages/url/format)
-- [ParseQuery](/packages/url/parse-query)
+<div class="related-chips">
+<a class="related-chip" href="/packages/url/encode-query">EncodeQuery</a><a class="related-chip" href="/packages/url/format">Format</a><a class="related-chip" href="/packages/url/parse-query">ParseQuery</a>
+</div>
 
 ← [Back to url package overview](/packages/url/)

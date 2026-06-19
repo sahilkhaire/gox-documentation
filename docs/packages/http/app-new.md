@@ -3,23 +3,23 @@ title: "App.New"
 package: "http"
 import: "github.com/sahilkhaire/gox/http"
 node: "express()"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: express()</span><span class="api-badge import">github.com/sahilkhaire/gox/http</span></div>
-# App.New
-
+<SymbolHeader pkg="http" title="App.New" node="express()" import-path="github.com/sahilkhaire/gox/http" />
 ## Overview
 
 Creates a new Express-style application with chi router underneath. Register routes with `Get`/`Post`/… and global middleware with `Use`.
 
-**Node.js equivalent:** `express()`
-
 ## Signature
+
+<div class="signature-block">
 
 ```go
 func New() *App
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 

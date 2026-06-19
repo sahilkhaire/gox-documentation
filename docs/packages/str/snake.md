@@ -3,57 +3,50 @@ title: "Snake"
 package: "str"
 import: "github.com/sahilkhaire/gox/str"
 node: "snake_case(s)"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: snake_case(s)</span><span class="api-badge import">github.com/sahilkhaire/gox/str</span></div>
-# Snake
-
+<SymbolHeader pkg="str" title="Snake" node="snake_case(s)" import-path="github.com/sahilkhaire/gox/str" />
 ## Overview
 
-Maps the Node.js pattern `snake_case(s)` to gox `str.Snake(s)`.
+Snake converts to snake_case.
 
 **Node.js equivalent:** `snake_case(s)`
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func Snake(s string) string
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
 ::: code-group
 
 ```js [Node.js]
-snake_case(s)
+_.snakeCase('FooBar');
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+s = strings.ToLower(strings.ReplaceAll(name, " ", "_"))
 ```
 
 ```go [gox]
 import "github.com/sahilkhaire/gox/str"
 
-str.Snake(s)
+s := str.Snake("FooBar")
 ```
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Camel](/packages/str/camel)
-- [Capitalize](/packages/str/capitalize)
-- [IsBlank](/packages/str/is-blank)
+<div class="related-chips">
+<a class="related-chip" href="/packages/str/camel">Camel</a><a class="related-chip" href="/packages/str/capitalize">Capitalize</a><a class="related-chip" href="/packages/str/is-blank">IsBlank</a>
+</div>
 
 ← [Back to str package overview](/packages/str/)

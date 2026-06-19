@@ -1,7 +1,7 @@
 ---
 title: "redis Cookbook"
 package: "redis"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
 <div class="api-meta"><span class="api-badge node">Node: ioredis</span><span class="api-badge import">github.com/sahilkhaire/gox/redis</span></div>

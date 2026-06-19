@@ -2,21 +2,23 @@
 title: "GetBasicUser"
 package: "auth"
 import: "github.com/sahilkhaire/gox/auth"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: passport</span><span class="api-badge import">github.com/sahilkhaire/gox/auth</span></div>
-# GetBasicUser
-
+<SymbolHeader pkg="auth" title="GetBasicUser" node="passport" import-path="github.com/sahilkhaire/gox/auth" />
 ## Overview
 
 GetBasicUser returns the username set by Basic middleware.
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func GetBasicUser(c *goxhttp.Ctx) string
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -27,8 +29,7 @@ func GetBasicUser(c *goxhttp.Ctx) string
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+// net/http middleware checking Authorization header
 ```
 
 ```go [gox]
@@ -40,18 +41,10 @@ _ = auth.GetBasicUser(/* args */)
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [APIKey](/packages/auth/api-key)
-- [Basic](/packages/auth/basic)
-- [Bearer](/packages/auth/bearer)
+<div class="related-chips">
+<a class="related-chip" href="/packages/auth/api-key">APIKey</a><a class="related-chip" href="/packages/auth/basic">Basic</a><a class="related-chip" href="/packages/auth/bearer">Bearer</a>
+</div>
 
 ← [Back to auth package overview](/packages/auth/)

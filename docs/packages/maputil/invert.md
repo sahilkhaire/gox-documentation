@@ -3,23 +3,25 @@ title: "Invert"
 package: "maputil"
 import: "github.com/sahilkhaire/gox/maputil"
 node: "_.invert(obj)"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: _.invert(obj)</span><span class="api-badge import">github.com/sahilkhaire/gox/maputil</span></div>
-# Invert
-
+<SymbolHeader pkg="maputil" title="Invert" node="_.invert(obj)" import-path="github.com/sahilkhaire/gox/maputil" />
 ## Overview
 
-Maps the Node.js pattern `_.invert(obj)` to gox `maputil.Invert(obj)`.
+Invert swaps keys and values; duplicate values overwrite (lodash invert).
 
 **Node.js equivalent:** `_.invert(obj)`
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func Invert[K, V comparable](m map[K]V) map[V]K
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -31,7 +33,7 @@ _.invert(obj)
 
 ```go [Standard Go]
 // Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+// See package overview for escape hatches.
 ```
 
 ```go [gox]
@@ -42,18 +44,10 @@ maputil.Invert(obj)
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Clone](/packages/maputil/clone)
-- [Get](/packages/maputil/get)
-- [Keys](/packages/maputil/keys)
+<div class="related-chips">
+<a class="related-chip" href="/packages/maputil/clone">Clone</a><a class="related-chip" href="/packages/maputil/get">Get</a><a class="related-chip" href="/packages/maputil/keys">Keys</a>
+</div>
 
 ← [Back to maputil package overview](/packages/maputil/)

@@ -3,23 +3,25 @@ title: "Stat"
 package: "fs"
 import: "github.com/sahilkhaire/gox/fs"
 node: "fs.stat(path)"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: fs.stat(path)</span><span class="api-badge import">github.com/sahilkhaire/gox/fs</span></div>
-# Stat
-
+<SymbolHeader pkg="fs" title="Stat" node="fs.stat(path)" import-path="github.com/sahilkhaire/gox/fs" />
 ## Overview
 
-Maps the Node.js pattern `fs.stat(path)` to gox `fs.Stat(ctx, path)`.
+Stat returns file info (fs.promises.stat).
 
 **Node.js equivalent:** `fs.stat(path)`
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func Stat(ctx context.Context, path string) (os.FileInfo, error)
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -30,7 +32,7 @@ fs.stat(path)
 ```
 
 ```go [Standard Go]
-data, err := os.ReadFile(path)
+// os / io helpers — e.g. os.stat
 ```
 
 ```go [gox]
@@ -41,18 +43,10 @@ fs.Stat(ctx, path)
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Copy](/packages/fs/copy)
-- [Exists](/packages/fs/exists)
-- [Mkdir](/packages/fs/mkdir)
+<div class="related-chips">
+<a class="related-chip" href="/packages/fs/copy">Copy</a><a class="related-chip" href="/packages/fs/exists">Exists</a><a class="related-chip" href="/packages/fs/mkdir">Mkdir</a>
+</div>
 
 ← [Back to fs package overview](/packages/fs/)

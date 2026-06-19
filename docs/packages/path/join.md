@@ -3,12 +3,10 @@ title: "Join"
 package: "path"
 import: "github.com/sahilkhaire/gox/path"
 node: "path.join(...)"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: path.join(...)</span><span class="api-badge import">github.com/sahilkhaire/gox/path</span></div>
-# Join
-
+<SymbolHeader pkg="path" title="Join" node="path.join(...)" import-path="github.com/sahilkhaire/gox/path" />
 ## Overview
 
 Join joins path segments (path.join).
@@ -17,9 +15,13 @@ Join joins path segments (path.join).
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func Join(elem ...string) string
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -43,16 +45,12 @@ p := path.Join("a", "b", "c")
 
 ## Tips
 
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
+Uses OS-specific separators via filepath underneath.
 
 ## Related APIs
 
-- [Basename](/packages/path/basename)
-- [Dirname](/packages/path/dirname)
-- [Extname](/packages/path/extname)
+<div class="related-chips">
+<a class="related-chip" href="/packages/path/basename">Basename</a><a class="related-chip" href="/packages/path/dirname">Dirname</a><a class="related-chip" href="/packages/path/extname">Extname</a>
+</div>
 
 ← [Back to path package overview](/packages/path/)

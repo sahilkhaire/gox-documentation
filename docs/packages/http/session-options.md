@@ -2,17 +2,17 @@
 title: "SessionOptions"
 package: "http"
 import: "github.com/sahilkhaire/gox/http"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: express, cors, helmet, morgan</span><span class="api-badge import">github.com/sahilkhaire/gox/http</span></div>
-# SessionOptions
-
+<SymbolHeader pkg="http" title="SessionOptions" node="express, cors, helmet, morgan" import-path="github.com/sahilkhaire/gox/http" />
 ## Overview
 
 SessionOptions configures session middleware.
 
 ## Signature
+
+<div class="signature-block">
 
 ```go
 type SessionOptions struct {
@@ -24,6 +24,8 @@ type SessionOptions struct {
 }
 ```
 
+</div>
+
 ## Compare: Node.js · Standard Go · gox
 
 ::: code-group
@@ -34,7 +36,7 @@ type SessionOptions struct {
 
 ```go [Standard Go]
 func handler(w http.ResponseWriter, r *http.Request) {
-    json.NewEncoder(w).Encode(data)
+    // chi or net/http
 }
 ```
 
@@ -46,16 +48,10 @@ _ = http.SessionOptions
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [SaveUploadedFile](/packages/http/save-uploaded-file)
+<div class="related-chips">
+<a class="related-chip" href="/packages/http/save-uploaded-file">SaveUploadedFile</a>
+</div>
 
 ← [Back to http package overview](/packages/http/)

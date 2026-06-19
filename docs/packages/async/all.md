@@ -3,12 +3,10 @@ title: "All"
 package: "async"
 import: "github.com/sahilkhaire/gox/async"
 node: "Promise.all([a(), b()])"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: Promise.all([a(), b()])</span><span class="api-badge import">github.com/sahilkhaire/gox/async</span></div>
-# All
-
+<SymbolHeader pkg="async" title="All" node="Promise.all([a(), b()])" import-path="github.com/sahilkhaire/gox/async" />
 ## Overview
 
 All runs tasks concurrently and returns when all complete or ctx is cancelled.
@@ -17,9 +15,13 @@ All runs tasks concurrently and returns when all complete or ctx is cancelled.
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func All(ctx context.Context, tasks ...func(context.Context) error) error
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -42,18 +44,10 @@ a, b, err := async.All(ctx, fetchA, fetchB)
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [After](/packages/async/after)
-- [Race](/packages/async/race)
-- [Retry](/packages/async/retry)
+<div class="related-chips">
+<a class="related-chip" href="/packages/async/after">After</a><a class="related-chip" href="/packages/async/race">Race</a><a class="related-chip" href="/packages/async/retry">Retry</a>
+</div>
 
 ← [Back to async package overview](/packages/async/)

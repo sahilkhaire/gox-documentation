@@ -3,23 +3,25 @@ title: "Format"
 package: "url"
 import: "github.com/sahilkhaire/gox/url"
 node: "url.format(obj)"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: url.format(obj)</span><span class="api-badge import">github.com/sahilkhaire/gox/url</span></div>
-# Format
-
+<SymbolHeader pkg="url" title="Format" node="url.format(obj)" import-path="github.com/sahilkhaire/gox/url" />
 ## Overview
 
-Maps the Node.js pattern `url.format(obj)` to gox `url.Format(u)`.
+Format returns the serialized URL (url.format).
 
 **Node.js equivalent:** `url.format(obj)`
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func Format(u *URL) string
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -30,8 +32,7 @@ url.format(obj)
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+u := &url.URL{Scheme: "https", Host: host, Path: path}
 ```
 
 ```go [gox]
@@ -42,18 +43,10 @@ url.Format(u)
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [EncodeQuery](/packages/url/encode-query)
-- [ParseQuery](/packages/url/parse-query)
-- [Resolve](/packages/url/resolve)
+<div class="related-chips">
+<a class="related-chip" href="/packages/url/encode-query">EncodeQuery</a><a class="related-chip" href="/packages/url/parse-query">ParseQuery</a><a class="related-chip" href="/packages/url/resolve">Resolve</a>
+</div>
 
 ← [Back to url package overview](/packages/url/)

@@ -2,21 +2,23 @@
 title: "EventStream.SSE"
 package: "http"
 import: "github.com/sahilkhaire/gox/http"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: express, cors, helmet, morgan</span><span class="api-badge import">github.com/sahilkhaire/gox/http</span></div>
-# EventStream.SSE
-
+<SymbolHeader pkg="http" title="EventStream.SSE" node="express, cors, helmet, morgan" import-path="github.com/sahilkhaire/gox/http" />
 ## Overview
 
 SSE prepares the response for server-sent events.
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func SSE(c *Ctx) (*EventStream, error)
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -28,7 +30,7 @@ func SSE(c *Ctx) (*EventStream, error)
 
 ```go [Standard Go]
 func handler(w http.ResponseWriter, r *http.Request) {
-    json.NewEncoder(w).Encode(data)
+    // chi or net/http
 }
 ```
 
@@ -39,14 +41,6 @@ var v EventStream
 v.SSE(/* args */)
 ```
 
-:::
-
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
 :::
 
 ← [Back to http package overview](/packages/http/)

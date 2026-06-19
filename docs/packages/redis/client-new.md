@@ -3,12 +3,10 @@ title: "Client.New"
 package: "redis"
 import: "github.com/sahilkhaire/gox/redis"
 node: "new Redis()"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: new Redis()</span><span class="api-badge import">github.com/sahilkhaire/gox/redis</span></div>
-# Client.New
-
+<SymbolHeader pkg="redis" title="Client.New" node="new Redis()" import-path="github.com/sahilkhaire/gox/redis" />
 ## Overview
 
 New connects to addr (host:port).
@@ -17,9 +15,13 @@ New connects to addr (host:port).
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func New(addr string) *Client
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -30,8 +32,8 @@ const redis = new Redis();
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+rdb := redis.NewClient(&redis.Options{Addr: addr})
+val, err := rdb.Get(ctx, key).Result()
 ```
 
 ```go [gox]
@@ -42,16 +44,10 @@ rdb, err := redis.New("localhost:6379")
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Client.NewFromClient](/packages/redis/client-new-from-client)
+<div class="related-chips">
+<a class="related-chip" href="/packages/redis/client-new-from-client">Client.NewFromClient</a>
+</div>
 
 ← [Back to redis package overview](/packages/redis/)

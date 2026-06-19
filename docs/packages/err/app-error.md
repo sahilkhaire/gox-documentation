@@ -2,17 +2,17 @@
 title: "AppError"
 package: "err"
 import: "github.com/sahilkhaire/gox/err"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: http-errors</span><span class="api-badge import">github.com/sahilkhaire/gox/err</span></div>
-# AppError
-
+<SymbolHeader pkg="err" title="AppError" node="http-errors" import-path="github.com/sahilkhaire/gox/err" />
 ## Overview
 
 AppError is an error with an HTTP status code.
 
 ## Signature
+
+<div class="signature-block">
 
 ```go
 type AppError struct {
@@ -21,6 +21,8 @@ type AppError struct {
 	Cause   error
 }
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -32,7 +34,7 @@ type AppError struct {
 
 ```go [Standard Go]
 // Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+// See package overview for escape hatches.
 ```
 
 ```go [gox]
@@ -55,17 +57,10 @@ e := Wrap(http.StatusTeapot, "wrapped", base)
 var ae *AppError
 ```
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [As](/packages/err/as)
-- [Is](/packages/err/is)
+<div class="related-chips">
+<a class="related-chip" href="/packages/err/as">As</a><a class="related-chip" href="/packages/err/is">Is</a>
+</div>
 
 ← [Back to err package overview](/packages/err/)

@@ -3,23 +3,25 @@ title: "Flatten"
 package: "slice"
 import: "github.com/sahilkhaire/gox/slice"
 node: "_.flatten(arr)"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: _.flatten(arr)</span><span class="api-badge import">github.com/sahilkhaire/gox/slice</span></div>
-# Flatten
-
+<SymbolHeader pkg="slice" title="Flatten" node="_.flatten(arr)" import-path="github.com/sahilkhaire/gox/slice" />
 ## Overview
 
-Maps the Node.js pattern `_.flatten(arr)` to gox `slice.Flatten(arr)`. Part of the slice package — Node.js analog: lodash / Array.*.
+Flatten flattens one level of nested slices (lodash flatten).
 
 **Node.js equivalent:** `_.flatten(arr)`
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func Flatten[T any](in [][]T) []T
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -31,8 +33,8 @@ _.flatten(arr)
 
 ```go [Standard Go]
 // Manual loop or Go 1.21+ slices package
-for i, v := range items {
-    // transform v
+for _, v := range items {
+    // transform or filter v
 }
 ```
 
@@ -44,18 +46,10 @@ slice.Flatten(arr)
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Chunk](/packages/slice/chunk)
-- [Contains](/packages/slice/contains)
-- [Every](/packages/slice/every)
+<div class="related-chips">
+<a class="related-chip" href="/packages/slice/chunk">Chunk</a><a class="related-chip" href="/packages/slice/contains">Contains</a><a class="related-chip" href="/packages/slice/every">Every</a>
+</div>
 
 ← [Back to slice package overview](/packages/slice/)

@@ -250,6 +250,133 @@ small := maputil.Pick(config, "host", "port")
 merged := maputil.Merge(defaults, overrides)
 city, _ := maputil.Get[string](nested, "address.city")
 ` + "```",
+
+	"str": `# str Cookbook
+
+String casing, slugging, and padding for APIs and UI.
+
+` + "```go" + `
+import "github.com/sahilkhaire/gox/str"
+
+slug := str.Slug("Hello World!")       // hello-world
+camel := str.Camel("foo_bar")        // fooBar
+title := str.Capitalize("hello")     // Hello
+short := str.Truncate(longText, 80)  // safe rune truncate
+` + "```",
+
+	"json": `# json Cookbook
+
+Typed JSON.parse/stringify with file helpers.
+
+` + "```go" + `
+import "github.com/sahilkhaire/gox/json"
+
+cfg, err := json.ParseFile[Config](ctx, "config.json")
+out, err := json.Stringify(response)
+pretty, err := json.Pretty(debugPayload)
+` + "```",
+
+	"err": `# err Cookbook
+
+http-errors style responses in gox/http handlers.
+
+` + "```go" + `
+import goxerr "github.com/sahilkhaire/gox/err"
+
+app.Get("/users/{id}", func(c *goxhttp.Ctx) error {
+    user, ok := store.Find(c.Param("id"))
+    if !ok {
+        return goxerr.NotFound("user not found")
+    }
+    return c.JSON(200, user)
+})
+` + "```",
+
+	"fs": `# fs Cookbook
+
+Context-aware file I/O — read, write, exists, mkdir.
+
+` + "```go" + `
+import "github.com/sahilkhaire/gox/fs"
+
+data, err := fs.ReadFile(ctx, "config.json")
+if ok, _ := fs.Exists(ctx, "uploads"); !ok {
+    err = fs.Mkdir(ctx, "uploads", 0755)
+}
+err = fs.WriteFile(ctx, "out.json", data)
+` + "```",
+
+	"crypto": `# crypto Cookbook
+
+Hashing, HMAC, and bcrypt password helpers.
+
+` + "```go" + `
+import "github.com/sahilkhaire/gox/crypto"
+
+hash, err := crypto.HashPassword(password)
+ok := crypto.CheckPassword(password, hash)
+digest := crypto.SHA256([]byte(payload))
+` + "```",
+
+	"log": `# log Cookbook
+
+Structured logging with slog underneath.
+
+` + "```go" + `
+import "github.com/sahilkhaire/gox/log"
+
+logger := log.New()
+log.SetDefault(logger)
+logger.Info("request", "method", "GET", "path", "/health")
+` + "```",
+
+	"ws": `# ws Cookbook
+
+WebSocket server and client dial.
+
+` + "```go" + `
+import "github.com/sahilkhaire/gox/ws"
+
+conn, err := ws.Dial(ctx, "wss://example.com/ws", nil)
+srv := ws.NewServer()
+srv.Handle("/chat", func(c *ws.Conn) error { /* ... */ })
+` + "```",
+
+	"cron": `# cron Cookbook
+
+Schedule recurring jobs with cron expressions.
+
+` + "```go" + `
+import "github.com/sahilkhaire/gox/cron"
+
+sched := cron.New()
+sched.Schedule("0 * * * *", func() { cleanup() })
+sched.Start()
+` + "```",
+
+	"cache": `# cache Cookbook
+
+In-memory LRU cache with capacity bound.
+
+` + "```go" + `
+import "github.com/sahilkhaire/gox/cache"
+
+c := cache.New(1000)
+c.Set("user:1", user, time.Hour)
+if v, ok := c.Get("user:1"); ok { _ = v }
+` + "```",
+
+	"auth": `# auth Cookbook
+
+Passport-style Bearer, API key, and Basic middleware.
+
+` + "```go" + `
+import "github.com/sahilkhaire/gox/auth"
+
+app.Use(auth.Bearer(jwtSecret))
+app.Use(auth.APIKey(auth.APIKeyOpts{Header: "X-API-Key", Keys: keys}))
+claims, _ := auth.GetClaims(ctx)
+` + "```",
 }
 
 func writeCookbookPage(dir, pkgName string) error {

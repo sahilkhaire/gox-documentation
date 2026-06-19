@@ -2,21 +2,23 @@
 title: "DB.Open"
 package: "db"
 import: "github.com/sahilkhaire/gox/db"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: knex</span><span class="api-badge import">github.com/sahilkhaire/gox/db</span></div>
-# DB.Open
-
+<SymbolHeader pkg="db" title="DB.Open" node="knex" import-path="github.com/sahilkhaire/gox/db" />
 ## Overview
 
 Open connects using driver name and DSN.
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func Open(driver, dsn string) (*DB, error)
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -38,16 +40,10 @@ database, err := db.Open(ctx, "postgres", os.Getenv("DATABASE_URL"))
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [DB.MustOpen](/packages/db/db-must-open)
+<div class="related-chips">
+<a class="related-chip" href="/packages/db/db-must-open">DB.MustOpen</a>
+</div>
 
 ← [Back to db package overview](/packages/db/)

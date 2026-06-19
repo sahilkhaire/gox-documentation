@@ -3,12 +3,10 @@ title: "ParseQuery"
 package: "url"
 import: "github.com/sahilkhaire/gox/url"
 node: "querystring.parse(qs)"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: querystring.parse(qs)</span><span class="api-badge import">github.com/sahilkhaire/gox/url</span></div>
-# ParseQuery
-
+<SymbolHeader pkg="url" title="ParseQuery" node="querystring.parse(qs)" import-path="github.com/sahilkhaire/gox/url" />
 ## Overview
 
 ParseQuery parses a query string (querystring.parse).
@@ -17,9 +15,13 @@ ParseQuery parses a query string (querystring.parse).
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func ParseQuery(query string) (url.Values, error)
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -30,8 +32,8 @@ querystring.parse('a=1&b=2');
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+vals, err := url.ParseQuery(q)
+// or url.Values.Encode()
 ```
 
 ```go [gox]
@@ -42,18 +44,10 @@ vals, err := url.ParseQuery("a=1&b=2")
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [EncodeQuery](/packages/url/encode-query)
-- [Format](/packages/url/format)
-- [Resolve](/packages/url/resolve)
+<div class="related-chips">
+<a class="related-chip" href="/packages/url/encode-query">EncodeQuery</a><a class="related-chip" href="/packages/url/format">Format</a><a class="related-chip" href="/packages/url/resolve">Resolve</a>
+</div>
 
 ← [Back to url package overview](/packages/url/)

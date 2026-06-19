@@ -3,23 +3,25 @@ title: "HMACSHA256"
 package: "crypto"
 import: "github.com/sahilkhaire/gox/crypto"
 node: "crypto.createHmac('sha256', key).update(d).digest('hex')"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: crypto.createHmac('sha256', key).update(d).digest('hex')</span><span class="api-badge import">github.com/sahilkhaire/gox/crypto</span></div>
-# HMACSHA256
-
+<SymbolHeader pkg="crypto" title="HMACSHA256" node="crypto.createHmac('sha256', key).update(d).digest('hex')" import-path="github.com/sahilkhaire/gox/crypto" />
 ## Overview
 
-Maps the Node.js pattern `crypto.createHmac('sha256', key).update(d).digest('hex')` to gox `crypto.HMACSHA256(d, key)`.
+HMACSHA256 returns HMAC-SHA256 of data with key as lowercase hex.
 
 **Node.js equivalent:** `crypto.createHmac('sha256', key).update(d).digest('hex')`
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func HMACSHA256(data, key []byte) string
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -30,8 +32,8 @@ crypto.createHmac('sha256', key).update(d).digest('hex')
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+h := sha256.Sum256(data)
+// or hmac.New(sha256.New, key)
 ```
 
 ```go [gox]
@@ -42,18 +44,10 @@ crypto.HMACSHA256(d, key)
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [CheckPassword](/packages/crypto/check-password)
-- [HashPassword](/packages/crypto/hash-password)
-- [RandomBytes](/packages/crypto/random-bytes)
+<div class="related-chips">
+<a class="related-chip" href="/packages/crypto/check-password">CheckPassword</a><a class="related-chip" href="/packages/crypto/hash-password">HashPassword</a><a class="related-chip" href="/packages/crypto/random-bytes">RandomBytes</a>
+</div>
 
 ← [Back to crypto package overview](/packages/crypto/)

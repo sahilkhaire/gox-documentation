@@ -3,12 +3,10 @@ title: "Sleep"
 package: "async"
 import: "github.com/sahilkhaire/gox/async"
 node: "await sleep(ms)"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: await sleep(ms)</span><span class="api-badge import">github.com/sahilkhaire/gox/async</span></div>
-# Sleep
-
+<SymbolHeader pkg="async" title="Sleep" node="await sleep(ms)" import-path="github.com/sahilkhaire/gox/async" />
 ## Overview
 
 Sleep waits until duration elapses or ctx is cancelled.
@@ -17,9 +15,13 @@ Sleep waits until duration elapses or ctx is cancelled.
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func Sleep(ctx context.Context, d time.Duration) error
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -45,18 +47,10 @@ if err := async.Sleep(ctx, time.Second); err != nil { return err }
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [After](/packages/async/after)
-- [All](/packages/async/all)
-- [Race](/packages/async/race)
+<div class="related-chips">
+<a class="related-chip" href="/packages/async/after">After</a><a class="related-chip" href="/packages/async/all">All</a><a class="related-chip" href="/packages/async/race">Race</a>
+</div>
 
 ← [Back to async package overview](/packages/async/)

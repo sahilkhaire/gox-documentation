@@ -3,23 +3,25 @@ title: "Middleware.Logger"
 package: "http"
 import: "github.com/sahilkhaire/gox/http"
 node: "morgan"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: morgan</span><span class="api-badge import">github.com/sahilkhaire/gox/http</span></div>
-# Middleware.Logger
-
+<SymbolHeader pkg="http" title="Middleware.Logger" node="morgan" import-path="github.com/sahilkhaire/gox/http" />
 ## Overview
 
-Maps the Node.js pattern `morgan` to gox `http.Logger()`. Part of the http package — Node.js analog: express.
+Logger logs each request with slog (morgan-style).
 
 **Node.js equivalent:** `morgan`
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func Logger() Middleware
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -31,7 +33,7 @@ morgan
 
 ```go [Standard Go]
 func handler(w http.ResponseWriter, r *http.Request) {
-    json.NewEncoder(w).Encode(data)
+    // chi or net/http
 }
 ```
 
@@ -43,18 +45,10 @@ http.Logger()
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Middleware.CORS](/packages/http/middleware-cors)
-- [Middleware.RateLimit](/packages/http/middleware-rate-limit)
-- [Middleware.Recover](/packages/http/middleware-recover)
+<div class="related-chips">
+<a class="related-chip" href="/packages/http/middleware-cors">Middleware.CORS</a><a class="related-chip" href="/packages/http/middleware-rate-limit">Middleware.RateLimit</a><a class="related-chip" href="/packages/http/middleware-recover">Middleware.Recover</a>
+</div>
 
 ← [Back to http package overview](/packages/http/)

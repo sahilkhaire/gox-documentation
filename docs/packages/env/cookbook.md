@@ -1,7 +1,7 @@
 ---
 title: "env Cookbook"
 package: "env"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
 <div class="api-meta"><span class="api-badge node">Node: dotenv / process.env</span><span class="api-badge import">github.com/sahilkhaire/gox/env</span></div>

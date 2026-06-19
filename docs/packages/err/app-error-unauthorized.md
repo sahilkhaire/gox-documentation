@@ -3,12 +3,10 @@ title: "AppError.Unauthorized"
 package: "err"
 import: "github.com/sahilkhaire/gox/err"
 node: "createError(401, msg)"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: createError(401, msg)</span><span class="api-badge import">github.com/sahilkhaire/gox/err</span></div>
-# AppError.Unauthorized
-
+<SymbolHeader pkg="err" title="AppError.Unauthorized" node="createError(401, msg)" import-path="github.com/sahilkhaire/gox/err" />
 ## Overview
 
 Unauthorized returns a 401 AppError.
@@ -17,9 +15,13 @@ Unauthorized returns a 401 AppError.
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func Unauthorized(message string) *AppError
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -30,8 +32,7 @@ next(createError(401, 'unauthorized'));
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+return fmt.Errorf("%w: message", http.ErrUnauthorized)
 ```
 
 ```go [gox]
@@ -42,18 +43,10 @@ return err.Unauthorized("unauthorized")
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [AppError.BadRequest](/packages/err/app-error-bad-request)
-- [AppError.Forbidden](/packages/err/app-error-forbidden)
-- [AppError.Internal](/packages/err/app-error-internal)
+<div class="related-chips">
+<a class="related-chip" href="/packages/err/app-error-bad-request">AppError.BadRequest</a><a class="related-chip" href="/packages/err/app-error-forbidden">AppError.Forbidden</a><a class="related-chip" href="/packages/err/app-error-internal">AppError.Internal</a>
+</div>
 
 ← [Back to err package overview](/packages/err/)

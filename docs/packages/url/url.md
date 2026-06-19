@@ -2,23 +2,25 @@
 title: "URL"
 package: "url"
 import: "github.com/sahilkhaire/gox/url"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: url, querystring</span><span class="api-badge import">github.com/sahilkhaire/gox/url</span></div>
-# URL
-
+<SymbolHeader pkg="url" title="URL" node="url, querystring" import-path="github.com/sahilkhaire/gox/url" />
 ## Overview
 
 URL wraps net/url.URL with Node-friendly helpers.
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 type URL struct {
 	*url.URL
 }
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -30,7 +32,7 @@ type URL struct {
 
 ```go [Standard Go]
 // Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+// See package overview for escape hatches.
 ```
 
 ```go [gox]
@@ -53,18 +55,10 @@ res, err := Resolve("https://example.com/foo/", "bar")
 vals, err := ParseQuery("a=1&b=2")
 ```
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [EncodeQuery](/packages/url/encode-query)
-- [Format](/packages/url/format)
-- [ParseQuery](/packages/url/parse-query)
+<div class="related-chips">
+<a class="related-chip" href="/packages/url/encode-query">EncodeQuery</a><a class="related-chip" href="/packages/url/format">Format</a><a class="related-chip" href="/packages/url/parse-query">ParseQuery</a>
+</div>
 
 ← [Back to url package overview](/packages/url/)

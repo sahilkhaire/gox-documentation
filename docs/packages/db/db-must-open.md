@@ -2,21 +2,23 @@
 title: "DB.MustOpen"
 package: "db"
 import: "github.com/sahilkhaire/gox/db"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: knex</span><span class="api-badge import">github.com/sahilkhaire/gox/db</span></div>
-# DB.MustOpen
-
+<SymbolHeader pkg="db" title="DB.MustOpen" node="knex" import-path="github.com/sahilkhaire/gox/db" />
 ## Overview
 
 MustOpen connects or panics.
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func MustOpen(driver, dsn string) *DB
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -27,8 +29,8 @@ func MustOpen(driver, dsn string) *DB
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+db, err := sqlx.Connect("postgres", dsn)
+db.GetContext(ctx, &row, query, args...)
 ```
 
 ```go [gox]
@@ -40,16 +42,10 @@ v.MustOpen(/* args */)
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [DB.Open](/packages/db/db-open)
+<div class="related-chips">
+<a class="related-chip" href="/packages/db/db-open">DB.Open</a>
+</div>
 
 ← [Back to db package overview](/packages/db/)

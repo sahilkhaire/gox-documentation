@@ -3,57 +3,50 @@ title: "Capitalize"
 package: "str"
 import: "github.com/sahilkhaire/gox/str"
 node: "_.capitalize(s)"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: _.capitalize(s)</span><span class="api-badge import">github.com/sahilkhaire/gox/str</span></div>
-# Capitalize
-
+<SymbolHeader pkg="str" title="Capitalize" node="_.capitalize(s)" import-path="github.com/sahilkhaire/gox/str" />
 ## Overview
 
-Maps the Node.js pattern `_.capitalize(s)` to gox `str.Capitalize(s)`.
+Capitalize uppercases the first rune.
 
 **Node.js equivalent:** `_.capitalize(s)`
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func Capitalize(s string) string
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
 ::: code-group
 
 ```js [Node.js]
-_.capitalize(s)
+_.capitalize('hello');
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+// Manual string transformation with strings/unicode
 ```
 
 ```go [gox]
 import "github.com/sahilkhaire/gox/str"
 
-str.Capitalize(s)
+s := str.Capitalize("hello")
 ```
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Camel](/packages/str/camel)
-- [IsBlank](/packages/str/is-blank)
-- [PadEnd](/packages/str/pad-end)
+<div class="related-chips">
+<a class="related-chip" href="/packages/str/camel">Camel</a><a class="related-chip" href="/packages/str/is-blank">IsBlank</a><a class="related-chip" href="/packages/str/pad-end">PadEnd</a>
+</div>
 
 ← [Back to str package overview](/packages/str/)

@@ -3,12 +3,10 @@ title: "Find"
 package: "slice"
 import: "github.com/sahilkhaire/gox/slice"
 node: "arr.find(fn)"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: arr.find(fn)</span><span class="api-badge import">github.com/sahilkhaire/gox/slice</span></div>
-# Find
-
+<SymbolHeader pkg="slice" title="Find" node="arr.find(fn)" import-path="github.com/sahilkhaire/gox/slice" />
 ## Overview
 
 Find returns the first element matching fn, or zero and false (Array.find).
@@ -17,9 +15,13 @@ Find returns the first element matching fn, or zero and false (Array.find).
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func Find[T any](in []T, fn func(T) bool) (T, bool)
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -48,18 +50,10 @@ user, ok := slice.Find(users, func(u User) bool { return u.ID == id })
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Chunk](/packages/slice/chunk)
-- [Contains](/packages/slice/contains)
-- [Every](/packages/slice/every)
+<div class="related-chips">
+<a class="related-chip" href="/packages/slice/chunk">Chunk</a><a class="related-chip" href="/packages/slice/contains">Contains</a><a class="related-chip" href="/packages/slice/every">Every</a>
+</div>
 
 ← [Back to slice package overview](/packages/slice/)

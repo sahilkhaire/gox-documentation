@@ -2,21 +2,23 @@
 title: "Is"
 package: "err"
 import: "github.com/sahilkhaire/gox/err"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: http-errors</span><span class="api-badge import">github.com/sahilkhaire/gox/err</span></div>
-# Is
-
+<SymbolHeader pkg="err" title="Is" node="http-errors" import-path="github.com/sahilkhaire/gox/err" />
 ## Overview
 
 Is reports whether err matches target in the error chain.
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func Is(err, target error) bool
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -27,8 +29,9 @@ func Is(err, target error) bool
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+errors.Is(err, target)
+errors.As(err, &target)
+fmt.Errorf("context: %w", err)
 ```
 
 ```go [gox]
@@ -40,16 +43,10 @@ _ = err.Is(/* args */)
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [As](/packages/err/as)
+<div class="related-chips">
+<a class="related-chip" href="/packages/err/as">As</a>
+</div>
 
 ← [Back to err package overview](/packages/err/)

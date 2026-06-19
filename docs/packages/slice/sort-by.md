@@ -3,23 +3,25 @@ title: "SortBy"
 package: "slice"
 import: "github.com/sahilkhaire/gox/slice"
 node: "_.sortBy(arr, fn)"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: _.sortBy(arr, fn)</span><span class="api-badge import">github.com/sahilkhaire/gox/slice</span></div>
-# SortBy
-
+<SymbolHeader pkg="slice" title="SortBy" node="_.sortBy(arr, fn)" import-path="github.com/sahilkhaire/gox/slice" />
 ## Overview
 
-Maps the Node.js pattern `_.sortBy(arr, fn)` to gox `slice.SortBy(arr, fn)`. Part of the slice package — Node.js analog: lodash / Array.*.
+SortBy returns a sorted copy ordered by fn's key (lodash sortBy).
 
 **Node.js equivalent:** `_.sortBy(arr, fn)`
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func SortBy[T any, K cmp.Ordered](in []T, fn func(T) K) []T
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -31,8 +33,8 @@ _.sortBy(arr, fn)
 
 ```go [Standard Go]
 // Manual loop or Go 1.21+ slices package
-for i, v := range items {
-    // transform v
+for _, v := range items {
+    // transform or filter v
 }
 ```
 
@@ -44,18 +46,10 @@ slice.SortBy(arr, fn)
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Chunk](/packages/slice/chunk)
-- [Contains](/packages/slice/contains)
-- [Every](/packages/slice/every)
+<div class="related-chips">
+<a class="related-chip" href="/packages/slice/chunk">Chunk</a><a class="related-chip" href="/packages/slice/contains">Contains</a><a class="related-chip" href="/packages/slice/every">Every</a>
+</div>
 
 ← [Back to slice package overview](/packages/slice/)

@@ -3,12 +3,10 @@ title: "GroupBy"
 package: "slice"
 import: "github.com/sahilkhaire/gox/slice"
 node: "_.groupBy(arr, fn)"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: _.groupBy(arr, fn)</span><span class="api-badge import">github.com/sahilkhaire/gox/slice</span></div>
-# GroupBy
-
+<SymbolHeader pkg="slice" title="GroupBy" node="_.groupBy(arr, fn)" import-path="github.com/sahilkhaire/gox/slice" />
 ## Overview
 
 GroupBy groups elements by key from fn (lodash groupBy).
@@ -17,9 +15,13 @@ GroupBy groups elements by key from fn (lodash groupBy).
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func GroupBy[T any, K comparable](in []T, fn func(T) K) map[K][]T
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -44,18 +46,10 @@ byRole := slice.GroupBy(users, func(u User) string { return u.Role })
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Chunk](/packages/slice/chunk)
-- [Contains](/packages/slice/contains)
-- [Every](/packages/slice/every)
+<div class="related-chips">
+<a class="related-chip" href="/packages/slice/chunk">Chunk</a><a class="related-chip" href="/packages/slice/contains">Contains</a><a class="related-chip" href="/packages/slice/every">Every</a>
+</div>
 
 ← [Back to slice package overview](/packages/slice/)

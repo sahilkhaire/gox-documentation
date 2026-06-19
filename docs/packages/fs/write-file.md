@@ -3,56 +3,50 @@ title: "WriteFile"
 package: "fs"
 import: "github.com/sahilkhaire/gox/fs"
 node: "fs.writeFile(path, data)"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: fs.writeFile(path, data)</span><span class="api-badge import">github.com/sahilkhaire/gox/fs</span></div>
-# WriteFile
-
+<SymbolHeader pkg="fs" title="WriteFile" node="fs.writeFile(path, data)" import-path="github.com/sahilkhaire/gox/fs" />
 ## Overview
 
-Maps the Node.js pattern `fs.writeFile(path, data)` to gox `fs.WriteFile(ctx, path, data)`.
+WriteFile writes data to path (fs.promises.writeFile).
 
 **Node.js equivalent:** `fs.writeFile(path, data)`
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func WriteFile(ctx context.Context, path string, data []byte, perm os.FileMode) error
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
 ::: code-group
 
 ```js [Node.js]
-fs.writeFile(path, data)
+await fs.promises.writeFile('out.txt', data);
 ```
 
 ```go [Standard Go]
-data, err := os.ReadFile(path)
+err := os.WriteFile("out.txt", data, 0644)
 ```
 
 ```go [gox]
 import "github.com/sahilkhaire/gox/fs"
 
-fs.WriteFile(ctx, path, data)
+err := fs.WriteFile(ctx, "out.txt", data)
 ```
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Copy](/packages/fs/copy)
-- [Exists](/packages/fs/exists)
-- [Mkdir](/packages/fs/mkdir)
+<div class="related-chips">
+<a class="related-chip" href="/packages/fs/copy">Copy</a><a class="related-chip" href="/packages/fs/exists">Exists</a><a class="related-chip" href="/packages/fs/mkdir">Mkdir</a>
+</div>
 
 ← [Back to fs package overview](/packages/fs/)

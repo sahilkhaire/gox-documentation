@@ -3,57 +3,50 @@ title: "PadEnd"
 package: "str"
 import: "github.com/sahilkhaire/gox/str"
 node: "s.padEnd(n, ch)"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: s.padEnd(n, ch)</span><span class="api-badge import">github.com/sahilkhaire/gox/str</span></div>
-# PadEnd
-
+<SymbolHeader pkg="str" title="PadEnd" node="s.padEnd(n, ch)" import-path="github.com/sahilkhaire/gox/str" />
 ## Overview
 
-Maps the Node.js pattern `s.padEnd(n, ch)` to gox `str.PadEnd(s, n, ch)`.
+PadEnd pads s on the right to length with pad (String.padEnd).
 
 **Node.js equivalent:** `s.padEnd(n, ch)`
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 func PadEnd(s string, length int, pad string) string
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
 ::: code-group
 
 ```js [Node.js]
-s.padEnd(n, ch)
+s.padEnd(8, '-');
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+s = fmt.Sprintf("%*s", width, s) // or custom padding
 ```
 
 ```go [gox]
 import "github.com/sahilkhaire/gox/str"
 
-str.PadEnd(s, n, ch)
+s := str.PadEnd("go", 8, "-")
 ```
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Camel](/packages/str/camel)
-- [Capitalize](/packages/str/capitalize)
-- [IsBlank](/packages/str/is-blank)
+<div class="related-chips">
+<a class="related-chip" href="/packages/str/camel">Camel</a><a class="related-chip" href="/packages/str/capitalize">Capitalize</a><a class="related-chip" href="/packages/str/is-blank">IsBlank</a>
+</div>
 
 ← [Back to str package overview](/packages/str/)

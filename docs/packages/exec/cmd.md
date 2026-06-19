@@ -2,23 +2,25 @@
 title: "Cmd"
 package: "exec"
 import: "github.com/sahilkhaire/gox/exec"
-gox-doc-version: "7"
+gox-doc-version: "10"
 ---
 
-<div class="api-meta"><span class="api-badge node">Node: child_process</span><span class="api-badge import">github.com/sahilkhaire/gox/exec</span></div>
-# Cmd
-
+<SymbolHeader pkg="exec" title="Cmd" node="child_process" import-path="github.com/sahilkhaire/gox/exec" />
 ## Overview
 
 Cmd wraps os/exec.Cmd with context cancellation.
 
 ## Signature
 
+<div class="signature-block">
+
 ```go
 type Cmd struct {
 	// contains filtered or unexported fields
 }
 ```
+
+</div>
 
 ## Compare: Node.js · Standard Go · gox
 
@@ -29,8 +31,8 @@ type Cmd struct {
 ```
 
 ```go [Standard Go]
-// Use the underlying stdlib or driver directly.
-// See package overview for escape hatches (e.g. db.SQL, redis.RDB).
+cmd := exec.CommandContext(ctx, name, args...)
+out, err := cmd.CombinedOutput()
 ```
 
 ```go [gox]
@@ -41,16 +43,10 @@ _ = exec.Cmd
 
 :::
 
-## Tips
-
-::: tip When to use gox
-- Familiar API if you are migrating from Node.js
-- Typed generics and explicit error handling (idiomatic Go underneath)
-- Consistent naming across the gox toolkit
-:::
-
 ## Related APIs
 
-- [Exec](/packages/exec/exec)
+<div class="related-chips">
+<a class="related-chip" href="/packages/exec/exec">Exec</a>
+</div>
 
 ← [Back to exec package overview](/packages/exec/)
