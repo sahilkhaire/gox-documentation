@@ -3,7 +3,7 @@ title: "Clone"
 package: "maputil"
 import: "github.com/sahilkhaire/gox/maputil"
 node: "_.cloneDeep(obj)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="maputil" title="Clone" node="_.cloneDeep(obj)" import-path="github.com/sahilkhaire/gox/maputil" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 Clone returns a shallow copy of m (lodash clone).
 
-**Node.js equivalent:** `_.cloneDeep(obj)`
+If you are coming from Node.js, the closest pattern is **`_.cloneDeep(obj)`**.
 
 ## Signature
 
@@ -43,6 +43,22 @@ maputil.Clone(obj)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/maputil"
+
+maputil.Clone(obj)
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/maputil` and call `Clone` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

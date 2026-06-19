@@ -3,13 +3,15 @@ title: "Camel"
 package: "str"
 import: "github.com/sahilkhaire/gox/str"
 node: "camelCase(s)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="str" title="Camel" node="camelCase(s)" import-path="github.com/sahilkhaire/gox/str" />
 ## Overview
 
 Converts kebab-case or snake_case strings to camelCase — common when mapping JSON field names to Go struct tags.
+
+If you are coming from Node.js, the closest pattern is **`camelCase(s)`**.
 
 ## Signature
 
@@ -41,6 +43,22 @@ s := str.Camel("foo_bar")
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/str"
+
+s := str.Camel("foo_bar")
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/str` and call `Camel` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

@@ -3,7 +3,7 @@ title: "Capitalize"
 package: "str"
 import: "github.com/sahilkhaire/gox/str"
 node: "_.capitalize(s)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="str" title="Capitalize" node="_.capitalize(s)" import-path="github.com/sahilkhaire/gox/str" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 Capitalize uppercases the first rune.
 
-**Node.js equivalent:** `_.capitalize(s)`
+If you are coming from Node.js, the closest pattern is **`_.capitalize(s)`**.
 
 ## Signature
 
@@ -42,6 +42,22 @@ s := str.Capitalize("hello")
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/str"
+
+s := str.Capitalize("hello")
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/str` and call `Capitalize` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

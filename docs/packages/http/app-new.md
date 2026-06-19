@@ -3,13 +3,17 @@ title: "App.New"
 package: "http"
 import: "github.com/sahilkhaire/gox/http"
 node: "express()"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="http" title="App.New" node="express()" import-path="github.com/sahilkhaire/gox/http" />
 ## Overview
 
 Creates a new Express-style application with chi router underneath. Register routes with `Get`/`Post`/… and global middleware with `Use`.
+
+If you are coming from Node.js, the closest pattern is **`express()`**.
+
+Method on **`App`** — call it on a value of that type after constructing or receiving one from a constructor.
 
 ## Signature
 
@@ -42,8 +46,20 @@ app := goxhttp.New()
 
 :::
 
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/http"
+
+app := goxhttp.New()
+```
+
 ## Tips
 
 Stack `Logger`, `Recover`, and `Security` middleware like you would morgan + helmet in Express. See the [HTTP guide](/guide/http).
+
+## Standard library alternative
+
+Use `net/http` with handler functions `func(w http.ResponseWriter, r *http.Request)` or a router like chi/echo directly.
 
 ← [Back to http package overview](/packages/http/)

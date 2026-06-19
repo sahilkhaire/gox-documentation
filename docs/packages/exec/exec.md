@@ -3,7 +3,7 @@ title: "Exec"
 package: "exec"
 import: "github.com/sahilkhaire/gox/exec"
 node: "exec('ls -la')"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="exec" title="Exec" node="exec('ls -la')" import-path="github.com/sahilkhaire/gox/exec" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 Exec runs a shell-less command string split on whitespace (child_process.exec).
 
-**Node.js equivalent:** `exec('ls -la')`
+If you are coming from Node.js, the closest pattern is **`exec('ls -la')`**.
 
 ## Signature
 
@@ -43,5 +43,21 @@ exec.Exec(ctx, command)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/exec"
+
+exec.Exec(ctx, command)
+```
+
+## Tips
+
+Pass `context.Context` as the first argument so cancellation and deadlines propagate correctly.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ← [Back to exec package overview](/packages/exec/)

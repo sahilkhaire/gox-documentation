@@ -3,7 +3,7 @@ title: "Arch"
 package: "osutil"
 import: "github.com/sahilkhaire/gox/osutil"
 node: "process.arch"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="osutil" title="Arch" node="process.arch" import-path="github.com/sahilkhaire/gox/osutil" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 Arch returns the architecture (runtime.GOARCH).
 
-**Node.js equivalent:** `process.arch`
+If you are coming from Node.js, the closest pattern is **`process.arch`**.
 
 ## Signature
 
@@ -42,6 +42,22 @@ osutil.Arch()
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/osutil"
+
+osutil.Arch()
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/osutil` and call `Arch` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

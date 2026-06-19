@@ -2,13 +2,15 @@
 title: "Set"
 package: "mongo"
 import: "github.com/sahilkhaire/gox/mongo"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="mongo" title="Set" node="mongoose" import-path="github.com/sahilkhaire/gox/mongo" />
 ## Overview
 
 Set returns bson.M for $set updates.
+
+Part of the **`mongo`** package — Node.js analog: *mongoose*.
 
 ## Signature
 
@@ -25,7 +27,7 @@ func Set(fields bson.M) bson.M
 ::: code-group
 
 ```js [Node.js]
-// See package overview
+// Typical mongoose pattern in Node.js
 ```
 
 ```go [Standard Go]
@@ -40,6 +42,23 @@ _ = mongo.Set(/* args */)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/mongo"
+
+// mongo
+_ = mongo.Set(/* args */)
+```
+
+## Tips
+
+Pass `context.Context` as the first argument so cancellation and deadlines propagate correctly.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

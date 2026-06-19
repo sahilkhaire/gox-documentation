@@ -2,13 +2,15 @@
 title: "SaveUploadedFile"
 package: "http"
 import: "github.com/sahilkhaire/gox/http"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="http" title="SaveUploadedFile" node="express, cors, helmet, morgan" import-path="github.com/sahilkhaire/gox/http" />
 ## Overview
 
 SaveUploadedFile saves an uploaded file to destPath.
+
+Part of the **`http`** package — Node.js analog: *express, cors, helmet, morgan*.
 
 ## Signature
 
@@ -25,7 +27,7 @@ func SaveUploadedFile(file *multipart.FileHeader, destPath string) error
 ::: code-group
 
 ```js [Node.js]
-// See package overview
+// Typical express, cors, helmet, morgan pattern in Node.js
 ```
 
 ```go [Standard Go]
@@ -42,5 +44,22 @@ _ = http.SaveUploadedFile(/* args */)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/http"
+
+// http
+_ = http.SaveUploadedFile(/* args */)
+```
+
+## Tips
+
+Stack `Logger`, `Recover`, and `Security` middleware the way you would morgan + helmet in Express.
+
+## Standard library alternative
+
+Use `net/http` with handler functions `func(w http.ResponseWriter, r *http.Request)` or a router like chi/echo directly.
 
 ← [Back to http package overview](/packages/http/)

@@ -3,7 +3,7 @@ title: "Gzip"
 package: "compress"
 import: "github.com/sahilkhaire/gox/compress"
 node: "gzipSync"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="compress" title="Gzip" node="gzipSync" import-path="github.com/sahilkhaire/gox/compress" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 Gzip compresses data with gzip.
 
-**Node.js equivalent:** `gzipSync`
+If you are coming from Node.js, the closest pattern is **`gzipSync`**.
 
 ## Signature
 
@@ -42,6 +42,22 @@ compressed, err := compress.Gzip(data)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/compress"
+
+compressed, err := compress.Gzip(data)
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/compress` and call `Gzip` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

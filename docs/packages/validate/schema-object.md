@@ -3,7 +3,7 @@ title: "Schema.Object"
 package: "validate"
 import: "github.com/sahilkhaire/gox/validate"
 node: "z.object({...})"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="validate" title="Schema.Object" node="z.object({...})" import-path="github.com/sahilkhaire/gox/validate" />
@@ -11,7 +11,9 @@ gox-doc-version: "10"
 
 Object builds a schema from field definitions.
 
-**Node.js equivalent:** `z.object({...})`
+If you are coming from Node.js, the closest pattern is **`z.object({...})`**.
+
+Method on **`Schema`** — call it on a value of that type after constructing or receiving one from a constructor.
 
 ## Signature
 
@@ -42,5 +44,21 @@ sch := validate.Object(map[string]validate.Field{"name": validate.String().Requi
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/validate"
+
+sch := validate.Object(map[string]validate.Field{"name": validate.String().Required()})
+```
+
+## Tips
+
+Obtain a `Schema` value first (see constructors on the package overview), then call `Object`.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ← [Back to validate package overview](/packages/validate/)

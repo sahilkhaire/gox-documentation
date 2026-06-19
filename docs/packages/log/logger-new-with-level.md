@@ -2,13 +2,17 @@
 title: "Logger.NewWithLevel"
 package: "log"
 import: "github.com/sahilkhaire/gox/log"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="log" title="Logger.NewWithLevel" node="winston, pino" import-path="github.com/sahilkhaire/gox/log" />
 ## Overview
 
 NewWithLevel returns a Logger at the given level.
+
+Part of the **`log`** package — Node.js analog: *winston, pino*.
+
+Method on **`Logger`** — call it on a value of that type after constructing or receiving one from a constructor.
 
 ## Signature
 
@@ -25,7 +29,7 @@ func NewWithLevel(level slog.Level) *Logger
 ::: code-group
 
 ```js [Node.js]
-// See package overview
+// Typical winston, pino pattern in Node.js
 ```
 
 ```go [Standard Go]
@@ -42,15 +46,21 @@ v.NewWithLevel(/* args */)
 
 :::
 
-## Example from tests
-
-Extracted from the gox test suite — runnable patterns used in CI:
+## Example
 
 ```go
 import "github.com/sahilkhaire/gox/log"
 
 l := NewWithLevel(slog.LevelError)
 ```
+
+## Tips
+
+Obtain a `Logger` value first (see constructors on the package overview), then call `NewWithLevel`.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

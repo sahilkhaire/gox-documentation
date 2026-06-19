@@ -2,13 +2,17 @@
 title: "SessionOptions"
 package: "http"
 import: "github.com/sahilkhaire/gox/http"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="http" title="SessionOptions" node="express, cors, helmet, morgan" import-path="github.com/sahilkhaire/gox/http" />
 ## Overview
 
 SessionOptions configures session middleware.
+
+Part of the **`http`** package — Node.js analog: *express, cors, helmet, morgan*.
+
+`SessionOptions` is a type exported by gox. Methods on this type are documented separately.
 
 ## Signature
 
@@ -31,7 +35,7 @@ type SessionOptions struct {
 ::: code-group
 
 ```js [Node.js]
-// See package overview
+// Typical express, cors, helmet, morgan pattern in Node.js
 ```
 
 ```go [Standard Go]
@@ -47,6 +51,22 @@ _ = http.SessionOptions
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/http"
+
+_ = http.SessionOptions
+```
+
+## Tips
+
+Stack `Logger`, `Recover`, and `Security` middleware the way you would morgan + helmet in Express.
+
+## Standard library alternative
+
+Use `net/http` with handler functions `func(w http.ResponseWriter, r *http.Request)` or a router like chi/echo directly.
 
 ## Related APIs
 

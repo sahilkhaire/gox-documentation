@@ -3,7 +3,7 @@ title: "Compare"
 package: "buffer"
 import: "github.com/sahilkhaire/gox/buffer"
 node: "buf.compare(other)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="buffer" title="Compare" node="buf.compare(other)" import-path="github.com/sahilkhaire/gox/buffer" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 Compare compares two buffers lexicographically (Buffer.compare).
 
-**Node.js equivalent:** `buf.compare(other)`
+If you are coming from Node.js, the closest pattern is **`buf.compare(other)`**.
 
 ## Signature
 
@@ -42,6 +42,22 @@ buffer.Compare(a, b)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/buffer"
+
+buffer.Compare(a, b)
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/buffer` and call `Compare` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

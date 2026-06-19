@@ -3,7 +3,7 @@ title: "Cmd.Command"
 package: "exec"
 import: "github.com/sahilkhaire/gox/exec"
 node: "spawn(cmd, args)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="exec" title="Cmd.Command" node="spawn(cmd, args)" import-path="github.com/sahilkhaire/gox/exec" />
@@ -11,7 +11,9 @@ gox-doc-version: "10"
 
 Command builds a command (child_process.spawn / execFile).
 
-**Node.js equivalent:** `spawn(cmd, args)`
+If you are coming from Node.js, the closest pattern is **`spawn(cmd, args)`**.
+
+Method on **`Cmd`** — call it on a value of that type after constructing or receiving one from a constructor.
 
 ## Signature
 
@@ -43,5 +45,21 @@ cmd := exec.Command(ctx, "ls", "-la")
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/exec"
+
+cmd := exec.Command(ctx, "ls", "-la")
+```
+
+## Tips
+
+Pass `context.Context` as the first argument so cancellation and deadlines propagate correctly.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ← [Back to exec package overview](/packages/exec/)

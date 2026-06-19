@@ -3,7 +3,7 @@ title: "Mkdir"
 package: "fs"
 import: "github.com/sahilkhaire/gox/fs"
 node: "fs.mkdir(path)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="fs" title="Mkdir" node="fs.mkdir(path)" import-path="github.com/sahilkhaire/gox/fs" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 Mkdir creates a directory (fs.promises.mkdir).
 
-**Node.js equivalent:** `fs.mkdir(path)`
+If you are coming from Node.js, the closest pattern is **`fs.mkdir(path)`**.
 
 ## Signature
 
@@ -42,6 +42,22 @@ err := fs.Mkdir(ctx, "dir", 0755)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/fs"
+
+err := fs.Mkdir(ctx, "dir", 0755)
+```
+
+## Tips
+
+Pass `context.Context` as the first argument so cancellation and deadlines propagate correctly.
+
+## Standard library alternative
+
+Use `os.ReadFile`, `os.WriteFile`, etc. Pass `context.Context` manually for cancellation.
 
 ## Related APIs
 

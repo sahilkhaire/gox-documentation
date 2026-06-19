@@ -3,7 +3,7 @@ title: "CoalescePtr"
 package: "cond"
 import: "github.com/sahilkhaire/gox/cond"
 node: "ptr ?? fallback"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="cond" title="CoalescePtr" node="ptr ?? fallback" import-path="github.com/sahilkhaire/gox/cond" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 CoalescePtr returns the first non-nil pointer's value, or zero if all nil.
 
-**Node.js equivalent:** `ptr ?? fallback`
+If you are coming from Node.js, the closest pattern is **`ptr ?? fallback`**.
 
 ## Signature
 
@@ -46,15 +46,21 @@ name := cond.CoalescePtr(&user.Name, "guest")
 
 :::
 
-## Example from tests
-
-Extracted from the gox test suite — runnable patterns used in CI:
+## Example
 
 ```go
 import "github.com/sahilkhaire/gox/cond"
 
 a, b := 1, 2
 ```
+
+## Tips
+
+Prefer explicit zero-value checks in performance-critical hot paths if the compiler cannot prove types.
+
+## Standard library alternative
+
+Use `if/else` for branching and explicit nil checks instead of `??`.
 
 ## Related APIs
 

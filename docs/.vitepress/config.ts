@@ -21,7 +21,6 @@ export default defineConfig({
     siteTitle: 'gox',
     nav: [
       { text: 'Guide', link: '/guide/getting-started' },
-      { text: 'Cookbooks', link: '/guide/cookbooks' },
       { text: 'Cheat Sheet', link: '/reference/cheatsheet' },
       { text: 'Packages', link: '/packages/cond/' },
       { text: 'Migration', link: '/migration/express' },
@@ -36,7 +35,6 @@ export default defineConfig({
           text: 'Guide',
           items: [
             { text: 'Getting Started', link: '/guide/getting-started' },
-            { text: 'Cookbooks', link: '/guide/cookbooks' },
             { text: 'Architecture', link: '/guide/architecture' },
             { text: 'HTTP Guide', link: '/guide/http' }
           ]

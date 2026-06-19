@@ -3,7 +3,7 @@ title: "Coalesce"
 package: "cond"
 import: "github.com/sahilkhaire/gox/cond"
 node: "a ?? b ?? c"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="cond" title="Coalesce" node="a ?? b ?? c" import-path="github.com/sahilkhaire/gox/cond" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 Coalesce returns the first value that is not the zero value (Node: a ?? b ?? c).
 
-**Node.js equivalent:** `a ?? b ?? c`
+If you are coming from Node.js, the closest pattern is **`a ?? b ?? c`**.
 
 ## Signature
 
@@ -46,9 +46,7 @@ name := cond.Coalesce(maybeName, "guest")
 
 :::
 
-## Example from tests
-
-Extracted from the gox test suite — runnable patterns used in CI:
+## Example
 
 ```go
 import "github.com/sahilkhaire/gox/cond"
@@ -62,6 +60,14 @@ tests := []struct {
 	{[]int{}, 0},
 }
 ```
+
+## Tips
+
+Prefer explicit zero-value checks in performance-critical hot paths if the compiler cannot prove types.
+
+## Standard library alternative
+
+Use `if/else` for branching and explicit nil checks instead of `??`.
 
 ## Related APIs
 

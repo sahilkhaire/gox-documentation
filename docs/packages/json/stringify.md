@@ -3,7 +3,7 @@ title: "Stringify"
 package: "json"
 import: "github.com/sahilkhaire/gox/json"
 node: "JSON.stringify(obj)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="json" title="Stringify" node="JSON.stringify(obj)" import-path="github.com/sahilkhaire/gox/json" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 Stringify marshals v to a string (JSON.stringify).
 
-**Node.js equivalent:** `JSON.stringify(obj)`
+If you are coming from Node.js, the closest pattern is **`JSON.stringify(obj)`**.
 
 ## Signature
 
@@ -42,6 +42,22 @@ str, err := json.Stringify(obj)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/json"
+
+str, err := json.Stringify(obj)
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/json` and call `Stringify` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

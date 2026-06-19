@@ -1,7 +1,7 @@
 ---
 title: "queue"
 package: "queue"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <PackageOverview
@@ -10,37 +10,10 @@ gox-doc-version: "10"
   import-path="github.com/sahilkhaire/gox/queue"
   subtitle="Package queue provides a Redis-backed task queue similar to Bull/BullMQ, backed by github.com/hibiken/asynq. Node equivalent: bull, bullmq"
   :symbol-count=8
-  :has-cookbook=false
-  migration-link=""
-  narrative="Bull-like Redis task queues with asynq — enqueue, workers, and handlers."
 />
-## Start here
-
-<div class="featured-grid">
-<a class="featured-card" href="/packages/queue/client-new"><div class="featured-name">New</div><div class="featured-summary">Bull queue</div></a>
-<a class="featured-card" href="/packages/queue/client"><div class="featured-name">Enqueue</div><div class="featured-summary">queue.add</div></a>
-<a class="featured-card" href="/packages/queue/worker-new-worker"><div class="featured-name">Worker</div><div class="featured-summary">Worker process</div></a>
-</div>
-
-## Common use cases
-
-- Background email sending
-- Retry failed jobs
-- Separate worker processes
-
-## Quick start
-
-Copy-paste a minimal example:
-
-```go
-import "github.com/sahilkhaire/gox/queue"
-
-client, err := queue.New("localhost:6379")
-```
-
 ## API reference
 
-Browse **8 documented symbols** — each page includes Node.js, standard Go, and gox side-by-side examples.
+Select a symbol below — each page explains what it does, shows Node.js vs Go comparisons, and includes a runnable example.
 
 <SymbolFilter placeholder="Filter symbols…" />
 

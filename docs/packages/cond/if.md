@@ -3,13 +3,15 @@ title: "If"
 package: "cond"
 import: "github.com/sahilkhaire/gox/cond"
 node: "cond ? a : b"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="cond" title="If" node="cond ? a : b" import-path="github.com/sahilkhaire/gox/cond" />
 ## Overview
 
 Returns `a` when `cond` is true, otherwise `b`. The closest equivalent to JavaScript's ternary operator — both branches must be the same type in Go.
+
+If you are coming from Node.js, the closest pattern is **`cond ? a : b`**.
 
 ## Signature
 
@@ -44,9 +46,7 @@ label := cond.If(age >= 18, "adult", "minor")
 
 :::
 
-## Example from tests
-
-Extracted from the gox test suite — runnable patterns used in CI:
+## Example
 
 ```go
 import "github.com/sahilkhaire/gox/cond"
@@ -57,6 +57,10 @@ adult := cond.If(age >= 18, "adult", "minor")
 ## Tips
 
 Both branches are evaluated eagerly. Use `cond.IfLazy` when one branch is expensive and should be skipped.
+
+## Standard library alternative
+
+Use `if/else` for branching and explicit nil checks instead of `??`.
 
 ## Related APIs
 

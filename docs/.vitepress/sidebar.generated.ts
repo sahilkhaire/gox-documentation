@@ -7,7 +7,6 @@ export const generatedSidebar = {
         collapsed: true,
         items: [
           { text: 'Overview', link: '/packages/cond/' },
-          { text: '📖 Cookbook', link: '/packages/cond/cookbook' },
           { text: 'Coalesce', link: '/packages/cond/coalesce' },
           { text: 'CoalesceFn', link: '/packages/cond/coalesce-fn' },
           { text: 'CoalescePtr', link: '/packages/cond/coalesce-ptr' },
@@ -20,7 +19,6 @@ export const generatedSidebar = {
         collapsed: true,
         items: [
           { text: 'Overview', link: '/packages/slice/' },
-          { text: '📖 Cookbook', link: '/packages/slice/cookbook' },
           { text: 'Chunk', link: '/packages/slice/chunk' },
           { text: 'Contains', link: '/packages/slice/contains' },
           { text: 'Every', link: '/packages/slice/every' },
@@ -41,7 +39,6 @@ export const generatedSidebar = {
         collapsed: true,
         items: [
           { text: 'Overview', link: '/packages/maputil/' },
-          { text: '📖 Cookbook', link: '/packages/maputil/cookbook' },
           { text: 'Clone', link: '/packages/maputil/clone' },
           { text: 'Get', link: '/packages/maputil/get' },
           { text: 'Invert', link: '/packages/maputil/invert' },
@@ -58,7 +55,6 @@ export const generatedSidebar = {
         collapsed: true,
         items: [
           { text: 'Overview', link: '/packages/str/' },
-          { text: '📖 Cookbook', link: '/packages/str/cookbook' },
           { text: 'Camel', link: '/packages/str/camel' },
           { text: 'Capitalize', link: '/packages/str/capitalize' },
           { text: 'IsBlank', link: '/packages/str/is-blank' },
@@ -100,7 +96,6 @@ export const generatedSidebar = {
         collapsed: true,
         items: [
           { text: 'Overview', link: '/packages/async/' },
-          { text: '📖 Cookbook', link: '/packages/async/cookbook' },
           { text: 'After', link: '/packages/async/after' },
           { text: 'All', link: '/packages/async/all' },
           { text: 'Race', link: '/packages/async/race' },
@@ -143,7 +138,6 @@ export const generatedSidebar = {
         collapsed: true,
         items: [
           { text: 'Overview', link: '/packages/env/' },
-          { text: '📖 Cookbook', link: '/packages/env/cookbook' },
           { text: 'Get', link: '/packages/env/get' },
           { text: 'GetBool', link: '/packages/env/get-bool' },
           { text: 'GetDuration', link: '/packages/env/get-duration' },
@@ -158,7 +152,6 @@ export const generatedSidebar = {
         collapsed: true,
         items: [
           { text: 'Overview', link: '/packages/fs/' },
-          { text: '📖 Cookbook', link: '/packages/fs/cookbook' },
           { text: 'Copy', link: '/packages/fs/copy' },
           { text: 'Exists', link: '/packages/fs/exists' },
           { text: 'Mkdir', link: '/packages/fs/mkdir' },
@@ -174,7 +167,6 @@ export const generatedSidebar = {
         collapsed: true,
         items: [
           { text: 'Overview', link: '/packages/err/' },
-          { text: '📖 Cookbook', link: '/packages/err/cookbook' },
           { text: 'As', link: '/packages/err/as' },
           { text: 'Is', link: '/packages/err/is' },
           { text: 'AppError', link: '/packages/err/app-error' },
@@ -266,7 +258,6 @@ export const generatedSidebar = {
         collapsed: true,
         items: [
           { text: 'Overview', link: '/packages/http/' },
-          { text: '📖 Cookbook', link: '/packages/http/cookbook' },
           { text: 'SaveUploadedFile', link: '/packages/http/save-uploaded-file' },
           { text: 'App', link: '/packages/http/app' },
           { text: 'CORSOptions', link: '/packages/http/cors-options' },
@@ -298,7 +289,6 @@ export const generatedSidebar = {
         collapsed: true,
         items: [
           { text: 'Overview', link: '/packages/client/' },
-          { text: '📖 Cookbook', link: '/packages/client/cookbook' },
           { text: 'SetDefaultClient', link: '/packages/client/set-default-client' },
           { text: 'Client', link: '/packages/client/client' },
           { text: 'RequestOpts', link: '/packages/client/request-opts' },
@@ -316,7 +306,6 @@ export const generatedSidebar = {
         collapsed: true,
         items: [
           { text: 'Overview', link: '/packages/log/' },
-          { text: '📖 Cookbook', link: '/packages/log/cookbook' },
           { text: 'SetDefault', link: '/packages/log/set-default' },
           { text: 'Logger', link: '/packages/log/logger' },
           { text: 'Logger.Default', link: '/packages/log/logger-default' },
@@ -329,7 +318,6 @@ export const generatedSidebar = {
         collapsed: true,
         items: [
           { text: 'Overview', link: '/packages/ws/' },
-          { text: '📖 Cookbook', link: '/packages/ws/cookbook' },
           { text: 'Conn', link: '/packages/ws/conn' },
           { text: 'Server', link: '/packages/ws/server' },
           { text: 'Upgrader', link: '/packages/ws/upgrader' },
@@ -347,7 +335,6 @@ export const generatedSidebar = {
         collapsed: true,
         items: [
           { text: 'Overview', link: '/packages/json/' },
-          { text: '📖 Cookbook', link: '/packages/json/cookbook' },
           { text: 'MustParse', link: '/packages/json/must-parse' },
           { text: 'MustStringify', link: '/packages/json/must-stringify' },
           { text: 'Parse', link: '/packages/json/parse' },
@@ -362,7 +349,6 @@ export const generatedSidebar = {
         collapsed: true,
         items: [
           { text: 'Overview', link: '/packages/validate/' },
-          { text: '📖 Cookbook', link: '/packages/validate/cookbook' },
           { text: 'Array', link: '/packages/validate/array' },
           { text: 'Bool', link: '/packages/validate/bool' },
           { text: 'Float', link: '/packages/validate/float' },
@@ -384,7 +370,6 @@ export const generatedSidebar = {
         collapsed: true,
         items: [
           { text: 'Overview', link: '/packages/db/' },
-          { text: '📖 Cookbook', link: '/packages/db/cookbook' },
           { text: 'DB', link: '/packages/db/db' },
           { text: 'Query', link: '/packages/db/query' },
           { text: 'Tx', link: '/packages/db/tx' },
@@ -397,7 +382,6 @@ export const generatedSidebar = {
         collapsed: true,
         items: [
           { text: 'Overview', link: '/packages/redis/' },
-          { text: '📖 Cookbook', link: '/packages/redis/cookbook' },
           { text: 'Client', link: '/packages/redis/client' },
           { text: 'Message', link: '/packages/redis/message' },
           { text: 'Client.New', link: '/packages/redis/client-new' },
@@ -409,7 +393,6 @@ export const generatedSidebar = {
         collapsed: true,
         items: [
           { text: 'Overview', link: '/packages/mongo/' },
-          { text: '📖 Cookbook', link: '/packages/mongo/cookbook' },
           { text: 'Eq', link: '/packages/mongo/eq' },
           { text: 'Gt', link: '/packages/mongo/gt' },
           { text: 'In', link: '/packages/mongo/in' },
@@ -427,7 +410,6 @@ export const generatedSidebar = {
         collapsed: true,
         items: [
           { text: 'Overview', link: '/packages/crypto/' },
-          { text: '📖 Cookbook', link: '/packages/crypto/cookbook' },
           { text: 'CheckPassword', link: '/packages/crypto/check-password' },
           { text: 'HMACSHA256', link: '/packages/crypto/hmacsha256' },
           { text: 'HashPassword', link: '/packages/crypto/hash-password' },
@@ -441,7 +423,6 @@ export const generatedSidebar = {
         collapsed: true,
         items: [
           { text: 'Overview', link: '/packages/jwt/' },
-          { text: '📖 Cookbook', link: '/packages/jwt/cookbook' },
           { text: 'Decode', link: '/packages/jwt/decode' },
           { text: 'Sign', link: '/packages/jwt/sign' },
           { text: 'Verify', link: '/packages/jwt/verify' },
@@ -464,7 +445,6 @@ export const generatedSidebar = {
         collapsed: true,
         items: [
           { text: 'Overview', link: '/packages/auth/' },
-          { text: '📖 Cookbook', link: '/packages/auth/cookbook' },
           { text: 'APIKey', link: '/packages/auth/api-key' },
           { text: 'Basic', link: '/packages/auth/basic' },
           { text: 'Bearer', link: '/packages/auth/bearer' },
@@ -482,7 +462,6 @@ export const generatedSidebar = {
         collapsed: true,
         items: [
           { text: 'Overview', link: '/packages/cache/' },
-          { text: '📖 Cookbook', link: '/packages/cache/cookbook' },
           { text: 'Cache', link: '/packages/cache/cache' },
           { text: 'Cache.New', link: '/packages/cache/cache-new' },
         ]
@@ -501,7 +480,6 @@ export const generatedSidebar = {
         collapsed: true,
         items: [
           { text: 'Overview', link: '/packages/cron/' },
-          { text: '📖 Cookbook', link: '/packages/cron/cookbook' },
           { text: 'Parse', link: '/packages/cron/parse' },
           { text: 'JobID', link: '/packages/cron/job-id' },
           { text: 'Scheduler', link: '/packages/cron/scheduler' },

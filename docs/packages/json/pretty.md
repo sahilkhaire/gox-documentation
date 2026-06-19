@@ -2,13 +2,15 @@
 title: "Pretty"
 package: "json"
 import: "github.com/sahilkhaire/gox/json"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="json" title="Pretty" node="JSON.parse/stringify" import-path="github.com/sahilkhaire/gox/json" />
 ## Overview
 
 Pretty returns indented JSON.
+
+Part of the **`json`** package — Node.js analog: *JSON.parse/stringify*.
 
 ## Signature
 
@@ -40,15 +42,21 @@ pretty, err := json.Pretty(obj)
 
 :::
 
-## Example from tests
-
-Extracted from the gox test suite — runnable patterns used in CI:
+## Example
 
 ```go
 import "github.com/sahilkhaire/gox/json"
 
 s, err := goxjson.Pretty(map[string]int{"a": 1})
 ```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/json` and call `Pretty` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

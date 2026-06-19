@@ -3,7 +3,7 @@ title: "Format"
 package: "url"
 import: "github.com/sahilkhaire/gox/url"
 node: "url.format(obj)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="url" title="Format" node="url.format(obj)" import-path="github.com/sahilkhaire/gox/url" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 Format returns the serialized URL (url.format).
 
-**Node.js equivalent:** `url.format(obj)`
+If you are coming from Node.js, the closest pattern is **`url.format(obj)`**.
 
 ## Signature
 
@@ -42,6 +42,22 @@ url.Format(u)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/url"
+
+url.Format(u)
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/url` and call `Format` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

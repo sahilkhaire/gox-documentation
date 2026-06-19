@@ -2,11 +2,15 @@
 title: "LayoutDateTime"
 package: "time"
 import: "github.com/sahilkhaire/gox/time"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="time" title="LayoutDateTime" node="moment, dayjs (package timex)" import-path="github.com/sahilkhaire/gox/time" />
 ## Overview
+
+Part of the **`time`** package — Node.js analog: *moment, dayjs (package timex)*.
+
+Use this constant or variable directly — no function call required.
 
 ## Signature
 
@@ -23,7 +27,7 @@ const LayoutDateTime
 ::: code-group
 
 ```js [Node.js]
-// See package overview
+// Typical moment, dayjs (package timex) pattern in Node.js
 ```
 
 ```go [Standard Go]
@@ -38,6 +42,18 @@ _ = timex.LayoutDateTime
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/time"
+
+_ = timex.LayoutDateTime
+```
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

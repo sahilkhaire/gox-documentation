@@ -3,7 +3,7 @@ title: "CheckPassword"
 package: "crypto"
 import: "github.com/sahilkhaire/gox/crypto"
 node: "bcrypt.compare(password, hash)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="crypto" title="CheckPassword" node="bcrypt.compare(password, hash)" import-path="github.com/sahilkhaire/gox/crypto" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 CheckPassword reports whether password matches the bcrypt hash.
 
-**Node.js equivalent:** `bcrypt.compare(password, hash)`
+If you are coming from Node.js, the closest pattern is **`bcrypt.compare(password, hash)`**.
 
 ## Signature
 
@@ -42,6 +42,22 @@ crypto.CheckPassword(password, hash)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/crypto"
+
+crypto.CheckPassword(password, hash)
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/crypto` and call `CheckPassword` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

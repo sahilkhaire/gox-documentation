@@ -2,13 +2,17 @@
 title: "Buffer"
 package: "buffer"
 import: "github.com/sahilkhaire/gox/buffer"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="buffer" title="Buffer" node="Buffer" import-path="github.com/sahilkhaire/gox/buffer" />
 ## Overview
 
 Buffer is a byte slice with helper methods.
+
+Part of the **`buffer`** package — Node.js analog: *Buffer*.
+
+`Buffer` is a type exported by gox. Methods on this type are documented separately.
 
 ## Signature
 
@@ -25,7 +29,7 @@ type Buffer []byte
 ::: code-group
 
 ```js [Node.js]
-// See package overview
+// Typical Buffer pattern in Node.js
 ```
 
 ```go [Standard Go]
@@ -41,9 +45,7 @@ _ = buffer.Buffer
 
 :::
 
-## Example from tests
-
-Extracted from the gox test suite — runnable patterns used in CI:
+## Example
 
 ```go
 import "github.com/sahilkhaire/gox/buffer"
@@ -52,6 +54,14 @@ a := FromString("ab")
 b := From([]byte("ab"))
 c := Concat(FromString("a"), FromString("b"))
 ```
+
+## Tips
+
+Browse methods on this type in the sidebar for handler-style APIs and options structs.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

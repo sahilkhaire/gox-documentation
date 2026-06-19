@@ -2,13 +2,15 @@
 title: "ReadAll"
 package: "stream"
 import: "github.com/sahilkhaire/gox/stream"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="stream" title="ReadAll" node="Node stream" import-path="github.com/sahilkhaire/gox/stream" />
 ## Overview
 
 ReadAll reads r until EOF or ctx is cancelled.
+
+Part of the **`stream`** package — Node.js analog: *Node stream*.
 
 ## Signature
 
@@ -25,7 +27,7 @@ func ReadAll(ctx context.Context, r io.Reader) ([]byte, error)
 ::: code-group
 
 ```js [Node.js]
-// See package overview
+// Typical Node stream pattern in Node.js
 ```
 
 ```go [Standard Go]
@@ -41,6 +43,23 @@ _ = stream.ReadAll(/* args */)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/stream"
+
+// stream
+_ = stream.ReadAll(/* args */)
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/stream` and call `ReadAll` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

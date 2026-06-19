@@ -3,7 +3,7 @@ title: "TempDir"
 package: "osutil"
 import: "github.com/sahilkhaire/gox/osutil"
 node: "os.tmpdir()"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="osutil" title="TempDir" node="os.tmpdir()" import-path="github.com/sahilkhaire/gox/osutil" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 TempDir returns the default temp directory.
 
-**Node.js equivalent:** `os.tmpdir()`
+If you are coming from Node.js, the closest pattern is **`os.tmpdir()`**.
 
 ## Signature
 
@@ -42,6 +42,22 @@ osutil.TempDir()
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/osutil"
+
+osutil.TempDir()
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/osutil` and call `TempDir` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

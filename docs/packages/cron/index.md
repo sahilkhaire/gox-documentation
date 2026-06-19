@@ -1,7 +1,7 @@
 ---
 title: "cron"
 package: "cron"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <PackageOverview
@@ -10,50 +10,10 @@ gox-doc-version: "10"
   import-path="github.com/sahilkhaire/gox/cron"
   subtitle="Package cron schedules recurring jobs using cron expressions, similar to node-cron. Node equivalent: node-cron"
   :symbol-count=4
-  :has-cookbook=true
-  migration-link=""
-  narrative="node-cron-style schedulers for recurring jobs."
 />
-## Start here
-
-<div class="featured-grid">
-<a class="featured-card" href="/packages/cron/scheduler-new"><div class="featured-name">New</div><div class="featured-summary">node-cron</div></a>
-<a class="featured-card" href="/packages/cron/scheduler"><div class="featured-name">Schedule</div><div class="featured-summary">cron.schedule</div></a>
-<a class="featured-card" href="/packages/cron/parse"><div class="featured-name">Parse</div><div class="featured-summary">Parse expression</div></a>
-</div>
-
-## Common use cases
-
-- Run cleanup every hour
-- Schedule report generation
-- Parse cron expressions
-
-## npm → gox
-
-Quick mapping from Node.js patterns to gox APIs:
-
-<table class="npm-map-table"><thead><tr><th>Node.js</th><th>gox</th></tr></thead><tbody>
-<tr><td><code>cron.schedule(expr, fn)</code></td><td><a href="/packages/cron/schedule"><code>Schedule(expr, fn)</code></a></td></tr>
-</tbody></table>
-
-## Quick start
-
-Copy-paste a minimal example:
-
-```go
-import "github.com/sahilkhaire/gox/cron"
-
-sched := cron.New()
-sched.Schedule("0 * * * *", cleanup)
-```
-
-::: tip Full cookbook
-See the [**cron cookbook**](/packages/cron/cookbook) for multi-step recipes and real-world patterns.
-:::
-
 ## API reference
 
-Browse **4 documented symbols** — each page includes Node.js, standard Go, and gox side-by-side examples.
+Select a symbol below — each page explains what it does, shows Node.js vs Go comparisons, and includes a runnable example.
 
 <SymbolFilter placeholder="Filter symbols…" />
 

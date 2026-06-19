@@ -3,7 +3,7 @@ title: "URL.Parse"
 package: "url"
 import: "github.com/sahilkhaire/gox/url"
 node: "new URL(str)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="url" title="URL.Parse" node="new URL(str)" import-path="github.com/sahilkhaire/gox/url" />
@@ -11,7 +11,9 @@ gox-doc-version: "10"
 
 Parse parses a URL string (url.parse).
 
-**Node.js equivalent:** `new URL(str)`
+If you are coming from Node.js, the closest pattern is **`new URL(str)`**.
+
+Method on **`URL`** — call it on a value of that type after constructing or receiving one from a constructor.
 
 ## Signature
 
@@ -42,5 +44,21 @@ u, err := url.Parse("https://example.com/path")
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/url"
+
+u, err := url.Parse("https://example.com/path")
+```
+
+## Tips
+
+Obtain a `URL` value first (see constructors on the package overview), then call `Parse`.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ← [Back to url package overview](/packages/url/)

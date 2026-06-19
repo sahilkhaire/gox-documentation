@@ -3,13 +3,13 @@ title: "Format"
 package: "time"
 import: "github.com/sahilkhaire/gox/time"
 node: "moment().format()"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="time" title="Format" node="moment().format()" import-path="github.com/sahilkhaire/gox/time" />
 ## Overview
 
-**Node.js equivalent:** `moment().format()`
+If you are coming from Node.js, the closest pattern is **`moment().format()`**.
 
 ## Signature
 
@@ -41,6 +41,22 @@ timex.Format(t, layout)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/time"
+
+timex.Format(t, layout)
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/time` and call `Format` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

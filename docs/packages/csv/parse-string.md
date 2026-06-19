@@ -2,13 +2,15 @@
 title: "ParseString"
 package: "csv"
 import: "github.com/sahilkhaire/gox/csv"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="csv" title="ParseString" node="papaparse" import-path="github.com/sahilkhaire/gox/csv" />
 ## Overview
 
 ParseString parses CSV text with a header row.
+
+Part of the **`csv`** package — Node.js analog: *papaparse*.
 
 ## Signature
 
@@ -25,7 +27,7 @@ func ParseString(s string) ([]map[string]string, error)
 ::: code-group
 
 ```js [Node.js]
-// See package overview
+// Typical papaparse pattern in Node.js
 ```
 
 ```go [Standard Go]
@@ -41,6 +43,23 @@ _ = csv.ParseString(/* args */)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/csv"
+
+// csv
+_ = csv.ParseString(/* args */)
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/csv` and call `ParseString` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

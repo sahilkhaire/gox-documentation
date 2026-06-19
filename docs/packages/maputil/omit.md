@@ -3,7 +3,7 @@ title: "Omit"
 package: "maputil"
 import: "github.com/sahilkhaire/gox/maputil"
 node: "_.omit(obj, keys)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="maputil" title="Omit" node="_.omit(obj, keys)" import-path="github.com/sahilkhaire/gox/maputil" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 Omit returns a new map without the given keys (lodash omit).
 
-**Node.js equivalent:** `_.omit(obj, keys)`
+If you are coming from Node.js, the closest pattern is **`_.omit(obj, keys)`**.
 
 ## Signature
 
@@ -43,6 +43,22 @@ maputil.Omit(obj, keys...)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/maputil"
+
+maputil.Omit(obj, keys...)
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/maputil` and call `Omit` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

@@ -2,13 +2,15 @@
 title: "Retry"
 package: "async"
 import: "github.com/sahilkhaire/gox/async"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="async" title="Retry" node="Promise.all, timers" import-path="github.com/sahilkhaire/gox/async" />
 ## Overview
 
 Retry calls fn until it succeeds or attempts are exhausted.
+
+Part of the **`async`** package — Node.js analog: *Promise.all, timers*.
 
 ## Signature
 
@@ -25,7 +27,7 @@ func Retry(ctx context.Context, cfg RetryConfig, fn func(context.Context) error)
 ::: code-group
 
 ```js [Node.js]
-// See package overview
+// Typical Promise.all, timers pattern in Node.js
 ```
 
 ```go [Standard Go]
@@ -40,6 +42,23 @@ _ = async.Retry(/* args */)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/async"
+
+// async
+_ = async.Retry(/* args */)
+```
+
+## Tips
+
+All async helpers respect context cancellation — prefer them over raw goroutines when you need timeouts.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

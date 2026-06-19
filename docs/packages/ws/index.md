@@ -1,7 +1,7 @@
 ---
 title: "ws"
 package: "ws"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <PackageOverview
@@ -10,45 +10,10 @@ gox-doc-version: "10"
   import-path="github.com/sahilkhaire/gox/ws"
   subtitle="Package ws provides WebSocket client and server helpers. Node equivalent: ws, lightweight socket.io patterns."
   :symbol-count=8
-  :has-cookbook=true
-  migration-link="/migration/ws"
-  narrative="WebSocket server, client dial, and upgrade helpers built on gorilla/websocket."
 />
-## Start here
-
-<div class="featured-grid">
-<a class="featured-card" href="/packages/ws/server-new-server"><div class="featured-name">NewServer</div><div class="featured-summary">WebSocket.Server</div></a>
-<a class="featured-card" href="/packages/ws/conn-dial"><div class="featured-name">Dial</div><div class="featured-summary">new WebSocket()</div></a>
-<a class="featured-card" href="/packages/ws/conn-upgrade"><div class="featured-name">Upgrade</div><div class="featured-summary">Upgrade handler</div></a>
-</div>
-
-## Common use cases
-
-- Real-time chat backends
-- Upgrade HTTP handlers to WS
-- Connect to external WS APIs
-
-## Quick start
-
-Copy-paste a minimal example:
-
-```go
-import "github.com/sahilkhaire/gox/ws"
-
-conn, err := ws.Dial(ctx, "wss://example.com/ws", nil)
-```
-
-::: tip Full cookbook
-See the [**ws cookbook**](/packages/ws/cookbook) for multi-step recipes and real-world patterns.
-:::
-
-::: info Migration guide
-Coming from Node.js? Read the [**migration guide**](/migration/ws) for side-by-side patterns.
-:::
-
 ## API reference
 
-Browse **8 documented symbols** — each page includes Node.js, standard Go, and gox side-by-side examples.
+Select a symbol below — each page explains what it does, shows Node.js vs Go comparisons, and includes a runnable example.
 
 <SymbolFilter placeholder="Filter symbols…" />
 

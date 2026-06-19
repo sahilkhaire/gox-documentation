@@ -3,7 +3,7 @@ title: "Some"
 package: "slice"
 import: "github.com/sahilkhaire/gox/slice"
 node: "arr.some(fn)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="slice" title="Some" node="arr.some(fn)" import-path="github.com/sahilkhaire/gox/slice" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 Some reports whether fn is true for any element (Array.some).
 
-**Node.js equivalent:** `arr.some(fn)`
+If you are coming from Node.js, the closest pattern is **`arr.some(fn)`**.
 
 ## Signature
 
@@ -45,6 +45,22 @@ slice.Some(arr, fn)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/slice"
+
+slice.Some(arr, fn)
+```
+
+## Tips
+
+Chain `Filter`, `Map`, and `Reduce` for lodash-style pipelines. Results are new slices — inputs are never mutated.
+
+## Standard library alternative
+
+Use a `for` loop or Go 1.21+ `slices` package helpers from the standard library.
 
 ## Related APIs
 

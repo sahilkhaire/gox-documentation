@@ -2,13 +2,15 @@
 title: "GzipWriter"
 package: "compress"
 import: "github.com/sahilkhaire/gox/compress"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="compress" title="GzipWriter" node="zlib" import-path="github.com/sahilkhaire/gox/compress" />
 ## Overview
 
 GzipWriter wraps dst with a gzip writer; caller must Close the writer.
+
+Part of the **`compress`** package — Node.js analog: *zlib*.
 
 ## Signature
 
@@ -25,7 +27,7 @@ func GzipWriter(dst io.Writer) *gzip.Writer
 ::: code-group
 
 ```js [Node.js]
-// See package overview
+// Typical zlib pattern in Node.js
 ```
 
 ```go [Standard Go]
@@ -41,6 +43,23 @@ _ = compress.GzipWriter(/* args */)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/compress"
+
+// compress
+_ = compress.GzipWriter(/* args */)
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/compress` and call `GzipWriter` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

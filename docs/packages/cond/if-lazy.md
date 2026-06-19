@@ -3,7 +3,7 @@ title: "IfLazy"
 package: "cond"
 import: "github.com/sahilkhaire/gox/cond"
 node: "cond ? f() : g()"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="cond" title="IfLazy" node="cond ? f() : g()" import-path="github.com/sahilkhaire/gox/cond" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 IfLazy evaluates a or b lazily via thunks (Node: cond ? a() : b()).
 
-**Node.js equivalent:** `cond ? f() : g()`
+If you are coming from Node.js, the closest pattern is **`cond ? f() : g()`**.
 
 ## Signature
 
@@ -48,9 +48,7 @@ v := cond.IfLazy(cond, expensive, fallback)
 
 :::
 
-## Example from tests
-
-Extracted from the gox test suite — runnable patterns used in CI:
+## Example
 
 ```go
 import "github.com/sahilkhaire/gox/cond"
@@ -59,6 +57,14 @@ called := 0
 got := IfLazy(false, func() int { called++; return 1 }, func() int { return 2 })
 got = IfLazy(true, func() int { return 3 }, func() int { called++; return 4 })
 ```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/cond` and call `IfLazy` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+Use `if/else` for branching and explicit nil checks instead of `??`.
 
 ## Related APIs
 

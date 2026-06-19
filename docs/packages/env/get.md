@@ -3,7 +3,7 @@ title: "Get"
 package: "env"
 import: "github.com/sahilkhaire/gox/env"
 node: "process.env.KEY"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="env" title="Get" node="process.env.KEY" import-path="github.com/sahilkhaire/gox/env" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 Get returns the value for key (override, then os.Getenv).
 
-**Node.js equivalent:** `process.env.KEY`
+If you are coming from Node.js, the closest pattern is **`process.env.KEY`**.
 
 ## Signature
 
@@ -45,6 +45,22 @@ port := env.Get("PORT", "8080")
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/env"
+
+port := env.Get("PORT", "8080")
+```
+
+## Tips
+
+Call `Load()` once at startup, then use typed getters instead of parsing strings manually.
+
+## Standard library alternative
+
+Use `os.Getenv` and `os.Setenv` from the standard library, or a config library like viper.
 
 ## Related APIs
 

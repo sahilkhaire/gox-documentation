@@ -80,7 +80,7 @@ names := slice.Map(users, func(u User) string { return u.Name })
 1. **[Architecture](/guide/architecture)** — module layout, context-first I/O, dependency policy
 2. **Pick a package group** — [Utilities](/packages/cond/) → [Web](/packages/http/) → [Data](/packages/db/)
 3. **[Migration guide](/migration/express)** for your heaviest npm dependency
-4. **Browse package overviews** — each has a quick-start cookbook and full symbol index
+4. **Browse package APIs** — each function has its own page with Node.js vs Go comparisons and examples
 
 ::: warning Must* helpers
 Some packages expose `MustOpen`, `MustParse`, `MustValidate`, etc. These panic on failure — same trade-off as Node's `JSON.parse` vs `try/catch`. Prefer explicit error handling in library code.

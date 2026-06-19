@@ -3,7 +3,7 @@ title: "EncodeQuery"
 package: "url"
 import: "github.com/sahilkhaire/gox/url"
 node: "querystring.stringify(obj)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="url" title="EncodeQuery" node="querystring.stringify(obj)" import-path="github.com/sahilkhaire/gox/url" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 EncodeQuery encodes values (querystring.stringify).
 
-**Node.js equivalent:** `querystring.stringify(obj)`
+If you are coming from Node.js, the closest pattern is **`querystring.stringify(obj)`**.
 
 ## Signature
 
@@ -43,6 +43,22 @@ url.EncodeQuery(obj)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/url"
+
+url.EncodeQuery(obj)
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/url` and call `EncodeQuery` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

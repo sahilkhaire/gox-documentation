@@ -2,13 +2,17 @@
 title: "RetryConfig"
 package: "async"
 import: "github.com/sahilkhaire/gox/async"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="async" title="RetryConfig" node="Promise.all, timers" import-path="github.com/sahilkhaire/gox/async" />
 ## Overview
 
 RetryConfig configures Retry backoff.
+
+Part of the **`async`** package — Node.js analog: *Promise.all, timers*.
+
+`RetryConfig` is a type exported by gox. Methods on this type are documented separately.
 
 ## Signature
 
@@ -30,7 +34,7 @@ type RetryConfig struct {
 ::: code-group
 
 ```js [Node.js]
-// See package overview
+// Typical Promise.all, timers pattern in Node.js
 ```
 
 ```go [Standard Go]
@@ -45,6 +49,22 @@ _ = async.RetryConfig
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/async"
+
+_ = async.RetryConfig
+```
+
+## Tips
+
+All async helpers respect context cancellation — prefer them over raw goroutines when you need timeouts.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

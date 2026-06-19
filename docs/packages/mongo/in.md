@@ -2,13 +2,15 @@
 title: "In"
 package: "mongo"
 import: "github.com/sahilkhaire/gox/mongo"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="mongo" title="In" node="mongoose" import-path="github.com/sahilkhaire/gox/mongo" />
 ## Overview
 
 In matches field in values.
+
+Part of the **`mongo`** package — Node.js analog: *mongoose*.
 
 ## Signature
 
@@ -25,7 +27,7 @@ func In(field string, values ...any) bson.M
 ::: code-group
 
 ```js [Node.js]
-// See package overview
+// Typical mongoose pattern in Node.js
 ```
 
 ```go [Standard Go]
@@ -40,6 +42,23 @@ _ = mongo.In(/* args */)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/mongo"
+
+// mongo
+_ = mongo.In(/* args */)
+```
+
+## Tips
+
+Pass `context.Context` as the first argument so cancellation and deadlines propagate correctly.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

@@ -397,6 +397,10 @@ func writeCookbookPage(dir, pkgName string) error {
 	return os.WriteFile(filepath.Join(dir, pkgName, "cookbook.md"), []byte(b.String()), 0o644)
 }
 
+func removeCookbookPage(dir, pkgName string) {
+	_ = os.Remove(filepath.Join(dir, pkgName, "cookbook.md"))
+}
+
 func hasCookbook(pkgName string) bool {
 	_, ok := packageCookbooks[pkgName]
 	return ok

@@ -2,13 +2,15 @@
 title: "GetClaims"
 package: "auth"
 import: "github.com/sahilkhaire/gox/auth"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="auth" title="GetClaims" node="passport" import-path="github.com/sahilkhaire/gox/auth" />
 ## Overview
 
 GetClaims returns JWT claims set by Bearer middleware.
+
+Part of the **`auth`** package — Node.js analog: *passport*.
 
 ## Signature
 
@@ -25,7 +27,7 @@ func GetClaims(c *goxhttp.Ctx) jwtlib.MapClaims
 ::: code-group
 
 ```js [Node.js]
-// See package overview
+// Typical passport pattern in Node.js
 ```
 
 ```go [Standard Go]
@@ -40,6 +42,23 @@ _ = auth.GetClaims(/* args */)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/auth"
+
+// auth
+_ = auth.GetClaims(/* args */)
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/auth` and call `GetClaims` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

@@ -3,7 +3,7 @@ title: "ReadDir"
 package: "fs"
 import: "github.com/sahilkhaire/gox/fs"
 node: "fs.readdir(path)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="fs" title="ReadDir" node="fs.readdir(path)" import-path="github.com/sahilkhaire/gox/fs" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 ReadDir reads directory entries (fs.promises.readdir).
 
-**Node.js equivalent:** `fs.readdir(path)`
+If you are coming from Node.js, the closest pattern is **`fs.readdir(path)`**.
 
 ## Signature
 
@@ -42,6 +42,22 @@ fs.ReadDir(ctx, path)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/fs"
+
+fs.ReadDir(ctx, path)
+```
+
+## Tips
+
+Pass `context.Context` as the first argument so cancellation and deadlines propagate correctly.
+
+## Standard library alternative
+
+Use `os.ReadFile`, `os.WriteFile`, etc. Pass `context.Context` manually for cancellation.
 
 ## Related APIs
 

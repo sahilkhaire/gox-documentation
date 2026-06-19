@@ -3,7 +3,7 @@ title: "CoalesceFn"
 package: "cond"
 import: "github.com/sahilkhaire/gox/cond"
 node: "obj?.field ?? \"guest\""
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="cond" title="CoalesceFn" node="obj?.field ?? &quot;guest&quot;" import-path="github.com/sahilkhaire/gox/cond" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 CoalesceFn returns the first non-zero result from the given functions, in order.
 
-**Node.js equivalent:** `obj?.field ?? "guest"`
+If you are coming from Node.js, the closest pattern is **`obj?.field ?? "guest"`**.
 
 ## Signature
 
@@ -45,6 +45,22 @@ cond.CoalesceFn(ptr, func(v T) R { ... }, fallback)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/cond"
+
+cond.CoalesceFn(ptr, func(v T) R { ... }, fallback)
+```
+
+## Tips
+
+Prefer explicit zero-value checks in performance-critical hot paths if the compiler cannot prove types.
+
+## Standard library alternative
+
+Use `if/else` for branching and explicit nil checks instead of `??`.
 
 ## Related APIs
 

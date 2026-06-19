@@ -3,7 +3,7 @@ title: "Gunzip"
 package: "compress"
 import: "github.com/sahilkhaire/gox/compress"
 node: "gunzipSync"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="compress" title="Gunzip" node="gunzipSync" import-path="github.com/sahilkhaire/gox/compress" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 Gunzip decompresses gzip data.
 
-**Node.js equivalent:** `gunzipSync`
+If you are coming from Node.js, the closest pattern is **`gunzipSync`**.
 
 ## Signature
 
@@ -42,6 +42,22 @@ compress.Gunzip(data)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/compress"
+
+compress.Gunzip(data)
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/compress` and call `Gunzip` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

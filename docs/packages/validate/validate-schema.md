@@ -3,7 +3,7 @@ title: "ValidateSchema"
 package: "validate"
 import: "github.com/sahilkhaire/gox/validate"
 node: "schema.parse(data)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="validate" title="ValidateSchema" node="schema.parse(data)" import-path="github.com/sahilkhaire/gox/validate" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 ValidateSchema validates v against sch (map or struct).
 
-**Node.js equivalent:** `schema.parse(data)`
+If you are coming from Node.js, the closest pattern is **`schema.parse(data)`**.
 
 ## Signature
 
@@ -42,6 +42,22 @@ validate.ValidateSchema(sch, data)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/validate"
+
+validate.ValidateSchema(sch, data)
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/validate` and call `ValidateSchema` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

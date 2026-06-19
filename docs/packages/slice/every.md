@@ -3,7 +3,7 @@ title: "Every"
 package: "slice"
 import: "github.com/sahilkhaire/gox/slice"
 node: "arr.every(fn)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="slice" title="Every" node="arr.every(fn)" import-path="github.com/sahilkhaire/gox/slice" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 Every reports whether fn is true for all elements (Array.every).
 
-**Node.js equivalent:** `arr.every(fn)`
+If you are coming from Node.js, the closest pattern is **`arr.every(fn)`**.
 
 ## Signature
 
@@ -45,6 +45,22 @@ slice.Every(arr, fn)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/slice"
+
+slice.Every(arr, fn)
+```
+
+## Tips
+
+Chain `Filter`, `Map`, and `Reduce` for lodash-style pipelines. Results are new slices — inputs are never mutated.
+
+## Standard library alternative
+
+Use a `for` loop or Go 1.21+ `slices` package helpers from the standard library.
 
 ## Related APIs
 

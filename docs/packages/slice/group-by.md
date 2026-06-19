@@ -3,7 +3,7 @@ title: "GroupBy"
 package: "slice"
 import: "github.com/sahilkhaire/gox/slice"
 node: "_.groupBy(arr, fn)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="slice" title="GroupBy" node="_.groupBy(arr, fn)" import-path="github.com/sahilkhaire/gox/slice" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 GroupBy groups elements by key from fn (lodash groupBy).
 
-**Node.js equivalent:** `_.groupBy(arr, fn)`
+If you are coming from Node.js, the closest pattern is **`_.groupBy(arr, fn)`**.
 
 ## Signature
 
@@ -45,6 +45,22 @@ byRole := slice.GroupBy(users, func(u User) string { return u.Role })
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/slice"
+
+byRole := slice.GroupBy(users, func(u User) string { return u.Role })
+```
+
+## Tips
+
+Chain `Filter`, `Map`, and `Reduce` for lodash-style pipelines. Results are new slices — inputs are never mutated.
+
+## Standard library alternative
+
+Use a `for` loop or Go 1.21+ `slices` package helpers from the standard library.
 
 ## Related APIs
 

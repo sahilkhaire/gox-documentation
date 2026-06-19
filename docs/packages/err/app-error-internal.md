@@ -3,7 +3,7 @@ title: "AppError.Internal"
 package: "err"
 import: "github.com/sahilkhaire/gox/err"
 node: "createError(500, msg)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="err" title="AppError.Internal" node="createError(500, msg)" import-path="github.com/sahilkhaire/gox/err" />
@@ -11,7 +11,9 @@ gox-doc-version: "10"
 
 Internal returns a 500 AppError.
 
-**Node.js equivalent:** `createError(500, msg)`
+If you are coming from Node.js, the closest pattern is **`createError(500, msg)`**.
+
+Method on **`AppError`** — call it on a value of that type after constructing or receiving one from a constructor.
 
 ## Signature
 
@@ -42,6 +44,22 @@ return err.Internal("internal error")
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/err"
+
+return err.Internal("internal error")
+```
+
+## Tips
+
+Obtain a `AppError` value first (see constructors on the package overview), then call `Internal`.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

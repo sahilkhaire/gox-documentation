@@ -3,7 +3,7 @@ title: "Load"
 package: "env"
 import: "github.com/sahilkhaire/gox/env"
 node: "require('dotenv').config()"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="env" title="Load" node="require('dotenv').config()" import-path="github.com/sahilkhaire/gox/env" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 Load parses a dotenv file and sets variables in the environment and override layer.
 
-**Node.js equivalent:** `require('dotenv').config()`
+If you are coming from Node.js, the closest pattern is **`require('dotenv').config()`**.
 
 ## Signature
 
@@ -45,9 +45,7 @@ if err := env.Load(); err != nil {
 
 :::
 
-## Example from tests
-
-Extracted from the gox test suite — runnable patterns used in CI:
+## Example
 
 ```go
 import "github.com/sahilkhaire/gox/env"
@@ -59,6 +57,14 @@ Set("ONLY_TEST", "1")
 n, err := GetInt("MISSING", 7)
 Set("N", "42")
 ```
+
+## Tips
+
+Call `Load()` once at startup, then use typed getters instead of parsing strings manually.
+
+## Standard library alternative
+
+Use `os.Getenv` and `os.Setenv` from the standard library, or a config library like viper.
 
 ## Related APIs
 

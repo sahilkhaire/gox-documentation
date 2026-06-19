@@ -1,7 +1,7 @@
 ---
 title: "csv"
 package: "csv"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <PackageOverview
@@ -10,37 +10,10 @@ gox-doc-version: "10"
   import-path="github.com/sahilkhaire/gox/csv"
   subtitle="Package csv reads and writes CSV with header-row maps. Node equivalent: papaparse, csv-parse."
   :symbol-count=4
-  :has-cookbook=false
-  migration-link=""
-  narrative="papaparse-style CSV read, write, and parse for tabular data import/export."
 />
-## Start here
-
-<div class="featured-grid">
-<a class="featured-card" href="/packages/csv/read"><div class="featured-name">Read</div><div class="featured-summary">Parse CSV file</div></a>
-<a class="featured-card" href="/packages/csv/write"><div class="featured-name">Write</div><div class="featured-summary">Write CSV</div></a>
-<a class="featured-card" href="/packages/csv/parse-string"><div class="featured-name">ParseString</div><div class="featured-summary">Parse inline CSV</div></a>
-</div>
-
-## Common use cases
-
-- Import user CSV uploads
-- Export reports
-- Parse inline CSV strings
-
-## Quick start
-
-Copy-paste a minimal example:
-
-```go
-import "github.com/sahilkhaire/gox/csv"
-
-rows, err := csv.ReadAll(ctx, "data.csv")
-```
-
 ## API reference
 
-Browse **4 documented symbols** — each page includes Node.js, standard Go, and gox side-by-side examples.
+Select a symbol below — each page explains what it does, shows Node.js vs Go comparisons, and includes a runnable example.
 
 <SymbolFilter placeholder="Filter symbols…" />
 

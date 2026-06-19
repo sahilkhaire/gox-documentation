@@ -2,13 +2,17 @@
 title: "FileEntry"
 package: "archive"
 import: "github.com/sahilkhaire/gox/archive"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="archive" title="FileEntry" node="archiver" import-path="github.com/sahilkhaire/gox/archive" />
 ## Overview
 
 FileEntry is a named file for archive creation.
+
+Part of the **`archive`** package — Node.js analog: *archiver*.
+
+`FileEntry` is a type exported by gox. Methods on this type are documented separately.
 
 ## Signature
 
@@ -28,7 +32,7 @@ type FileEntry struct {
 ::: code-group
 
 ```js [Node.js]
-// See package overview
+// Typical archiver pattern in Node.js
 ```
 
 ```go [Standard Go]
@@ -42,6 +46,22 @@ _ = archive.FileEntry
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/archive"
+
+_ = archive.FileEntry
+```
+
+## Tips
+
+Browse methods on this type in the sidebar for handler-style APIs and options structs.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

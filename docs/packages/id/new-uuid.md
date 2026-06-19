@@ -3,7 +3,7 @@ title: "NewUUID"
 package: "id"
 import: "github.com/sahilkhaire/gox/id"
 node: "uuid.v4()"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="id" title="NewUUID" node="uuid.v4()" import-path="github.com/sahilkhaire/gox/id" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 NewUUID returns a random UUID string (uuid.v4).
 
-**Node.js equivalent:** `uuid.v4()`
+If you are coming from Node.js, the closest pattern is **`uuid.v4()`**.
 
 ## Signature
 
@@ -43,6 +43,22 @@ id := id.NewUUID()
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/id"
+
+id := id.NewUUID()
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/id` and call `NewUUID` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

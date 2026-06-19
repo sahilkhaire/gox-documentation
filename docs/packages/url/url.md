@@ -2,13 +2,17 @@
 title: "URL"
 package: "url"
 import: "github.com/sahilkhaire/gox/url"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="url" title="URL" node="url, querystring" import-path="github.com/sahilkhaire/gox/url" />
 ## Overview
 
 URL wraps net/url.URL with Node-friendly helpers.
+
+Part of the **`url`** package — Node.js analog: *url, querystring*.
+
+`URL` is a type exported by gox. Methods on this type are documented separately.
 
 ## Signature
 
@@ -27,7 +31,7 @@ type URL struct {
 ::: code-group
 
 ```js [Node.js]
-// See package overview
+// Typical url, querystring pattern in Node.js
 ```
 
 ```go [Standard Go]
@@ -43,9 +47,7 @@ _ = url.URL
 
 :::
 
-## Example from tests
-
-Extracted from the gox test suite — runnable patterns used in CI:
+## Example
 
 ```go
 import "github.com/sahilkhaire/gox/url"
@@ -54,6 +56,14 @@ u, err := Parse("https://example.com/a?x=1")
 res, err := Resolve("https://example.com/foo/", "bar")
 vals, err := ParseQuery("a=1&b=2")
 ```
+
+## Tips
+
+Browse methods on this type in the sidebar for handler-style APIs and options structs.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

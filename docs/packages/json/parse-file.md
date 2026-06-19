@@ -2,13 +2,15 @@
 title: "ParseFile"
 package: "json"
 import: "github.com/sahilkhaire/gox/json"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="json" title="ParseFile" node="JSON.parse/stringify" import-path="github.com/sahilkhaire/gox/json" />
 ## Overview
 
 ParseFile reads path and unmarshals into v.
+
+Part of the **`json`** package — Node.js analog: *JSON.parse/stringify*.
 
 ## Signature
 
@@ -41,9 +43,7 @@ cfg, err := json.ParseFile[Config](ctx, "cfg.json")
 
 :::
 
-## Example from tests
-
-Extracted from the gox test suite — runnable patterns used in CI:
+## Example
 
 ```go
 import "github.com/sahilkhaire/gox/json"
@@ -52,6 +52,14 @@ dir := t.TempDir()
 path := filepath.Join(dir, "data.json")
 var m map[string]int
 ```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/json` and call `ParseFile` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

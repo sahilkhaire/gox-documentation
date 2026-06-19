@@ -3,7 +3,7 @@ title: "Dirname"
 package: "path"
 import: "github.com/sahilkhaire/gox/path"
 node: "path.dirname(p)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="path" title="Dirname" node="path.dirname(p)" import-path="github.com/sahilkhaire/gox/path" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 Dirname returns the directory (path.dirname).
 
-**Node.js equivalent:** `path.dirname(p)`
+If you are coming from Node.js, the closest pattern is **`path.dirname(p)`**.
 
 ## Signature
 
@@ -42,6 +42,22 @@ dir := path.Dirname("/foo/bar.txt")
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/path"
+
+dir := path.Dirname("/foo/bar.txt")
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/path` and call `Dirname` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

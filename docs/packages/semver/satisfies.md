@@ -3,7 +3,7 @@ title: "Satisfies"
 package: "semver"
 import: "github.com/sahilkhaire/gox/semver"
 node: "semver.satisfies(v, range)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="semver" title="Satisfies" node="semver.satisfies(v, range)" import-path="github.com/sahilkhaire/gox/semver" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 Satisfies reports whether version matches constraint (npm range syntax).
 
-**Node.js equivalent:** `semver.satisfies(v, range)`
+If you are coming from Node.js, the closest pattern is **`semver.satisfies(v, range)`**.
 
 ## Signature
 
@@ -42,6 +42,22 @@ semver.Satisfies(v, constraint)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/semver"
+
+semver.Satisfies(v, constraint)
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/semver` and call `Satisfies` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

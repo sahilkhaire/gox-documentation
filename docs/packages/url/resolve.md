@@ -3,7 +3,7 @@ title: "Resolve"
 package: "url"
 import: "github.com/sahilkhaire/gox/url"
 node: "url.resolve(base, rel)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="url" title="Resolve" node="url.resolve(base, rel)" import-path="github.com/sahilkhaire/gox/url" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 Resolve resolves relative against base (url.resolve).
 
-**Node.js equivalent:** `url.resolve(base, rel)`
+If you are coming from Node.js, the closest pattern is **`url.resolve(base, rel)`**.
 
 ## Signature
 
@@ -42,6 +42,22 @@ url.Resolve(base, rel)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/url"
+
+url.Resolve(base, rel)
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/url` and call `Resolve` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

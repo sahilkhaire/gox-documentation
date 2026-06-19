@@ -107,6 +107,9 @@ func main() {
 				continue
 			}
 			if !*checkOnly {
+				for i := range syms {
+					syms[i].Node = nodeMap.lookup(pkgName, syms[i].Name, syms[i].Receiver)
+				}
 				if err := writePackageIndex(packagesDir, pkgName, pkgDocs, syms); err != nil {
 					fatal(err)
 				}
@@ -289,7 +292,6 @@ func writePackageIndex(dir, pkgName string, apkg *doc.Package, syms []symbolDoc)
 	b.WriteString(fmt.Sprintf("gox-doc-version: %q\n", docVersion))
 	b.WriteString("---\n\n")
 	b.WriteString(writePackageOverviewComponent(pkgName, analog, importPath, subtitle, len(syms)))
-	b.WriteString(writeFeaturedSection(pkgName))
 
 	if pkgName == "time" {
 		b.WriteString("::: warning Package identifier\n")
@@ -297,24 +299,8 @@ func writePackageIndex(dir, pkgName string, apkg *doc.Package, syms []symbolDoc)
 		b.WriteString(":::\n\n")
 	}
 
-	b.WriteString(writeUseCasesSection(pkgName))
-	b.WriteString(writeNpmGoxSection(pkgName, npmRows[pkgName]))
-
-	if qs, ok := packageQuickStart[pkgName]; ok {
-		b.WriteString("## Quick start\n\n")
-		b.WriteString("Copy-paste a minimal example:\n\n")
-		b.WriteString("```go\nimport \"" + importPath + "\"\n\n" + qs + "\n```\n\n")
-	}
-	if hasCookbook(pkgName) {
-		b.WriteString(fmt.Sprintf("::: tip Full cookbook\nSee the [**%s cookbook**](/packages/%s/cookbook) for multi-step recipes and real-world patterns.\n:::\n\n", pkgName, pkgName))
-	}
-	narr := packageNarratives[pkgName]
-	if narr.MigrationLink != "" {
-		b.WriteString(fmt.Sprintf("::: info Migration guide\nComing from Node.js? Read the [**migration guide**](%s) for side-by-side patterns.\n:::\n\n", narr.MigrationLink))
-	}
-
 	b.WriteString("## API reference\n\n")
-	b.WriteString(fmt.Sprintf("Browse **%d documented symbols** — each page includes Node.js, standard Go, and gox side-by-side examples.\n\n", len(syms)))
+	b.WriteString(fmt.Sprintf("Select a symbol below — each page explains what it does, shows Node.js vs Go comparisons, and includes a runnable example.\n\n"))
 	b.WriteString("<SymbolFilter placeholder=\"Filter symbols…\" />\n\n")
 
 	// Group symbols by kind
@@ -386,12 +372,8 @@ func writeSymbolPage(path string, sym symbolDoc, apkg *doc.Package) error {
 
 	// Overview
 	b.WriteString("## Overview\n\n")
-	if desc := buildOverviewDescription(sym, e, hasEnrich); desc != "" {
-		b.WriteString(desc + "\n\n")
-	}
-	if sym.Node != "" && (!hasEnrich || e.Description == "") {
-		b.WriteString("**Node.js equivalent:** `" + sym.Node + "`\n\n")
-	}
+	b.WriteString(buildRichOverview(sym, e, hasEnrich))
+	b.WriteString("\n\n")
 
 	b.WriteString("## Signature\n\n")
 	b.WriteString("<div class=\"signature-block\">\n\n")
@@ -400,15 +382,9 @@ func writeSymbolPage(path string, sym symbolDoc, apkg *doc.Package) error {
 
 	// Compare section with code-group
 	b.WriteString("## Compare: Node.js · Standard Go · gox\n\n")
-	nodeCode := "// See package overview"
+	nodeCode := nodeCompareCode(sym, e, hasEnrich)
 	stdGoCode := standardGoCode(sym, e, hasEnrich)
 	goxCode := goxCodeBlock(sym, pkgIdent, e, hasEnrich)
-
-	if hasEnrich && e.Node != "" {
-		nodeCode = e.Node
-	} else if sym.Node != "" {
-		nodeCode = sym.Node
-	}
 
 	b.WriteString("::: code-group\n\n")
 	b.WriteString("```js [Node.js]\n" + nodeCode + "\n```\n\n")
@@ -416,21 +392,9 @@ func writeSymbolPage(path string, sym symbolDoc, apkg *doc.Package) error {
 	b.WriteString("```go [gox]\nimport \"" + modulePath + "/" + sym.Pkg + "\"\n\n" + goxCode + "\n```\n\n")
 	b.WriteString(":::\n\n")
 
-	if hasEnrich && e.Example != "" {
-		b.WriteString("## Example from tests\n\n")
-		b.WriteString("Extracted from the gox test suite — runnable patterns used in CI:\n\n")
-		b.WriteString("```go\nimport \"" + modulePath + "/" + sym.Pkg + "\"\n\n" + e.Example + "\n```\n\n")
-	}
-
-	if hasEnrich && e.Tips != "" {
-		b.WriteString("## Tips\n\n")
-		b.WriteString(e.Tips + "\n\n")
-	} else if hasEnrich && e.When != "" {
-		b.WriteString("## Tips\n\n")
-		b.WriteString("::: tip When to use gox\n")
-		b.WriteString(e.When + "\n")
-		b.WriteString(":::\n\n")
-	}
+	b.WriteString(buildExampleBlock(sym, pkgIdent, e, hasEnrich))
+	b.WriteString(buildTipsBlock(sym, e, hasEnrich))
+	b.WriteString(buildStdLibBlock(sym))
 
 	if hasEnrich && e.Pitfall != "" {
 		b.WriteString("::: warning Watch out\n")
@@ -476,6 +440,9 @@ func goxCodeBlock(sym symbolDoc, pkgIdent string, e enrichment, ok bool) string 
 }
 
 func standardGoNote(sym symbolDoc) string {
+	if note := heuristicStdGo(sym); note != "" && !strings.HasPrefix(note, "//") {
+		return "Use the standard library directly:\n\n```go\n" + note + "\n```"
+	}
 	switch sym.Pkg {
 	case "slice":
 		return "Use a `for` loop or Go 1.21+ `slices` package helpers from the standard library."

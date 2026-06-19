@@ -2,13 +2,17 @@
 title: "Client.NewFromClient"
 package: "redis"
 import: "github.com/sahilkhaire/gox/redis"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="redis" title="Client.NewFromClient" node="ioredis" import-path="github.com/sahilkhaire/gox/redis" />
 ## Overview
 
 NewFromClient wraps an existing client.
+
+Part of the **`redis`** package — Node.js analog: *ioredis*.
+
+Method on **`Client`** — call it on a value of that type after constructing or receiving one from a constructor.
 
 ## Signature
 
@@ -25,7 +29,7 @@ func NewFromClient(c *goredis.Client) *Client
 ::: code-group
 
 ```js [Node.js]
-// See package overview
+// Typical ioredis pattern in Node.js
 ```
 
 ```go [Standard Go]
@@ -41,6 +45,23 @@ v.NewFromClient(/* args */)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/redis"
+
+var v Client
+v.NewFromClient(/* args */)
+```
+
+## Tips
+
+Pass `context.Context` as the first argument so cancellation and deadlines propagate correctly.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

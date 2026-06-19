@@ -3,15 +3,18 @@ title: "Cache.New"
 package: "cache"
 import: "github.com/sahilkhaire/gox/cache"
 node: "new LRUCache({ max })"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="cache" title="Cache.New" node="new LRUCache({ max })" import-path="github.com/sahilkhaire/gox/cache" />
 ## Overview
 
 New creates a cache that evicts least-recently-used entries when size exceeds maxSize.
+Node: new LRUCache({ max: maxSize })
 
-**Node.js equivalent:** `new LRUCache({ max })`
+If you are coming from Node.js, the closest pattern is **`new LRUCache({ max })`**.
+
+Method on **`Cache`** — call it on a value of that type after constructing or receiving one from a constructor.
 
 ## Signature
 
@@ -42,5 +45,21 @@ c := cache.New(100)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/cache"
+
+c := cache.New(100)
+```
+
+## Tips
+
+Obtain a `Cache` value first (see constructors on the package overview), then call `New`.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ← [Back to cache package overview](/packages/cache/)

@@ -3,7 +3,7 @@ title: "Logger.New"
 package: "log"
 import: "github.com/sahilkhaire/gox/log"
 node: "winston.createLogger()"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="log" title="Logger.New" node="winston.createLogger()" import-path="github.com/sahilkhaire/gox/log" />
@@ -11,7 +11,9 @@ gox-doc-version: "10"
 
 New returns a Logger writing JSON to stderr at info level.
 
-**Node.js equivalent:** `winston.createLogger()`
+If you are coming from Node.js, the closest pattern is **`winston.createLogger()`**.
+
+Method on **`Logger`** — call it on a value of that type after constructing or receiving one from a constructor.
 
 ## Signature
 
@@ -43,6 +45,22 @@ logger := log.New()
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/log"
+
+logger := log.New()
+```
+
+## Tips
+
+Obtain a `Logger` value first (see constructors on the package overview), then call `New`.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

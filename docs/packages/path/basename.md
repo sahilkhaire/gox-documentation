@@ -3,7 +3,7 @@ title: "Basename"
 package: "path"
 import: "github.com/sahilkhaire/gox/path"
 node: "path.basename(p)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="path" title="Basename" node="path.basename(p)" import-path="github.com/sahilkhaire/gox/path" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 Basename returns the last element (path.basename).
 
-**Node.js equivalent:** `path.basename(p)`
+If you are coming from Node.js, the closest pattern is **`path.basename(p)`**.
 
 ## Signature
 
@@ -42,6 +42,22 @@ name := path.Basename("/foo/bar.txt")
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/path"
+
+name := path.Basename("/foo/bar.txt")
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/path` and call `Basename` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

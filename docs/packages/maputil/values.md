@@ -3,7 +3,7 @@ title: "Values"
 package: "maputil"
 import: "github.com/sahilkhaire/gox/maputil"
 node: "Object.values(obj)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="maputil" title="Values" node="Object.values(obj)" import-path="github.com/sahilkhaire/gox/maputil" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 Values returns map values (Object.values).
 
-**Node.js equivalent:** `Object.values(obj)`
+If you are coming from Node.js, the closest pattern is **`Object.values(obj)`**.
 
 ## Signature
 
@@ -43,6 +43,22 @@ maputil.Values(obj)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/maputil"
+
+maputil.Values(obj)
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/maputil` and call `Values` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

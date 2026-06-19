@@ -2,13 +2,17 @@
 title: "Cache"
 package: "cache"
 import: "github.com/sahilkhaire/gox/cache"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="cache" title="Cache" node="lru-cache" import-path="github.com/sahilkhaire/gox/cache" />
 ## Overview
 
 Cache is a thread-safe LRU cache with per-key TTL.
+
+Part of the **`cache`** package — Node.js analog: *lru-cache*.
+
+`Cache` is a type exported by gox. Methods on this type are documented separately.
 
 ## Signature
 
@@ -27,7 +31,7 @@ type Cache struct {
 ::: code-group
 
 ```js [Node.js]
-// See package overview
+// Typical lru-cache pattern in Node.js
 ```
 
 ```go [Standard Go]
@@ -41,5 +45,21 @@ _ = cache.Cache
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/cache"
+
+_ = cache.Cache
+```
+
+## Tips
+
+Browse methods on this type in the sidebar for handler-style APIs and options structs.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ← [Back to cache package overview](/packages/cache/)

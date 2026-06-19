@@ -2,13 +2,17 @@
 title: "AppError.New"
 package: "err"
 import: "github.com/sahilkhaire/gox/err"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="err" title="AppError.New" node="http-errors" import-path="github.com/sahilkhaire/gox/err" />
 ## Overview
 
 New creates an AppError with code and message.
+
+Part of the **`err`** package — Node.js analog: *http-errors*.
+
+Method on **`AppError`** — call it on a value of that type after constructing or receiving one from a constructor.
 
 ## Signature
 
@@ -25,7 +29,7 @@ func New(code int, message string) *AppError
 ::: code-group
 
 ```js [Node.js]
-// See package overview
+// Typical http-errors pattern in Node.js
 ```
 
 ```go [Standard Go]
@@ -41,6 +45,23 @@ v.New(/* args */)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/err"
+
+var v AppError
+v.New(/* args */)
+```
+
+## Tips
+
+Obtain a `AppError` value first (see constructors on the package overview), then call `New`.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

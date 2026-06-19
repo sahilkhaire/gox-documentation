@@ -3,7 +3,7 @@ title: "Keys"
 package: "maputil"
 import: "github.com/sahilkhaire/gox/maputil"
 node: "Object.keys(obj)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="maputil" title="Keys" node="Object.keys(obj)" import-path="github.com/sahilkhaire/gox/maputil" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 Keys returns map keys (Object.keys).
 
-**Node.js equivalent:** `Object.keys(obj)`
+If you are coming from Node.js, the closest pattern is **`Object.keys(obj)`**.
 
 ## Signature
 
@@ -43,6 +43,22 @@ maputil.Keys(obj)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/maputil"
+
+maputil.Keys(obj)
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/maputil` and call `Keys` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

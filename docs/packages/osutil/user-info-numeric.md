@@ -2,13 +2,15 @@
 title: "UserInfoNumeric"
 package: "osutil"
 import: "github.com/sahilkhaire/gox/osutil"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="osutil" title="UserInfoNumeric" node="os" import-path="github.com/sahilkhaire/gox/osutil" />
 ## Overview
 
 UserInfoNumeric is like UserInfo but parses uid/gid as ints when possible.
+
+Part of the **`osutil`** package — Node.js analog: *os*.
 
 ## Signature
 
@@ -25,7 +27,7 @@ func UserInfoNumeric() (username string, uid, gid int, err error)
 ::: code-group
 
 ```js [Node.js]
-// See package overview
+// Typical os pattern in Node.js
 ```
 
 ```go [Standard Go]
@@ -41,6 +43,23 @@ _ = osutil.UserInfoNumeric(/* args */)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/osutil"
+
+// osutil
+_ = osutil.UserInfoNumeric(/* args */)
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/osutil` and call `UserInfoNumeric` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

@@ -2,13 +2,17 @@
 title: "MultipartForm.ParseMultipart"
 package: "http"
 import: "github.com/sahilkhaire/gox/http"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="http" title="MultipartForm.ParseMultipart" node="express, cors, helmet, morgan" import-path="github.com/sahilkhaire/gox/http" />
 ## Overview
 
 ParseMultipart parses a multipart request (multer).
+
+Part of the **`http`** package — Node.js analog: *express, cors, helmet, morgan*.
+
+Method on **`MultipartForm`** — call it on a value of that type after constructing or receiving one from a constructor.
 
 ## Signature
 
@@ -25,7 +29,7 @@ func ParseMultipart(c *Ctx, maxMemory int64) (*MultipartForm, error)
 ::: code-group
 
 ```js [Node.js]
-// See package overview
+// Typical express, cors, helmet, morgan pattern in Node.js
 ```
 
 ```go [Standard Go]
@@ -43,9 +47,7 @@ v.ParseMultipart(/* args */)
 
 :::
 
-## Example from tests
-
-Extracted from the gox test suite — runnable patterns used in CI:
+## Example
 
 ```go
 import "github.com/sahilkhaire/gox/http"
@@ -71,5 +73,13 @@ var body bytes.Buffer
 w := multipart.NewWriter(&body)
 part, _ := w.CreateFormFile("file", "x.txt")
 ```
+
+## Tips
+
+Stack `Logger`, `Recover`, and `Security` middleware the way you would morgan + helmet in Express.
+
+## Standard library alternative
+
+Use `net/http` with handler functions `func(w http.ResponseWriter, r *http.Request)` or a router like chi/echo directly.
 
 ← [Back to http package overview](/packages/http/)

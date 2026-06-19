@@ -2,13 +2,15 @@
 title: "GzipReader"
 package: "compress"
 import: "github.com/sahilkhaire/gox/compress"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="compress" title="GzipReader" node="zlib" import-path="github.com/sahilkhaire/gox/compress" />
 ## Overview
 
 GzipReader wraps a gzip reader over src.
+
+Part of the **`compress`** package — Node.js analog: *zlib*.
 
 ## Signature
 
@@ -25,7 +27,7 @@ func GzipReader(src io.Reader) (*gzip.Reader, error)
 ::: code-group
 
 ```js [Node.js]
-// See package overview
+// Typical zlib pattern in Node.js
 ```
 
 ```go [Standard Go]
@@ -41,6 +43,23 @@ _ = compress.GzipReader(/* args */)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/compress"
+
+// compress
+_ = compress.GzipReader(/* args */)
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/compress` and call `GzipReader` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

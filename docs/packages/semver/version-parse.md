@@ -3,7 +3,7 @@ title: "Version.Parse"
 package: "semver"
 import: "github.com/sahilkhaire/gox/semver"
 node: "semver.parse(v)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="semver" title="Version.Parse" node="semver.parse(v)" import-path="github.com/sahilkhaire/gox/semver" />
@@ -11,7 +11,9 @@ gox-doc-version: "10"
 
 Parse parses a semver string.
 
-**Node.js equivalent:** `semver.parse(v)`
+If you are coming from Node.js, the closest pattern is **`semver.parse(v)`**.
+
+Method on **`Version`** — call it on a value of that type after constructing or receiving one from a constructor.
 
 ## Signature
 
@@ -42,5 +44,21 @@ v, err := semver.Parse("1.2.3")
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/semver"
+
+v, err := semver.Parse("1.2.3")
+```
+
+## Tips
+
+Obtain a `Version` value first (see constructors on the package overview), then call `Parse`.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ← [Back to semver package overview](/packages/semver/)

@@ -3,7 +3,7 @@ title: "Verify"
 package: "jwt"
 import: "github.com/sahilkhaire/gox/jwt"
 node: "jwt.verify(token, secret)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="jwt" title="Verify" node="jwt.verify(token, secret)" import-path="github.com/sahilkhaire/gox/jwt" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 Verify parses and validates a JWT with secret (jwt.verify).
 
-**Node.js equivalent:** `jwt.verify(token, secret)`
+If you are coming from Node.js, the closest pattern is **`jwt.verify(token, secret)`**.
 
 ## Signature
 
@@ -42,6 +42,22 @@ claims, err := jwt.Verify(token, secret)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/jwt"
+
+claims, err := jwt.Verify(token, secret)
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/jwt` and call `Verify` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

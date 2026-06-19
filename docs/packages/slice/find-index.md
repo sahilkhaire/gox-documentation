@@ -3,7 +3,7 @@ title: "FindIndex"
 package: "slice"
 import: "github.com/sahilkhaire/gox/slice"
 node: "arr.findIndex(fn)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="slice" title="FindIndex" node="arr.findIndex(fn)" import-path="github.com/sahilkhaire/gox/slice" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 FindIndex returns the index of the first match, or -1 (Array.findIndex).
 
-**Node.js equivalent:** `arr.findIndex(fn)`
+If you are coming from Node.js, the closest pattern is **`arr.findIndex(fn)`**.
 
 ## Signature
 
@@ -45,6 +45,22 @@ slice.FindIndex(arr, fn)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/slice"
+
+slice.FindIndex(arr, fn)
+```
+
+## Tips
+
+Chain `Filter`, `Map`, and `Reduce` for lodash-style pipelines. Results are new slices — inputs are never mutated.
+
+## Standard library alternative
+
+Use a `for` loop or Go 1.21+ `slices` package helpers from the standard library.
 
 ## Related APIs
 

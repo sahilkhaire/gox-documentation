@@ -2,13 +2,17 @@
 title: "Server"
 package: "ws"
 import: "github.com/sahilkhaire/gox/ws"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="ws" title="Server" node="ws" import-path="github.com/sahilkhaire/gox/ws" />
 ## Overview
 
 Server registers WebSocket routes.
+
+Part of the **`ws`** package — Node.js analog: *ws*.
+
+`Server` is a type exported by gox. Methods on this type are documented separately.
 
 ## Signature
 
@@ -27,7 +31,7 @@ type Server struct {
 ::: code-group
 
 ```js [Node.js]
-// See package overview
+// Typical ws pattern in Node.js
 ```
 
 ```go [Standard Go]
@@ -41,5 +45,21 @@ _ = ws.Server
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/ws"
+
+_ = ws.Server
+```
+
+## Tips
+
+Browse methods on this type in the sidebar for handler-style APIs and options structs.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ← [Back to ws package overview](/packages/ws/)

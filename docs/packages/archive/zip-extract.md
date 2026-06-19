@@ -2,13 +2,15 @@
 title: "ZipExtract"
 package: "archive"
 import: "github.com/sahilkhaire/gox/archive"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="archive" title="ZipExtract" node="archiver" import-path="github.com/sahilkhaire/gox/archive" />
 ## Overview
 
 ZipExtract writes zip data into destDir.
+
+Part of the **`archive`** package — Node.js analog: *archiver*.
 
 ## Signature
 
@@ -25,7 +27,7 @@ func ZipExtract(data []byte, destDir string) error
 ::: code-group
 
 ```js [Node.js]
-// See package overview
+// Typical archiver pattern in Node.js
 ```
 
 ```go [Standard Go]
@@ -40,6 +42,23 @@ _ = archive.ZipExtract(/* args */)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/archive"
+
+// archive
+_ = archive.ZipExtract(/* args */)
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/archive` and call `ZipExtract` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

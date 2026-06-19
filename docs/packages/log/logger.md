@@ -2,13 +2,17 @@
 title: "Logger"
 package: "log"
 import: "github.com/sahilkhaire/gox/log"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="log" title="Logger" node="winston, pino" import-path="github.com/sahilkhaire/gox/log" />
 ## Overview
 
 Logger wraps slog.Logger with familiar leveled helpers.
+
+Part of the **`log`** package — Node.js analog: *winston, pino*.
+
+`Logger` is a type exported by gox. Methods on this type are documented separately.
 
 ## Signature
 
@@ -27,7 +31,7 @@ type Logger struct {
 ::: code-group
 
 ```js [Node.js]
-// See package overview
+// Typical winston, pino pattern in Node.js
 ```
 
 ```go [Standard Go]
@@ -42,6 +46,22 @@ _ = log.Logger
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/log"
+
+_ = log.Logger
+```
+
+## Tips
+
+Browse methods on this type in the sidebar for handler-style APIs and options structs.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

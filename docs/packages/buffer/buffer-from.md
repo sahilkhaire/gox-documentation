@@ -3,7 +3,7 @@ title: "Buffer.From"
 package: "buffer"
 import: "github.com/sahilkhaire/gox/buffer"
 node: "Buffer.from(data)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="buffer" title="Buffer.From" node="Buffer.from(data)" import-path="github.com/sahilkhaire/gox/buffer" />
@@ -11,7 +11,9 @@ gox-doc-version: "10"
 
 From allocates a copy of data (Buffer.from).
 
-**Node.js equivalent:** `Buffer.from(data)`
+If you are coming from Node.js, the closest pattern is **`Buffer.from(data)`**.
+
+Method on **`Buffer`** — call it on a value of that type after constructing or receiving one from a constructor.
 
 ## Signature
 
@@ -42,6 +44,22 @@ b := buffer.From([]byte{1, 2, 3})
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/buffer"
+
+b := buffer.From([]byte{1, 2, 3})
+```
+
+## Tips
+
+Obtain a `Buffer` value first (see constructors on the package overview), then call `From`.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

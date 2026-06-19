@@ -3,7 +3,7 @@ title: "Set"
 package: "maputil"
 import: "github.com/sahilkhaire/gox/maputil"
 node: "_.set(obj, \"a.b\", v)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="maputil" title="Set" node="_.set(obj, &quot;a.b&quot;, v)" import-path="github.com/sahilkhaire/gox/maputil" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 Set writes value at dot-separated path, creating intermediate maps (lodash set).
 
-**Node.js equivalent:** `_.set(obj, "a.b", v)`
+If you are coming from Node.js, the closest pattern is **`_.set(obj, "a.b", v)`**.
 
 ## Signature
 
@@ -43,6 +43,22 @@ maputil.Set(obj, "a.b", v)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/maputil"
+
+maputil.Set(obj, "a.b", v)
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/maputil` and call `Set` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

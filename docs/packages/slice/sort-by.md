@@ -3,7 +3,7 @@ title: "SortBy"
 package: "slice"
 import: "github.com/sahilkhaire/gox/slice"
 node: "_.sortBy(arr, fn)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="slice" title="SortBy" node="_.sortBy(arr, fn)" import-path="github.com/sahilkhaire/gox/slice" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 SortBy returns a sorted copy ordered by fn's key (lodash sortBy).
 
-**Node.js equivalent:** `_.sortBy(arr, fn)`
+If you are coming from Node.js, the closest pattern is **`_.sortBy(arr, fn)`**.
 
 ## Signature
 
@@ -45,6 +45,22 @@ slice.SortBy(arr, fn)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/slice"
+
+slice.SortBy(arr, fn)
+```
+
+## Tips
+
+Chain `Filter`, `Map`, and `Reduce` for lodash-style pipelines. Results are new slices — inputs are never mutated.
+
+## Standard library alternative
+
+Use a `for` loop or Go 1.21+ `slices` package helpers from the standard library.
 
 ## Related APIs
 

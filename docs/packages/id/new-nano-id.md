@@ -3,7 +3,7 @@ title: "NewNanoID"
 package: "id"
 import: "github.com/sahilkhaire/gox/id"
 node: "nanoid(size)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="id" title="NewNanoID" node="nanoid(size)" import-path="github.com/sahilkhaire/gox/id" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 NewNanoID returns a URL-safe ID using the default nanoid alphabet.
 
-**Node.js equivalent:** `nanoid(size)`
+If you are coming from Node.js, the closest pattern is **`nanoid(size)`**.
 
 ## Signature
 
@@ -42,6 +42,22 @@ id := id.NewNanoID(21)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/id"
+
+id := id.NewNanoID(21)
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/id` and call `NewNanoID` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

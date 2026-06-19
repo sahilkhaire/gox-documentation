@@ -3,7 +3,7 @@ title: "Client.New"
 package: "redis"
 import: "github.com/sahilkhaire/gox/redis"
 node: "new Redis()"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="redis" title="Client.New" node="new Redis()" import-path="github.com/sahilkhaire/gox/redis" />
@@ -11,7 +11,9 @@ gox-doc-version: "10"
 
 New connects to addr (host:port).
 
-**Node.js equivalent:** `new Redis()`
+If you are coming from Node.js, the closest pattern is **`new Redis()`**.
+
+Method on **`Client`** — call it on a value of that type after constructing or receiving one from a constructor.
 
 ## Signature
 
@@ -43,6 +45,22 @@ rdb, err := redis.New("localhost:6379")
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/redis"
+
+rdb, err := redis.New("localhost:6379")
+```
+
+## Tips
+
+Pass `context.Context` as the first argument so cancellation and deadlines propagate correctly.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

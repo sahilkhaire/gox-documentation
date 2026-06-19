@@ -2,13 +2,17 @@
 title: "SMTPConfig"
 package: "mail"
 import: "github.com/sahilkhaire/gox/mail"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="mail" title="SMTPConfig" node="nodemailer" import-path="github.com/sahilkhaire/gox/mail" />
 ## Overview
 
 SMTPConfig holds SMTP connection settings.
+
+Part of the **`mail`** package — Node.js analog: *nodemailer*.
+
+`SMTPConfig` is a type exported by gox. Methods on this type are documented separately.
 
 ## Signature
 
@@ -31,7 +35,7 @@ type SMTPConfig struct {
 ::: code-group
 
 ```js [Node.js]
-// See package overview
+// Typical nodemailer pattern in Node.js
 ```
 
 ```go [Standard Go]
@@ -45,6 +49,22 @@ _ = mail.SMTPConfig
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/mail"
+
+_ = mail.SMTPConfig
+```
+
+## Tips
+
+Browse methods on this type in the sidebar for handler-style APIs and options structs.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

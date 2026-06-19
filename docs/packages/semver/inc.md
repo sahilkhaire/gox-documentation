@@ -3,7 +3,7 @@ title: "Inc"
 package: "semver"
 import: "github.com/sahilkhaire/gox/semver"
 node: "semver.inc(v, 'minor')"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="semver" title="Inc" node="semver.inc(v, 'minor')" import-path="github.com/sahilkhaire/gox/semver" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 Inc increments part (major, minor, patch) and returns the new version string.
 
-**Node.js equivalent:** `semver.inc(v, 'minor')`
+If you are coming from Node.js, the closest pattern is **`semver.inc(v, 'minor')`**.
 
 ## Signature
 
@@ -42,6 +42,22 @@ semver.Inc(v, part)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/semver"
+
+semver.Inc(v, part)
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/semver` and call `Inc` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

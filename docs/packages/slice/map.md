@@ -3,13 +3,15 @@ title: "Map"
 package: "slice"
 import: "github.com/sahilkhaire/gox/slice"
 node: "arr.map(fn)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="slice" title="Map" node="arr.map(fn)" import-path="github.com/sahilkhaire/gox/slice" />
 ## Overview
 
 Transforms each element of a slice, returning a new slice — identical mental model to `Array.prototype.map`. Uses Go generics so input and output types can differ safely.
+
+If you are coming from Node.js, the closest pattern is **`arr.map(fn)`**.
 
 ## Signature
 
@@ -44,9 +46,21 @@ names := slice.Map(users, func(u User) string { return u.Name })
 
 :::
 
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/slice"
+
+names := slice.Map(users, func(u User) string { return u.Name })
+```
+
 ## Tips
 
 Chain with `slice.Filter` and `slice.Reduce` for lodash-style pipelines. Pre-allocates output slice for performance.
+
+## Standard library alternative
+
+Use a `for` loop or Go 1.21+ `slices` package helpers from the standard library.
 
 ## Related APIs
 

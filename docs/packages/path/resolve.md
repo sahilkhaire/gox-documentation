@@ -3,7 +3,7 @@ title: "Resolve"
 package: "path"
 import: "github.com/sahilkhaire/gox/path"
 node: "path.resolve(...)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="path" title="Resolve" node="path.resolve(...)" import-path="github.com/sahilkhaire/gox/path" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 Resolve resolves to an absolute path (path.resolve).
 
-**Node.js equivalent:** `path.resolve(...)`
+If you are coming from Node.js, the closest pattern is **`path.resolve(...)`**.
 
 ## Signature
 
@@ -42,6 +42,22 @@ p := path.Resolve("/foo", "bar")
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/path"
+
+p := path.Resolve("/foo", "bar")
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/path` and call `Resolve` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

@@ -3,7 +3,7 @@ title: "Compare"
 package: "semver"
 import: "github.com/sahilkhaire/gox/semver"
 node: "semver.compare(a, b)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="semver" title="Compare" node="semver.compare(a, b)" import-path="github.com/sahilkhaire/gox/semver" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 Compare returns -1 if a &lt; b, 0 if equal, 1 if a &gt; b.
 
-**Node.js equivalent:** `semver.compare(a, b)`
+If you are coming from Node.js, the closest pattern is **`semver.compare(a, b)`**.
 
 ## Signature
 
@@ -42,6 +42,22 @@ semver.Compare(a, b)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/semver"
+
+semver.Compare(a, b)
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/semver` and call `Compare` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

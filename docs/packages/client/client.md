@@ -2,13 +2,17 @@
 title: "Client"
 package: "client"
 import: "github.com/sahilkhaire/gox/client"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="client" title="Client" node="axios, fetch" import-path="github.com/sahilkhaire/gox/client" />
 ## Overview
 
 Client is a reusable HTTP client with defaults (axios instance).
+
+Part of the **`client`** package — Node.js analog: *axios, fetch*.
+
+`Client` is a type exported by gox. Methods on this type are documented separately.
 
 ## Signature
 
@@ -30,7 +34,7 @@ type Client struct {
 ::: code-group
 
 ```js [Node.js]
-// See package overview
+// Typical axios, fetch pattern in Node.js
 ```
 
 ```go [Standard Go]
@@ -45,6 +49,22 @@ _ = client.Client
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/client"
+
+_ = client.Client
+```
+
+## Tips
+
+Pass `context.Context` as the first argument so cancellation and deadlines propagate correctly.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

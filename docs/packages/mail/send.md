@@ -3,15 +3,16 @@ title: "Send"
 package: "mail"
 import: "github.com/sahilkhaire/gox/mail"
 node: "sendMail"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="mail" title="Send" node="sendMail" import-path="github.com/sahilkhaire/gox/mail" />
 ## Overview
 
-Send delivers msg using SMTP.
+Send delivers msg using SMTP. ctx cancellation is honored before connecting.
+Node: transporter.sendMail(msg)
 
-**Node.js equivalent:** `sendMail`
+If you are coming from Node.js, the closest pattern is **`sendMail`**.
 
 ## Signature
 
@@ -42,6 +43,22 @@ mail.Send(ctx, msg, SMTPConfig)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/mail"
+
+mail.Send(ctx, msg, SMTPConfig)
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/mail` and call `Send` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

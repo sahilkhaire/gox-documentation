@@ -1,7 +1,7 @@
 ---
 title: "auth"
 package: "auth"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <PackageOverview
@@ -10,45 +10,10 @@ gox-doc-version: "10"
   import-path="github.com/sahilkhaire/gox/auth"
   subtitle="Package auth provides Passport-style authentication middleware for gox/http. Node equivalent: passport, passport-jwt, passport-http-bearer."
   :symbol-count=8
-  :has-cookbook=true
-  migration-link="/migration/passport"
-  narrative="Passport-style Bearer, API key, and Basic auth middleware with context claims."
 />
-## Start here
-
-<div class="featured-grid">
-<a class="featured-card" href="/packages/auth/bearer"><div class="featured-name">Bearer</div><div class="featured-summary">JWT Bearer auth</div></a>
-<a class="featured-card" href="/packages/auth/api-key"><div class="featured-name">APIKey</div><div class="featured-summary">API key header</div></a>
-<a class="featured-card" href="/packages/auth/basic"><div class="featured-name">Basic</div><div class="featured-summary">Basic auth</div></a>
-</div>
-
-## Common use cases
-
-- Protect routes with JWT Bearer
-- Accept API keys from headers
-- Read authenticated user from context
-
-## Quick start
-
-Copy-paste a minimal example:
-
-```go
-import "github.com/sahilkhaire/gox/auth"
-
-app.Use(auth.Bearer(secret))
-```
-
-::: tip Full cookbook
-See the [**auth cookbook**](/packages/auth/cookbook) for multi-step recipes and real-world patterns.
-:::
-
-::: info Migration guide
-Coming from Node.js? Read the [**migration guide**](/migration/passport) for side-by-side patterns.
-:::
-
 ## API reference
 
-Browse **8 documented symbols** — each page includes Node.js, standard Go, and gox side-by-side examples.
+Select a symbol below — each page explains what it does, shows Node.js vs Go comparisons, and includes a runnable example.
 
 <SymbolFilter placeholder="Filter symbols…" />
 

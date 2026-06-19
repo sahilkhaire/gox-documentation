@@ -3,7 +3,7 @@ title: "Copy"
 package: "fs"
 import: "github.com/sahilkhaire/gox/fs"
 node: "fs.copyFile(src, dst)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="fs" title="Copy" node="fs.copyFile(src, dst)" import-path="github.com/sahilkhaire/gox/fs" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 Copy copies src to dst (fs.promises.copyFile).
 
-**Node.js equivalent:** `fs.copyFile(src, dst)`
+If you are coming from Node.js, the closest pattern is **`fs.copyFile(src, dst)`**.
 
 ## Signature
 
@@ -42,6 +42,22 @@ fs.Copy(ctx, src, dst)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/fs"
+
+fs.Copy(ctx, src, dst)
+```
+
+## Tips
+
+Pass `context.Context` as the first argument so cancellation and deadlines propagate correctly.
+
+## Standard library alternative
+
+Use `os.ReadFile`, `os.WriteFile`, etc. Pass `context.Context` manually for cancellation.
 
 ## Related APIs
 

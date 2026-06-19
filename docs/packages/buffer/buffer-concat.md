@@ -3,7 +3,7 @@ title: "Buffer.Concat"
 package: "buffer"
 import: "github.com/sahilkhaire/gox/buffer"
 node: "Buffer.concat(list)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="buffer" title="Buffer.Concat" node="Buffer.concat(list)" import-path="github.com/sahilkhaire/gox/buffer" />
@@ -11,7 +11,9 @@ gox-doc-version: "10"
 
 Concat joins buffers (Buffer.concat).
 
-**Node.js equivalent:** `Buffer.concat(list)`
+If you are coming from Node.js, the closest pattern is **`Buffer.concat(list)`**.
+
+Method on **`Buffer`** — call it on a value of that type after constructing or receiving one from a constructor.
 
 ## Signature
 
@@ -42,6 +44,22 @@ combined := buffer.Concat(buf1, buf2)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/buffer"
+
+combined := buffer.Concat(buf1, buf2)
+```
+
+## Tips
+
+Obtain a `Buffer` value first (see constructors on the package overview), then call `Concat`.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

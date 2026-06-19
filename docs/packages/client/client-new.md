@@ -3,7 +3,7 @@ title: "Client.New"
 package: "client"
 import: "github.com/sahilkhaire/gox/client"
 node: "axios.create()"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="client" title="Client.New" node="axios.create()" import-path="github.com/sahilkhaire/gox/client" />
@@ -11,7 +11,9 @@ gox-doc-version: "10"
 
 New creates a Client with optional timeout.
 
-**Node.js equivalent:** `axios.create()`
+If you are coming from Node.js, the closest pattern is **`axios.create()`**.
+
+Method on **`Client`** — call it on a value of that type after constructing or receiving one from a constructor.
 
 ## Signature
 
@@ -43,5 +45,21 @@ client.New()
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/client"
+
+client.New()
+```
+
+## Tips
+
+Pass `context.Context` as the first argument so cancellation and deadlines propagate correctly.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ← [Back to client package overview](/packages/client/)

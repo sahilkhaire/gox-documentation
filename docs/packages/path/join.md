@@ -3,7 +3,7 @@ title: "Join"
 package: "path"
 import: "github.com/sahilkhaire/gox/path"
 node: "path.join(...)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="path" title="Join" node="path.join(...)" import-path="github.com/sahilkhaire/gox/path" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 Join joins path segments (path.join).
 
-**Node.js equivalent:** `path.join(...)`
+If you are coming from Node.js, the closest pattern is **`path.join(...)`**.
 
 ## Signature
 
@@ -43,9 +43,21 @@ p := path.Join("a", "b", "c")
 
 :::
 
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/path"
+
+p := path.Join("a", "b", "c")
+```
+
 ## Tips
 
 Uses OS-specific separators via filepath underneath.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

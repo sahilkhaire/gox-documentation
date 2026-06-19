@@ -2,13 +2,17 @@
 title: "Client"
 package: "queue"
 import: "github.com/sahilkhaire/gox/queue"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="queue" title="Client" node="bull" import-path="github.com/sahilkhaire/gox/queue" />
 ## Overview
 
 Client enqueues background tasks.
+
+Part of the **`queue`** package — Node.js analog: *bull*.
+
+`Client` is a type exported by gox. Methods on this type are documented separately.
 
 ## Signature
 
@@ -27,7 +31,7 @@ type Client struct {
 ::: code-group
 
 ```js [Node.js]
-// See package overview
+// Typical bull pattern in Node.js
 ```
 
 ```go [Standard Go]
@@ -42,9 +46,7 @@ _ = queue.Client
 
 :::
 
-## Example from tests
-
-Extracted from the gox test suite — runnable patterns used in CI:
+## Example
 
 ```go
 import "github.com/sahilkhaire/gox/queue"
@@ -58,5 +60,13 @@ mux.HandleFunc("email:send", func(ctx context.Context, payload []byte) error {
 	return nil
 })
 ```
+
+## Tips
+
+Browse methods on this type in the sidebar for handler-style APIs and options structs.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ← [Back to queue package overview](/packages/queue/)

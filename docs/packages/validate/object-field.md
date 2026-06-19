@@ -2,13 +2,15 @@
 title: "ObjectField"
 package: "validate"
 import: "github.com/sahilkhaire/gox/validate"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="validate" title="ObjectField" node="zod, joi" import-path="github.com/sahilkhaire/gox/validate" />
 ## Overview
 
 ObjectField nests an object schema as a field.
+
+Part of the **`validate`** package — Node.js analog: *zod, joi*.
 
 ## Signature
 
@@ -25,7 +27,7 @@ func ObjectField(fields map[string]Field) *objectField
 ::: code-group
 
 ```js [Node.js]
-// See package overview
+// Typical zod, joi pattern in Node.js
 ```
 
 ```go [Standard Go]
@@ -40,6 +42,23 @@ _ = validate.ObjectField(/* args */)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/validate"
+
+// validate
+_ = validate.ObjectField(/* args */)
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/validate` and call `ObjectField` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

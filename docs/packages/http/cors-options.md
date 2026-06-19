@@ -2,13 +2,17 @@
 title: "CORSOptions"
 package: "http"
 import: "github.com/sahilkhaire/gox/http"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="http" title="CORSOptions" node="express, cors, helmet, morgan" import-path="github.com/sahilkhaire/gox/http" />
 ## Overview
 
 CORSOptions configures the CORS middleware.
+
+Part of the **`http`** package — Node.js analog: *express, cors, helmet, morgan*.
+
+`CORSOptions` is a type exported by gox. Methods on this type are documented separately.
 
 ## Signature
 
@@ -32,7 +36,7 @@ type CORSOptions struct {
 ::: code-group
 
 ```js [Node.js]
-// See package overview
+// Typical express, cors, helmet, morgan pattern in Node.js
 ```
 
 ```go [Standard Go]
@@ -49,9 +53,7 @@ _ = http.CORSOptions
 
 :::
 
-## Example from tests
-
-Extracted from the gox test suite — runnable patterns used in CI:
+## Example
 
 ```go
 import "github.com/sahilkhaire/gox/http"
@@ -63,6 +65,14 @@ req := httptest.NewRequest(http.MethodOptions, "/", nil)
 req.Header.Set("Origin", "https://app.example")
 rec := httptest.NewRecorder()
 ```
+
+## Tips
+
+Stack `Logger`, `Recover`, and `Security` middleware the way you would morgan + helmet in Express.
+
+## Standard library alternative
+
+Use `net/http` with handler functions `func(w http.ResponseWriter, r *http.Request)` or a router like chi/echo directly.
 
 ## Related APIs
 

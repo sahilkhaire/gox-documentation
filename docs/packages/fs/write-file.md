@@ -3,7 +3,7 @@ title: "WriteFile"
 package: "fs"
 import: "github.com/sahilkhaire/gox/fs"
 node: "fs.writeFile(path, data)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="fs" title="WriteFile" node="fs.writeFile(path, data)" import-path="github.com/sahilkhaire/gox/fs" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 WriteFile writes data to path (fs.promises.writeFile).
 
-**Node.js equivalent:** `fs.writeFile(path, data)`
+If you are coming from Node.js, the closest pattern is **`fs.writeFile(path, data)`**.
 
 ## Signature
 
@@ -42,6 +42,22 @@ err := fs.WriteFile(ctx, "out.txt", data)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/fs"
+
+err := fs.WriteFile(ctx, "out.txt", data)
+```
+
+## Tips
+
+Pass `context.Context` as the first argument so cancellation and deadlines propagate correctly.
+
+## Standard library alternative
+
+Use `os.ReadFile`, `os.WriteFile`, etc. Pass `context.Context` manually for cancellation.
 
 ## Related APIs
 

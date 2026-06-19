@@ -3,7 +3,7 @@ title: "ParseUUID"
 package: "id"
 import: "github.com/sahilkhaire/gox/id"
 node: "uuid.parse(s)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="id" title="ParseUUID" node="uuid.parse(s)" import-path="github.com/sahilkhaire/gox/id" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 ParseUUID parses a UUID string.
 
-**Node.js equivalent:** `uuid.parse(s)`
+If you are coming from Node.js, the closest pattern is **`uuid.parse(s)`**.
 
 ## Signature
 
@@ -43,6 +43,22 @@ id.ParseUUID(s)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/id"
+
+id.ParseUUID(s)
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/id` and call `ParseUUID` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

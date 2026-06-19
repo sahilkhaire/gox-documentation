@@ -3,7 +3,7 @@ title: "CPUs"
 package: "osutil"
 import: "github.com/sahilkhaire/gox/osutil"
 node: "os.cpus().length"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="osutil" title="CPUs" node="os.cpus().length" import-path="github.com/sahilkhaire/gox/osutil" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 CPUs returns the number of logical CPUs.
 
-**Node.js equivalent:** `os.cpus().length`
+If you are coming from Node.js, the closest pattern is **`os.cpus().length`**.
 
 ## Signature
 
@@ -43,6 +43,22 @@ osutil.CPUs()
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/osutil"
+
+osutil.CPUs()
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/osutil` and call `CPUs` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

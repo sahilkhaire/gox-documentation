@@ -2,13 +2,15 @@
 title: "MustValidate"
 package: "validate"
 import: "github.com/sahilkhaire/gox/validate"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="validate" title="MustValidate" node="zod, joi" import-path="github.com/sahilkhaire/gox/validate" />
 ## Overview
 
 MustValidate panics if validation fails.
+
+Part of the **`validate`** package — Node.js analog: *zod, joi*.
 
 ## Signature
 
@@ -25,7 +27,7 @@ func MustValidate(v any)
 ::: code-group
 
 ```js [Node.js]
-// See package overview
+// Typical zod, joi pattern in Node.js
 ```
 
 ```go [Standard Go]
@@ -41,15 +43,21 @@ _ = validate.MustValidate(/* args */)
 
 :::
 
-## Example from tests
-
-Extracted from the gox test suite — runnable patterns used in CI:
+## Example
 
 ```go
 import "github.com/sahilkhaire/gox/validate"
 
 validate.MustValidate(signup{})
 ```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/validate` and call `MustValidate` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

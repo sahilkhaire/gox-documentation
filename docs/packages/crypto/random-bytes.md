@@ -3,7 +3,7 @@ title: "RandomBytes"
 package: "crypto"
 import: "github.com/sahilkhaire/gox/crypto"
 node: "crypto.randomBytes(n)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="crypto" title="RandomBytes" node="crypto.randomBytes(n)" import-path="github.com/sahilkhaire/gox/crypto" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 RandomBytes returns n cryptographically secure random bytes (crypto.randomBytes).
 
-**Node.js equivalent:** `crypto.randomBytes(n)`
+If you are coming from Node.js, the closest pattern is **`crypto.randomBytes(n)`**.
 
 ## Signature
 
@@ -43,6 +43,22 @@ crypto.RandomBytes(n)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/crypto"
+
+crypto.RandomBytes(n)
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/crypto` and call `RandomBytes` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

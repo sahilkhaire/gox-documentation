@@ -3,7 +3,7 @@ title: "HashPassword"
 package: "crypto"
 import: "github.com/sahilkhaire/gox/crypto"
 node: "bcrypt.hash(password, 10)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="crypto" title="HashPassword" node="bcrypt.hash(password, 10)" import-path="github.com/sahilkhaire/gox/crypto" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 HashPassword hashes password with bcrypt (bcrypt.hash).
 
-**Node.js equivalent:** `bcrypt.hash(password, 10)`
+If you are coming from Node.js, the closest pattern is **`bcrypt.hash(password, 10)`**.
 
 ## Signature
 
@@ -42,6 +42,22 @@ hash, err := crypto.HashPassword(password)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/crypto"
+
+hash, err := crypto.HashPassword(password)
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/crypto` and call `HashPassword` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

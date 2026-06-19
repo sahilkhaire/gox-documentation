@@ -3,7 +3,7 @@ title: "Pascal"
 package: "str"
 import: "github.com/sahilkhaire/gox/str"
 node: "PascalCase(s)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="str" title="Pascal" node="PascalCase(s)" import-path="github.com/sahilkhaire/gox/str" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 Pascal converts to PascalCase.
 
-**Node.js equivalent:** `PascalCase(s)`
+If you are coming from Node.js, the closest pattern is **`PascalCase(s)`**.
 
 ## Signature
 
@@ -42,6 +42,22 @@ s := str.Pascal("foo bar")
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/str"
+
+s := str.Pascal("foo bar")
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/str` and call `Pascal` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

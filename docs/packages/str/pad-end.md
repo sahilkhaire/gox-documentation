@@ -3,7 +3,7 @@ title: "PadEnd"
 package: "str"
 import: "github.com/sahilkhaire/gox/str"
 node: "s.padEnd(n, ch)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="str" title="PadEnd" node="s.padEnd(n, ch)" import-path="github.com/sahilkhaire/gox/str" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 PadEnd pads s on the right to length with pad (String.padEnd).
 
-**Node.js equivalent:** `s.padEnd(n, ch)`
+If you are coming from Node.js, the closest pattern is **`s.padEnd(n, ch)`**.
 
 ## Signature
 
@@ -42,6 +42,22 @@ s := str.PadEnd("go", 8, "-")
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/str"
+
+s := str.PadEnd("go", 8, "-")
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/str` and call `PadEnd` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

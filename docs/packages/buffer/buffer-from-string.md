@@ -3,7 +3,7 @@ title: "Buffer.FromString"
 package: "buffer"
 import: "github.com/sahilkhaire/gox/buffer"
 node: "Buffer.from(str)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="buffer" title="Buffer.FromString" node="Buffer.from(str)" import-path="github.com/sahilkhaire/gox/buffer" />
@@ -11,7 +11,9 @@ gox-doc-version: "10"
 
 FromString creates a buffer from a string.
 
-**Node.js equivalent:** `Buffer.from(str)`
+If you are coming from Node.js, the closest pattern is **`Buffer.from(str)`**.
+
+Method on **`Buffer`** — call it on a value of that type after constructing or receiving one from a constructor.
 
 ## Signature
 
@@ -42,6 +44,22 @@ buffer.FromString(str)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/buffer"
+
+buffer.FromString(str)
+```
+
+## Tips
+
+Obtain a `Buffer` value first (see constructors on the package overview), then call `FromString`.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

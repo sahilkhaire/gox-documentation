@@ -2,13 +2,15 @@
 title: "Write"
 package: "csv"
 import: "github.com/sahilkhaire/gox/csv"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="csv" title="Write" node="papaparse" import-path="github.com/sahilkhaire/gox/csv" />
 ## Overview
 
 Write writes rows to w using columns for field order (header row).
+
+Part of the **`csv`** package — Node.js analog: *papaparse*.
 
 ## Signature
 
@@ -25,7 +27,7 @@ func Write(ctx context.Context, w io.Writer, rows []map[string]string, columns [
 ::: code-group
 
 ```js [Node.js]
-// See package overview
+// Typical papaparse pattern in Node.js
 ```
 
 ```go [Standard Go]
@@ -41,6 +43,23 @@ _ = csv.Write(/* args */)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/csv"
+
+// csv
+_ = csv.Write(/* args */)
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/csv` and call `Write` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

@@ -3,13 +3,15 @@ title: "Slug"
 package: "str"
 import: "github.com/sahilkhaire/gox/str"
 node: "slugify(s)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="str" title="Slug" node="slugify(s)" import-path="github.com/sahilkhaire/gox/str" />
 ## Overview
 
 Converts arbitrary text into a URL-safe slug — strips punctuation, lowercases, and replaces spaces with hyphens.
+
+If you are coming from Node.js, the closest pattern is **`slugify(s)`**.
 
 ## Signature
 
@@ -41,9 +43,21 @@ slug := str.Slug("Hello World!")
 
 :::
 
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/str"
+
+slug := str.Slug("Hello World!")
+```
+
 ## Tips
 
 Use before writing user-generated titles to URL paths.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

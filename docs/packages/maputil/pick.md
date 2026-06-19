@@ -3,7 +3,7 @@ title: "Pick"
 package: "maputil"
 import: "github.com/sahilkhaire/gox/maputil"
 node: "_.pick(obj, keys)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="maputil" title="Pick" node="_.pick(obj, keys)" import-path="github.com/sahilkhaire/gox/maputil" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 Pick returns a new map with only the given keys (lodash pick).
 
-**Node.js equivalent:** `_.pick(obj, keys)`
+If you are coming from Node.js, the closest pattern is **`_.pick(obj, keys)`**.
 
 ## Signature
 
@@ -47,6 +47,22 @@ subset := maputil.Pick(obj, "a", "b")
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/maputil"
+
+subset := maputil.Pick(obj, "a", "b")
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/maputil` and call `Pick` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

@@ -3,7 +3,7 @@ title: "Uniq"
 package: "slice"
 import: "github.com/sahilkhaire/gox/slice"
 node: "_.uniq(arr)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="slice" title="Uniq" node="_.uniq(arr)" import-path="github.com/sahilkhaire/gox/slice" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 Uniq returns unique elements in first-seen order (lodash uniq).
 
-**Node.js equivalent:** `_.uniq(arr)`
+If you are coming from Node.js, the closest pattern is **`_.uniq(arr)`**.
 
 ## Signature
 
@@ -44,6 +44,22 @@ unique := slice.Uniq(items)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/slice"
+
+unique := slice.Uniq(items)
+```
+
+## Tips
+
+Chain `Filter`, `Map`, and `Reduce` for lodash-style pipelines. Results are new slices — inputs are never mutated.
+
+## Standard library alternative
+
+Use a `for` loop or Go 1.21+ `slices` package helpers from the standard library.
 
 ## Related APIs
 

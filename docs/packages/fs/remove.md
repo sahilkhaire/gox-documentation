@@ -3,7 +3,7 @@ title: "Remove"
 package: "fs"
 import: "github.com/sahilkhaire/gox/fs"
 node: "fs.rm(path)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="fs" title="Remove" node="fs.rm(path)" import-path="github.com/sahilkhaire/gox/fs" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 Remove deletes path (fs.promises.rm).
 
-**Node.js equivalent:** `fs.rm(path)`
+If you are coming from Node.js, the closest pattern is **`fs.rm(path)`**.
 
 ## Signature
 
@@ -42,6 +42,22 @@ fs.Remove(ctx, path)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/fs"
+
+fs.Remove(ctx, path)
+```
+
+## Tips
+
+Pass `context.Context` as the first argument so cancellation and deadlines propagate correctly.
+
+## Standard library alternative
+
+Use `os.ReadFile`, `os.WriteFile`, etc. Pass `context.Context` manually for cancellation.
 
 ## Related APIs
 

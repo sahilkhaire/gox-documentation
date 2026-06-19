@@ -2,13 +2,15 @@
 title: "GetBool"
 package: "env"
 import: "github.com/sahilkhaire/gox/env"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="env" title="GetBool" node="dotenv / process.env" import-path="github.com/sahilkhaire/gox/env" />
 ## Overview
 
 GetBool parses a bool environment variable.
+
+Part of the **`env`** package — Node.js analog: *dotenv / process.env*.
 
 ## Signature
 
@@ -25,7 +27,7 @@ func GetBool(key string, def bool) (bool, error)
 ::: code-group
 
 ```js [Node.js]
-// See package overview
+// Typical dotenv / process.env pattern in Node.js
 ```
 
 ```go [Standard Go]
@@ -43,6 +45,23 @@ _ = env.GetBool(/* args */)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/env"
+
+// env
+_ = env.GetBool(/* args */)
+```
+
+## Tips
+
+Call `Load()` once at startup, then use typed getters instead of parsing strings manually.
+
+## Standard library alternative
+
+Use `os.Getenv` and `os.Setenv` from the standard library, or a config library like viper.
 
 ## Related APIs
 

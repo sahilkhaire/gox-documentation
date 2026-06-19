@@ -3,7 +3,7 @@ title: "Merge"
 package: "maputil"
 import: "github.com/sahilkhaire/gox/maputil"
 node: "_.merge(a, b)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="maputil" title="Merge" node="_.merge(a, b)" import-path="github.com/sahilkhaire/gox/maputil" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 Merge copies keys from sources into dst, later maps override (lodash merge, shallow).
 
-**Node.js equivalent:** `_.merge(a, b)`
+If you are coming from Node.js, the closest pattern is **`_.merge(a, b)`**.
 
 ## Signature
 
@@ -43,6 +43,22 @@ maputil.Merge(a, b)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/maputil"
+
+maputil.Merge(a, b)
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/maputil` and call `Merge` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

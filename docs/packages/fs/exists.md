@@ -3,7 +3,7 @@ title: "Exists"
 package: "fs"
 import: "github.com/sahilkhaire/gox/fs"
 node: "fs.exists(path)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="fs" title="Exists" node="fs.exists(path)" import-path="github.com/sahilkhaire/gox/fs" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 Exists reports whether path exists.
 
-**Node.js equivalent:** `fs.exists(path)`
+If you are coming from Node.js, the closest pattern is **`fs.exists(path)`**.
 
 ## Signature
 
@@ -43,6 +43,22 @@ ok, err := fs.Exists(ctx, "path")
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/fs"
+
+ok, err := fs.Exists(ctx, "path")
+```
+
+## Tips
+
+Pass `context.Context` as the first argument so cancellation and deadlines propagate correctly.
+
+## Standard library alternative
+
+Use `os.ReadFile`, `os.WriteFile`, etc. Pass `context.Context` manually for cancellation.
 
 ## Related APIs
 

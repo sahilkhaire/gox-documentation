@@ -2,13 +2,17 @@
 title: "Emitter"
 package: "event"
 import: "github.com/sahilkhaire/gox/event"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="event" title="Emitter" node="EventEmitter" import-path="github.com/sahilkhaire/gox/event" />
 ## Overview
 
 Emitter dispatches named events to registered handlers.
+
+Part of the **`event`** package — Node.js analog: *EventEmitter*.
+
+`Emitter` is a type exported by gox. Methods on this type are documented separately.
 
 ## Signature
 
@@ -27,7 +31,7 @@ type Emitter struct {
 ::: code-group
 
 ```js [Node.js]
-// See package overview
+// Typical EventEmitter pattern in Node.js
 ```
 
 ```go [Standard Go]
@@ -41,5 +45,21 @@ _ = event.Emitter
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/event"
+
+_ = event.Emitter
+```
+
+## Tips
+
+Browse methods on this type in the sidebar for handler-style APIs and options structs.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ← [Back to event package overview](/packages/event/)

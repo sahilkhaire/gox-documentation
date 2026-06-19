@@ -2,13 +2,17 @@
 title: "Set.Intersection"
 package: "set"
 import: "github.com/sahilkhaire/gox/set"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="set" title="Set.Intersection" node="Set" import-path="github.com/sahilkhaire/gox/set" />
 ## Overview
 
 Intersection returns elements in both a and b.
+
+Part of the **`set`** package — Node.js analog: *Set*.
+
+Method on **`Set`** — call it on a value of that type after constructing or receiving one from a constructor.
 
 ## Signature
 
@@ -25,7 +29,7 @@ func Intersection[T comparable](a, b Set[T]) Set[T]
 ::: code-group
 
 ```js [Node.js]
-// See package overview
+// Typical Set pattern in Node.js
 ```
 
 ```go [Standard Go]
@@ -40,6 +44,23 @@ v.Intersection(/* args */)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/set"
+
+var v Set
+v.Intersection(/* args */)
+```
+
+## Tips
+
+Obtain a `Set` value first (see constructors on the package overview), then call `Intersection`.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

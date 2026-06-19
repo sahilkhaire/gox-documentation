@@ -2,13 +2,17 @@
 title: "DB.Open"
 package: "db"
 import: "github.com/sahilkhaire/gox/db"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="db" title="DB.Open" node="knex" import-path="github.com/sahilkhaire/gox/db" />
 ## Overview
 
 Open connects using driver name and DSN.
+
+Part of the **`db`** package — Node.js analog: *knex*.
+
+Method on **`DB`** — call it on a value of that type after constructing or receiving one from a constructor.
 
 ## Signature
 
@@ -39,6 +43,22 @@ database, err := db.Open(ctx, "postgres", os.Getenv("DATABASE_URL"))
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/db"
+
+database, err := db.Open(ctx, "postgres", os.Getenv("DATABASE_URL"))
+```
+
+## Tips
+
+Pass `context.Context` as the first argument so cancellation and deadlines propagate correctly.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

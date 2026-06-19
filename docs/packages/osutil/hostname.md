@@ -3,7 +3,7 @@ title: "Hostname"
 package: "osutil"
 import: "github.com/sahilkhaire/gox/osutil"
 node: "os.hostname()"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="osutil" title="Hostname" node="os.hostname()" import-path="github.com/sahilkhaire/gox/osutil" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 Hostname returns the host name.
 
-**Node.js equivalent:** `os.hostname()`
+If you are coming from Node.js, the closest pattern is **`os.hostname()`**.
 
 ## Signature
 
@@ -42,6 +42,22 @@ name, err := osutil.Hostname()
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/osutil"
+
+name, err := osutil.Hostname()
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/osutil` and call `Hostname` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

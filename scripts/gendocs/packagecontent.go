@@ -176,18 +176,14 @@ func loadNpmGoxRows(path string) map[string][]npmGoxRow {
 }
 
 func writePackageOverviewComponent(pkgName, analog, importPath, subtitle string, symCount int) string {
-	narr := packageNarratives[pkgName]
 	return fmt.Sprintf(`<PackageOverview
   name="%s"
   node="%s"
   import-path="%s"
   subtitle="%s"
   :symbol-count=%d
-  :has-cookbook=%t
-  migration-link="%s"
-  narrative="%s"
 />
-`, escapeAttr(pkgName), escapeAttr(analog), escapeAttr(importPath), escapeAttr(subtitle), symCount, hasCookbook(pkgName), escapeAttr(narr.MigrationLink), escapeAttr(narr.Intro))
+`, escapeAttr(pkgName), escapeAttr(analog), escapeAttr(importPath), escapeAttr(subtitle), symCount)
 }
 
 func writeFeaturedSection(pkgName string) string {

@@ -3,7 +3,7 @@ title: "Get"
 package: "maputil"
 import: "github.com/sahilkhaire/gox/maputil"
 node: "_.get(obj, \"a.b\")"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="maputil" title="Get" node="_.get(obj, &quot;a.b&quot;)" import-path="github.com/sahilkhaire/gox/maputil" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 Get reads a nested value from m using dot-separated path (lodash get).
 
-**Node.js equivalent:** `_.get(obj, "a.b")`
+If you are coming from Node.js, the closest pattern is **`_.get(obj, "a.b")`**.
 
 ## Signature
 
@@ -47,6 +47,22 @@ city, _ := maputil.Get[string](obj, "address.city")
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/maputil"
+
+city, _ := maputil.Get[string](obj, "address.city")
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/maputil` and call `Get` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

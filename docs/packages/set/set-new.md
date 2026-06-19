@@ -3,7 +3,7 @@ title: "Set.New"
 package: "set"
 import: "github.com/sahilkhaire/gox/set"
 node: "new Set(arr)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="set" title="Set.New" node="new Set(arr)" import-path="github.com/sahilkhaire/gox/set" />
@@ -11,7 +11,9 @@ gox-doc-version: "10"
 
 New creates a set from items.
 
-**Node.js equivalent:** `new Set(arr)`
+If you are coming from Node.js, the closest pattern is **`new Set(arr)`**.
+
+Method on **`Set`** — call it on a value of that type after constructing or receiving one from a constructor.
 
 ## Signature
 
@@ -43,6 +45,22 @@ s := set.New(1, 2, 3)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/set"
+
+s := set.New(1, 2, 3)
+```
+
+## Tips
+
+Obtain a `Set` value first (see constructors on the package overview), then call `New`.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

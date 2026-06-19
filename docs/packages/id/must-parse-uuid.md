@@ -2,13 +2,15 @@
 title: "MustParseUUID"
 package: "id"
 import: "github.com/sahilkhaire/gox/id"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="id" title="MustParseUUID" node="uuid, nanoid" import-path="github.com/sahilkhaire/gox/id" />
 ## Overview
 
 MustParseUUID parses s or panics.
+
+Part of the **`id`** package — Node.js analog: *uuid, nanoid*.
 
 ## Signature
 
@@ -25,7 +27,7 @@ func MustParseUUID(s string) uuid.UUID
 ::: code-group
 
 ```js [Node.js]
-// See package overview
+// Typical uuid, nanoid pattern in Node.js
 ```
 
 ```go [Standard Go]
@@ -41,6 +43,23 @@ _ = id.MustParseUUID(/* args */)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/id"
+
+// id
+_ = id.MustParseUUID(/* args */)
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/id` and call `MustParseUUID` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

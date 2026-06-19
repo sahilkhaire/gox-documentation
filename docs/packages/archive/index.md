@@ -1,7 +1,7 @@
 ---
 title: "archive"
 package: "archive"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <PackageOverview
@@ -10,37 +10,10 @@ gox-doc-version: "10"
   import-path="github.com/sahilkhaire/gox/archive"
   subtitle="Package archive provides zip and tar.gz helpers. Node equivalent: archiver, adm-zip, tar."
   :symbol-count=6
-  :has-cookbook=false
-  migration-link=""
-  narrative="archiver-style zip and tar create/extract for bundling files."
 />
-## Start here
-
-<div class="featured-grid">
-<a class="featured-card" href="/packages/archive/zip-create"><div class="featured-name">ZipCreate</div><div class="featured-summary">Create zip</div></a>
-<a class="featured-card" href="/packages/archive/zip-extract"><div class="featured-name">ZipExtract</div><div class="featured-summary">Extract zip</div></a>
-<a class="featured-card" href="/packages/archive/tar-create"><div class="featured-name">TarCreate</div><div class="featured-summary">Create tar</div></a>
-</div>
-
-## Common use cases
-
-- Bundle download artifacts
-- Extract uploaded archives
-- Stream tar entries
-
-## Quick start
-
-Copy-paste a minimal example:
-
-```go
-import "github.com/sahilkhaire/gox/archive"
-
-err := archive.ZipCreate("out.zip", entries)
-```
-
 ## API reference
 
-Browse **6 documented symbols** — each page includes Node.js, standard Go, and gox side-by-side examples.
+Select a symbol below — each page explains what it does, shows Node.js vs Go comparisons, and includes a runnable example.
 
 <SymbolFilter placeholder="Filter symbols…" />
 

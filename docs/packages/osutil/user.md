@@ -2,13 +2,17 @@
 title: "User"
 package: "osutil"
 import: "github.com/sahilkhaire/gox/osutil"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="osutil" title="User" node="os" import-path="github.com/sahilkhaire/gox/osutil" />
 ## Overview
 
 User holds user identity fields when available (os.userInfo).
+
+Part of the **`osutil`** package — Node.js analog: *os*.
+
+`User` is a type exported by gox. Methods on this type are documented separately.
 
 ## Signature
 
@@ -29,7 +33,7 @@ type User struct {
 ::: code-group
 
 ```js [Node.js]
-// See package overview
+// Typical os pattern in Node.js
 ```
 
 ```go [Standard Go]
@@ -44,6 +48,22 @@ _ = osutil.User
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/osutil"
+
+_ = osutil.User
+```
+
+## Tips
+
+Browse methods on this type in the sidebar for handler-style APIs and options structs.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

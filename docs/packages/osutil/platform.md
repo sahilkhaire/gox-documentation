@@ -3,7 +3,7 @@ title: "Platform"
 package: "osutil"
 import: "github.com/sahilkhaire/gox/osutil"
 node: "process.platform"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="osutil" title="Platform" node="process.platform" import-path="github.com/sahilkhaire/gox/osutil" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 Platform returns the OS (runtime.GOOS).
 
-**Node.js equivalent:** `process.platform`
+If you are coming from Node.js, the closest pattern is **`process.platform`**.
 
 ## Signature
 
@@ -42,6 +42,22 @@ osutil.Platform()
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/osutil"
+
+osutil.Platform()
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/osutil` and call `Platform` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

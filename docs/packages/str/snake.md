@@ -3,7 +3,7 @@ title: "Snake"
 package: "str"
 import: "github.com/sahilkhaire/gox/str"
 node: "snake_case(s)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="str" title="Snake" node="snake_case(s)" import-path="github.com/sahilkhaire/gox/str" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 Snake converts to snake_case.
 
-**Node.js equivalent:** `snake_case(s)`
+If you are coming from Node.js, the closest pattern is **`snake_case(s)`**.
 
 ## Signature
 
@@ -42,6 +42,22 @@ s := str.Snake("FooBar")
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/str"
+
+s := str.Snake("FooBar")
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/str` and call `Snake` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

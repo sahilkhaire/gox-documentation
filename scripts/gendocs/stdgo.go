@@ -249,17 +249,3 @@ func defaultStdGoNote(pkg string) string {
 		return "// Use the underlying stdlib or driver directly.\n// See package overview for escape hatches."
 	}
 }
-
-func isGenericWhenToUse(s string) bool {
-	return strings.Contains(s, "Familiar API if you are migrating from Node.js")
-}
-
-func buildOverviewDescription(sym symbolDoc, e enrichment, hasEnrich bool) string {
-	if hasEnrich && e.Description != "" {
-		return collapseWS(e.Description)
-	}
-	if sym.Summary != "" {
-		return escapeHTML(sym.Summary)
-	}
-	return ""
-}

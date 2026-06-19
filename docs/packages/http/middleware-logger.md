@@ -3,7 +3,7 @@ title: "Middleware.Logger"
 package: "http"
 import: "github.com/sahilkhaire/gox/http"
 node: "morgan"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="http" title="Middleware.Logger" node="morgan" import-path="github.com/sahilkhaire/gox/http" />
@@ -11,7 +11,9 @@ gox-doc-version: "10"
 
 Logger logs each request with slog (morgan-style).
 
-**Node.js equivalent:** `morgan`
+If you are coming from Node.js, the closest pattern is **`morgan`**.
+
+Method on **`Middleware`** — call it on a value of that type after constructing or receiving one from a constructor.
 
 ## Signature
 
@@ -44,6 +46,22 @@ http.Logger()
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/http"
+
+http.Logger()
+```
+
+## Tips
+
+Stack `Logger`, `Recover`, and `Security` middleware the way you would morgan + helmet in Express.
+
+## Standard library alternative
+
+Use `net/http` with handler functions `func(w http.ResponseWriter, r *http.Request)` or a router like chi/echo directly.
 
 ## Related APIs
 

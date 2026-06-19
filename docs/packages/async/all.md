@@ -3,7 +3,7 @@ title: "All"
 package: "async"
 import: "github.com/sahilkhaire/gox/async"
 node: "Promise.all([a(), b()])"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="async" title="All" node="Promise.all([a(), b()])" import-path="github.com/sahilkhaire/gox/async" />
@@ -11,7 +11,7 @@ gox-doc-version: "10"
 
 All runs tasks concurrently and returns when all complete or ctx is cancelled.
 
-**Node.js equivalent:** `Promise.all([a(), b()])`
+If you are coming from Node.js, the closest pattern is **`Promise.all([a(), b()])`**.
 
 ## Signature
 
@@ -43,6 +43,22 @@ a, b, err := async.All(ctx, fetchA, fetchB)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/async"
+
+a, b, err := async.All(ctx, fetchA, fetchB)
+```
+
+## Tips
+
+All async helpers respect context cancellation — prefer them over raw goroutines when you need timeouts.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

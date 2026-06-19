@@ -2,13 +2,16 @@
 title: "TeeReader"
 package: "stream"
 import: "github.com/sahilkhaire/gox/stream"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="stream" title="TeeReader" node="Node stream" import-path="github.com/sahilkhaire/gox/stream" />
 ## Overview
 
 TeeReader returns a Reader that writes to w what it reads from r.
+Node: passThrough with tap
+
+Part of the **`stream`** package — Node.js analog: *Node stream*.
 
 ## Signature
 
@@ -25,7 +28,7 @@ func TeeReader(r io.Reader, w io.Writer) io.Reader
 ::: code-group
 
 ```js [Node.js]
-// See package overview
+// Typical Node stream pattern in Node.js
 ```
 
 ```go [Standard Go]
@@ -41,6 +44,23 @@ _ = stream.TeeReader(/* args */)
 ```
 
 :::
+
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/stream"
+
+// stream
+_ = stream.TeeReader(/* args */)
+```
+
+## Tips
+
+Import `github.com/sahilkhaire/gox/stream` and call `TeeReader` directly. See the comparison below for the standard library equivalent.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 

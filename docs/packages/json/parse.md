@@ -3,13 +3,15 @@ title: "Parse"
 package: "json"
 import: "github.com/sahilkhaire/gox/json"
 node: "JSON.parse(str)"
-gox-doc-version: "10"
+gox-doc-version: "11"
 ---
 
 <SymbolHeader pkg="json" title="Parse" node="JSON.parse(str)" import-path="github.com/sahilkhaire/gox/json" />
 ## Overview
 
 Parse JSON into a typed value using generics — like JSON.parse but with compile-time type safety.
+
+If you are coming from Node.js, the closest pattern is **`JSON.parse(str)`**.
 
 ## Signature
 
@@ -41,9 +43,21 @@ obj, err := json.Parse[MyType](str)
 
 :::
 
+## Example
+
+```go
+import "github.com/sahilkhaire/gox/json"
+
+obj, err := json.Parse[MyType](str)
+```
+
 ## Tips
 
 Use MustParse when invalid JSON should panic in init or tests.
+
+## Standard library alternative
+
+gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
 
 ## Related APIs
 
