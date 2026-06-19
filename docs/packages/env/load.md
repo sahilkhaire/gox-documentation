@@ -3,7 +3,7 @@ title: "Load"
 package: "env"
 import: "github.com/sahilkhaire/gox/env"
 node: "require('dotenv').config()"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="env" title="Load" node="require('dotenv').config()" import-path="github.com/sahilkhaire/gox/env" />
@@ -38,9 +38,12 @@ require('dotenv').config();
 ```go [gox]
 import "github.com/sahilkhaire/gox/env"
 
-if err := env.Load(); err != nil {
-    log.Fatal(err)
-}
+dir := t.TempDir()
+path := filepath.Join(dir, ".env")
+Set("FOO", "")
+Set("ONLY_TEST", "1")
+n, err := GetInt("MISSING", 7)
+Set("N", "42")
 ```
 
 :::
@@ -64,7 +67,11 @@ Call `Load()` once at startup, then use typed getters instead of parsing strings
 
 ## Standard library alternative
 
-Use `os.Getenv` and `os.Setenv` from the standard library, or a config library like viper.
+Use the standard library directly:
+
+```go
+// use os.Getenv after loading .env manually or via a config lib
+```
 
 ## Related APIs
 

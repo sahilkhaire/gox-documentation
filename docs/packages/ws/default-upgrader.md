@@ -2,7 +2,7 @@
 title: "DefaultUpgrader"
 package: "ws"
 import: "github.com/sahilkhaire/gox/ws"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="ws" title="DefaultUpgrader" node="ws" import-path="github.com/sahilkhaire/gox/ws" />
@@ -39,7 +39,7 @@ var DefaultUpgrader
 ```go [gox]
 import "github.com/sahilkhaire/gox/ws"
 
-_ = ws.DefaultUpgrader
+conn, err := ws.DefaultUpgrader.Upgrade(w, r, nil)
 ```
 
 :::
@@ -49,7 +49,7 @@ _ = ws.DefaultUpgrader
 ```go
 import "github.com/sahilkhaire/gox/ws"
 
-_ = ws.DefaultUpgrader
+conn, err := ws.DefaultUpgrader.Upgrade(w, r, nil)
 ```
 
 ## Standard library alternative

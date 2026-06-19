@@ -3,7 +3,7 @@ title: "Map"
 package: "slice"
 import: "github.com/sahilkhaire/gox/slice"
 node: "arr.map(fn)"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="slice" title="Map" node="arr.map(fn)" import-path="github.com/sahilkhaire/gox/slice" />
@@ -60,7 +60,14 @@ Chain with `slice.Filter` and `slice.Reduce` for lodash-style pipelines. Pre-all
 
 ## Standard library alternative
 
-Use a `for` loop or Go 1.21+ `slices` package helpers from the standard library.
+Use the standard library directly:
+
+```go
+names := make([]string, len(users))
+for i, u := range users {
+    names[i] = u.Name
+}
+```
 
 ## Related APIs
 

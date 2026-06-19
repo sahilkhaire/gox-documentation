@@ -2,7 +2,7 @@
 title: "AppError.New"
 package: "err"
 import: "github.com/sahilkhaire/gox/err"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="err" title="AppError.New" node="http-errors" import-path="github.com/sahilkhaire/gox/err" />
@@ -40,8 +40,7 @@ func New(code int, message string) *AppError
 ```go [gox]
 import "github.com/sahilkhaire/gox/err"
 
-var v AppError
-v.New(/* args */)
+e := err.AppError.New(404, "not found")
 ```
 
 :::
@@ -51,8 +50,7 @@ v.New(/* args */)
 ```go
 import "github.com/sahilkhaire/gox/err"
 
-var v AppError
-v.New(/* args */)
+e := err.AppError.New(404, "not found")
 ```
 
 ## Tips

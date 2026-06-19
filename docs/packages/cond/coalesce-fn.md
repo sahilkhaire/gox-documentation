@@ -3,7 +3,7 @@ title: "CoalesceFn"
 package: "cond"
 import: "github.com/sahilkhaire/gox/cond"
 node: "obj?.field ?? \"guest\""
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="cond" title="CoalesceFn" node="obj?.field ?? &quot;guest&quot;" import-path="github.com/sahilkhaire/gox/cond" />
@@ -60,7 +60,14 @@ Prefer explicit zero-value checks in performance-critical hot paths if the compi
 
 ## Standard library alternative
 
-Use `if/else` for branching and explicit nil checks instead of `??`.
+Use the standard library directly:
+
+```go
+result := fallback
+if v != zero {
+    result = v
+}
+```
 
 ## Related APIs
 

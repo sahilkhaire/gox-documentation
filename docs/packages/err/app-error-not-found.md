@@ -3,7 +3,7 @@ title: "AppError.NotFound"
 package: "err"
 import: "github.com/sahilkhaire/gox/err"
 node: "createError(404, msg)"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="err" title="AppError.NotFound" node="createError(404, msg)" import-path="github.com/sahilkhaire/gox/err" />
@@ -59,7 +59,11 @@ Return from gox/http handlers; status code is inferred automatically.
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+return fmt.Errorf("not found: %w", ErrNotFound)
+```
 
 ## Related APIs
 

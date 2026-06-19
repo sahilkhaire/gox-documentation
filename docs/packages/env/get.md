@@ -3,7 +3,7 @@ title: "Get"
 package: "env"
 import: "github.com/sahilkhaire/gox/env"
 node: "process.env.KEY"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="env" title="Get" node="process.env.KEY" import-path="github.com/sahilkhaire/gox/env" />
@@ -41,7 +41,7 @@ if port == "" {
 ```go [gox]
 import "github.com/sahilkhaire/gox/env"
 
-port := env.Get("PORT", "8080")
+port := env.Get("PORT")
 ```
 
 :::
@@ -51,7 +51,7 @@ port := env.Get("PORT", "8080")
 ```go
 import "github.com/sahilkhaire/gox/env"
 
-port := env.Get("PORT", "8080")
+port := env.Get("PORT")
 ```
 
 ## Tips
@@ -60,7 +60,14 @@ Call `Load()` once at startup, then use typed getters instead of parsing strings
 
 ## Standard library alternative
 
-Use `os.Getenv` and `os.Setenv` from the standard library, or a config library like viper.
+Use the standard library directly:
+
+```go
+port := os.Getenv("PORT")
+if port == "" {
+    port = "8080"
+}
+```
 
 ## Related APIs
 

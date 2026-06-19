@@ -2,7 +2,7 @@
 title: "Worker"
 package: "queue"
 import: "github.com/sahilkhaire/gox/queue"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="queue" title="Worker" node="bull" import-path="github.com/sahilkhaire/gox/queue" />
@@ -41,7 +41,10 @@ type Worker struct {
 ```go [gox]
 import "github.com/sahilkhaire/gox/queue"
 
-_ = queue.Worker
+mux := queue.NewServeMux()
+mux.HandleFunc("email", handleEmail)
+worker := queue.NewWorker("localhost:6379", mux)
+worker.Run()
 ```
 
 :::
@@ -51,7 +54,10 @@ _ = queue.Worker
 ```go
 import "github.com/sahilkhaire/gox/queue"
 
-_ = queue.Worker
+mux := queue.NewServeMux()
+mux.HandleFunc("email", handleEmail)
+worker := queue.NewWorker("localhost:6379", mux)
+worker.Run()
 ```
 
 ## Tips

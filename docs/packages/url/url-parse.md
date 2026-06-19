@@ -3,7 +3,7 @@ title: "URL.Parse"
 package: "url"
 import: "github.com/sahilkhaire/gox/url"
 node: "new URL(str)"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="url" title="URL.Parse" node="new URL(str)" import-path="github.com/sahilkhaire/gox/url" />
@@ -59,6 +59,10 @@ Obtain a `URL` value first (see constructors on the package overview), then call
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+u, err := url.Parse(rawURL)
+```
 
 ← [Back to url package overview](/packages/url/)

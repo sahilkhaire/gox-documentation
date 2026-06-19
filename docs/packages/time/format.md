@@ -3,7 +3,7 @@ title: "Format"
 package: "time"
 import: "github.com/sahilkhaire/gox/time"
 node: "moment().format()"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="time" title="Format" node="moment().format()" import-path="github.com/sahilkhaire/gox/time" />
@@ -56,7 +56,12 @@ Import `github.com/sahilkhaire/gox/time` and call `Format` directly. See the com
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+t := time.Now()
+t.Format(time.RFC3339)
+```
 
 ## Related APIs
 

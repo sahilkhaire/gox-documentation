@@ -2,7 +2,7 @@
 title: "Scheduler"
 package: "cron"
 import: "github.com/sahilkhaire/gox/cron"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="cron" title="Scheduler" node="node-cron" import-path="github.com/sahilkhaire/gox/cron" />
@@ -43,7 +43,8 @@ c.Start()
 ```go [gox]
 import "github.com/sahilkhaire/gox/cron"
 
-_ = cron.Scheduler
+sched := cron.NewScheduler()
+sched.Every(time.Hour, func() { fmt.Println("tick") })
 ```
 
 :::
@@ -53,7 +54,8 @@ _ = cron.Scheduler
 ```go
 import "github.com/sahilkhaire/gox/cron"
 
-_ = cron.Scheduler
+sched := cron.NewScheduler()
+sched.Every(time.Hour, func() { fmt.Println("tick") })
 ```
 
 ## Tips
@@ -62,7 +64,13 @@ Browse methods on this type in the sidebar for handler-style APIs and options st
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+c := cron.New()
+c.AddFunc(spec, fn)
+c.Start()
+```
 
 ## Related APIs
 

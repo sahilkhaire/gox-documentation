@@ -2,7 +2,7 @@
 title: "Upgrader"
 package: "ws"
 import: "github.com/sahilkhaire/gox/ws"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="ws" title="Upgrader" node="ws" import-path="github.com/sahilkhaire/gox/ws" />
@@ -39,7 +39,7 @@ type Upgrader = websocket.Upgrader
 ```go [gox]
 import "github.com/sahilkhaire/gox/ws"
 
-_ = ws.Upgrader
+upgrader := ws.Upgrader{CheckOrigin: func(r *http.Request) bool { return true }}
 ```
 
 :::
@@ -49,7 +49,7 @@ _ = ws.Upgrader
 ```go
 import "github.com/sahilkhaire/gox/ws"
 
-_ = ws.Upgrader
+upgrader := ws.Upgrader{CheckOrigin: func(r *http.Request) bool { return true }}
 ```
 
 ## Tips

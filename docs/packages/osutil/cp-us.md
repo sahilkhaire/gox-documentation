@@ -3,7 +3,7 @@ title: "CPUs"
 package: "osutil"
 import: "github.com/sahilkhaire/gox/osutil"
 node: "os.cpus().length"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="osutil" title="CPUs" node="os.cpus().length" import-path="github.com/sahilkhaire/gox/osutil" />

@@ -3,7 +3,7 @@ title: "Cmd.Command"
 package: "exec"
 import: "github.com/sahilkhaire/gox/exec"
 node: "spawn(cmd, args)"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="exec" title="Cmd.Command" node="spawn(cmd, args)" import-path="github.com/sahilkhaire/gox/exec" />
@@ -60,6 +60,11 @@ Pass `context.Context` as the first argument so cancellation and deadlines propa
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+cmd := exec.CommandContext(ctx, name, args...)
+out, err := cmd.CombinedOutput()
+```
 
 ← [Back to exec package overview](/packages/exec/)

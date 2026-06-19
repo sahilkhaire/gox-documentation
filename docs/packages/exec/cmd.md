@@ -2,7 +2,7 @@
 title: "Cmd"
 package: "exec"
 import: "github.com/sahilkhaire/gox/exec"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="exec" title="Cmd" node="child_process" import-path="github.com/sahilkhaire/gox/exec" />
@@ -42,7 +42,8 @@ out, err := cmd.CombinedOutput()
 ```go [gox]
 import "github.com/sahilkhaire/gox/exec"
 
-_ = exec.Cmd
+cmd := exec.Command(ctx, "git", "status")
+out, err := cmd.Output()
 ```
 
 :::
@@ -52,7 +53,8 @@ _ = exec.Cmd
 ```go
 import "github.com/sahilkhaire/gox/exec"
 
-_ = exec.Cmd
+cmd := exec.Command(ctx, "git", "status")
+out, err := cmd.Output()
 ```
 
 ## Tips
@@ -61,7 +63,12 @@ Pass `context.Context` as the first argument so cancellation and deadlines propa
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+cmd := exec.CommandContext(ctx, name, args...)
+out, err := cmd.CombinedOutput()
+```
 
 ## Related APIs
 

@@ -3,7 +3,7 @@ title: "String"
 package: "validate"
 import: "github.com/sahilkhaire/gox/validate"
 node: "z.string().email()"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="validate" title="String" node="z.string().email()" import-path="github.com/sahilkhaire/gox/validate" />
@@ -30,13 +30,13 @@ z.string().email()
 ```
 
 ```go [Standard Go]
-if err := validator.Struct(v); err != nil { /* handle */ }
+field := validate.String().Email() // fluent schema builder
 ```
 
 ```go [gox]
 import "github.com/sahilkhaire/gox/validate"
 
-validate.String().Email()
+field := validate.String().Required().Email().MinLen(3)
 ```
 
 :::
@@ -46,7 +46,7 @@ validate.String().Email()
 ```go
 import "github.com/sahilkhaire/gox/validate"
 
-validate.String().Email()
+field := validate.String().Required().Email().MinLen(3)
 ```
 
 ## Tips
@@ -55,7 +55,11 @@ Import `github.com/sahilkhaire/gox/validate` and call `String` directly. See the
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+field := validate.String().Email() // fluent schema builder
+```
 
 ## Related APIs
 

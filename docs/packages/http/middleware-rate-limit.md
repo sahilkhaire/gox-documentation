@@ -3,7 +3,7 @@ title: "Middleware.RateLimit"
 package: "http"
 import: "github.com/sahilkhaire/gox/http"
 node: "express-rate-limit"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="http" title="Middleware.RateLimit" node="express-rate-limit" import-path="github.com/sahilkhaire/gox/http" />
@@ -52,18 +52,7 @@ http.RateLimit
 ```go
 import "github.com/sahilkhaire/gox/http"
 
-app := New()
-app.Use(RateLimit(RateLimitOptions{
-	Requests:	2,
-	Window:		time.Second,
-	Burst:		2,
-	Key:		func(c *Ctx) string { return "test" },
-}))
-app.Get("/x", func(c *Ctx) error {
-	return c.JSON(200, map[string]string{"ok": "1"})
-})
-rec := httptest.NewRecorder()
-app.ServeHTTP(rec, httptest.NewRequest(http.MethodGet, "/x", nil))
+http.RateLimit
 ```
 
 ## Tips
@@ -72,7 +61,13 @@ Stack `Logger`, `Recover`, and `Security` middleware the way you would morgan + 
 
 ## Standard library alternative
 
-Use `net/http` with handler functions `func(w http.ResponseWriter, r *http.Request)` or a router like chi/echo directly.
+Use the standard library directly:
+
+```go
+func handler(w http.ResponseWriter, r *http.Request) {
+    // chi or net/http
+}
+```
 
 ## Related APIs
 

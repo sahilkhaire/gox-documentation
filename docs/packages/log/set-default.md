@@ -2,7 +2,7 @@
 title: "SetDefault"
 package: "log"
 import: "github.com/sahilkhaire/gox/log"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="log" title="SetDefault" node="winston, pino" import-path="github.com/sahilkhaire/gox/log" />
@@ -38,8 +38,7 @@ logger.Info("msg", "key", val)
 ```go [gox]
 import "github.com/sahilkhaire/gox/log"
 
-// log
-_ = log.SetDefault(/* args */)
+log.SetDefault(log.New())
 ```
 
 :::
@@ -49,8 +48,7 @@ _ = log.SetDefault(/* args */)
 ```go
 import "github.com/sahilkhaire/gox/log"
 
-// log
-_ = log.SetDefault(/* args */)
+log.SetDefault(log.New())
 ```
 
 ## Tips
@@ -59,6 +57,11 @@ Import `github.com/sahilkhaire/gox/log` and call `SetDefault` directly. See the 
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+logger := slog.New(slog.NewJSONHandler(os.Stdout, nil))
+logger.Info("msg", "key", val)
+```
 
 ← [Back to log package overview](/packages/log/)

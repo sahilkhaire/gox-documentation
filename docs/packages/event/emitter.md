@@ -2,7 +2,7 @@
 title: "Emitter"
 package: "event"
 import: "github.com/sahilkhaire/gox/event"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="event" title="Emitter" node="EventEmitter" import-path="github.com/sahilkhaire/gox/event" />
@@ -41,7 +41,10 @@ type Emitter struct {
 ```go [gox]
 import "github.com/sahilkhaire/gox/event"
 
-_ = event.Emitter
+emitter := event.NewEmitter()
+emitter.On("ready", func(args ...any) {
+    fmt.Println("ready", args)
+})
 ```
 
 :::
@@ -51,7 +54,10 @@ _ = event.Emitter
 ```go
 import "github.com/sahilkhaire/gox/event"
 
-_ = event.Emitter
+emitter := event.NewEmitter()
+emitter.On("ready", func(args ...any) {
+    fmt.Println("ready", args)
+})
 ```
 
 ## Tips

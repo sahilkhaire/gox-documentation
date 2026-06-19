@@ -2,7 +2,7 @@
 title: "GetInt"
 package: "env"
 import: "github.com/sahilkhaire/gox/env"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="env" title="GetInt" node="dotenv / process.env" import-path="github.com/sahilkhaire/gox/env" />
@@ -40,8 +40,7 @@ if v == "" {
 ```go [gox]
 import "github.com/sahilkhaire/gox/env"
 
-// env
-_ = env.GetInt(/* args */)
+port, err := env.GetInt("PORT", 8080)
 ```
 
 :::
@@ -51,8 +50,7 @@ _ = env.GetInt(/* args */)
 ```go
 import "github.com/sahilkhaire/gox/env"
 
-// env
-_ = env.GetInt(/* args */)
+port, err := env.GetInt("PORT", 8080)
 ```
 
 ## Tips
@@ -61,7 +59,14 @@ Call `Load()` once at startup, then use typed getters instead of parsing strings
 
 ## Standard library alternative
 
-Use `os.Getenv` and `os.Setenv` from the standard library, or a config library like viper.
+Use the standard library directly:
+
+```go
+v := os.Getenv("KEY")
+if v == "" {
+    v = "default"
+}
+```
 
 ## Related APIs
 

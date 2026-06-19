@@ -2,7 +2,7 @@
 title: "Logger.Default"
 package: "log"
 import: "github.com/sahilkhaire/gox/log"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="log" title="Logger.Default" node="winston, pino" import-path="github.com/sahilkhaire/gox/log" />
@@ -40,8 +40,7 @@ logger.Info("msg", "key", val)
 ```go [gox]
 import "github.com/sahilkhaire/gox/log"
 
-var v Logger
-v.Default(/* args */)
+logger := log.Default()
 ```
 
 :::
@@ -51,8 +50,7 @@ v.Default(/* args */)
 ```go
 import "github.com/sahilkhaire/gox/log"
 
-var v Logger
-v.Default(/* args */)
+logger := log.Default()
 ```
 
 ## Tips
@@ -61,7 +59,12 @@ Obtain a `Logger` value first (see constructors on the package overview), then c
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+logger := slog.New(slog.NewJSONHandler(os.Stdout, nil))
+logger.Info("msg", "key", val)
+```
 
 ## Related APIs
 

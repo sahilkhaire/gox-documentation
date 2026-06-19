@@ -2,7 +2,7 @@
 title: "Emitter.New"
 package: "event"
 import: "github.com/sahilkhaire/gox/event"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="event" title="Emitter.New" node="EventEmitter" import-path="github.com/sahilkhaire/gox/event" />

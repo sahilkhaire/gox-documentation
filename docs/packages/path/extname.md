@@ -3,7 +3,7 @@ title: "Extname"
 package: "path"
 import: "github.com/sahilkhaire/gox/path"
 node: "path.extname(p)"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="path" title="Extname" node="path.extname(p)" import-path="github.com/sahilkhaire/gox/path" />
@@ -57,7 +57,11 @@ Import `github.com/sahilkhaire/gox/path` and call `Extname` directly. See the co
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+ext := filepath.Ext("file.txt")
+```
 
 ## Related APIs
 

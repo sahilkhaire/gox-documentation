@@ -2,7 +2,7 @@
 title: "Schema"
 package: "validate"
 import: "github.com/sahilkhaire/gox/validate"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="validate" title="Schema" node="zod, joi" import-path="github.com/sahilkhaire/gox/validate" />
@@ -35,13 +35,18 @@ type Schema struct {
 ```
 
 ```go [Standard Go]
-if err := validator.Struct(v); err != nil { /* handle */ }
+// use github.com/go-playground/validator struct tags or manual checks
 ```
 
 ```go [gox]
 import "github.com/sahilkhaire/gox/validate"
 
-_ = validate.Schema
+sch := validate.Object(map[string]validate.Field{
+	"name":	validate.String().MinLen(2),
+	"role":	validate.String().OneOf("admin", "user"),
+})
+err := validate.ValidateSchema(sch, map[string]any{"name": "a", "role": "guest"})
+err = validate.ValidateSchema(sch, map[string]any{"name": "alice", "role": "admin"})
 ```
 
 :::

@@ -3,7 +3,7 @@ title: "CoalescePtr"
 package: "cond"
 import: "github.com/sahilkhaire/gox/cond"
 node: "ptr ?? fallback"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="cond" title="CoalescePtr" node="ptr ?? fallback" import-path="github.com/sahilkhaire/gox/cond" />
@@ -41,7 +41,7 @@ if user != nil {
 ```go [gox]
 import "github.com/sahilkhaire/gox/cond"
 
-name := cond.CoalescePtr(&user.Name, "guest")
+a, b := 1, 2
 ```
 
 :::
@@ -60,7 +60,14 @@ Prefer explicit zero-value checks in performance-critical hot paths if the compi
 
 ## Standard library alternative
 
-Use `if/else` for branching and explicit nil checks instead of `??`.
+Use the standard library directly:
+
+```go
+name := "guest"
+if user != nil {
+    name = user.Name
+}
+```
 
 ## Related APIs
 

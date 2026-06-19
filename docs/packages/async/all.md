@@ -3,7 +3,7 @@ title: "All"
 package: "async"
 import: "github.com/sahilkhaire/gox/async"
 node: "Promise.all([a(), b()])"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="async" title="All" node="Promise.all([a(), b()])" import-path="github.com/sahilkhaire/gox/async" />
@@ -58,7 +58,12 @@ All async helpers respect context cancellation — prefer them over raw goroutin
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+errg, ctx := errgroup.WithContext(ctx)
+// run goroutines...
+```
 
 ## Related APIs
 

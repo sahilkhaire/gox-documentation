@@ -2,7 +2,7 @@
 title: "BuildMIME"
 package: "mail"
 import: "github.com/sahilkhaire/gox/mail"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="mail" title="BuildMIME" node="nodemailer" import-path="github.com/sahilkhaire/gox/mail" />
@@ -37,8 +37,7 @@ smtp.SendMail(addr, auth, from, to, msg)
 ```go [gox]
 import "github.com/sahilkhaire/gox/mail"
 
-// mail
-_ = mail.BuildMIME(/* args */)
+raw := mail.BuildMIME(msg)
 ```
 
 :::
@@ -48,8 +47,7 @@ _ = mail.BuildMIME(/* args */)
 ```go
 import "github.com/sahilkhaire/gox/mail"
 
-// mail
-_ = mail.BuildMIME(/* args */)
+raw := mail.BuildMIME(msg)
 ```
 
 ## Tips
@@ -58,7 +56,11 @@ Import `github.com/sahilkhaire/gox/mail` and call `BuildMIME` directly. See the 
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+smtp.SendMail(addr, auth, from, to, msg)
+```
 
 ## Related APIs
 

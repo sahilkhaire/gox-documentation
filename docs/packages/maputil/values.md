@@ -3,7 +3,7 @@ title: "Values"
 package: "maputil"
 import: "github.com/sahilkhaire/gox/maputil"
 node: "Object.values(obj)"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="maputil" title="Values" node="Object.values(obj)" import-path="github.com/sahilkhaire/gox/maputil" />
@@ -58,7 +58,12 @@ Import `github.com/sahilkhaire/gox/maputil` and call `Values` directly. See the 
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+keys := make([]string, 0, len(m))
+for k := range m { keys = append(keys, k) }
+```
 
 ## Related APIs
 

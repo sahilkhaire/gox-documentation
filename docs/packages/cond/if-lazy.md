@@ -3,7 +3,7 @@ title: "IfLazy"
 package: "cond"
 import: "github.com/sahilkhaire/gox/cond"
 node: "cond ? f() : g()"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="cond" title="IfLazy" node="cond ? f() : g()" import-path="github.com/sahilkhaire/gox/cond" />
@@ -43,7 +43,9 @@ if cond {
 ```go [gox]
 import "github.com/sahilkhaire/gox/cond"
 
-v := cond.IfLazy(cond, expensive, fallback)
+called := 0
+got := IfLazy(false, func() int { called++; return 1 }, func() int { return 2 })
+got = IfLazy(true, func() int { return 3 }, func() int { called++; return 4 })
 ```
 
 :::
@@ -64,7 +66,16 @@ Import `github.com/sahilkhaire/gox/cond` and call `IfLazy` directly. See the com
 
 ## Standard library alternative
 
-Use `if/else` for branching and explicit nil checks instead of `??`.
+Use the standard library directly:
+
+```go
+var v T
+if cond {
+    v = expensive()
+} else {
+    v = fallback()
+}
+```
 
 ## Related APIs
 

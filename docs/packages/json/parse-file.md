@@ -2,7 +2,7 @@
 title: "ParseFile"
 package: "json"
 import: "github.com/sahilkhaire/gox/json"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="json" title="ParseFile" node="JSON.parse/stringify" import-path="github.com/sahilkhaire/gox/json" />
@@ -38,7 +38,9 @@ err = json.Unmarshal(b, &cfg)
 ```go [gox]
 import "github.com/sahilkhaire/gox/json"
 
-cfg, err := json.ParseFile[Config](ctx, "cfg.json")
+dir := t.TempDir()
+path := filepath.Join(dir, "data.json")
+var m map[string]int
 ```
 
 :::
@@ -59,7 +61,12 @@ Import `github.com/sahilkhaire/gox/json` and call `ParseFile` directly. See the 
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+b, err := os.ReadFile(path)
+err = json.Unmarshal(b, &cfg)
+```
 
 ## Related APIs
 

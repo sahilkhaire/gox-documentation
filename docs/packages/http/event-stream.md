@@ -2,7 +2,7 @@
 title: "EventStream"
 package: "http"
 import: "github.com/sahilkhaire/gox/http"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="http" title="EventStream" node="express, cors, helmet, morgan" import-path="github.com/sahilkhaire/gox/http" />
@@ -43,7 +43,11 @@ func handler(w http.ResponseWriter, r *http.Request) {
 ```go [gox]
 import "github.com/sahilkhaire/gox/http"
 
-_ = http.EventStream
+stream, err := http.SSE(w, r)
+if err != nil {
+    return err
+}
+stream.Send("message", "hello")
 ```
 
 :::
@@ -53,7 +57,11 @@ _ = http.EventStream
 ```go
 import "github.com/sahilkhaire/gox/http"
 
-_ = http.EventStream
+stream, err := http.SSE(w, r)
+if err != nil {
+    return err
+}
+stream.Send("message", "hello")
 ```
 
 ## Tips
@@ -62,7 +70,13 @@ Stack `Logger`, `Recover`, and `Security` middleware the way you would morgan + 
 
 ## Standard library alternative
 
-Use `net/http` with handler functions `func(w http.ResponseWriter, r *http.Request)` or a router like chi/echo directly.
+Use the standard library directly:
+
+```go
+func handler(w http.ResponseWriter, r *http.Request) {
+    // chi or net/http
+}
+```
 
 ## Related APIs
 

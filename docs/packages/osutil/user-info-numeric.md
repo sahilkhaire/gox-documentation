@@ -2,7 +2,7 @@
 title: "UserInfoNumeric"
 package: "osutil"
 import: "github.com/sahilkhaire/gox/osutil"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="osutil" title="UserInfoNumeric" node="os" import-path="github.com/sahilkhaire/gox/osutil" />
@@ -38,8 +38,10 @@ func UserInfoNumeric() (username string, uid, gid int, err error)
 ```go [gox]
 import "github.com/sahilkhaire/gox/osutil"
 
-// osutil
-_ = osutil.UserInfoNumeric(/* args */)
+result, err := osutil.UserInfoNumeric()
+if err != nil {
+    return err
+}
 ```
 
 :::
@@ -49,8 +51,10 @@ _ = osutil.UserInfoNumeric(/* args */)
 ```go
 import "github.com/sahilkhaire/gox/osutil"
 
-// osutil
-_ = osutil.UserInfoNumeric(/* args */)
+result, err := osutil.UserInfoNumeric()
+if err != nil {
+    return err
+}
 ```
 
 ## Tips

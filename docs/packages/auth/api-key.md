@@ -2,7 +2,7 @@
 title: "APIKey"
 package: "auth"
 import: "github.com/sahilkhaire/gox/auth"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="auth" title="APIKey" node="passport" import-path="github.com/sahilkhaire/gox/auth" />
@@ -37,8 +37,7 @@ func APIKey(header string, opts APIKeyOpts) goxhttp.Middleware
 ```go [gox]
 import "github.com/sahilkhaire/gox/auth"
 
-// auth
-_ = auth.APIKey(/* args */)
+app.Use(auth.APIKey("X-API-Key", auth.APIKeyOpts{Keys: map[string]bool{"dev-key": true}}))
 ```
 
 :::
@@ -48,8 +47,7 @@ _ = auth.APIKey(/* args */)
 ```go
 import "github.com/sahilkhaire/gox/auth"
 
-// auth
-_ = auth.APIKey(/* args */)
+app.Use(auth.APIKey("X-API-Key", auth.APIKeyOpts{Keys: map[string]bool{"dev-key": true}}))
 ```
 
 ## Tips

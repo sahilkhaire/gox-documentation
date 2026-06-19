@@ -2,7 +2,7 @@
 title: "Set.Intersection"
 package: "set"
 import: "github.com/sahilkhaire/gox/set"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="set" title="Set.Intersection" node="Set" import-path="github.com/sahilkhaire/gox/set" />
@@ -39,8 +39,8 @@ func Intersection[T comparable](a, b Set[T]) Set[T]
 ```go [gox]
 import "github.com/sahilkhaire/gox/set"
 
-var v Set
-v.Intersection(/* args */)
+set := set.New("alpha", "beta")
+set.Intersection(value, b)
 ```
 
 :::
@@ -50,8 +50,8 @@ v.Intersection(/* args */)
 ```go
 import "github.com/sahilkhaire/gox/set"
 
-var v Set
-v.Intersection(/* args */)
+set := set.New("alpha", "beta")
+set.Intersection(value, b)
 ```
 
 ## Tips

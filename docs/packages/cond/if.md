@@ -3,7 +3,7 @@ title: "If"
 package: "cond"
 import: "github.com/sahilkhaire/gox/cond"
 node: "cond ? a : b"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="cond" title="If" node="cond ? a : b" import-path="github.com/sahilkhaire/gox/cond" />
@@ -41,7 +41,7 @@ if age >= 18 {
 ```go [gox]
 import "github.com/sahilkhaire/gox/cond"
 
-label := cond.If(age >= 18, "adult", "minor")
+adult := cond.If(age >= 18, "adult", "minor")
 ```
 
 :::
@@ -60,7 +60,14 @@ Both branches are evaluated eagerly. Use `cond.IfLazy` when one branch is expens
 
 ## Standard library alternative
 
-Use `if/else` for branching and explicit nil checks instead of `??`.
+Use the standard library directly:
+
+```go
+label := "minor"
+if age >= 18 {
+    label = "adult"
+}
+```
 
 ## Related APIs
 

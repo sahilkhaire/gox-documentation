@@ -3,7 +3,7 @@ title: "Arch"
 package: "osutil"
 import: "github.com/sahilkhaire/gox/osutil"
 node: "process.arch"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="osutil" title="Arch" node="process.arch" import-path="github.com/sahilkhaire/gox/osutil" />
@@ -57,7 +57,11 @@ Import `github.com/sahilkhaire/gox/osutil` and call `Arch` directly. See the com
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+val, err := os.Arch()
+```
 
 ## Related APIs
 

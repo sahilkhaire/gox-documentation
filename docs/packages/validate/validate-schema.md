@@ -3,7 +3,7 @@ title: "ValidateSchema"
 package: "validate"
 import: "github.com/sahilkhaire/gox/validate"
 node: "schema.parse(data)"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="validate" title="ValidateSchema" node="schema.parse(data)" import-path="github.com/sahilkhaire/gox/validate" />
@@ -28,17 +28,23 @@ func ValidateSchema(sch Schema, v any) error
 ::: code-group
 
 ```js [Node.js]
-schema.parse(data)
+schema.parse(data);
 ```
 
 ```go [Standard Go]
-if err := validator.Struct(v); err != nil { /* handle */ }
+// validate fields manually or map to struct tags
 ```
 
 ```go [gox]
 import "github.com/sahilkhaire/gox/validate"
 
-validate.ValidateSchema(sch, data)
+sch := validate.Object(map[string]validate.Field{
+	"name": validate.String().MinLen(2),
+	"role": validate.String().OneOf("admin", "user"),
+})
+if err := validate.ValidateSchema(sch, map[string]any{"name": "alice", "role": "admin"}); err != nil {
+	return err
+}
 ```
 
 :::
@@ -48,7 +54,13 @@ validate.ValidateSchema(sch, data)
 ```go
 import "github.com/sahilkhaire/gox/validate"
 
-validate.ValidateSchema(sch, data)
+sch := validate.Object(map[string]validate.Field{
+	"name": validate.String().MinLen(2),
+	"role": validate.String().OneOf("admin", "user"),
+})
+if err := validate.ValidateSchema(sch, map[string]any{"name": "alice", "role": "admin"}); err != nil {
+	return err
+}
 ```
 
 ## Tips
@@ -57,7 +69,11 @@ Import `github.com/sahilkhaire/gox/validate` and call `ValidateSchema` directly.
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+// validate fields manually or map to struct tags
+```
 
 ## Related APIs
 

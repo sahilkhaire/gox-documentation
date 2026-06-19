@@ -2,7 +2,7 @@
 title: "ParseString"
 package: "csv"
 import: "github.com/sahilkhaire/gox/csv"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="csv" title="ParseString" node="papaparse" import-path="github.com/sahilkhaire/gox/csv" />
@@ -38,8 +38,7 @@ records, err := r.ReadAll()
 ```go [gox]
 import "github.com/sahilkhaire/gox/csv"
 
-// csv
-_ = csv.ParseString(/* args */)
+rows, err := csv.ParseString(raw, csv.ReadOptions{Header: true})
 ```
 
 :::
@@ -49,8 +48,7 @@ _ = csv.ParseString(/* args */)
 ```go
 import "github.com/sahilkhaire/gox/csv"
 
-// csv
-_ = csv.ParseString(/* args */)
+rows, err := csv.ParseString(raw, csv.ReadOptions{Header: true})
 ```
 
 ## Tips
@@ -59,7 +57,12 @@ Import `github.com/sahilkhaire/gox/csv` and call `ParseString` directly. See the
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+r := csv.NewReader(f)
+records, err := r.ReadAll()
+```
 
 ## Related APIs
 

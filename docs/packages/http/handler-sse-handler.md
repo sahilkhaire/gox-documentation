@@ -2,7 +2,7 @@
 title: "Handler.SSEHandler"
 package: "http"
 import: "github.com/sahilkhaire/gox/http"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="http" title="Handler.SSEHandler" node="express, cors, helmet, morgan" import-path="github.com/sahilkhaire/gox/http" />
@@ -41,8 +41,17 @@ func handler(w http.ResponseWriter, r *http.Request) {
 ```go [gox]
 import "github.com/sahilkhaire/gox/http"
 
-var v Handler
-v.SSEHandler(/* args */)
+app := New()
+app.Get("/events", SSEHandler(func(es *EventStream) error {
+	if err := es.Send("msg", "hello"); err != nil {
+		return err
+	}
+	return es.SendData(`{"n":1}`)
+}))
+req := httptest.NewRequest(http.MethodGet, "/events", nil)
+rec := httptest.NewRecorder()
+app.ServeHTTP(rec, req)
+sc := bufio.NewScanner(rec.Body)
 ```
 
 :::
@@ -71,6 +80,12 @@ Stack `Logger`, `Recover`, and `Security` middleware the way you would morgan + 
 
 ## Standard library alternative
 
-Use `net/http` with handler functions `func(w http.ResponseWriter, r *http.Request)` or a router like chi/echo directly.
+Use the standard library directly:
+
+```go
+func handler(w http.ResponseWriter, r *http.Request) {
+    // chi or net/http
+}
+```
 
 ← [Back to http package overview](/packages/http/)

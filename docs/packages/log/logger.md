@@ -2,7 +2,7 @@
 title: "Logger"
 package: "log"
 import: "github.com/sahilkhaire/gox/log"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="log" title="Logger" node="winston, pino" import-path="github.com/sahilkhaire/gox/log" />
@@ -42,7 +42,8 @@ logger.Info("msg", "key", val)
 ```go [gox]
 import "github.com/sahilkhaire/gox/log"
 
-_ = log.Logger
+logger := log.New()
+logger.Info("server started", "port", 8080)
 ```
 
 :::
@@ -52,7 +53,8 @@ _ = log.Logger
 ```go
 import "github.com/sahilkhaire/gox/log"
 
-_ = log.Logger
+logger := log.New()
+logger.Info("server started", "port", 8080)
 ```
 
 ## Tips
@@ -61,7 +63,12 @@ Browse methods on this type in the sidebar for handler-style APIs and options st
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+logger := slog.New(slog.NewJSONHandler(os.Stdout, nil))
+logger.Info("msg", "key", val)
+```
 
 ## Related APIs
 

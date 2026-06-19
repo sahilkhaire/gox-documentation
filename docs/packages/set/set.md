@@ -2,7 +2,7 @@
 title: "Set"
 package: "set"
 import: "github.com/sahilkhaire/gox/set"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="set" title="Set" node="Set" import-path="github.com/sahilkhaire/gox/set" />
@@ -40,7 +40,8 @@ type Set[T comparable] map[T]struct{}
 ```go [gox]
 import "github.com/sahilkhaire/gox/set"
 
-_ = set.Set
+s := set.New("go", "node", "rust")
+_ = s.Has("go")
 ```
 
 :::
@@ -50,7 +51,8 @@ _ = set.Set
 ```go
 import "github.com/sahilkhaire/gox/set"
 
-_ = set.Set
+s := set.New("go", "node", "rust")
+_ = s.Has("go")
 ```
 
 ## Tips

@@ -99,12 +99,12 @@ var enrichments = map[string]enrichment{
 	"env.Load": {
 		Node:  "require('dotenv').config();",
 		StdGo: "// use os.Getenv after loading .env manually or via a config lib",
-		Gox:   "if err := env.Load(); err != nil {\n    log.Fatal(err)\n}",
+		Gox:   "if err := env.Load(\".env\"); err != nil {\n    log.Fatal(err)\n}",
 	},
 	"env.Get": {
 		Node:  "const port = process.env.PORT || '8080';",
 		StdGo: "port := os.Getenv(\"PORT\")\nif port == \"\" {\n    port = \"8080\"\n}",
-		Gox:   "port := env.Get(\"PORT\", \"8080\")",
+		Gox:   "port := env.Get(\"PORT\")",
 	},
 
 	// fs
@@ -354,11 +354,49 @@ var enrichments = map[string]enrichment{
 	// validate
 	"validate.Validate": {
 		Node:  "schema.validate(data);",
-		Gox:   "if err := validate.Validate(&v); err != nil { /* handle */ }",
+		StdGo: "if err := validator.New().Struct(v); err != nil {\n    return err\n}",
+		Gox:   "if err := validate.Validate(signup{Email: \"a@b.com\", Age: 20}); err != nil {\n    return err\n}",
+		Example: "type signup struct {\n\tEmail string `validate:\"required,email\"`\n\tAge   int    `validate:\"gte=18\"`\n}\nif err := validate.Validate(signup{Email: \"a@b.com\", Age: 20}); err != nil {\n\treturn err\n}",
+	},
+	"validate.ValidateSchema": {
+		Node:  "schema.parse(data);",
+		StdGo: "// validate fields manually or map to struct tags",
+		Gox:   "if err := validate.ValidateSchema(sch, map[string]any{\"name\": \"alice\"}); err != nil {\n    return err\n}",
+		Example: "sch := validate.Object(map[string]validate.Field{\n\t\"name\": validate.String().MinLen(2),\n\t\"role\": validate.String().OneOf(\"admin\", \"user\"),\n})\nif err := validate.ValidateSchema(sch, map[string]any{\"name\": \"alice\", \"role\": \"admin\"}); err != nil {\n\treturn err\n}",
 	},
 	"validate.Object": {
 		Node:  "z.object({ name: z.string() });",
 		Gox:   "sch := validate.Object(map[string]validate.Field{\"name\": validate.String().Required()})",
+	},
+	"validate.String": {
+		Node:  "z.string().email()",
+		Gox:   "field := validate.String().Email()",
+		Example: "field := validate.String().Required().Email().MinLen(3)",
+	},
+	"validate.Int": {
+		Node:  "z.number().min(18)",
+		Gox:   "field := validate.Int().Min(18)",
+	},
+	"validate.Float": {
+		Node:  "z.number().min(0)",
+		Gox:   "field := validate.Float().Min(0)",
+	},
+	"validate.Bool": {
+		Node:  "z.boolean()",
+		Gox:   "field := validate.Bool().Required()",
+	},
+	"validate.Array": {
+		Node:  "z.array(z.string())",
+		Gox:   "field := validate.Array(validate.String().MinLen(1)).MinLen(1)",
+	},
+	"validate.MustValidate": {
+		Gox:     "validate.MustValidate(signup{Email: \"a@b.com\", Age: 21})",
+		Example: "validate.MustValidate(signup{Email: \"a@b.com\", Age: 21})",
+	},
+	"validate.ParseJSON": {
+		Node:  "JSON.parse(str); schema.parse(JSON.parse(str))",
+		Gox:   "if err := validate.ParseJSON(r, &payload); err != nil {\n    return err\n}",
+		Example: "var payload signup\nif err := validate.ParseJSON(r, &payload); err != nil {\n\treturn err\n}",
 	},
 
 	// redis
@@ -497,16 +535,41 @@ func lookupEnrichment(pkg, name, receiver string) (enrichment, string, bool) {
 			return e, key, true
 		}
 	}
-	// test-only enrichment
+	// test-only enrichment — merge node/gox from auto mapping when available
 	if ex, ok := testExamples[pkg+"."+name]; ok {
-		return enrichment{Example: ex}, pkg + "." + name, true
+		e := enrichment{Example: ex}
+		if ae, ok2 := autoEnrichments[pkg+"."+name]; ok2 {
+			e = mergeEnrichment(e, ae)
+		}
+		return e, pkg + "." + name, true
 	}
 	if receiver != "" {
 		if ex, ok := testExamples[pkg+"."+receiver+"."+name]; ok {
-			return enrichment{Example: ex}, pkg + "." + receiver + "." + name, true
+			e := enrichment{Example: ex}
+			key := pkg + "." + receiver + "." + name
+			if ae, ok2 := autoEnrichments[key]; ok2 {
+				e = mergeEnrichment(e, ae)
+			}
+			return e, key, true
 		}
 	}
 	return enrichment{}, "", false
+}
+
+func mergeEnrichment(base, extra enrichment) enrichment {
+	if base.Node == "" {
+		base.Node = extra.Node
+	}
+	if base.Gox == "" {
+		base.Gox = extra.Gox
+	}
+	if base.StdGo == "" {
+		base.StdGo = extra.StdGo
+	}
+	if base.Description == "" {
+		base.Description = extra.Description
+	}
+	return base
 }
 
 // autoEnrichments is populated from gox/docs/node-mapping.md at build time.
@@ -550,8 +613,9 @@ func loadAutoEnrichments(path string) {
 			gox = pkgIdent + "." + gox
 		}
 		autoEnrichments[key] = enrichment{
-			Node: nodeExpr,
-			Gox:  gox,
+			Node:    nodeExpr,
+			Gox:     gox,
+			Example: gox,
 		}
 	}
 }

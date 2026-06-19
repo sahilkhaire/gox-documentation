@@ -2,7 +2,7 @@
 title: "Buffer"
 package: "buffer"
 import: "github.com/sahilkhaire/gox/buffer"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="buffer" title="Buffer" node="Buffer" import-path="github.com/sahilkhaire/gox/buffer" />
@@ -40,7 +40,9 @@ type Buffer []byte
 ```go [gox]
 import "github.com/sahilkhaire/gox/buffer"
 
-_ = buffer.Buffer
+a := FromString("ab")
+b := From([]byte("ab"))
+c := Concat(FromString("a"), FromString("b"))
 ```
 
 :::

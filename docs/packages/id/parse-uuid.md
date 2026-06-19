@@ -3,7 +3,7 @@ title: "ParseUUID"
 package: "id"
 import: "github.com/sahilkhaire/gox/id"
 node: "uuid.parse(s)"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="id" title="ParseUUID" node="uuid.parse(s)" import-path="github.com/sahilkhaire/gox/id" />
@@ -58,7 +58,12 @@ Import `github.com/sahilkhaire/gox/id` and call `ParseUUID` directly. See the co
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+id := uuid.New()
+u, err := uuid.Parse(s)
+```
 
 ## Related APIs
 

@@ -3,7 +3,7 @@ title: "Filter"
 package: "slice"
 import: "github.com/sahilkhaire/gox/slice"
 node: "arr.filter(fn)"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="slice" title="Filter" node="arr.filter(fn)" import-path="github.com/sahilkhaire/gox/slice" />
@@ -62,7 +62,16 @@ Combine with `slice.Map` for filter-then-map pipelines without nested loops.
 
 ## Standard library alternative
 
-Use a `for` loop or Go 1.21+ `slices` package helpers from the standard library.
+Use the standard library directly:
+
+```go
+var adults []User
+for _, u := range users {
+    if u.Age >= 18 {
+        adults = append(adults, u)
+    }
+}
+```
 
 ## Related APIs
 

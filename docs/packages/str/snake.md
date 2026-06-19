@@ -3,7 +3,7 @@ title: "Snake"
 package: "str"
 import: "github.com/sahilkhaire/gox/str"
 node: "snake_case(s)"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="str" title="Snake" node="snake_case(s)" import-path="github.com/sahilkhaire/gox/str" />
@@ -57,7 +57,11 @@ Import `github.com/sahilkhaire/gox/str` and call `Snake` directly. See the compa
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+s = strings.ToLower(strings.ReplaceAll(name, " ", "_"))
+```
 
 ## Related APIs
 

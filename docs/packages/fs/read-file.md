@@ -3,7 +3,7 @@ title: "ReadFile"
 package: "fs"
 import: "github.com/sahilkhaire/gox/fs"
 node: "fs.readFile(path)"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="fs" title="ReadFile" node="fs.readFile(path)" import-path="github.com/sahilkhaire/gox/fs" />
@@ -57,7 +57,11 @@ Prefer context-aware I/O so requests can cancel long reads.
 
 ## Standard library alternative
 
-Use `os.ReadFile`, `os.WriteFile`, etc. Pass `context.Context` manually for cancellation.
+Use the standard library directly:
+
+```go
+data, err := os.ReadFile("file.txt")
+```
 
 ## Related APIs
 

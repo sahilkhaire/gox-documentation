@@ -2,7 +2,7 @@
 title: "Middleware.SessionMiddleware"
 package: "http"
 import: "github.com/sahilkhaire/gox/http"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="http" title="Middleware.SessionMiddleware" node="express, cors, helmet, morgan" import-path="github.com/sahilkhaire/gox/http" />
@@ -41,8 +41,18 @@ func handler(w http.ResponseWriter, r *http.Request) {
 ```go [gox]
 import "github.com/sahilkhaire/gox/http"
 
-var v Middleware
-v.SessionMiddleware(/* args */)
+store := NewMemoryStore()
+app := New()
+app.Use(SessionMiddleware(store, SessionOptions{CookieName: "sid"}))
+app.Get("/set", func(c *Ctx) error {
+	c.Session()["user"] = "alice"
+	return c.JSON(200, map[string]string{"ok": "1"})
+})
+app.Get("/get", func(c *Ctx) error {
+	u, _ := c.Session()["user"].(string)
+	return c.JSON(200, map[string]string{"user": u})
+})
+rec := httptest.NewRecorder()
 ```
 
 :::
@@ -72,7 +82,13 @@ Stack `Logger`, `Recover`, and `Security` middleware the way you would morgan + 
 
 ## Standard library alternative
 
-Use `net/http` with handler functions `func(w http.ResponseWriter, r *http.Request)` or a router like chi/echo directly.
+Use the standard library directly:
+
+```go
+func handler(w http.ResponseWriter, r *http.Request) {
+    // chi or net/http
+}
+```
 
 ## Related APIs
 

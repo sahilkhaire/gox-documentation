@@ -2,7 +2,7 @@
 title: "AppError"
 package: "err"
 import: "github.com/sahilkhaire/gox/err"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="err" title="AppError" node="http-errors" import-path="github.com/sahilkhaire/gox/err" />
@@ -44,7 +44,9 @@ type AppError struct {
 ```go [gox]
 import "github.com/sahilkhaire/gox/err"
 
-_ = err.AppError
+base := errors.New("root")
+e := Wrap(http.StatusTeapot, "wrapped", base)
+var ae *AppError
 ```
 
 :::

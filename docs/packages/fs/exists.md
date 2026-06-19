@@ -3,7 +3,7 @@ title: "Exists"
 package: "fs"
 import: "github.com/sahilkhaire/gox/fs"
 node: "fs.exists(path)"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="fs" title="Exists" node="fs.exists(path)" import-path="github.com/sahilkhaire/gox/fs" />
@@ -58,7 +58,12 @@ Pass `context.Context` as the first argument so cancellation and deadlines propa
 
 ## Standard library alternative
 
-Use `os.ReadFile`, `os.WriteFile`, etc. Pass `context.Context` manually for cancellation.
+Use the standard library directly:
+
+```go
+_, err := os.Stat(path)
+exists := err == nil
+```
 
 ## Related APIs
 

@@ -3,7 +3,7 @@ title: "Coalesce"
 package: "cond"
 import: "github.com/sahilkhaire/gox/cond"
 node: "a ?? b ?? c"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="cond" title="Coalesce" node="a ?? b ?? c" import-path="github.com/sahilkhaire/gox/cond" />
@@ -41,7 +41,14 @@ if name == "" {
 ```go [gox]
 import "github.com/sahilkhaire/gox/cond"
 
-name := cond.Coalesce(maybeName, "guest")
+tests := []struct {
+	in	[]int
+	want	int
+}{
+	{[]int{0, 0, 3}, 3},
+	{[]int{1, 2}, 1},
+	{[]int{}, 0},
+}
 ```
 
 :::
@@ -67,7 +74,14 @@ Prefer explicit zero-value checks in performance-critical hot paths if the compi
 
 ## Standard library alternative
 
-Use `if/else` for branching and explicit nil checks instead of `??`.
+Use the standard library directly:
+
+```go
+name := maybeName
+if name == "" {
+    name = "guest"
+}
+```
 
 ## Related APIs
 

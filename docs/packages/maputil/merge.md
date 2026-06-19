@@ -3,7 +3,7 @@ title: "Merge"
 package: "maputil"
 import: "github.com/sahilkhaire/gox/maputil"
 node: "_.merge(a, b)"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="maputil" title="Merge" node="_.merge(a, b)" import-path="github.com/sahilkhaire/gox/maputil" />
@@ -58,7 +58,12 @@ Import `github.com/sahilkhaire/gox/maputil` and call `Merge` directly. See the c
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+out := maps.Clone(base)
+maps.Copy(out, overlay)
+```
 
 ## Related APIs
 

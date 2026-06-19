@@ -2,7 +2,7 @@
 title: "Conn.Upgrade"
 package: "ws"
 import: "github.com/sahilkhaire/gox/ws"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="ws" title="Conn.Upgrade" node="ws" import-path="github.com/sahilkhaire/gox/ws" />
@@ -39,8 +39,7 @@ func Upgrade(w http.ResponseWriter, r *http.Request, up *Upgrader) (*Conn, error
 ```go [gox]
 import "github.com/sahilkhaire/gox/ws"
 
-var v Conn
-v.Upgrade(/* args */)
+conn, err := upgrader.Upgrade(w, r, nil)
 ```
 
 :::
@@ -50,8 +49,7 @@ v.Upgrade(/* args */)
 ```go
 import "github.com/sahilkhaire/gox/ws"
 
-var v Conn
-v.Upgrade(/* args */)
+conn, err := upgrader.Upgrade(w, r, nil)
 ```
 
 ## Tips

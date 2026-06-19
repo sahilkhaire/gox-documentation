@@ -2,7 +2,7 @@
 title: "Cache"
 package: "cache"
 import: "github.com/sahilkhaire/gox/cache"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="cache" title="Cache" node="lru-cache" import-path="github.com/sahilkhaire/gox/cache" />
@@ -41,7 +41,8 @@ type Cache struct {
 ```go [gox]
 import "github.com/sahilkhaire/gox/cache"
 
-_ = cache.Cache
+c := cache.New(500)
+c.Set("user:1", user, time.Minute)
 ```
 
 :::
@@ -51,7 +52,8 @@ _ = cache.Cache
 ```go
 import "github.com/sahilkhaire/gox/cache"
 
-_ = cache.Cache
+c := cache.New(500)
+c.Set("user:1", user, time.Minute)
 ```
 
 ## Tips

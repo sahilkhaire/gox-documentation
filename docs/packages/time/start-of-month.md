@@ -2,7 +2,7 @@
 title: "StartOfMonth"
 package: "time"
 import: "github.com/sahilkhaire/gox/time"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="time" title="StartOfMonth" node="moment, dayjs (package timex)" import-path="github.com/sahilkhaire/gox/time" />
@@ -36,8 +36,7 @@ func StartOfMonth(t stdtime.Time) stdtime.Time
 ```go [gox]
 import "github.com/sahilkhaire/gox/time"
 
-// timex
-_ = timex.StartOfMonth(/* args */)
+start := timex.StartOfMonth(time.Now())
 ```
 
 :::
@@ -47,8 +46,7 @@ _ = timex.StartOfMonth(/* args */)
 ```go
 import "github.com/sahilkhaire/gox/time"
 
-// timex
-_ = timex.StartOfMonth(/* args */)
+start := timex.StartOfMonth(time.Now())
 ```
 
 ## Tips

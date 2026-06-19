@@ -2,7 +2,7 @@
 title: "ObjectField"
 package: "validate"
 import: "github.com/sahilkhaire/gox/validate"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="validate" title="ObjectField" node="zod, joi" import-path="github.com/sahilkhaire/gox/validate" />
@@ -31,14 +31,13 @@ func ObjectField(fields map[string]Field) *objectField
 ```
 
 ```go [Standard Go]
-if err := validator.Struct(v); err != nil { /* handle */ }
+field := validate.String().Email() // fluent schema builder
 ```
 
 ```go [gox]
 import "github.com/sahilkhaire/gox/validate"
 
-// validate
-_ = validate.ObjectField(/* args */)
+field := validate.ObjectField(map[string]validate.Field{"city": validate.String()})
 ```
 
 :::
@@ -48,8 +47,7 @@ _ = validate.ObjectField(/* args */)
 ```go
 import "github.com/sahilkhaire/gox/validate"
 
-// validate
-_ = validate.ObjectField(/* args */)
+field := validate.ObjectField(map[string]validate.Field{"city": validate.String()})
 ```
 
 ## Tips
@@ -58,7 +56,11 @@ Import `github.com/sahilkhaire/gox/validate` and call `ObjectField` directly. Se
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+field := validate.String().Email() // fluent schema builder
+```
 
 ## Related APIs
 

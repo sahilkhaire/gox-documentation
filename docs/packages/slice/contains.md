@@ -3,7 +3,7 @@ title: "Contains"
 package: "slice"
 import: "github.com/sahilkhaire/gox/slice"
 node: "arr.includes(x)"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="slice" title="Contains" node="arr.includes(x)" import-path="github.com/sahilkhaire/gox/slice" />

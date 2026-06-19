@@ -2,7 +2,7 @@
 title: "Retry"
 package: "async"
 import: "github.com/sahilkhaire/gox/async"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="async" title="Retry" node="Promise.all, timers" import-path="github.com/sahilkhaire/gox/async" />
@@ -37,8 +37,9 @@ func Retry(ctx context.Context, cfg RetryConfig, fn func(context.Context) error)
 ```go [gox]
 import "github.com/sahilkhaire/gox/async"
 
-// async
-_ = async.Retry(/* args */)
+err := async.Retry(ctx, async.RetryConfig{MaxAttempts: 3, Delay: time.Second}, func(ctx context.Context) error {
+    return fetch(ctx)
+})
 ```
 
 :::
@@ -48,8 +49,9 @@ _ = async.Retry(/* args */)
 ```go
 import "github.com/sahilkhaire/gox/async"
 
-// async
-_ = async.Retry(/* args */)
+err := async.Retry(ctx, async.RetryConfig{MaxAttempts: 3, Delay: time.Second}, func(ctx context.Context) error {
+    return fetch(ctx)
+})
 ```
 
 ## Tips

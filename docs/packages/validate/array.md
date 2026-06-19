@@ -2,7 +2,7 @@
 title: "Array"
 package: "validate"
 import: "github.com/sahilkhaire/gox/validate"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="validate" title="Array" node="zod, joi" import-path="github.com/sahilkhaire/gox/validate" />
@@ -25,18 +25,19 @@ func Array(elem Field) *arrayField
 ::: code-group
 
 ```js [Node.js]
-// Typical zod, joi pattern in Node.js
+z.array(z.string())
 ```
 
 ```go [Standard Go]
-if err := validator.Struct(v); err != nil { /* handle */ }
+field := validate.String().Email() // fluent schema builder
 ```
 
 ```go [gox]
 import "github.com/sahilkhaire/gox/validate"
 
-// validate
-_ = validate.Array(/* args */)
+sch := validate.Object(map[string]validate.Field{
+	"tags": validate.Array(validate.String().MinLen(1)).MinLen(1),
+})
 ```
 
 :::
@@ -57,7 +58,11 @@ Import `github.com/sahilkhaire/gox/validate` and call `Array` directly. See the 
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+field := validate.String().Email() // fluent schema builder
+```
 
 ## Related APIs
 

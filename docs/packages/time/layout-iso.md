@@ -2,7 +2,7 @@
 title: "LayoutISO"
 package: "time"
 import: "github.com/sahilkhaire/gox/time"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="time" title="LayoutISO" node="moment, dayjs (package timex)" import-path="github.com/sahilkhaire/gox/time" />
@@ -38,7 +38,7 @@ const LayoutISO
 ```go [gox]
 import "github.com/sahilkhaire/gox/time"
 
-_ = timex.LayoutISO
+formatted := timex.Format(t, timex.LayoutISO)
 ```
 
 :::
@@ -48,7 +48,7 @@ _ = timex.LayoutISO
 ```go
 import "github.com/sahilkhaire/gox/time"
 
-_ = timex.LayoutISO
+formatted := timex.Format(t, timex.LayoutISO)
 ```
 
 ## Standard library alternative

@@ -3,7 +3,7 @@ title: "Find"
 package: "slice"
 import: "github.com/sahilkhaire/gox/slice"
 node: "arr.find(fn)"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="slice" title="Find" node="arr.find(fn)" import-path="github.com/sahilkhaire/gox/slice" />
@@ -64,7 +64,18 @@ Chain `Filter`, `Map`, and `Reduce` for lodash-style pipelines. Results are new 
 
 ## Standard library alternative
 
-Use a `for` loop or Go 1.21+ `slices` package helpers from the standard library.
+Use the standard library directly:
+
+```go
+var found User
+var ok bool
+for _, u := range users {
+    if u.ID == id {
+        found, ok = u, true
+        break
+    }
+}
+```
 
 ## Related APIs
 

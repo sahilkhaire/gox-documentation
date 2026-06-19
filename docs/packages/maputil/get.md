@@ -3,7 +3,7 @@ title: "Get"
 package: "maputil"
 import: "github.com/sahilkhaire/gox/maputil"
 node: "_.get(obj, \"a.b\")"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="maputil" title="Get" node="_.get(obj, &quot;a.b&quot;)" import-path="github.com/sahilkhaire/gox/maputil" />
@@ -62,7 +62,16 @@ Import `github.com/sahilkhaire/gox/maputil` and call `Get` directly. See the com
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+city := "unknown"
+if addr, ok := obj["address"].(map[string]any); ok {
+    if c, ok := addr["city"].(string); ok {
+        city = c
+    }
+}
+```
 
 ## Related APIs
 

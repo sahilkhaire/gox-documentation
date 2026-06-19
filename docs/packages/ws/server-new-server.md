@@ -2,7 +2,7 @@
 title: "Server.NewServer"
 package: "ws"
 import: "github.com/sahilkhaire/gox/ws"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="ws" title="Server.NewServer" node="ws" import-path="github.com/sahilkhaire/gox/ws" />

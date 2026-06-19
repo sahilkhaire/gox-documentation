@@ -2,7 +2,7 @@
 title: "SignOptions"
 package: "jwt"
 import: "github.com/sahilkhaire/gox/jwt"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="jwt" title="SignOptions" node="jsonwebtoken" import-path="github.com/sahilkhaire/gox/jwt" />
@@ -42,7 +42,7 @@ type SignOptions struct {
 ```go [gox]
 import "github.com/sahilkhaire/gox/jwt"
 
-_ = jwt.SignOptions
+opts := &jwt.SignOptions{ExpiresIn: time.Hour}
 ```
 
 :::
@@ -52,7 +52,7 @@ _ = jwt.SignOptions
 ```go
 import "github.com/sahilkhaire/gox/jwt"
 
-_ = jwt.SignOptions
+opts := &jwt.SignOptions{ExpiresIn: time.Hour}
 ```
 
 ## Tips

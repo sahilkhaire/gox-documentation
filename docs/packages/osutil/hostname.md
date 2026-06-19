@@ -3,7 +3,7 @@ title: "Hostname"
 package: "osutil"
 import: "github.com/sahilkhaire/gox/osutil"
 node: "os.hostname()"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="osutil" title="Hostname" node="os.hostname()" import-path="github.com/sahilkhaire/gox/osutil" />
@@ -57,7 +57,11 @@ Import `github.com/sahilkhaire/gox/osutil` and call `Hostname` directly. See the
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+val, err := os.Hostname()
+```
 
 ## Related APIs
 

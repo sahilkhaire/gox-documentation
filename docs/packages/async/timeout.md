@@ -2,7 +2,7 @@
 title: "Timeout"
 package: "async"
 import: "github.com/sahilkhaire/gox/async"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="async" title="Timeout" node="Promise.all, timers" import-path="github.com/sahilkhaire/gox/async" />
@@ -37,8 +37,9 @@ func Timeout(ctx context.Context, timeout time.Duration, fn func(context.Context
 ```go [gox]
 import "github.com/sahilkhaire/gox/async"
 
-// async
-_ = async.Timeout(/* args */)
+err := async.Timeout(ctx, 5*time.Second, func(ctx context.Context) error {
+    return work(ctx)
+})
 ```
 
 :::
@@ -48,8 +49,9 @@ _ = async.Timeout(/* args */)
 ```go
 import "github.com/sahilkhaire/gox/async"
 
-// async
-_ = async.Timeout(/* args */)
+err := async.Timeout(ctx, 5*time.Second, func(ctx context.Context) error {
+    return work(ctx)
+})
 ```
 
 ## Tips

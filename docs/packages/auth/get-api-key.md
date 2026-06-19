@@ -2,7 +2,7 @@
 title: "GetAPIKey"
 package: "auth"
 import: "github.com/sahilkhaire/gox/auth"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="auth" title="GetAPIKey" node="passport" import-path="github.com/sahilkhaire/gox/auth" />
@@ -37,8 +37,7 @@ func GetAPIKey(c *goxhttp.Ctx) string
 ```go [gox]
 import "github.com/sahilkhaire/gox/auth"
 
-// auth
-_ = auth.GetAPIKey(/* args */)
+key, ok := auth.GetAPIKey(c)
 ```
 
 :::
@@ -48,8 +47,7 @@ _ = auth.GetAPIKey(/* args */)
 ```go
 import "github.com/sahilkhaire/gox/auth"
 
-// auth
-_ = auth.GetAPIKey(/* args */)
+key, ok := auth.GetAPIKey(c)
 ```
 
 ## Tips

@@ -3,7 +3,7 @@ title: "Resolve"
 package: "url"
 import: "github.com/sahilkhaire/gox/url"
 node: "url.resolve(base, rel)"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="url" title="Resolve" node="url.resolve(base, rel)" import-path="github.com/sahilkhaire/gox/url" />
@@ -57,7 +57,11 @@ Import `github.com/sahilkhaire/gox/url` and call `Resolve` directly. See the com
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+u := &url.URL{Scheme: "https", Host: host, Path: path}
+```
 
 ## Related APIs
 

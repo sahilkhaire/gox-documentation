@@ -2,7 +2,7 @@
 title: "FileEntry"
 package: "archive"
 import: "github.com/sahilkhaire/gox/archive"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="archive" title="FileEntry" node="archiver" import-path="github.com/sahilkhaire/gox/archive" />
@@ -42,7 +42,7 @@ type FileEntry struct {
 ```go [gox]
 import "github.com/sahilkhaire/gox/archive"
 
-_ = archive.FileEntry
+entry := archive.FileEntry{Name: "readme.txt", Mode: 0644, Body: []byte("hello")}
 ```
 
 :::
@@ -52,7 +52,7 @@ _ = archive.FileEntry
 ```go
 import "github.com/sahilkhaire/gox/archive"
 
-_ = archive.FileEntry
+entry := archive.FileEntry{Name: "readme.txt", Mode: 0644, Body: []byte("hello")}
 ```
 
 ## Tips

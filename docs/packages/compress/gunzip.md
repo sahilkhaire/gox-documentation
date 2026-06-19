@@ -3,7 +3,7 @@ title: "Gunzip"
 package: "compress"
 import: "github.com/sahilkhaire/gox/compress"
 node: "gunzipSync"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="compress" title="Gunzip" node="gunzipSync" import-path="github.com/sahilkhaire/gox/compress" />

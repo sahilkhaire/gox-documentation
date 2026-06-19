@@ -3,7 +3,7 @@ title: "Buffer.FromString"
 package: "buffer"
 import: "github.com/sahilkhaire/gox/buffer"
 node: "Buffer.from(str)"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="buffer" title="Buffer.FromString" node="Buffer.from(str)" import-path="github.com/sahilkhaire/gox/buffer" />
@@ -59,7 +59,11 @@ Obtain a `Buffer` value first (see constructors on the package overview), then c
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+b := append([]byte(nil), parts...)
+```
 
 ## Related APIs
 

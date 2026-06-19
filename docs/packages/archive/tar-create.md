@@ -2,7 +2,7 @@
 title: "TarCreate"
 package: "archive"
 import: "github.com/sahilkhaire/gox/archive"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="archive" title="TarCreate" node="archiver" import-path="github.com/sahilkhaire/gox/archive" />
@@ -37,8 +37,7 @@ func TarCreate(files map[string][]byte) ([]byte, error)
 ```go [gox]
 import "github.com/sahilkhaire/gox/archive"
 
-// archive
-_ = archive.TarCreate(/* args */)
+err := archive.TarCreate(ctx, w, entries)
 ```
 
 :::
@@ -48,8 +47,7 @@ _ = archive.TarCreate(/* args */)
 ```go
 import "github.com/sahilkhaire/gox/archive"
 
-// archive
-_ = archive.TarCreate(/* args */)
+err := archive.TarCreate(ctx, w, entries)
 ```
 
 ## Tips

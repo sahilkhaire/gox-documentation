@@ -2,7 +2,7 @@
 title: "RequestOpts.JSONBody"
 package: "client"
 import: "github.com/sahilkhaire/gox/client"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="client" title="RequestOpts.JSONBody" node="axios, fetch" import-path="github.com/sahilkhaire/gox/client" />
@@ -40,8 +40,7 @@ client.Do(req)
 ```go [gox]
 import "github.com/sahilkhaire/gox/client"
 
-var v RequestOpts
-v.JSONBody(/* args */)
+opts := client.RequestOpts{}.JSONBody(map[string]string{"name": "Ada"})
 ```
 
 :::
@@ -51,8 +50,7 @@ v.JSONBody(/* args */)
 ```go
 import "github.com/sahilkhaire/gox/client"
 
-var v RequestOpts
-v.JSONBody(/* args */)
+opts := client.RequestOpts{}.JSONBody(map[string]string{"name": "Ada"})
 ```
 
 ## Tips
@@ -61,7 +59,12 @@ Pass `context.Context` as the first argument so cancellation and deadlines propa
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+resp, err := http.NewRequestWithContext(ctx, method, url, body)
+client.Do(req)
+```
 
 ## Related APIs
 

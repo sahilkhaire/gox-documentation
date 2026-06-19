@@ -3,7 +3,7 @@ title: "HMACSHA256"
 package: "crypto"
 import: "github.com/sahilkhaire/gox/crypto"
 node: "crypto.createHmac('sha256', key).update(d).digest('hex')"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="crypto" title="HMACSHA256" node="crypto.createHmac('sha256', key).update(d).digest('hex')" import-path="github.com/sahilkhaire/gox/crypto" />
@@ -58,7 +58,12 @@ Import `github.com/sahilkhaire/gox/crypto` and call `HMACSHA256` directly. See t
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+h := sha256.Sum256(data)
+// or hmac.New(sha256.New, key)
+```
 
 ## Related APIs
 

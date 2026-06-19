@@ -2,7 +2,7 @@
 title: "Tx"
 package: "db"
 import: "github.com/sahilkhaire/gox/db"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="db" title="Tx" node="knex" import-path="github.com/sahilkhaire/gox/db" />
@@ -42,7 +42,9 @@ db.GetContext(ctx, &row, query, args...)
 ```go [gox]
 import "github.com/sahilkhaire/gox/db"
 
-_ = db.Tx
+err := db.Transaction(ctx, func(tx *db.Tx) error {
+    return tx.Insert(ctx, "users", row)
+})
 ```
 
 :::
@@ -52,7 +54,9 @@ _ = db.Tx
 ```go
 import "github.com/sahilkhaire/gox/db"
 
-_ = db.Tx
+err := db.Transaction(ctx, func(tx *db.Tx) error {
+    return tx.Insert(ctx, "users", row)
+})
 ```
 
 ## Tips
@@ -61,6 +65,11 @@ Pass `context.Context` as the first argument so cancellation and deadlines propa
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+db, err := sqlx.Connect("postgres", dsn)
+db.GetContext(ctx, &row, query, args...)
+```
 
 ← [Back to db package overview](/packages/db/)

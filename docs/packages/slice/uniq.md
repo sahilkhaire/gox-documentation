@@ -3,7 +3,7 @@ title: "Uniq"
 package: "slice"
 import: "github.com/sahilkhaire/gox/slice"
 node: "_.uniq(arr)"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="slice" title="Uniq" node="_.uniq(arr)" import-path="github.com/sahilkhaire/gox/slice" />
@@ -59,7 +59,13 @@ Chain `Filter`, `Map`, and `Reduce` for lodash-style pipelines. Results are new 
 
 ## Standard library alternative
 
-Use a `for` loop or Go 1.21+ `slices` package helpers from the standard library.
+Use the standard library directly:
+
+```go
+seen := make(map[T]struct{})
+var unique []T
+for _, v := range items { /* dedupe */ }
+```
 
 ## Related APIs
 

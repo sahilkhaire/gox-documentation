@@ -3,7 +3,7 @@ title: "Remove"
 package: "fs"
 import: "github.com/sahilkhaire/gox/fs"
 node: "fs.rm(path)"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="fs" title="Remove" node="fs.rm(path)" import-path="github.com/sahilkhaire/gox/fs" />

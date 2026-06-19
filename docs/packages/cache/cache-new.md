@@ -3,7 +3,7 @@ title: "Cache.New"
 package: "cache"
 import: "github.com/sahilkhaire/gox/cache"
 node: "new LRUCache({ max })"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="cache" title="Cache.New" node="new LRUCache({ max })" import-path="github.com/sahilkhaire/gox/cache" />

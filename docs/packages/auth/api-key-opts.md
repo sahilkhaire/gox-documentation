@@ -2,7 +2,7 @@
 title: "APIKeyOpts"
 package: "auth"
 import: "github.com/sahilkhaire/gox/auth"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="auth" title="APIKeyOpts" node="passport" import-path="github.com/sahilkhaire/gox/auth" />
@@ -42,7 +42,7 @@ type APIKeyOpts struct {
 ```go [gox]
 import "github.com/sahilkhaire/gox/auth"
 
-_ = auth.APIKeyOpts
+opts := auth.APIKeyOpts{Keys: map[string]bool{"secret-key": true}}
 ```
 
 :::
@@ -52,7 +52,7 @@ _ = auth.APIKeyOpts
 ```go
 import "github.com/sahilkhaire/gox/auth"
 
-_ = auth.APIKeyOpts
+opts := auth.APIKeyOpts{Keys: map[string]bool{"secret-key": true}}
 ```
 
 ## Tips

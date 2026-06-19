@@ -2,7 +2,7 @@
 title: "URL"
 package: "url"
 import: "github.com/sahilkhaire/gox/url"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="url" title="URL" node="url, querystring" import-path="github.com/sahilkhaire/gox/url" />
@@ -42,7 +42,9 @@ type URL struct {
 ```go [gox]
 import "github.com/sahilkhaire/gox/url"
 
-_ = url.URL
+u, err := Parse("https://example.com/a?x=1")
+res, err := Resolve("https://example.com/foo/", "bar")
+vals, err := ParseQuery("a=1&b=2")
 ```
 
 :::

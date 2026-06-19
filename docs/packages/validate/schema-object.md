@@ -3,7 +3,7 @@ title: "Schema.Object"
 package: "validate"
 import: "github.com/sahilkhaire/gox/validate"
 node: "z.object({...})"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="validate" title="Schema.Object" node="z.object({...})" import-path="github.com/sahilkhaire/gox/validate" />
@@ -34,7 +34,7 @@ z.object({ name: z.string() });
 ```
 
 ```go [Standard Go]
-if err := validator.Struct(v); err != nil { /* handle */ }
+field := validate.String().Email() // fluent schema builder
 ```
 
 ```go [gox]
@@ -59,6 +59,10 @@ Obtain a `Schema` value first (see constructors on the package overview), then c
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+field := validate.String().Email() // fluent schema builder
+```
 
 ← [Back to validate package overview](/packages/validate/)

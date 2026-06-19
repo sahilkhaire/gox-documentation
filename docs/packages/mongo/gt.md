@@ -2,7 +2,7 @@
 title: "Gt"
 package: "mongo"
 import: "github.com/sahilkhaire/gox/mongo"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="mongo" title="Gt" node="mongoose" import-path="github.com/sahilkhaire/gox/mongo" />
@@ -37,8 +37,7 @@ client, err := mongo.Connect(ctx, options.Client().ApplyURI(uri))
 ```go [gox]
 import "github.com/sahilkhaire/gox/mongo"
 
-// mongo
-_ = mongo.Gt(/* args */)
+filter := mongo.Gt("age", 18)
 ```
 
 :::
@@ -48,8 +47,7 @@ _ = mongo.Gt(/* args */)
 ```go
 import "github.com/sahilkhaire/gox/mongo"
 
-// mongo
-_ = mongo.Gt(/* args */)
+filter := mongo.Gt("age", 18)
 ```
 
 ## Tips
@@ -58,7 +56,11 @@ Pass `context.Context` as the first argument so cancellation and deadlines propa
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+client, err := mongo.Connect(ctx, options.Client().ApplyURI(uri))
+```
 
 ## Related APIs
 

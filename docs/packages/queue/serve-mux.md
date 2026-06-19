@@ -2,7 +2,7 @@
 title: "ServeMux"
 package: "queue"
 import: "github.com/sahilkhaire/gox/queue"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="queue" title="ServeMux" node="bull" import-path="github.com/sahilkhaire/gox/queue" />
@@ -41,7 +41,8 @@ type ServeMux struct {
 ```go [gox]
 import "github.com/sahilkhaire/gox/queue"
 
-_ = queue.ServeMux
+mux := queue.NewServeMux()
+mux.HandleFunc("email", func(ctx context.Context, payload []byte) error { return nil })
 ```
 
 :::
@@ -51,7 +52,8 @@ _ = queue.ServeMux
 ```go
 import "github.com/sahilkhaire/gox/queue"
 
-_ = queue.ServeMux
+mux := queue.NewServeMux()
+mux.HandleFunc("email", func(ctx context.Context, payload []byte) error { return nil })
 ```
 
 ## Tips

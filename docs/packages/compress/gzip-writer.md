@@ -2,7 +2,7 @@
 title: "GzipWriter"
 package: "compress"
 import: "github.com/sahilkhaire/gox/compress"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="compress" title="GzipWriter" node="zlib" import-path="github.com/sahilkhaire/gox/compress" />
@@ -38,8 +38,7 @@ func GzipWriter(dst io.Writer) *gzip.Writer
 ```go [gox]
 import "github.com/sahilkhaire/gox/compress"
 
-// compress
-_ = compress.GzipWriter(/* args */)
+compress.GzipWriter(w)
 ```
 
 :::
@@ -49,8 +48,7 @@ _ = compress.GzipWriter(/* args */)
 ```go
 import "github.com/sahilkhaire/gox/compress"
 
-// compress
-_ = compress.GzipWriter(/* args */)
+compress.GzipWriter(w)
 ```
 
 ## Tips

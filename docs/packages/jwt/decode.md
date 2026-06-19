@@ -3,7 +3,7 @@ title: "Decode"
 package: "jwt"
 import: "github.com/sahilkhaire/gox/jwt"
 node: "jwt.decode(token)"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="jwt" title="Decode" node="jwt.decode(token)" import-path="github.com/sahilkhaire/gox/jwt" />

@@ -3,7 +3,7 @@ title: "After"
 package: "async"
 import: "github.com/sahilkhaire/gox/async"
 node: "setTimeout(fn, d)"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="async" title="After" node="setTimeout(fn, d)" import-path="github.com/sahilkhaire/gox/async" />

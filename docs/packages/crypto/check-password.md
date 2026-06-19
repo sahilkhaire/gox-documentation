@@ -3,7 +3,7 @@ title: "CheckPassword"
 package: "crypto"
 import: "github.com/sahilkhaire/gox/crypto"
 node: "bcrypt.compare(password, hash)"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="crypto" title="CheckPassword" node="bcrypt.compare(password, hash)" import-path="github.com/sahilkhaire/gox/crypto" />
@@ -57,7 +57,11 @@ Import `github.com/sahilkhaire/gox/crypto` and call `CheckPassword` directly. Se
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+hash, err := bcrypt.GenerateFromPassword([]byte(pw), bcrypt.DefaultCost)
+```
 
 ## Related APIs
 

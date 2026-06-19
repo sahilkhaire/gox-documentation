@@ -2,7 +2,7 @@
 title: "ZipExtract"
 package: "archive"
 import: "github.com/sahilkhaire/gox/archive"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="archive" title="ZipExtract" node="archiver" import-path="github.com/sahilkhaire/gox/archive" />
@@ -37,8 +37,7 @@ func ZipExtract(data []byte, destDir string) error
 ```go [gox]
 import "github.com/sahilkhaire/gox/archive"
 
-// archive
-_ = archive.ZipExtract(/* args */)
+err := archive.ZipExtract(ctx, "archive.zip", "./out")
 ```
 
 :::
@@ -48,8 +47,7 @@ _ = archive.ZipExtract(/* args */)
 ```go
 import "github.com/sahilkhaire/gox/archive"
 
-// archive
-_ = archive.ZipExtract(/* args */)
+err := archive.ZipExtract(ctx, "archive.zip", "./out")
 ```
 
 ## Tips

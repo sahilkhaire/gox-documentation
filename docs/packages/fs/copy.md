@@ -3,7 +3,7 @@ title: "Copy"
 package: "fs"
 import: "github.com/sahilkhaire/gox/fs"
 node: "fs.copyFile(src, dst)"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="fs" title="Copy" node="fs.copyFile(src, dst)" import-path="github.com/sahilkhaire/gox/fs" />

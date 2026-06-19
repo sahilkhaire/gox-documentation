@@ -3,7 +3,7 @@ title: "Pascal"
 package: "str"
 import: "github.com/sahilkhaire/gox/str"
 node: "PascalCase(s)"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="str" title="Pascal" node="PascalCase(s)" import-path="github.com/sahilkhaire/gox/str" />

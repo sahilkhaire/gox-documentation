@@ -3,7 +3,7 @@ title: "Client.Connect"
 package: "mongo"
 import: "github.com/sahilkhaire/gox/mongo"
 node: "mongoose.connect(uri)"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="mongo" title="Client.Connect" node="mongoose.connect(uri)" import-path="github.com/sahilkhaire/gox/mongo" />
@@ -59,6 +59,10 @@ Pass `context.Context` as the first argument so cancellation and deadlines propa
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+client, err := mongo.Connect(ctx, options.Client().ApplyURI(uri))
+```
 
 ← [Back to mongo package overview](/packages/mongo/)

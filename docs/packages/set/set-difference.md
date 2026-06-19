@@ -2,7 +2,7 @@
 title: "Set.Difference"
 package: "set"
 import: "github.com/sahilkhaire/gox/set"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="set" title="Set.Difference" node="Set" import-path="github.com/sahilkhaire/gox/set" />
@@ -39,8 +39,8 @@ func Difference[T comparable](a, b Set[T]) Set[T]
 ```go [gox]
 import "github.com/sahilkhaire/gox/set"
 
-var v Set
-v.Difference(/* args */)
+set := set.New("alpha", "beta")
+set.Difference(value, b)
 ```
 
 :::
@@ -50,8 +50,8 @@ v.Difference(/* args */)
 ```go
 import "github.com/sahilkhaire/gox/set"
 
-var v Set
-v.Difference(/* args */)
+set := set.New("alpha", "beta")
+set.Difference(value, b)
 ```
 
 ## Tips

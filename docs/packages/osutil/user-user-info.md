@@ -3,7 +3,7 @@ title: "User.UserInfo"
 package: "osutil"
 import: "github.com/sahilkhaire/gox/osutil"
 node: "os.userInfo()"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="osutil" title="User.UserInfo" node="os.userInfo()" import-path="github.com/sahilkhaire/gox/osutil" />
@@ -51,7 +51,7 @@ osutil.UserInfo()
 ```go
 import "github.com/sahilkhaire/gox/osutil"
 
-info, err := UserInfo()
+osutil.UserInfo()
 ```
 
 ## Tips

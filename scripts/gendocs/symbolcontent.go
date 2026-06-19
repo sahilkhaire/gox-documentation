@@ -34,12 +34,7 @@ func buildRichOverview(sym symbolDoc, e enrichment, hasEnrich bool) string {
 }
 
 func buildExampleBlock(sym symbolDoc, pkgIdent string, e enrichment, hasEnrich bool) string {
-	var body string
-	if hasEnrich && e.Example != "" {
-		body = e.Example
-	} else {
-		body = goxCodeBlock(sym, pkgIdent, e, hasEnrich)
-	}
+	body := resolveGoxExample(sym, pkgIdent, e, hasEnrich)
 	if strings.TrimSpace(body) == "" {
 		return ""
 	}
@@ -94,8 +89,8 @@ func autoTips(sym symbolDoc) string {
 	return ""
 }
 
-func buildStdLibBlock(sym symbolDoc) string {
-	note := standardGoNote(sym)
+func buildStdLibBlock(sym symbolDoc, e enrichment, hasEnrich bool) string {
+	note := standardGoNote(sym, e, hasEnrich)
 	if note == "" {
 		return ""
 	}

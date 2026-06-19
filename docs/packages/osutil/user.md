@@ -2,7 +2,7 @@
 title: "User"
 package: "osutil"
 import: "github.com/sahilkhaire/gox/osutil"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="osutil" title="User" node="os" import-path="github.com/sahilkhaire/gox/osutil" />
@@ -44,7 +44,11 @@ type User struct {
 ```go [gox]
 import "github.com/sahilkhaire/gox/osutil"
 
-_ = osutil.User
+info, err := osutil.UserInfo()
+if err != nil {
+    return err
+}
+_ = info.Username
 ```
 
 :::
@@ -54,7 +58,11 @@ _ = osutil.User
 ```go
 import "github.com/sahilkhaire/gox/osutil"
 
-_ = osutil.User
+info, err := osutil.UserInfo()
+if err != nil {
+    return err
+}
+_ = info.Username
 ```
 
 ## Tips

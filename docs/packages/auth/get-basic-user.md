@@ -2,7 +2,7 @@
 title: "GetBasicUser"
 package: "auth"
 import: "github.com/sahilkhaire/gox/auth"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="auth" title="GetBasicUser" node="passport" import-path="github.com/sahilkhaire/gox/auth" />
@@ -37,8 +37,7 @@ func GetBasicUser(c *goxhttp.Ctx) string
 ```go [gox]
 import "github.com/sahilkhaire/gox/auth"
 
-// auth
-_ = auth.GetBasicUser(/* args */)
+user, pass, ok := auth.GetBasicUser(c)
 ```
 
 :::
@@ -48,8 +47,7 @@ _ = auth.GetBasicUser(/* args */)
 ```go
 import "github.com/sahilkhaire/gox/auth"
 
-// auth
-_ = auth.GetBasicUser(/* args */)
+user, pass, ok := auth.GetBasicUser(c)
 ```
 
 ## Tips

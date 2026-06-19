@@ -2,7 +2,7 @@
 title: "Server"
 package: "ws"
 import: "github.com/sahilkhaire/gox/ws"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="ws" title="Server" node="ws" import-path="github.com/sahilkhaire/gox/ws" />
@@ -41,7 +41,8 @@ type Server struct {
 ```go [gox]
 import "github.com/sahilkhaire/gox/ws"
 
-_ = ws.Server
+srv := ws.NewServer()
+srv.Handle("/ws", handler)
 ```
 
 :::
@@ -51,7 +52,8 @@ _ = ws.Server
 ```go
 import "github.com/sahilkhaire/gox/ws"
 
-_ = ws.Server
+srv := ws.NewServer()
+srv.Handle("/ws", handler)
 ```
 
 ## Tips

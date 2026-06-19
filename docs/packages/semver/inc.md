@@ -3,7 +3,7 @@ title: "Inc"
 package: "semver"
 import: "github.com/sahilkhaire/gox/semver"
 node: "semver.inc(v, 'minor')"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="semver" title="Inc" node="semver.inc(v, 'minor')" import-path="github.com/sahilkhaire/gox/semver" />

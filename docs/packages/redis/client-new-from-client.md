@@ -2,7 +2,7 @@
 title: "Client.NewFromClient"
 package: "redis"
 import: "github.com/sahilkhaire/gox/redis"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="redis" title="Client.NewFromClient" node="ioredis" import-path="github.com/sahilkhaire/gox/redis" />
@@ -40,8 +40,7 @@ val, err := rdb.Get(ctx, key).Result()
 ```go [gox]
 import "github.com/sahilkhaire/gox/redis"
 
-var v Client
-v.NewFromClient(/* args */)
+wrapper := redis.NewFromClient(rdb)
 ```
 
 :::
@@ -51,8 +50,7 @@ v.NewFromClient(/* args */)
 ```go
 import "github.com/sahilkhaire/gox/redis"
 
-var v Client
-v.NewFromClient(/* args */)
+wrapper := redis.NewFromClient(rdb)
 ```
 
 ## Tips
@@ -61,7 +59,12 @@ Pass `context.Context` as the first argument so cancellation and deadlines propa
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+rdb := redis.NewClient(&redis.Options{Addr: addr})
+val, err := rdb.Get(ctx, key).Result()
+```
 
 ## Related APIs
 

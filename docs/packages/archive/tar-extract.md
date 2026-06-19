@@ -2,7 +2,7 @@
 title: "TarExtract"
 package: "archive"
 import: "github.com/sahilkhaire/gox/archive"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="archive" title="TarExtract" node="archiver" import-path="github.com/sahilkhaire/gox/archive" />
@@ -37,8 +37,7 @@ func TarExtract(data []byte, destDir string) error
 ```go [gox]
 import "github.com/sahilkhaire/gox/archive"
 
-// archive
-_ = archive.TarExtract(/* args */)
+err := archive.TarExtract(ctx, r, "./out")
 ```
 
 :::
@@ -48,8 +47,7 @@ _ = archive.TarExtract(/* args */)
 ```go
 import "github.com/sahilkhaire/gox/archive"
 
-// archive
-_ = archive.TarExtract(/* args */)
+err := archive.TarExtract(ctx, r, "./out")
 ```
 
 ## Tips

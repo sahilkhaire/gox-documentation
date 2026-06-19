@@ -2,7 +2,7 @@
 title: "BearerOptions"
 package: "auth"
 import: "github.com/sahilkhaire/gox/auth"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="auth" title="BearerOptions" node="passport" import-path="github.com/sahilkhaire/gox/auth" />
@@ -39,7 +39,7 @@ type BearerOptions struct{}
 ```go [gox]
 import "github.com/sahilkhaire/gox/auth"
 
-_ = auth.BearerOptions
+opts := &auth.BearerOptions{}
 ```
 
 :::
@@ -49,7 +49,7 @@ _ = auth.BearerOptions
 ```go
 import "github.com/sahilkhaire/gox/auth"
 
-_ = auth.BearerOptions
+opts := &auth.BearerOptions{}
 ```
 
 ## Tips

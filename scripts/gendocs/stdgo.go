@@ -154,7 +154,14 @@ func heuristicStdGo(sym symbolDoc) string {
 			return "b, err := json.Marshal(v)"
 		}
 	case "validate":
-		return "if err := validator.Struct(v); err != nil { /* handle */ }"
+		switch name {
+		case "Validate", "ValidateSchema", "ParseJSON":
+			return "if err := validator.New().Struct(v); err != nil {\n    return err\n}"
+		case "String", "Int", "Float", "Bool", "Array", "Object", "ObjectField":
+			return "field := validate.String().Email() // fluent schema builder"
+		default:
+			return "// use github.com/go-playground/validator struct tags or manual checks"
+		}
 	case "db":
 		return "db, err := sqlx.Connect(\"postgres\", dsn)\ndb.GetContext(ctx, &row, query, args...)"
 	case "redis":

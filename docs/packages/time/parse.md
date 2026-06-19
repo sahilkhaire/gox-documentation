@@ -2,7 +2,7 @@
 title: "Parse"
 package: "time"
 import: "github.com/sahilkhaire/gox/time"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="time" title="Parse" node="moment, dayjs (package timex)" import-path="github.com/sahilkhaire/gox/time" />
@@ -36,8 +36,7 @@ t.Format(time.RFC3339)
 ```go [gox]
 import "github.com/sahilkhaire/gox/time"
 
-// timex
-_ = timex.Parse(/* args */)
+t, err := timex.Parse(timex.LayoutISO, "2024-06-15T12:00:00Z")
 ```
 
 :::
@@ -47,8 +46,7 @@ _ = timex.Parse(/* args */)
 ```go
 import "github.com/sahilkhaire/gox/time"
 
-// timex
-_ = timex.Parse(/* args */)
+t, err := timex.Parse(timex.LayoutISO, "2024-06-15T12:00:00Z")
 ```
 
 ## Tips
@@ -57,7 +55,12 @@ Import `github.com/sahilkhaire/gox/time` and call `Parse` directly. See the comp
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+t := time.Now()
+t.Format(time.RFC3339)
+```
 
 ## Related APIs
 

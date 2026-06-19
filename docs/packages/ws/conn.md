@@ -2,7 +2,7 @@
 title: "Conn"
 package: "ws"
 import: "github.com/sahilkhaire/gox/ws"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="ws" title="Conn" node="ws" import-path="github.com/sahilkhaire/gox/ws" />
@@ -41,7 +41,9 @@ type Conn struct {
 ```go [gox]
 import "github.com/sahilkhaire/gox/ws"
 
-_ = ws.Conn
+if err := conn.WriteJSON(map[string]string{"event": "ping"}); err != nil {
+    return err
+}
 ```
 
 :::
@@ -51,7 +53,9 @@ _ = ws.Conn
 ```go
 import "github.com/sahilkhaire/gox/ws"
 
-_ = ws.Conn
+if err := conn.WriteJSON(map[string]string{"event": "ping"}); err != nil {
+    return err
+}
 ```
 
 ## Tips

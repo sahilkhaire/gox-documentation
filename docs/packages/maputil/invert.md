@@ -3,7 +3,7 @@ title: "Invert"
 package: "maputil"
 import: "github.com/sahilkhaire/gox/maputil"
 node: "_.invert(obj)"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="maputil" title="Invert" node="_.invert(obj)" import-path="github.com/sahilkhaire/gox/maputil" />

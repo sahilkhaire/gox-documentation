@@ -3,7 +3,7 @@ title: "Flatten"
 package: "slice"
 import: "github.com/sahilkhaire/gox/slice"
 node: "_.flatten(arr)"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="slice" title="Flatten" node="_.flatten(arr)" import-path="github.com/sahilkhaire/gox/slice" />

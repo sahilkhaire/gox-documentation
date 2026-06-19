@@ -3,7 +3,7 @@ title: "IsAbs"
 package: "path"
 import: "github.com/sahilkhaire/gox/path"
 node: "path.isAbsolute(p)"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="path" title="IsAbs" node="path.isAbsolute(p)" import-path="github.com/sahilkhaire/gox/path" />
@@ -57,7 +57,11 @@ Import `github.com/sahilkhaire/gox/path` and call `IsAbs` directly. See the comp
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+ok := filepath.IsAbs(p)
+```
 
 ## Related APIs
 

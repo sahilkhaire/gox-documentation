@@ -2,7 +2,7 @@
 title: "As"
 package: "err"
 import: "github.com/sahilkhaire/gox/err"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="err" title="As" node="http-errors" import-path="github.com/sahilkhaire/gox/err" />
@@ -39,8 +39,8 @@ fmt.Errorf("context: %w", err)
 ```go [gox]
 import "github.com/sahilkhaire/gox/err"
 
-// err
-_ = err.As(/* args */)
+var appErr err.AppError
+if err.As(err, &appErr) { /* ... */ }
 ```
 
 :::
@@ -50,8 +50,8 @@ _ = err.As(/* args */)
 ```go
 import "github.com/sahilkhaire/gox/err"
 
-// err
-_ = err.As(/* args */)
+var appErr err.AppError
+if err.As(err, &appErr) { /* ... */ }
 ```
 
 ## Tips
@@ -60,7 +60,13 @@ Import `github.com/sahilkhaire/gox/err` and call `As` directly. See the comparis
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+errors.Is(err, target)
+errors.As(err, &target)
+fmt.Errorf("context: %w", err)
+```
 
 ## Related APIs
 

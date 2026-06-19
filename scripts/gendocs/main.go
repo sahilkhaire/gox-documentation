@@ -21,7 +21,7 @@ import (
 )
 
 const modulePath = "github.com/sahilkhaire/gox"
-const docVersion = "11"
+const docVersion = "14"
 
 var packageGroups = []struct {
 	label    string
@@ -394,7 +394,7 @@ func writeSymbolPage(path string, sym symbolDoc, apkg *doc.Package) error {
 
 	b.WriteString(buildExampleBlock(sym, pkgIdent, e, hasEnrich))
 	b.WriteString(buildTipsBlock(sym, e, hasEnrich))
-	b.WriteString(buildStdLibBlock(sym))
+	b.WriteString(buildStdLibBlock(sym, e, hasEnrich))
 
 	if hasEnrich && e.Pitfall != "" {
 		b.WriteString("::: warning Watch out\n")
@@ -433,14 +433,14 @@ func escapeAttr(s string) string {
 }
 
 func goxCodeBlock(sym symbolDoc, pkgIdent string, e enrichment, ok bool) string {
-	if ok && e.Gox != "" {
-		return e.Gox
-	}
-	return goxExample(sym, pkgIdent)
+	return resolveGoxExample(sym, pkgIdent, e, ok)
 }
 
-func standardGoNote(sym symbolDoc) string {
-	if note := heuristicStdGo(sym); note != "" && !strings.HasPrefix(note, "//") {
+func standardGoNote(sym symbolDoc, e enrichment, hasEnrich bool) string {
+	if hasEnrich && strings.TrimSpace(e.StdGo) != "" && !strings.Contains(e.StdGo, "/* handle */") {
+		return "Use the standard library directly:\n\n```go\n" + strings.TrimSpace(e.StdGo) + "\n```"
+	}
+	if note := heuristicStdGo(sym); note != "" && !strings.HasPrefix(note, "//") && !strings.Contains(note, "/* handle */") {
 		return "Use the standard library directly:\n\n```go\n" + note + "\n```"
 	}
 	switch sym.Pkg {
@@ -460,27 +460,7 @@ func standardGoNote(sym symbolDoc) string {
 }
 
 func goxExample(sym symbolDoc, pkgIdent string) string {
-	name := sym.Name
-	if sym.Kind == "method" {
-		return fmt.Sprintf("var v %s\nv.%s(/* args */)", sym.Receiver, sym.Name)
-	}
-	switch sym.Pkg + "." + sym.Name {
-	case "slice.Map":
-		return "out := slice.Map(items, func(v T) U { return transform(v) })"
-	case "cond.If":
-		return "label := cond.If(age >= 18, \"adult\", \"minor\")"
-	case "cond.Coalesce":
-		return "name := cond.Coalesce(maybeName, \"guest\")"
-	case "env.Load":
-		return "if err := env.Load(); err != nil { /* handle */ }"
-	case "env.Get":
-		return "port := env.Get(\"PORT\", \"8080\")"
-	default:
-		if strings.HasPrefix(sym.Signature, "func ") {
-			return fmt.Sprintf("// %s\n_ = %s.%s(/* args */)", pkgIdent, pkgIdent, name)
-		}
-		return fmt.Sprintf("_ = %s.%s", pkgIdent, name)
-	}
+	return resolveGoxExample(sym, pkgIdent, enrichment{}, false)
 }
 
 func relatedSymbols(sym symbolDoc, apkg *doc.Package) []string {

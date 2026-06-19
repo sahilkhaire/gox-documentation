@@ -2,7 +2,7 @@
 title: "Parse"
 package: "cron"
 import: "github.com/sahilkhaire/gox/cron"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="cron" title="Parse" node="node-cron" import-path="github.com/sahilkhaire/gox/cron" />
@@ -39,8 +39,7 @@ c.Start()
 ```go [gox]
 import "github.com/sahilkhaire/gox/cron"
 
-// cron
-_ = cron.Parse(/* args */)
+spec, err := cron.Parse("0 * * * *")
 ```
 
 :::
@@ -50,8 +49,7 @@ _ = cron.Parse(/* args */)
 ```go
 import "github.com/sahilkhaire/gox/cron"
 
-// cron
-_ = cron.Parse(/* args */)
+spec, err := cron.Parse("0 * * * *")
 ```
 
 ## Tips
@@ -60,6 +58,12 @@ Import `github.com/sahilkhaire/gox/cron` and call `Parse` directly. See the comp
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+c := cron.New()
+c.AddFunc(spec, fn)
+c.Start()
+```
 
 ← [Back to cron package overview](/packages/cron/)

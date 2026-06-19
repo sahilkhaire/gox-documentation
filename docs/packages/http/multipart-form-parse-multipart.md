@@ -2,7 +2,7 @@
 title: "MultipartForm.ParseMultipart"
 package: "http"
 import: "github.com/sahilkhaire/gox/http"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="http" title="MultipartForm.ParseMultipart" node="express, cors, helmet, morgan" import-path="github.com/sahilkhaire/gox/http" />
@@ -41,8 +41,26 @@ func handler(w http.ResponseWriter, r *http.Request) {
 ```go [gox]
 import "github.com/sahilkhaire/gox/http"
 
-var v MultipartForm
-v.ParseMultipart(/* args */)
+app := New()
+dir := t.TempDir()
+app.Post("/upload", func(c *Ctx) error {
+	form, err := ParseMultipart(c, 1<<20)
+	if err != nil {
+		return err
+	}
+	files := form.Files("file")
+	if len(files) != 1 {
+		return goxerr.BadRequest("missing file")
+	}
+	dest := filepath.Join(dir, "out.txt")
+	if err := SaveUploadedFile(files[0], dest); err != nil {
+		return err
+	}
+	return c.JSON(200, map[string]string{"ok": "1"})
+})
+var body bytes.Buffer
+w := multipart.NewWriter(&body)
+part, _ := w.CreateFormFile("file", "x.txt")
 ```
 
 :::
@@ -80,6 +98,12 @@ Stack `Logger`, `Recover`, and `Security` middleware the way you would morgan + 
 
 ## Standard library alternative
 
-Use `net/http` with handler functions `func(w http.ResponseWriter, r *http.Request)` or a router like chi/echo directly.
+Use the standard library directly:
+
+```go
+func handler(w http.ResponseWriter, r *http.Request) {
+    // chi or net/http
+}
+```
 
 ← [Back to http package overview](/packages/http/)

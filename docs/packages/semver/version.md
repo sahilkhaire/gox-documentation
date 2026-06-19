@@ -2,7 +2,7 @@
 title: "Version"
 package: "semver"
 import: "github.com/sahilkhaire/gox/semver"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="semver" title="Version" node="semver" import-path="github.com/sahilkhaire/gox/semver" />
@@ -41,7 +41,10 @@ type Version struct {
 ```go [gox]
 import "github.com/sahilkhaire/gox/semver"
 
-_ = semver.Version
+v, err := semver.Parse("1.2.3")
+if err != nil {
+    return err
+}
 ```
 
 :::
@@ -51,7 +54,10 @@ _ = semver.Version
 ```go
 import "github.com/sahilkhaire/gox/semver"
 
-_ = semver.Version
+v, err := semver.Parse("1.2.3")
+if err != nil {
+    return err
+}
 ```
 
 ## Tips

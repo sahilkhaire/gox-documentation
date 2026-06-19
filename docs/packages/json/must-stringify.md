@@ -2,7 +2,7 @@
 title: "MustStringify"
 package: "json"
 import: "github.com/sahilkhaire/gox/json"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="json" title="MustStringify" node="JSON.parse/stringify" import-path="github.com/sahilkhaire/gox/json" />
@@ -37,8 +37,7 @@ b, err := json.Marshal(v)
 ```go [gox]
 import "github.com/sahilkhaire/gox/json"
 
-// json
-_ = json.MustStringify(/* args */)
+raw := json.MustStringify(user)
 ```
 
 :::
@@ -48,8 +47,7 @@ _ = json.MustStringify(/* args */)
 ```go
 import "github.com/sahilkhaire/gox/json"
 
-// json
-_ = json.MustStringify(/* args */)
+raw := json.MustStringify(user)
 ```
 
 ## Tips
@@ -58,7 +56,11 @@ Import `github.com/sahilkhaire/gox/json` and call `MustStringify` directly. See 
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+b, err := json.Marshal(v)
+```
 
 ## Related APIs
 

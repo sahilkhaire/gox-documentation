@@ -3,7 +3,7 @@ title: "ReadDir"
 package: "fs"
 import: "github.com/sahilkhaire/gox/fs"
 node: "fs.readdir(path)"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="fs" title="ReadDir" node="fs.readdir(path)" import-path="github.com/sahilkhaire/gox/fs" />

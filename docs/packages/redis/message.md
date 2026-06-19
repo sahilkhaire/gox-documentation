@@ -2,7 +2,7 @@
 title: "Message"
 package: "redis"
 import: "github.com/sahilkhaire/gox/redis"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="redis" title="Message" node="ioredis" import-path="github.com/sahilkhaire/gox/redis" />
@@ -43,7 +43,7 @@ val, err := rdb.Get(ctx, key).Result()
 ```go [gox]
 import "github.com/sahilkhaire/gox/redis"
 
-_ = redis.Message
+msg := <-subChan // redis.Message with Channel and Payload fields
 ```
 
 :::
@@ -53,7 +53,7 @@ _ = redis.Message
 ```go
 import "github.com/sahilkhaire/gox/redis"
 
-_ = redis.Message
+msg := <-subChan // redis.Message with Channel and Payload fields
 ```
 
 ## Tips
@@ -62,6 +62,11 @@ Pass `context.Context` as the first argument so cancellation and deadlines propa
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+rdb := redis.NewClient(&redis.Options{Addr: addr})
+val, err := rdb.Get(ctx, key).Result()
+```
 
 ← [Back to redis package overview](/packages/redis/)

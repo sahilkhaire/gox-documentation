@@ -2,7 +2,7 @@
 title: "Bearer"
 package: "auth"
 import: "github.com/sahilkhaire/gox/auth"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="auth" title="Bearer" node="passport" import-path="github.com/sahilkhaire/gox/auth" />
@@ -37,8 +37,7 @@ func Bearer(secret []byte, opts *BearerOptions) goxhttp.Middleware
 ```go [gox]
 import "github.com/sahilkhaire/gox/auth"
 
-// auth
-_ = auth.Bearer(/* args */)
+app.Use(auth.Bearer([]byte(jwtSecret), nil))
 ```
 
 :::
@@ -48,8 +47,7 @@ _ = auth.Bearer(/* args */)
 ```go
 import "github.com/sahilkhaire/gox/auth"
 
-// auth
-_ = auth.Bearer(/* args */)
+app.Use(auth.Bearer([]byte(jwtSecret), nil))
 ```
 
 ## Tips

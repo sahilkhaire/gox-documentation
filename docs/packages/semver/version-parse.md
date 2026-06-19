@@ -3,7 +3,7 @@ title: "Version.Parse"
 package: "semver"
 import: "github.com/sahilkhaire/gox/semver"
 node: "semver.parse(v)"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="semver" title="Version.Parse" node="semver.parse(v)" import-path="github.com/sahilkhaire/gox/semver" />

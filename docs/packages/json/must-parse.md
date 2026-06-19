@@ -2,7 +2,7 @@
 title: "MustParse"
 package: "json"
 import: "github.com/sahilkhaire/gox/json"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="json" title="MustParse" node="JSON.parse/stringify" import-path="github.com/sahilkhaire/gox/json" />
@@ -37,8 +37,8 @@ err := json.Unmarshal([]byte(raw), &v)
 ```go [gox]
 import "github.com/sahilkhaire/gox/json"
 
-// json
-_ = json.MustParse(/* args */)
+var user User
+json.MustParse([]byte(raw), &user)
 ```
 
 :::
@@ -48,8 +48,8 @@ _ = json.MustParse(/* args */)
 ```go
 import "github.com/sahilkhaire/gox/json"
 
-// json
-_ = json.MustParse(/* args */)
+var user User
+json.MustParse([]byte(raw), &user)
 ```
 
 ## Tips
@@ -58,7 +58,11 @@ Import `github.com/sahilkhaire/gox/json` and call `MustParse` directly. See the 
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+err := json.Unmarshal([]byte(raw), &v)
+```
 
 ## Related APIs
 

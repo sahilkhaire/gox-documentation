@@ -2,7 +2,7 @@
 title: "Set.Union"
 package: "set"
 import: "github.com/sahilkhaire/gox/set"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="set" title="Set.Union" node="Set" import-path="github.com/sahilkhaire/gox/set" />

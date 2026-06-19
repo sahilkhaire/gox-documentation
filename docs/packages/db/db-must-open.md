@@ -2,7 +2,7 @@
 title: "DB.MustOpen"
 package: "db"
 import: "github.com/sahilkhaire/gox/db"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="db" title="DB.MustOpen" node="knex" import-path="github.com/sahilkhaire/gox/db" />
@@ -40,8 +40,7 @@ db.GetContext(ctx, &row, query, args...)
 ```go [gox]
 import "github.com/sahilkhaire/gox/db"
 
-var v DB
-v.MustOpen(/* args */)
+db := db.MustOpen(ctx, "postgres", dsn)
 ```
 
 :::
@@ -51,8 +50,7 @@ v.MustOpen(/* args */)
 ```go
 import "github.com/sahilkhaire/gox/db"
 
-var v DB
-v.MustOpen(/* args */)
+db := db.MustOpen(ctx, "postgres", dsn)
 ```
 
 ## Tips
@@ -61,7 +59,12 @@ Pass `context.Context` as the first argument so cancellation and deadlines propa
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+db, err := sqlx.Connect("postgres", dsn)
+db.GetContext(ctx, &row, query, args...)
+```
 
 ## Related APIs
 

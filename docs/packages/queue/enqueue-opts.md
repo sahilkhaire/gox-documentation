@@ -2,7 +2,7 @@
 title: "EnqueueOpts"
 package: "queue"
 import: "github.com/sahilkhaire/gox/queue"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="queue" title="EnqueueOpts" node="bull" import-path="github.com/sahilkhaire/gox/queue" />
@@ -42,7 +42,7 @@ type EnqueueOpts struct {
 ```go [gox]
 import "github.com/sahilkhaire/gox/queue"
 
-_ = queue.EnqueueOpts
+opts := &queue.EnqueueOpts{MaxRetry: 3, Queue: "default"}
 ```
 
 :::
@@ -52,7 +52,7 @@ _ = queue.EnqueueOpts
 ```go
 import "github.com/sahilkhaire/gox/queue"
 
-_ = queue.EnqueueOpts
+opts := &queue.EnqueueOpts{MaxRetry: 3, Queue: "default"}
 ```
 
 ## Tips

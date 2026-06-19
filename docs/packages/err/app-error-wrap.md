@@ -2,7 +2,7 @@
 title: "AppError.Wrap"
 package: "err"
 import: "github.com/sahilkhaire/gox/err"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="err" title="AppError.Wrap" node="http-errors" import-path="github.com/sahilkhaire/gox/err" />
@@ -41,8 +41,7 @@ fmt.Errorf("context: %w", err)
 ```go [gox]
 import "github.com/sahilkhaire/gox/err"
 
-var v AppError
-v.Wrap(/* args */)
+return err.AppError.Wrap(cause, 500, "internal error")
 ```
 
 :::
@@ -52,8 +51,7 @@ v.Wrap(/* args */)
 ```go
 import "github.com/sahilkhaire/gox/err"
 
-var v AppError
-v.Wrap(/* args */)
+return err.AppError.Wrap(cause, 500, "internal error")
 ```
 
 ## Tips
@@ -62,7 +60,13 @@ Obtain a `AppError` value first (see constructors on the package overview), then
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+errors.Is(err, target)
+errors.As(err, &target)
+fmt.Errorf("context: %w", err)
+```
 
 ## Related APIs
 

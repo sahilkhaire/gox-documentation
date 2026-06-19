@@ -2,7 +2,7 @@
 title: "ParseJSON"
 package: "validate"
 import: "github.com/sahilkhaire/gox/validate"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="validate" title="ParseJSON" node="zod, joi" import-path="github.com/sahilkhaire/gox/validate" />
@@ -27,18 +27,22 @@ func ParseJSON(r io.Reader, v any) error
 ::: code-group
 
 ```js [Node.js]
-// Typical zod, joi pattern in Node.js
+JSON.parse(str); schema.parse(JSON.parse(str))
 ```
 
 ```go [Standard Go]
-if err := validator.Struct(v); err != nil { /* handle */ }
+if err := validator.New().Struct(v); err != nil {
+    return err
+}
 ```
 
 ```go [gox]
 import "github.com/sahilkhaire/gox/validate"
 
-// validate
-_ = validate.ParseJSON(/* args */)
+var payload signup
+if err := validate.ParseJSON(r, &payload); err != nil {
+	return err
+}
 ```
 
 :::
@@ -48,8 +52,10 @@ _ = validate.ParseJSON(/* args */)
 ```go
 import "github.com/sahilkhaire/gox/validate"
 
-// validate
-_ = validate.ParseJSON(/* args */)
+var payload signup
+if err := validate.ParseJSON(r, &payload); err != nil {
+	return err
+}
 ```
 
 ## Tips
@@ -58,7 +64,13 @@ Import `github.com/sahilkhaire/gox/validate` and call `ParseJSON` directly. See 
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+if err := validator.New().Struct(v); err != nil {
+    return err
+}
+```
 
 ## Related APIs
 

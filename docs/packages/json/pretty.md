@@ -2,7 +2,7 @@
 title: "Pretty"
 package: "json"
 import: "github.com/sahilkhaire/gox/json"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="json" title="Pretty" node="JSON.parse/stringify" import-path="github.com/sahilkhaire/gox/json" />
@@ -37,7 +37,7 @@ b, err := json.MarshalIndent(obj, "", "  ")
 ```go [gox]
 import "github.com/sahilkhaire/gox/json"
 
-pretty, err := json.Pretty(obj)
+s, err := goxjson.Pretty(map[string]int{"a": 1})
 ```
 
 :::
@@ -56,7 +56,11 @@ Import `github.com/sahilkhaire/gox/json` and call `Pretty` directly. See the com
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+b, err := json.MarshalIndent(obj, "", "  ")
+```
 
 ## Related APIs
 

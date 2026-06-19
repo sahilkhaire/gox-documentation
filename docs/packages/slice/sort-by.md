@@ -3,7 +3,7 @@ title: "SortBy"
 package: "slice"
 import: "github.com/sahilkhaire/gox/slice"
 node: "_.sortBy(arr, fn)"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="slice" title="SortBy" node="_.sortBy(arr, fn)" import-path="github.com/sahilkhaire/gox/slice" />

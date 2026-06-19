@@ -3,7 +3,7 @@ title: "Set.New"
 package: "set"
 import: "github.com/sahilkhaire/gox/set"
 node: "new Set(arr)"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="set" title="Set.New" node="new Set(arr)" import-path="github.com/sahilkhaire/gox/set" />
@@ -60,7 +60,12 @@ Obtain a `Set` value first (see constructors on the package overview), then call
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+s := make(map[T]struct{})
+for _, v := range items { s[v] = struct{}{} }
+```
 
 ## Related APIs
 

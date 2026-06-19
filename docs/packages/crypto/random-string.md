@@ -2,7 +2,7 @@
 title: "RandomString"
 package: "crypto"
 import: "github.com/sahilkhaire/gox/crypto"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="crypto" title="RandomString" node="crypto, bcrypt" import-path="github.com/sahilkhaire/gox/crypto" />
@@ -39,8 +39,7 @@ _, err := rand.Read(b)
 ```go [gox]
 import "github.com/sahilkhaire/gox/crypto"
 
-// crypto
-_ = crypto.RandomString(/* args */)
+token, err := crypto.RandomString(32)
 ```
 
 :::
@@ -50,8 +49,7 @@ _ = crypto.RandomString(/* args */)
 ```go
 import "github.com/sahilkhaire/gox/crypto"
 
-// crypto
-_ = crypto.RandomString(/* args */)
+token, err := crypto.RandomString(32)
 ```
 
 ## Tips
@@ -60,7 +58,12 @@ Import `github.com/sahilkhaire/gox/crypto` and call `RandomString` directly. See
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+b := make([]byte, n)
+_, err := rand.Read(b)
+```
 
 ## Related APIs
 

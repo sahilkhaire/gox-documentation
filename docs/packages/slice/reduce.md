@@ -3,7 +3,7 @@ title: "Reduce"
 package: "slice"
 import: "github.com/sahilkhaire/gox/slice"
 node: "arr.reduce(fn, init)"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="slice" title="Reduce" node="arr.reduce(fn, init)" import-path="github.com/sahilkhaire/gox/slice" />
@@ -60,7 +60,14 @@ Chain `Filter`, `Map`, and `Reduce` for lodash-style pipelines. Results are new 
 
 ## Standard library alternative
 
-Use a `for` loop or Go 1.21+ `slices` package helpers from the standard library.
+Use the standard library directly:
+
+```go
+total := 0
+for _, n := range nums {
+    total += n
+}
+```
 
 ## Related APIs
 

@@ -3,7 +3,7 @@ title: "Stringify"
 package: "json"
 import: "github.com/sahilkhaire/gox/json"
 node: "JSON.stringify(obj)"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="json" title="Stringify" node="JSON.stringify(obj)" import-path="github.com/sahilkhaire/gox/json" />
@@ -57,7 +57,11 @@ Import `github.com/sahilkhaire/gox/json` and call `Stringify` directly. See the 
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+b, err := json.Marshal(obj)
+```
 
 ## Related APIs
 

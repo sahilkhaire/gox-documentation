@@ -3,7 +3,7 @@ title: "ParseDuration"
 package: "time"
 import: "github.com/sahilkhaire/gox/time"
 node: "ms('2d')"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="time" title="ParseDuration" node="ms('2d')" import-path="github.com/sahilkhaire/gox/time" />

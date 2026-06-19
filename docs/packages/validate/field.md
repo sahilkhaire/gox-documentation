@@ -2,7 +2,7 @@
 title: "Field"
 package: "validate"
 import: "github.com/sahilkhaire/gox/validate"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="validate" title="Field" node="zod, joi" import-path="github.com/sahilkhaire/gox/validate" />
@@ -35,13 +35,13 @@ type Field interface {
 ```
 
 ```go [Standard Go]
-if err := validator.Struct(v); err != nil { /* handle */ }
+// use github.com/go-playground/validator struct tags or manual checks
 ```
 
 ```go [gox]
 import "github.com/sahilkhaire/gox/validate"
 
-_ = validate.Field
+var field validate.Field = validate.String().Email()
 ```
 
 :::
@@ -51,7 +51,7 @@ _ = validate.Field
 ```go
 import "github.com/sahilkhaire/gox/validate"
 
-_ = validate.Field
+var field validate.Field = validate.String().Email()
 ```
 
 ## Tips

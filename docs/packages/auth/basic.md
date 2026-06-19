@@ -2,7 +2,7 @@
 title: "Basic"
 package: "auth"
 import: "github.com/sahilkhaire/gox/auth"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="auth" title="Basic" node="passport" import-path="github.com/sahilkhaire/gox/auth" />
@@ -37,8 +37,7 @@ func Basic(validate func(user, pass string) bool) goxhttp.Middleware
 ```go [gox]
 import "github.com/sahilkhaire/gox/auth"
 
-// auth
-_ = auth.Basic(/* args */)
+app.Use(auth.Basic(func(user, pass string) bool { return user == "admin" }))
 ```
 
 :::
@@ -48,8 +47,7 @@ _ = auth.Basic(/* args */)
 ```go
 import "github.com/sahilkhaire/gox/auth"
 
-// auth
-_ = auth.Basic(/* args */)
+app.Use(auth.Basic(func(user, pass string) bool { return user == "admin" }))
 ```
 
 ## Tips

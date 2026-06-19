@@ -2,7 +2,7 @@
 title: "Add"
 package: "time"
 import: "github.com/sahilkhaire/gox/time"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="time" title="Add" node="moment, dayjs (package timex)" import-path="github.com/sahilkhaire/gox/time" />
@@ -36,8 +36,7 @@ t.Format(time.RFC3339)
 ```go [gox]
 import "github.com/sahilkhaire/gox/time"
 
-// timex
-_ = timex.Add(/* args */)
+later := timex.Add(time.Now(), time.Hour)
 ```
 
 :::
@@ -47,8 +46,7 @@ _ = timex.Add(/* args */)
 ```go
 import "github.com/sahilkhaire/gox/time"
 
-// timex
-_ = timex.Add(/* args */)
+later := timex.Add(time.Now(), time.Hour)
 ```
 
 ## Tips
@@ -57,7 +55,12 @@ Import `github.com/sahilkhaire/gox/time` and call `Add` directly. See the compar
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+t := time.Now()
+t.Format(time.RFC3339)
+```
 
 ## Related APIs
 

@@ -2,7 +2,7 @@
 title: "RetryConfig"
 package: "async"
 import: "github.com/sahilkhaire/gox/async"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="async" title="RetryConfig" node="Promise.all, timers" import-path="github.com/sahilkhaire/gox/async" />
@@ -45,7 +45,7 @@ type RetryConfig struct {
 ```go [gox]
 import "github.com/sahilkhaire/gox/async"
 
-_ = async.RetryConfig
+cfg := async.RetryConfig{MaxAttempts: 3, Delay: time.Second}
 ```
 
 :::
@@ -55,7 +55,7 @@ _ = async.RetryConfig
 ```go
 import "github.com/sahilkhaire/gox/async"
 
-_ = async.RetryConfig
+cfg := async.RetryConfig{MaxAttempts: 3, Delay: time.Second}
 ```
 
 ## Tips

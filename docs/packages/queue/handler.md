@@ -2,7 +2,7 @@
 title: "Handler"
 package: "queue"
 import: "github.com/sahilkhaire/gox/queue"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="queue" title="Handler" node="bull" import-path="github.com/sahilkhaire/gox/queue" />
@@ -39,7 +39,7 @@ type Handler func(ctx context.Context, payload []byte) error
 ```go [gox]
 import "github.com/sahilkhaire/gox/queue"
 
-_ = queue.Handler
+var _ queue.Handler = func(ctx context.Context, payload []byte) error { return nil }
 ```
 
 :::
@@ -49,7 +49,7 @@ _ = queue.Handler
 ```go
 import "github.com/sahilkhaire/gox/queue"
 
-_ = queue.Handler
+var _ queue.Handler = func(ctx context.Context, payload []byte) error { return nil }
 ```
 
 ## Tips

@@ -2,7 +2,7 @@
 title: "Scheduler.New"
 package: "cron"
 import: "github.com/sahilkhaire/gox/cron"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="cron" title="Scheduler.New" node="node-cron" import-path="github.com/sahilkhaire/gox/cron" />
@@ -62,6 +62,12 @@ Obtain a `Scheduler` value first (see constructors on the package overview), the
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+c := cron.New()
+c.AddFunc(spec, fn)
+c.Start()
+```
 
 ← [Back to cron package overview](/packages/cron/)

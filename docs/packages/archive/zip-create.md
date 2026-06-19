@@ -2,7 +2,7 @@
 title: "ZipCreate"
 package: "archive"
 import: "github.com/sahilkhaire/gox/archive"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="archive" title="ZipCreate" node="archiver" import-path="github.com/sahilkhaire/gox/archive" />
@@ -37,8 +37,7 @@ func ZipCreate(files map[string][]byte) ([]byte, error)
 ```go [gox]
 import "github.com/sahilkhaire/gox/archive"
 
-// archive
-_ = archive.ZipCreate(/* args */)
+err := archive.ZipCreate(ctx, "out.zip", entries)
 ```
 
 :::
@@ -48,8 +47,7 @@ _ = archive.ZipCreate(/* args */)
 ```go
 import "github.com/sahilkhaire/gox/archive"
 
-// archive
-_ = archive.ZipCreate(/* args */)
+err := archive.ZipCreate(ctx, "out.zip", entries)
 ```
 
 ## Tips

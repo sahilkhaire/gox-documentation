@@ -3,7 +3,7 @@ title: "Clone"
 package: "maputil"
 import: "github.com/sahilkhaire/gox/maputil"
 node: "_.cloneDeep(obj)"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="maputil" title="Clone" node="_.cloneDeep(obj)" import-path="github.com/sahilkhaire/gox/maputil" />

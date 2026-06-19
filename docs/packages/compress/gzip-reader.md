@@ -2,7 +2,7 @@
 title: "GzipReader"
 package: "compress"
 import: "github.com/sahilkhaire/gox/compress"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="compress" title="GzipReader" node="zlib" import-path="github.com/sahilkhaire/gox/compress" />
@@ -38,8 +38,10 @@ func GzipReader(src io.Reader) (*gzip.Reader, error)
 ```go [gox]
 import "github.com/sahilkhaire/gox/compress"
 
-// compress
-_ = compress.GzipReader(/* args */)
+result, err := compress.GzipReader(strings.NewReader("data"))
+if err != nil {
+    return err
+}
 ```
 
 :::
@@ -49,8 +51,10 @@ _ = compress.GzipReader(/* args */)
 ```go
 import "github.com/sahilkhaire/gox/compress"
 
-// compress
-_ = compress.GzipReader(/* args */)
+result, err := compress.GzipReader(strings.NewReader("data"))
+if err != nil {
+    return err
+}
 ```
 
 ## Tips

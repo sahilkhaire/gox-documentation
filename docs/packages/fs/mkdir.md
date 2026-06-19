@@ -3,7 +3,7 @@ title: "Mkdir"
 package: "fs"
 import: "github.com/sahilkhaire/gox/fs"
 node: "fs.mkdir(path)"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="fs" title="Mkdir" node="fs.mkdir(path)" import-path="github.com/sahilkhaire/gox/fs" />
@@ -57,7 +57,11 @@ Pass `context.Context` as the first argument so cancellation and deadlines propa
 
 ## Standard library alternative
 
-Use `os.ReadFile`, `os.WriteFile`, etc. Pass `context.Context` manually for cancellation.
+Use the standard library directly:
+
+```go
+err := os.MkdirAll("dir", 0755)
+```
 
 ## Related APIs
 

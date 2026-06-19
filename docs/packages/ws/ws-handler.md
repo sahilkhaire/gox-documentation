@@ -2,7 +2,7 @@
 title: "WSHandler"
 package: "ws"
 import: "github.com/sahilkhaire/gox/ws"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="ws" title="WSHandler" node="ws" import-path="github.com/sahilkhaire/gox/ws" />
@@ -39,7 +39,7 @@ type WSHandler func(*Conn)
 ```go [gox]
 import "github.com/sahilkhaire/gox/ws"
 
-_ = ws.WSHandler
+var _ ws.WSHandler = func(conn *ws.Conn) error { return conn.WriteJSON(map[string]string{"ok": "1"}) }
 ```
 
 :::
@@ -49,7 +49,7 @@ _ = ws.WSHandler
 ```go
 import "github.com/sahilkhaire/gox/ws"
 
-_ = ws.WSHandler
+var _ ws.WSHandler = func(conn *ws.Conn) error { return conn.WriteJSON(map[string]string{"ok": "1"}) }
 ```
 
 ## Tips

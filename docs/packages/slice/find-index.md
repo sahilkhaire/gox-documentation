@@ -3,7 +3,7 @@ title: "FindIndex"
 package: "slice"
 import: "github.com/sahilkhaire/gox/slice"
 node: "arr.findIndex(fn)"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="slice" title="FindIndex" node="arr.findIndex(fn)" import-path="github.com/sahilkhaire/gox/slice" />

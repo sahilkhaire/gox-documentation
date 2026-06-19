@@ -3,7 +3,7 @@ title: "Join"
 package: "path"
 import: "github.com/sahilkhaire/gox/path"
 node: "path.join(...)"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="path" title="Join" node="path.join(...)" import-path="github.com/sahilkhaire/gox/path" />
@@ -57,7 +57,11 @@ Uses OS-specific separators via filepath underneath.
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+filepath.Join("a", "b", "c")
+```
 
 ## Related APIs
 

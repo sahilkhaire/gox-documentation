@@ -3,7 +3,7 @@ title: "Truncate"
 package: "str"
 import: "github.com/sahilkhaire/gox/str"
 node: "_.truncate(s, n)"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="str" title="Truncate" node="_.truncate(s, n)" import-path="github.com/sahilkhaire/gox/str" />
@@ -57,7 +57,11 @@ Truncates by rune count, not byte length — safe for Unicode.
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+if len([]rune(s)) > 10 { s = string([]rune(s)[:10]) + "…" }
+```
 
 ## Related APIs
 

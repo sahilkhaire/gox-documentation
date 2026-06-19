@@ -3,7 +3,7 @@ title: "IsBlank"
 package: "str"
 import: "github.com/sahilkhaire/gox/str"
 node: "!s.trim()"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="str" title="IsBlank" node="!s.trim()" import-path="github.com/sahilkhaire/gox/str" />
@@ -57,7 +57,11 @@ Import `github.com/sahilkhaire/gox/str` and call `IsBlank` directly. See the com
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+blank := strings.TrimSpace(s) == ""
+```
 
 ## Related APIs
 

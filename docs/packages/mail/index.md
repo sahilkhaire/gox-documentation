@@ -1,7 +1,7 @@
 ---
 title: "mail"
 package: "mail"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <PackageOverview

@@ -2,7 +2,7 @@
 title: "MustValidate"
 package: "validate"
 import: "github.com/sahilkhaire/gox/validate"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="validate" title="MustValidate" node="zod, joi" import-path="github.com/sahilkhaire/gox/validate" />
@@ -31,14 +31,13 @@ func MustValidate(v any)
 ```
 
 ```go [Standard Go]
-if err := validator.Struct(v); err != nil { /* handle */ }
+// use github.com/go-playground/validator struct tags or manual checks
 ```
 
 ```go [gox]
 import "github.com/sahilkhaire/gox/validate"
 
-// validate
-_ = validate.MustValidate(/* args */)
+validate.MustValidate(signup{Email: "a@b.com", Age: 21})
 ```
 
 :::
@@ -48,7 +47,7 @@ _ = validate.MustValidate(/* args */)
 ```go
 import "github.com/sahilkhaire/gox/validate"
 
-validate.MustValidate(signup{})
+validate.MustValidate(signup{Email: "a@b.com", Age: 21})
 ```
 
 ## Tips

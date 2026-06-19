@@ -2,7 +2,7 @@
 title: "Transform"
 package: "stream"
 import: "github.com/sahilkhaire/gox/stream"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="stream" title="Transform" node="Node stream" import-path="github.com/sahilkhaire/gox/stream" />
@@ -38,8 +38,7 @@ io.Copy(dst, src)
 ```go [gox]
 import "github.com/sahilkhaire/gox/stream"
 
-// stream
-_ = stream.Transform(/* args */)
+out := stream.Transform(r, func(p []byte) ([]byte, error) { return p, nil })
 ```
 
 :::
@@ -49,8 +48,7 @@ _ = stream.Transform(/* args */)
 ```go
 import "github.com/sahilkhaire/gox/stream"
 
-// stream
-_ = stream.Transform(/* args */)
+out := stream.Transform(r, func(p []byte) ([]byte, error) { return p, nil })
 ```
 
 ## Tips
@@ -59,7 +57,12 @@ Import `github.com/sahilkhaire/gox/stream` and call `Transform` directly. See th
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+io.Copy(dst, src)
+// or io.ReadAll(r)
+```
 
 ## Related APIs
 

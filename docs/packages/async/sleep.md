@@ -3,7 +3,7 @@ title: "Sleep"
 package: "async"
 import: "github.com/sahilkhaire/gox/async"
 node: "await sleep(ms)"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="async" title="Sleep" node="await sleep(ms)" import-path="github.com/sahilkhaire/gox/async" />
@@ -61,7 +61,15 @@ All async helpers respect context cancellation — prefer them over raw goroutin
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+select {
+case <-time.After(time.Second):
+case <-ctx.Done():
+    return ctx.Err()
+}
+```
 
 ## Related APIs
 

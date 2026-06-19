@@ -3,7 +3,7 @@ title: "Satisfies"
 package: "semver"
 import: "github.com/sahilkhaire/gox/semver"
 node: "semver.satisfies(v, range)"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="semver" title="Satisfies" node="semver.satisfies(v, range)" import-path="github.com/sahilkhaire/gox/semver" />

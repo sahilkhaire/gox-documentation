@@ -3,7 +3,7 @@ title: "App.New"
 package: "http"
 import: "github.com/sahilkhaire/gox/http"
 node: "express()"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="http" title="App.New" node="express()" import-path="github.com/sahilkhaire/gox/http" />
@@ -60,6 +60,11 @@ Stack `Logger`, `Recover`, and `Security` middleware like you would morgan + hel
 
 ## Standard library alternative
 
-Use `net/http` with handler functions `func(w http.ResponseWriter, r *http.Request)` or a router like chi/echo directly.
+Use the standard library directly:
+
+```go
+mux := http.NewServeMux()
+http.ListenAndServe(":8080", mux)
+```
 
 ← [Back to http package overview](/packages/http/)

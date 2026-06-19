@@ -2,7 +2,7 @@
 title: "EndOfDay"
 package: "time"
 import: "github.com/sahilkhaire/gox/time"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="time" title="EndOfDay" node="moment, dayjs (package timex)" import-path="github.com/sahilkhaire/gox/time" />
@@ -36,8 +36,7 @@ func EndOfDay(t stdtime.Time) stdtime.Time
 ```go [gox]
 import "github.com/sahilkhaire/gox/time"
 
-// timex
-_ = timex.EndOfDay(/* args */)
+end := timex.EndOfDay(time.Now())
 ```
 
 :::
@@ -47,8 +46,7 @@ _ = timex.EndOfDay(/* args */)
 ```go
 import "github.com/sahilkhaire/gox/time"
 
-// timex
-_ = timex.EndOfDay(/* args */)
+end := timex.EndOfDay(time.Now())
 ```
 
 ## Tips

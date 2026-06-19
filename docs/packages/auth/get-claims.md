@@ -2,7 +2,7 @@
 title: "GetClaims"
 package: "auth"
 import: "github.com/sahilkhaire/gox/auth"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="auth" title="GetClaims" node="passport" import-path="github.com/sahilkhaire/gox/auth" />
@@ -37,8 +37,7 @@ func GetClaims(c *goxhttp.Ctx) jwtlib.MapClaims
 ```go [gox]
 import "github.com/sahilkhaire/gox/auth"
 
-// auth
-_ = auth.GetClaims(/* args */)
+claims, ok := auth.GetClaims(c)
 ```
 
 :::
@@ -48,8 +47,7 @@ _ = auth.GetClaims(/* args */)
 ```go
 import "github.com/sahilkhaire/gox/auth"
 
-// auth
-_ = auth.GetClaims(/* args */)
+claims, ok := auth.GetClaims(c)
 ```
 
 ## Tips

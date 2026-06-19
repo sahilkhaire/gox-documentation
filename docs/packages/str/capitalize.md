@@ -3,7 +3,7 @@ title: "Capitalize"
 package: "str"
 import: "github.com/sahilkhaire/gox/str"
 node: "_.capitalize(s)"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="str" title="Capitalize" node="_.capitalize(s)" import-path="github.com/sahilkhaire/gox/str" />

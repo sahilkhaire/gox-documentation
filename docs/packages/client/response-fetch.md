@@ -3,7 +3,7 @@ title: "Response.Fetch"
 package: "client"
 import: "github.com/sahilkhaire/gox/client"
 node: "fetch(url)"
-gox-doc-version: "11"
+gox-doc-version: "14"
 ---
 
 <SymbolHeader pkg="client" title="Response.Fetch" node="fetch(url)" import-path="github.com/sahilkhaire/gox/client" />
@@ -40,7 +40,12 @@ resp, err := http.Get(url)
 ```go [gox]
 import "github.com/sahilkhaire/gox/client"
 
-res, err := client.Fetch(ctx, url)
+srv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+	_, _ = w.Write([]byte("ok"))
+}))
+defer srv.Close()
+resp, err := Fetch(context.Background(), srv.URL, nil)
+b, err := resp.Bytes()
 ```
 
 :::
@@ -64,6 +69,10 @@ Pass `context.Context` as the first argument so cancellation and deadlines propa
 
 ## Standard library alternative
 
-gox wraps the Go standard library or a trusted dependency with Node-familiar naming. You can use the underlying library directly — see the package overview for escape hatches.
+Use the standard library directly:
+
+```go
+resp, err := http.Get(url)
+```
 
 ← [Back to client package overview](/packages/client/)
