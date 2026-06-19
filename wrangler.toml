@@ -1,0 +1,12 @@
+# Build
+
+[build]
+command = "npm ci && npm run docs:build"
+cwd = "gox-website"
+
+[build.environment]
+GOX_SRC = "../gox"
+NODE_VERSION = "20"
+
+# Cloudflare Pages: set project root to repo root, or monorepo root.
+# Build output: gox-website/docs/.vitepress/dist

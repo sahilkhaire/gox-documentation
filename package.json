@@ -1,0 +1,17 @@
+{
+  "name": "gox-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "sync-guides": "node scripts/sync-guides.mjs",
+    "docs:gen": "go run ./scripts/gendocs",
+    "docs:dev": "npm run docs:gen && vitepress dev docs",
+    "docs:build": "npm run docs:gen && vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "docs:check": "go run ./scripts/gendocs --check"
+  },
+  "devDependencies": {
+    "vitepress": "^1.6.3"
+  }
+}
